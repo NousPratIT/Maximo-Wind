@@ -4,12 +4,9 @@ package ibm.app.action;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.rmi.RemoteException;
-
 import javax.mail.MessagingException;
-
 import com.ibm.tivoli.maximo.report.birt.admin.ReportAdminServiceRemote;
 import com.ibm.tivoli.maximo.report.birt.runtime.ReportParameterData;
-
 import psdi.common.action.ActionCustomClass;
 import psdi.common.commtmplt.CommTemplate;
 import psdi.mbo.MboRemote;
@@ -166,9 +163,7 @@ public class INSASendRepByEmailAction implements ActionCustomClass {
 				}
 			}
 		}
-		
 		System.out.println("[WIND][WO][ESCALATION EMAIL] returning :"+emails);
 		return emails;
 	}
-
 }
