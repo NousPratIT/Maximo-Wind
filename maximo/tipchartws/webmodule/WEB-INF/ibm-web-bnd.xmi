@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webappbnd:WebAppBinding xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:common="common.xmi" xmlns:webappbnd="webappbnd.xmi" xmi:id="WebAppBinding_1206050405000" virtualHostName="default_host">
+  <webapp href="WEB-INF/web.xml#WebApp_ID"/>
+  <ejbRefBindings xmi:id="EjbRefBinding_1206569890000" jndiName="ejb/maximo/remote/mosservice">
+    <bindingEjbRef xmi:type="common:EJBLocalRef" href="WEB-INF/web.xml#EJBLocalRef_1206569890000"/>
+  </ejbRefBindings>
+  <ejbRefBindings xmi:id="EjbRefBinding_1206569890031" jndiName="ejb/maximo/remote/mosservice">
+    <bindingEjbRef href="WEB-INF/web.xml#EjbRef_1206569890031"/>
+  </ejbRefBindings>
+</webappbnd:WebAppBinding>

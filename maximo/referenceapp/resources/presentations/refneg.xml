@@ -1,0 +1,1000 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presentation id="refneg" ismobile="false" mboname="REFMAIN" resultstableid="results_showlist" version="6.0.0" beanclass="psdi.refapp.webclient.beans.RefBasicAppBean" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation='presentationNegative.xsd' xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<configurationblock id="domain-validation">
+		<datastore id="refdatastore_invalid_datasrc" dataattribute="REF_TABLEDOMAIN4" datasrc="INVALID_DATASRC" domain="REFTABLE4" validfor="1">
+			<typeahead id="refdatastore_invalid_datasrc_value" domainattribute="VALUE" keyattribute="true" />
+			<typeahead id="refdatastore_invalid_datasrc_description" domainattribute="DESCRIPTION" />
+		</datastore>
+		<datastore id="refdatastore_invalid_dataattribute" dataattribute="INVALID_ATTR" datasrc="MAINRECORD" domain="REFTABLE4" validfor="1">
+			<typeahead id="refdatastore_invalid_dataattribute_value" domainattribute="VALUE" keyattribute="true" />
+			<typeahead id="refdatastore_invalid_dataattribute_description" domainattribute="DESCRIPTION" />
+		</datastore>
+	</configurationblock>
+	<page id="mainrec">
+		<include id="pageHeader" />
+		<clientarea id="clientarea">
+			<helpgrid id="refneg_disclaimer" innerhtml="&lt;br/&gt;These are negative tests, do not do the things you see in here in an application you actually want to work!!!&lt;br/&gt;&lt;br/&gt;" textcss="txtred" />
+			<tabgroup id="maintabs" style="form">
+				<tab default="true" id="List" label="List" type="list">
+					<menubar event="search" id="actiontoolbar1" sourcemethod="getAppSearchOptions" />
+					<table id="results_showlist" inputmode="readonly" label="Main Records" mboname="REFMAIN" selectmode="multiple">
+						<tablebody displayrowsperpage="15" filterable="true" filterexpanded="true" id="results_showlist_tablebody">
+							<tablecol dataattribute="REFMAINID" filterable="false" id="results_showlist_column_select" mxevent="toggleselectrow" mxevent_desc="Select Row {0}" sortable="false" type="event" />
+							<tablecol dataattribute="KEY" id="results_showlist_column_link" mxevent="selectrecord" mxevent_desc="Go To %1" type="link" usefieldsizegroup="false" />
+							<tablecol dataattribute="CONTROL" id="results_showlist_control" />
+							<tablecol dataattribute="DESCRIPTION" id="results_showlist_description" />
+							<tablecol dataattribute="REFMAINID" id="results_showlist_column1" mxevent="selectrecord" mxevent_desc="Go To %1" type="LINK" />
+							<tablecol filterable="false" id="results_bookmark" mxevent="BOOKMARK" mxevent_desc="Add to Bookmarks" mxevent_icon="btn_addtobookmarks.gif" sortable="false" type="event" />
+						</tablebody>
+					</table>
+				</tab>
+				<tab id="Main" label="Main" type="insert">
+					<section id="main_section">
+						<sectionrow id="main_section_row">
+							<sectioncol id="main_section_col_1">
+								<multiparttextbox dataattribute="CONTROL" descdataattribute="DESCRIPTION" id="main_section_controlanddescription" />
+							</sectioncol>
+							<sectioncol id="main_section_col_2">
+								<textbox dataattribute="KEY" id="main_section_key" />
+							</sectioncol>
+						</sectionrow>
+					</section>
+				</tab>
+				
+				<tab id="AttachmentsAndAttachDoc" label="Attachments">
+					<tabgroup id="attachmenttabs">
+						<tab id="Attachdoc" label="Attachdoc">
+						</tab>
+						<tab id="Attachimage" label="Attachimage">
+						</tab>
+						<tab id="Attachments" label="Attachments">
+							<section id="refattachments_section">
+								<helpgrid id="refattachments_help3" innerhtml="Negative: User defined  menutype and event do not exist. Nothing should happen if you click the link or the lookup button." />
+								<attachments id="refattachments_invalid" label="Attachments Negative Tests" menutype="neattachments" event="neviewattachments" />
+							</section>
+						</tab>
+					</tabgroup>
+				</tab>
+				
+				<tab id="Buttons" label="Buttons">
+					<tabgroup id="buttontabs">
+						<tab id="Pushbutton" label="Pushbutton">
+							<section id="pushbutton_width" label="Width">
+								<pushbutton id="pushbutton_width_0" label="0" width="0"/>
+								<pushbutton id="pushbutton_width_0px" label="0px" width="0px"/>
+								<pushbutton id="pushbutton_width_0percent" label="0%" width="0px"/>
+							</section>
+							<section id="pushbutton_event" label="events">
+								<pushbutton id="pushbutton_event_none" label="mxevent:INVALID" mxevent="INVALID" />
+							</section>
+						</tab>
+						<tab id="Buttongroup" label="Buttongroup">
+							<helpgrid id="refbuttongroup_help" innerhtml="TODO licensekey sigoption sigoptiondatasrc labelcss textcss" />
+							<section id="refbuttongroup_label" label="label">
+							</section>
+							<section id="refbuttongroup_labelalign" label="labelalign">
+								<buttongroup id="buttongroup_labelalign_invalid" labelalign="invalid" label="invalid">
+									<pushbutton id="buttongroup_labelalign_left_pushbutton_one" label="One" />
+									<pushbutton id="buttongroup_labelalign_left_pushbutton_two" label="Two" />
+								</buttongroup>
+							</section>
+							<section id="buttongroup_buttonsenabled" label="buttonsenabled">
+								<buttongroup id="buttongroup_buttonsenabled_invalid" label="invalid" buttonsenabled="invalid">
+									<pushbutton id="buttongroup_buttonsenabled_true_pushbutton_one" label="One" />
+									<pushbutton id="buttongroup_buttonsenabled_true_pushbutton_two" label="Two" />
+								</buttongroup>
+							</section>
+							<section id="buttongroup_show" label="show">
+								<buttongroup id="buttongroup_show_invalid" label="invalid" show="invalid">
+									<pushbutton id="buttongroup_show_true_pushbutton_one" label="One" />
+									<pushbutton id="buttongroup_show_true_pushbutton_two" label="Two" />
+								</buttongroup>
+							</section>
+							<section id="refbuttongroup_align" label="align">
+								<buttongroup id="buttongroup_align_invalid" align="invalid" label="invalid">
+									<pushbutton id="buttongroup_align_left_pushbutton_one" label="One" />
+									<pushbutton id="buttongroup_align_left_pushbutton_two" label="Two" />
+								</buttongroup>
+							</section>
+							<section id="buttongroup_display" label="display">
+								<buttongroup id="buttongroup_display_invalid" label="invalid" display="invalid">
+									<pushbutton id="buttongroup_display_true_pushbutton_one" label="One" />
+									<pushbutton id="buttongroup_display_true_pushbutton_two" label="Two" />
+								</buttongroup>
+							</section>
+						</tab>
+						<tab id="Checkbox" label="Checkbox">
+							<section border="false" id="checkbox_dataattribute" label="Data Attribute">
+								<checkbox dataattribute="INVALID" id="checkbox_dataattribute_invalid" label="INVALID" />
+								<checkbox id="checkbox_dataattribute_default" label="(unspecified)" />
+							</section>
+							<section id="checkbox_inputmode" label="Input Mode">
+								<checkbox dataattribute="REF_YORN" id="checkbox_inputmode_invalid" inputmode="invalid" label="invalid"/>
+							</section>
+							<section id="checkbox_label" label="Label">
+							</section>
+							<section id="refvalidation_checkbox_async" label="Validation class">
+							</section>
+						</tab>
+						<tab id="RadioButton" label="Radio Buttons" type="radiobuttons">
+							<tabgroup id="radiobuttontabs">
+								<tab id="Radiobuttongroup" label="Radiobuttongroup">
+									<section id="rb_sec1">
+										<textbox dataattribute="REF_ALN10" id="rb_sec1_attr1" label="For focus testing" inputmode="readonly" />
+									</section>
+		
+									<section id="radiobutton_header">
+										<sectionrow id="radiobutton_row">
+											<sectioncol id="radiobutton_col_static">
+												<helpgrid id="radiobutton_static" innerhtml="Static" />
+											</sectioncol>
+											<sectioncol id="radiobutton_col_dynamic">
+												<helpgrid id="radiobutton_dynamic" innerhtml="Dynamic" />
+											</sectioncol>
+										</sectionrow>
+									</section>
+		
+									<section id="radiobuttongroup_align" label="align">
+										<sectionrow id="radiobuttongroup_align_row">
+											<sectioncol id="radiobuttongroup_align_static_col">
+												<section id="radiobuttongroup_align_static_invalid" label="invalid">
+													<radiobuttongroup dataattribute="REF_ALN10" align="invalid" id="radiobuttongroup_static_align_invalid">
+														<radiobutton id="radiobutton_align_invalid_one" label="One" value="one" />
+														<radiobutton id="radiobutton_align_invalid_two" label="Two" value="two" />
+													</radiobuttongroup>
+												</section>
+											</sectioncol>
+											<sectioncol id="radiobuttongroup_align_col_dynamic">
+												<section id="radiobuttongroup_dynamic_align_invalid_sec" label="invalid">
+													<radiobuttongroup dataattribute="REF_ALNDOMAINAB" align="invalid" id="radiobuttongroup_dynamic_align_invalid" />
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+
+									<section id="radiobuttongroup_inputmode" label="inputmode">
+										<sectionrow id="radiobuttongroup_inputmode_row">
+											<sectioncol id="radiobuttongroup_inputmode_col_static">
+												<section id="section_static_inputmode_invalid" label="invalid">
+													<radiobuttongroup dataattribute="REF_ALN10" id="radiobuttongroup_static_inputmode_readonly" inputmode="invalid">
+														<radiobutton id="radiobutton_inputmode_readonly_one" label="One" value="one" />
+														<radiobutton id="radiobutton_inputmode_readonly_two" label="Two" value="two" />
+													</radiobuttongroup>
+												</section>
+											</sectioncol>
+											<sectioncol id="radiobuttongroup_inputmode_col_dynamic">
+												<section id="section_dynamic_inputmode_readonly" label="invalid">
+													<radiobuttongroup dataattribute="REF_ALNDOMAINAB" id="radiobuttongroup_dynamic_inputmode_invalid" inputmode="invalid" />
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+		
+									<section id="radiobuttongroup_label" label="label">
+										<sectionrow id="radiobuttongroup_label_row">
+											<sectioncol id="radiobuttongroup_static_label_col">
+											</sectioncol>
+											<sectioncol id="radiobuttongroup_dynamic_label_col">
+											</sectioncol>
+										</sectionrow>
+									</section>
+		
+									<section id="radiobuttongroup_hidelabel" label="hidelabel">
+										<sectionrow id="radiobuttongroup_hidelabel_row">
+											<sectioncol id="radiobuttongroup_hidelabel_col_static">
+												<section id="section_hidelabel_invalid" label="invalid">
+													<radiobuttongroup dataattribute="REF_ALN10" id="radiobuttongroup_static_hidelabel_invalid" label="invalid" hidelabel="invalid">
+														<radiobutton id="radiobutton_hidelabel_invalid_one" label="One" value="one" />
+														<radiobutton id="radiobutton_hidelabel_invalid_two" label="Two" value="two" />
+													</radiobuttongroup>
+												</section>
+											</sectioncol>
+											<sectioncol id="radiobuttongroup_hidelabel_col_dynamic">
+												<section id="section_dynamic_hidelabel_invalid" label="invalid">
+													<radiobuttongroup dataattribute="REF_ALNDOMAINAB" id="radiobuttongroup_dynamic_hidelabel_invalid" label="invalid" hidelabel="invalid" />
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+		
+									<section id="radiobuttongroup_border" label="border">
+										<sectionrow id="radiobuttongroup_border_row">
+											<sectioncol id="radiobuttongroup_static_border_col">
+												<section id="section_static_border_invalid" label="invalid">
+													<radiobuttongroup dataattribute="REF_ALN10" id="radiobuttongroup_static_border_invalid" border="invalid">
+														<radiobutton id="radiobuttongroup_border_invalid_one" label="One" value="one" />
+														<radiobutton id="radiobuttongroup_border_invalid_two" label="Two" value="two" />
+													</radiobuttongroup>
+												</section>
+											</sectioncol>
+											<sectioncol id="radiobuttongroup_dynamic_border_col">
+												<section id="section_dynamic_border_invalid" label="invalid">
+													<radiobuttongroup dataattribute="REF_ALNDOMAINAB" id="radiobuttongroup_dynamic_border_invalid" border="invalid"/>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+		
+									<section id="radiobuttongroup_dataattribute" label="dataattribute">
+										<sectionrow id="radiobuttongroup_dataattribute_row">
+											<sectioncol id="radiobuttongroup_static_dataattribute_col">
+												<section id="section_static_dataattribute_unspecified" label="(unspecified)">
+													<radiobuttongroup id="radiobuttongroup_static_dataattribute_default">
+														<radiobutton id="radiobutton_dataattribute_default_one" label="One" value="one" />
+														<radiobutton id="radiobutton_dataattribute_default_two" label="Two" value="two" />
+													</radiobuttongroup>
+												</section>
+												<section id="section_static_dataattribute_invalid" label="INVALID">
+													<radiobuttongroup dataattribute="INVALID" id="radiobuttongroup_static_dataattribute_invalid">
+														<radiobutton id="radiobutton_dataattribute_invalid_one" label="One" value="one" />
+														<radiobutton id="radiobutton_dataattribute_invalid_two" label="Two" value="two" />
+													</radiobuttongroup>
+												</section>
+											</sectioncol>
+											<sectioncol id="radiobutton_dynamic_dataattribute_col">
+												<section id="section_dynamic_dataattribute_default" label="(unspecified)">
+													<radiobuttongroup id="radiobuttongroup_dynamic_dataattribute_default" />
+												</section>
+												<section id="section_dynamic_dataattribute_invalid" label="INVALID">
+													<radiobuttongroup dataattribute="INVALID" id="radiobuttongroup_dynamic_dataattribute_invalid" />
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+								</tab>
+
+								<tab id="StaticRadiobutton" label="Static Radiobutton">
+									<section id="radiobutton_static_value" label="value but no label">
+										<radiobuttongroup dataattribute="REF_ALN10" id="radiobutton_static_group_value">
+											<radiobutton id="radiobutton_static_value_one" value="one" />
+											<radiobutton id="radiobutton_static_value_two" value="two" />
+											<radiobutton id="radiobutton_static_value_empty" value="" />
+										</radiobuttongroup>
+									</section>
+									<section id="radiobutton_static_label" label="label but no value">
+										<radiobuttongroup dataattribute="REF_ALN10" id="radiobutton_static_group_label">
+											<radiobutton id="radiobutton_static_label_one" label="One" />
+											<radiobutton id="radiobutton_static_label_two" label="Two" />
+										</radiobuttongroup>
+									</section>
+									<section id="radiobutton_static_default" label="default">
+										<radiobuttongroup dataattribute="REF_ALN10" id="radiobutton_static_default_group">
+											<radiobutton id="radiobutton_static_default_invalid" label="invalid" value="one" default="invalid"/>
+											<radiobutton id="radiobutton_static_default_true" label="true" value="two" default="true"/>
+											<radiobutton id="radiobutton_static_default_false" label="false" value="three" default="false"/>
+										</radiobuttongroup>
+									</section>
+									<section id="radiobutton_static_checked" label="checked">
+										<radiobuttongroup dataattribute="REF_ALN10" id="radiobutton_static_checked_group">
+											<radiobutton id="radiobutton_static_checked_invalid" label="invalid" value="one" checked="invalid"/>
+											<radiobutton id="radiobutton_static_checked_true" label="true" value="two" checked="true"/>
+											<radiobutton id="radiobutton_static_checked_false" label="false" value="three" checked="false"/>
+										</radiobuttongroup>
+									</section>
+									<section id="radiobutton_static_nested_content" label="With nested content">
+									</section>
+								</tab>
+							</tabgroup>
+						</tab>
+					</tabgroup>
+				</tab>
+
+				<tab id="Containers" label="Containers">
+					<tabgroup id="containerstabs">
+						<tab id="ContainersTab" label="Tab">
+							<helpgrid id="reftab_help" innerhtml="TODO finish this" />
+						</tab>
+						<tab id="ContainersSection" label="Section">
+							<section id="section_useproportionalcols" label="useproportionalcols">
+								<section id="section_useproportionalcols1">
+									<section id="section_useproportionalcols_invalid" label="invalid" useproportionalcols="invalid">
+										<sectionrow id="section_useproportionalcols_invalid_row">
+											<sectioncol id="section_useproportionalcols_invalid_col1">
+												<section id="section_useproportionalcols_invalid_col1_section" label="Short">
+													<statictext id="section_useproportionalcols_invalid_col1_section_text" label="Short text"/>
+												</section>
+											</sectioncol>
+											<sectioncol id="section_useproportionalcols_invalid_col2">
+												<section id="section_useproportionalcols_invalid_col2_section" label="Long">
+													<statictext id="section_useproportionalcols_invalid_col2_section_text" label="Some long and wordy text that just keeps going on and on and sometimes starts over and repeats itself. Some long and wordy text that just keeps going on and on and sometimes starts over and repeats itself."/>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+								</section>
+							</section>
+						</tab>
+					</tabgroup>
+				</tab>
+
+				<tab id="Dialogs" label="Dialogs">
+					<tabgroup id="dialogtabs">
+						<tab id="Dialog" label="Dialog">
+							<helpgrid id="dlg_help" innerhtml="This shows many variations of using the Dialog control. There are pushbuttons to load each of the dialogs being tested." />
+							<section id="dlg_s1">
+								<sectionrow id="dlg_sr1">
+									<sectioncol id="dlg_sr1_sc1">
+										<section id="dlg_sec1" label="beanclass">
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr4_sc1">
+										<section id="dlg_sec10" label="datasrc">
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr1_sc2">
+										<section id="dlg_sec2" label="height, width">
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="dlg_sr2">
+									<sectioncol id="dlg_sr2_sc2">
+										<section id="dlg_sec5" label="hidehelp">
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr1_sc3">
+										<section id="dlg_sec3" label="icon">
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr2_sc1">
+										<section id="dlg_sec4" label="inputmode">
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="dlg_sr3">
+									<sectioncol id="dlg_sr2_sc3">
+										<section id="dlg_sec6" label="label">
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr3_sc1">
+										<section id="dlg_sec7" label="orderby">
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr3_sc3">
+										<section id="dlg_sec9" label="ok, cancel, close buttons">
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="dlg_sr4">
+									<sectioncol id="dlg_sr3_sc2">
+										<section id="dlg_sec8" label="savemode">
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr4_sc2">
+										<section id="dlg_sec11" label="scrolling">
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr5_sc2">
+										<section id="dlg_sec12a" label="datastores">
+										</section>
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+						<tab id="LongDescription" label="Long Description">
+							<section id="reflongdescription_standard" label="Standard longdesc dialog">
+							</section>
+							<section id="reflongdescription_columns" label="columns">
+							</section>
+							<section id="reflongdescription_rows" label="rows">
+							</section>
+						</tab>
+						<tab id="MessageBox" label="Message Boxes" type="msgs">
+							<helpgrid id="msgbox_help" innerhtml="This shows various ways of invoking Message Box functionality" />
+							<section id="msgbox_sec1" border="true">
+								<sectionrow id="msg_row_1_1">
+									<sectioncol id="msg_col_1_2">
+										<section id="msg_1_2-1" label="Size">
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="msg_row_2_1">
+									<sectioncol id="msg_col_2_1">
+										<section id="msgbox_bottons" label="Buttons">
+										</section>
+									</sectioncol>
+									<sectioncol id="msg_row_2_2">
+										<section id="msgbox_displayMethod" label="DisplayMethod">
+										</section>
+										<section id="msgbox_clientside" label="No server roundtrip">
+										</section>
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+					</tabgroup>
+				</tab>
+
+				<tab id="Images" label="Images">
+					<tabgroup id="Imagestabs">
+						<tab id="Image" label="Image">
+							<section id="image_section">
+								<sectionrow id="image_section_row1">
+									<sectioncol id="image_section_col1">
+										<section id="image_imagename" label="Imagename">
+											<helpgrid id="image_imagename_help2" innerhtml="invalid imagename" />
+											<image id="image_imagename_invalid" imagename="invalid.gif" />
+										</section>
+									</sectioncol>
+									<sectioncol id="image_section_col2">
+										<section id="image_height" label="Height">
+											<helpgrid id="image_height_help3" innerhtml="height=-1" />
+											<image height="-1" id="image_height_-1" imagename="refapp_grid_16x16.gif" />
+										</section>
+										<section id="image_width" label="Width">
+											<helpgrid id="image_width_help3" innerhtml="width=-1" />
+											<image id="image_width_-1" imagename="refapp_grid_16x16.gif" width="-1" />
+										</section>
+										<section id="image_width_height" label="Width and Height">
+											<helpgrid id="image_width_height_help3" innerhtml="width=-1 height=-1" />
+											<image id="image_width_height_-1x-1" imagename="refapp_grid_16x16.gif" width="-1" height="-1" />
+										</section>
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+						<tab id="ToggleImage" label="ToggleImage">
+						</tab>
+						<tab id="RecordImage" label="RecordImage">
+						</tab>
+					</tabgroup>
+				</tab>
+				
+				<tab id="Links" label="Links">
+					<tabgroup id="linkstabs">
+						<tab id="Accessiblelink" label="Accessiblelink">
+						</tab>
+						<tab id="Hyperlink" label="Hyperlink">
+							<section id="hyp_s1">
+								<sectionrow id="hyp_sr1">
+									<sectioncol id="hyp_sr1_sc1">
+										<section id="hyp_sec1" label="Access Key">
+										</section>
+									</sectioncol>
+									<sectioncol id="hyp_sr1_sc2">
+										<section id="alignment" label="Alignment">
+										</section>
+									</sectioncol>
+									<sectioncol id="hyp_sr1_sc3">
+										<section id="hyp_sec7" label="Image">
+										</section>
+									</sectioncol>
+									<sectioncol id="hyp_sr1_sc4">
+										<section id="imagealign" label="Image Align">
+										</section>
+									</sectioncol>
+									<sectioncol id="hyp_sr1_sc5">
+										<section id="hyp_sec11" label="MX Event - Event Value - Target ID">
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="hyp_sr2">
+									<sectioncol id="hyp_sr2_sc1">
+										<section id="hyp_sec12" label="CSS Class Name">
+										</section>
+									</sectioncol>
+									<sectioncol id="hyp_sr2_sc2">
+										<section id="hyp_sec13" label="Tooltip">
+										</section>
+									</sectioncol>
+									<sectioncol id="hyp_sr2_sc3">
+										<section id="hyp_sec15" label="URL">
+										</section>
+									</sectioncol>
+									<sectioncol id="hyp_sr2_sc4">
+										<section id="hyp_sec18" label="Two Hyperlink, Same Access Key">
+										</section>
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+						<tab id="Gotolink" label="Gotolink">
+						</tab>
+					</tabgroup>
+				</tab>
+
+				<tab id="Lists" label="Lists">
+					<tabgroup id="liststabs">
+						<tab id="Combobox" label="Combobox">
+							<section id="refcombobox_section" border="true">
+								<sectionrow id="refcombobox_row_1">
+									<sectioncol id="refcombobox_col_1">
+										<section id="refcombobox_dataattribute" label="dataattribute">
+											<combobox id="refcombobox_dataattribute_invalid"   dataattribute="INVALID"      label="INVALID" />
+										</section>
+									</sectioncol>
+									<sectioncol id="refcombobox_col_2">
+										<section id="refcombobox__datasrc" label="datasrc">
+											<combobox id="refcombobox_datasrc_invalid"    datasrc="INVALID"    dataattribute="REF_ALNDOMAINAB" label="INVALID"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="refcombobox_col_3">
+										<section id="refcombobox_label" label="label">
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="refcombobox_row_2">
+									<sectioncol id="refcombobox_col_4">
+										<section id="refcombobox_displayattribute" label="displayattribute">
+											<combobox id="refcombobox_displayattribute_invalid"           displayattribute="INVALID" keyattribute="KEY" dataattribute="REF_TABLEDOMAIN4" label="INVALID TABLEDOMAIN4" />
+										</section>
+									</sectioncol>
+									<sectioncol id="refcombobox_col_5">
+										<section id="refcombobox_keyattribute" label="keyattribute">
+											<combobox id="refcombobox_keyattribute_invalid"              displayattribute="DESCRIPTION" keyattribute="INVALID" dataattribute="REF_TABLEDOMAIN4" label="INVALID TABLEDOMAIN4"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="refcombobox_col_6">
+										<section id="refcombobox_usereditable" label="usereditable">
+											<combobox id="refcombobox_usereditable_invalid"  usereditable="invalid" dataattribute="REF_ALNDOMAINAB" label="invalid"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="refcombobox_row_3">
+									<sectioncol id="refcombobox_col_7">
+										<section id="refcombobox_inputmode" label="inputmode">
+											<combobox id="refcombobox_inputmode_invalid" inputmode="invalid" dataattribute="REF_ALNDOMAINAB" label="invalid" />
+										</section>
+									</sectioncol>
+									<sectioncol id="refcombobox_col_8">
+										<section id="refcombobox_width" label="width">
+											<combobox id="refcombobox_width_-1"  width="-1"  dataattribute="REF_ALNDOMAINAB" label="width = -1" />	
+										</section>
+									</sectioncol>
+									<sectioncol id="refcombobox_col_9">
+										<section id="refcombobox_intable" label="In a table">
+										</section>							
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="refcombobox_row_4">
+									<sectioncol id="refcombobox_col_10">
+										<section id="refcombobox_large" label="Large domain scrolling/truncation test">
+										</section>
+									</sectioncol>
+								</sectionrow>
+							</section>
+
+						</tab>
+						<tab id="Listbox" label="Listbox">
+							<helpgrid id="listbox_help" innerhtml="This is NOT finished TODO finish it.
+autorefresh, refreshonreloadevent,
+displayimages, listitemimage,
+keyvalue, returnattribute,
+title,
+textcss, labelcss,
+licensekey, sigoption, sigoptiondatasrc,
+mboname, datasrc, designermboname, relationship,
+synchronous" />
+							
+							<section id="reflistbox_section">
+								<sectionrow id="reflistbox_row_1">
+									<sectioncol id="reflistbox_row_1_col_1">
+										<section id="reflistbox_width" label="width">
+											<listbox id="reflistbox_width_-1" dataattribute="REF_TABLEDOMAIN4" keyattribute="value" displayattribute="description" width="-1" label="-1" />
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_1_col_2">
+										<section id="reflistbox_height" label="height">
+											<listbox id="reflistbox_height_-1" dataattribute="REF_TABLEDOMAIN4" keyattribute="value" displayattribute="description" height="-1" label="-1" />
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_1_col_3">
+										<section id="reflistbox_inputmode" label="inputmode">
+											<listbox id="reflistbox_inputmode_invalid" dataattribute="REF_ALNDOMAINAB" label="invalid" inputmode="invalid" />
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="reflistbox_row_2">
+									<sectioncol id="reflistbox_row_2_col_1">
+										<section id="reflistbox_label" label="label">
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_2_col_2">
+										<section id="reflistbox_hidelabel" label="hidelabel">
+											<listbox id="reflistbox_hidelabel_invalid" dataattribute="REF_TABLEDOMAIN4" keyattribute="value" displayattribute="description" hidelabel="invalid" label="invalid" />
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_2_col_3">
+										<section id="reflistbox_maxlistitems" label="maxlistitems">
+											<listbox id="reflistbox_maxlistitems_0" dataattribute="REF_TABLEDOMAIN4" keyattribute="value" displayattribute="description" maxlistitems="0" label="0" />
+											<listbox id="reflistbox_maxlistitems_-1" dataattribute="REF_TABLEDOMAIN4" keyattribute="value" displayattribute="description" maxlistitems="-1" label="-1" />
+											<listbox id="reflistbox_maxlistitems_invalid" dataattribute="REF_TABLEDOMAIN4" keyattribute="value" displayattribute="description" maxlistitems="invalid" label="invalid" />
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="reflistbox_row_3">
+									<sectioncol id="reflistbox_row_3_col_1">
+										<section id="reflistbox_dataattribute" label="dataattribute">
+											<listbox id="reflistbox_dataattribute_invalid" dataattribute="INVALID" label="INVALID" />
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_3_col_2">
+										<section id="reflistbox_keyattribute" label="keyattribute">
+											<listbox id="reflistbox_keyattribute_invalid" dataattribute="REF_TABLEDOMAIN4" keyattribute="INVALID" displayattribute="description" label="INVALID" />
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_3_col_3">
+										<section id="reflistbox_displayattribute" label="displayattribute">
+											<listbox id="reflistbox_dispattribute_invalid" dataattribute="REF_TABLEDOMAIN4" keyattribute="value" displayattribute="INVALID" label="INVALID" />
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="reflistbox_row_4">
+									<sectioncol id="reflistbox_row_4_col_1">
+										<section id="reflistbox_html_entities" label="Html entities">
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_4_col_2">
+										<section id="reflistbox_html_entityref" label="Html entity references">
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_4_col_3">
+										<section id="reflistbox_script_injection" label="Script injection">
+										</section>
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+						<tab id="Tree" label="Tree" mboname="CLASSSTRUCTURE" beanclass="psdi.webclient.beans.common.SearchSpecBean">
+							<helpgrid id="tree_help" innerhtml="This is NOT finished TODO finish it." />
+
+							<section id="reftree_">
+							</section>
+							<section id="reftree_2" label="maxchildren">
+								<tree id="reftree_node_maxchildren" label="-1" >
+									<treenode id="reftree_node_maxchildren_-1" objectname="CLASSSTRUCTURE" keyattribute="classstructureuid" maxchildren="-1">
+										<treeattribute id="reftree_node_maxchildren_2_id" dataattribute="classificationid" display="true" />
+										<treeattribute id="reftree_node_maxchildren_2_desc" dataattribute="classificationdesc" display="true" />
+									</treenode>
+								</tree>
+							</section>
+						</tab>
+					</tabgroup>
+				</tab>
+
+				<tab id="MenuAndToolbar" label="Menu and Toolbar">
+					<tabgroup id="menuandtoolbartabs">
+						<tab id="Appbar" label="Appbar">
+							<helpgrid id="appbar_help" innerhtml="This is NOT finished TODO finish it." />
+							<helpgrid id="appbar_help1" innerhtml="Default appbar" />
+							<appbar id="appbar_simple" />
+							<section id="appbar_event" label="event">
+								<helpgrid id="appbar_event_invalid_help" innerhtml="INVALID" />
+								<appbar event="INVALID" id="appbar_event_invalid" />
+							</section>
+							<section id="appbar_sourcemethod" label="sourcemethod">
+								<helpgrid id="appbar_sourcemethod_invalid_help" innerhtml="INVALID" />
+								<appbar id="appbar_sourcemethod_invalid" sourcemethod="INVALID" />
+							</section>
+						</tab>
+						<tab id="Menubar" label="Menubar">
+							<helpgrid id="menubar_help1" innerhtml="Default menubar" />
+							<menubar id="menubar_simple" />
+							<section id="menubar_event" label="event">
+								<helpgrid id="menubar_event_invalid_help" innerhtml="INVALID" />
+								<menubar event="INVALID" id="menubar_event_invalid" />
+							</section>
+							<section id="menubar_sourcemethod" label="sourcemethod">
+								<helpgrid id="menubar_sourcemethod_invalid_help" innerhtml="INVALID" />
+								<menubar id="menubar_sourcemethod_invalid" sourcemethod="INVALID" />
+							</section>
+						</tab>
+						<tab id="Toolbar" label="Toolbar">
+							<helpgrid id="toolbar_help" innerhtml="This is NOT finished TODO finish it." />
+						</tab>
+						<tab id="Menus" label="Menus">
+							<section id="menus_tb_down" label="Textbox Detail Menu">
+								<textbox dataattribute="REF_ALN10" id="textbox_menu_invalid" label="invalid" menutype="INVALID" />
+							</section>
+						</tab>
+					</tabgroup>
+				</tab>
+				
+				<tab id="Tables" label="Tables">
+					<tabgroup id="tabletabs">
+						<tab id="Table" label="Table">
+							<table id="table" relationship="INVALID" orderby="INVALID" label="INVALID">
+								<tablebody id="table_tablebody" filterable="true" displayrowsperpage="10">
+									<tablecol id="table_tablebody_detailtoggle" type="event" mxevent="toggledetailstate" mxevent_desc="Show Detail" sortable="false" filterable="false"/>
+									<tablecol id="table_tablebody_key"              dataattribute="INVALID"/>
+								</tablebody>
+								<tabledetails id="table_details">
+									<section id="table_details_section" label="Details">
+										<textbox id="table_details_key" dataattribute="INVALID"/>
+									</section>
+								</tabledetails>
+							</table>
+							<table id="table_no_columns" mboname="REFMAIN" label="No Columns">
+							</table>
+						</tab>
+
+						<tab id="SimpleHeaderTable" label="Simple Header Table">
+							<simpleheadertable id="simbleheadertable" relationship="INVALID" orderby="INVALID" label="INVALID">
+								<tablebody id="simbleheadertable_tablebody" filterable="true" displayrowsperpage="10">
+									<tablecol id="simbleheadertable_tablebody_detailtoggle" type="event" mxevent="toggledetailstate" mxevent_desc="Show Detail" sortable="false" filterable="false"/>
+									<tablecol id="simbleheadertable_tablebody_key"              dataattribute="INVALID"/>
+								</tablebody>
+								<tabledetails id="simbleheadertable_details">
+									<section id="simbleheadertable_details_section" label="Details">
+										<textbox id="simbleheadertable_details_key" dataattribute="INVALID"/>
+									</section>
+								</tabledetails>
+							</simpleheadertable>
+						</tab>
+
+						<tab id="ChildATable" label="Child Table">
+						</tab>
+					</tabgroup>
+				</tab>
+
+				<tab id="Text" label="Text">
+					<tabgroup id="texttabs">
+						<tab id="Helpgrid" label="Helpgrid">
+							<section id="helpgrid_s1">
+								<sectionrow id="helpgrid_sr4">
+									<sectioncol id="helpgrid_sr4_sc1">
+										<statictext id="helpgrid_i4" label="innerhtml and bad morehelp" />
+									</sectioncol>
+									<sectioncol id="helpgrid_sr4_sc2">
+										<helpgrid id="helpgrid_4" innerhtml="Some help text" morehelp="bad more information" />
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="helpgrid_sr5">
+									<sectioncol id="helpgrid_sr5_sc1">
+										<statictext id="helpgrid_i5" label="only good msgkey" />
+									</sectioncol>
+									<sectioncol id="helpgrid_sr5_sc2">
+										<helpgrid id="helpgrid_5" msgkey="smartfillhelptext" />
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="helpgrid_sr6">
+									<sectioncol id="helpgrid_sr6_sc1">
+										<statictext id="helpgrid_i6" label="only good msggroup" />
+									</sectioncol>
+									<sectioncol id="helpgrid_sr6_sc2">
+										<helpgrid id="helpgrid_6" msggroup="asynch" />
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="helpgrid_sr8">
+									<sectioncol id="helpgrid_sr8_sc1">
+										<statictext id="helpgrid_i8" label="bad msgkey and good msggroup" />
+									</sectioncol>
+									<sectioncol id="helpgrid_sr8_sc2">
+										<helpgrid id="helpgrid_8" msgkey="badkey" msggroup="asynch" />
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="helpgrid_sr9">
+									<sectioncol id="helpgrid_sr9_sc1">
+										<statictext id="helpgrid_i9" label="good msgkey and bad msggroup" />
+									</sectioncol>
+									<sectioncol id="helpgrid_sr9_sc2">
+										<helpgrid id="helpgrid_9" msgkey="smartfillhelptext" msggroup="badgroup" />
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+						<tab id="MultilineTextbox" label="MultilineTextbox">
+							<tabgroup id="multilinetextboxtabs">
+								<tab id="MultilinetextboxDatatype" label="Datatype">
+								</tab>
+								<tab id="MultilineTextboxProperties" label="Properties">
+									<section id="refmultilinetextbox_dataattribute" label="Property: dataattribute">
+										<multilinetextbox id="refmultilinetextbox_badattribute" dataattribute="INVALID" label="INVALID" />
+									</section>
+									<section id="refmultilinetextbox_inputmode" label="Property: inputmode">
+										<multilinetextbox id="refmultilinetextbox_inputmode_readonly" dataattribute="REF_ALN900" inputmode="READONLY" label="readonly" />
+									</section>
+									<section id="refmultilinetextbox_label" label="Property: label">
+									</section>
+									<section id="refmultilinetextbox_hidelabel" label="Property: hidelabel">
+										<helpgrid id="refmultilinetextbox_hidelabel_help" innerhtml="The first one should not have a label" />
+										<multilinetextbox id="refmultilinetextbox_hidelabel_true"    dataattribute="REF_ALN900" hidelabel="true"  label="true" />
+									</section>
+									<section id="refmultilinetextbox_lookup" label="Property: lookup">
+										<multilinetextbox id="refmultilinetextbox_lookup_invalid" dataattribute="REF_ALN900" lookup="INVALID" label="INVALID" />
+									</section>
+									<section id="refmultilinetextbox_menutype" label="Property: menutype">
+										<multilinetextbox id="refmultilinetextbox_menutype_invalid" dataattribute="REF_ALN900" menutype="INVALID" label="INVALID" />
+									</section>
+									<section id="refmultilinetextbox_columns" label="Property: columns">
+										<multilinetextbox id="refmultilinetextbox_columns_negative" columns="-1" dataattribute="REF_ALN900" label="-1" />
+									</section>
+									<section id="refmultilinetextbox_rows" label="Property: rows">
+										<multilinetextbox id="refmultilinetextbox_rows_negative" dataattribute="REF_ALN900" rows="-1" label="-1" />
+									</section>
+								</tab>
+								
+							</tabgroup>
+						</tab>
+						<tab id="MultipartTextbox" label="MultipartTextbox">
+							<tabgroup id="multiparttextboxtabs">
+								<tab id="MultiparttextboxDatatype" label="Datatype">
+								</tab>
+								<tab id="MultipartTextboxProperties" label="Properties">
+									<section id="refmultiparttextbox_mentutype" label="Property: menutype (dataattribute / descdataattribute)">
+										<multiparttextbox id="refmultiparttextbox_mentutype_inavlid" dataattribute="KEY" descdataattribute="REF_ALN100_WITHLD" menutype="invalid" label="invalid"/>
+									</section>
+									<section id="refmultiparttextbox_datasrc" label="datasrc">
+										<multiparttextbox id="refmultiparttextbox_datasrc_invalid" datasrc="INVALID" dataattribute="REF_ALN10" descdataattribute="REF_ALN100_WITHLD" label="INVALID" />
+									</section>
+									<section id="refmultiparttextbox_dataattr" label="dataattribute / descdataattribute">
+										<multiparttextbox id="refmultiparttextbox_dataattr_invalid" dataattribute="INVALID" descdataattribute="INVALIDDESC" label="Value: INVALID / INVALIDDESC" />
+										<multiparttextbox id="refmultiparttextbox_dataattr_default"                                                         label="Value: (unspecified) / (unspecified)" />
+									</section>
+									<section id="refmultiparttextbox_inputmode" label="inputmode / descinputmode">
+										<multiparttextbox id="refmultiparttextbox_inputmode_password_password" dataattribute="REF_ALN10" inputmode="invalid" descdataattribute="REF_ALN10" descinputmode="invalid" label="invalid / invalid" />
+									</section>
+									<section id="refmultiparttextbox_label" label="label">
+									</section>
+									<section id="refmultiparttextbox_longdescreadonly" label="longdescreadonly">
+										<multiparttextbox id="refmultiparttextbox_longdescreadonly_invalid" dataattribute="KEY" descdataattribute="REF_ALN100_WITHLD" longdescreadonly="invalid" label="invalid"/>
+									</section>
+									<section id="refmultiparttextbox_applink" label="applink">
+										<multiparttextbox id="refmultiparttextbox_applink_invalid" applink="INVALID" dataattribute="REF_ALN10" descdataattribute="REF_ALN100_WITHLD" label="INVALID" />
+									</section>
+									<section id="refmultiparttextbox_lookup" label="lookup">
+										<multiparttextbox id="refmultiparttextbox_lookup_invalid" dataattribute="REF_ALNDOMAINAB" descdataattribute="REF_ALN100_WITHLD" lookup="INVALID" label="INVALID" />
+									</section>
+									<section id="refmultiparttextbox_smartfilloff" label="smartfilloff">
+										<multiparttextbox id="refmultiparttextbox_smartfilloff_invalid" dataattribute="REF_ALNDOMAINAB" descdataattribute="REF_NUMDOMAIN100" desclookup="VALUELIST" lookup="VALUELIST" smartfilloff="invalid" label="invalid" />
+									</section>
+								</tab>
+							</tabgroup>
+						</tab>
+						<tab id="RichText" label="RichText">
+							<tabgroup id="richtexttabs">
+								<tab id="richtext_viewer" label="Viewer">
+									<section id="richtext_viewer_dataattribute" label="dataattribute">
+										<richtextviewer id="richtextviewer_dataattribute_invalid" label="INVALID" dataattribute="INVALID" />
+									</section>
+									<section id="richtext_viewer_width_height" label="width, height">
+										<richtextviewer id="richtextviewer_width_height_negative"  dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" label="-1 x -1" width="-1" height="-1" />
+									</section>
+								</tab>
+								<tab id="richtext_editor" label="Editor">
+									<tabgroup id="richtexteditortabs">
+										<tab id="richtext_editor_basic" label="Basic">
+											<richtexteditor id="richtexteditor_inputmode_invalid" label="Inputmode=invalid" width="660" height="80" inputmode="invalid" dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" />
+											<richtexteditor id="richtexteditor_invalid_attr"                label="Invalid dataattribute" width="100" height="20" dataattribute="INVALID" />
+											<richtexteditor id="richtexteditor_invalid_dojo_type"           label="Invalid dojo_type" width="100" height="20" dojo_type="invalidDojoType" dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" />
+										</tab>
+										<tab id="richtext_editor_tabletab" label="Table">
+										</tab>
+										<tab id="richtext_editor_size" label="Size">
+											<richtexteditor id="richtexteditor_invalid_height_zero"         label="Height zero" height="0" dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" />
+											<richtexteditor id="richtexteditor_invalid_width_zero"          label="Width zero" width="0" height="40" dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" />
+											<richtexteditor id="richtexteditor_width_negative"  label="Width negative value" width="-1" height="40" dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" />
+										</tab>
+										<tab id="richtext_editor_toolbars" label="Toolbars">
+											<richtexteditor id="richtexteditor_invalid_plugins"             label="Invalid toolbar plugins" plugins="invalidPlugin" width="630" height="40" dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" />
+											<richtexteditor id="richtexteditor_invalid_nonexistant_plugins" label="Nonexisant toolbar plugins" plugins="['invalidPlugin']" width="630" height="40" dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" />
+											<richtexteditor id="richtexteditor_invalid_extra_plugins"       label="Invalid extra toolbar plugins" extra_plugins="invalidPlugin" width="630" height="40" dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" />
+										</tab>
+									</tabgroup>
+								</tab>
+							</tabgroup>
+						</tab>
+						<tab id="StaticText" label="StaticText">
+							<helpgrid id="statictext_help" innerhtml="This is NOT finished TODO finish it." />
+							<section id="statictext_label" label="Property: label">
+							</section>
+							<section id="statictext_span" label="Property: span">
+								<statictext id="statictext_span_negative" label="-1" span="-1"/>
+								<statictext id="statictext_span_invalid" label="invalid" span="invalid"/>
+							</section>
+							<section id="statictext_align" label="Property: align">
+								<statictext id="statictext_align_invalid" label="invalid" align="invalid"/>
+							</section>
+							<section id="statictext_link" label="Property: link">
+								<statictext id="statictext_link_label" label="invalid" link="invalid" />
+							</section>
+							<section id="statictext_plaintext" label="Property: plaintext">
+								<statictext id="statictext_html" label="invalid - Some html &lt;b&gt;bold&lt;/b&gt; &lt;i&gt;italics&lt;/i&gt; &lt;a href=&quot;http://www.ibm.com&quot;&gt;IBM.com&lt;/a&gt;" plaintext="invalid" />
+							</section>
+							<section id="statictext_msg" label="msggroup and msgkey">
+								<sectionrow id="statictext_sr7">
+									<sectioncol id="statictext_sr7_sc1">
+										<statictext id="statictext_msgkey_label" label="only good msgkey" />
+									</sectioncol>
+									<sectioncol id="statictext_sr7_sc2">
+										<statictext id="statictext_msgkey" msgkey="smartfillhelptext" />
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="statictext_sr8">
+									<sectioncol id="statictext_sr8_sc1">
+										<statictext id="statictext_msggroup_label" label="only good msggroup" />
+									</sectioncol>
+									<sectioncol id="statictext_sr8_sc2">
+										<statictext id="statictext_msggroup" msggroup="asynch" />
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="statictext_sr10">
+									<sectioncol id="statictext_sr10_sc1">
+										<statictext id="statictext_bad_msgkey_group_label" label="bad msgkey and good msggroup" />
+									</sectioncol>
+									<sectioncol id="statictext_sr10_sc2">
+										<statictext id="statictext_bad_msgkey_group" msgkey="badkey" msggroup="asynch" />
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="statictext_sr11">
+									<sectioncol id="statictext_sr11_sc1">
+										<statictext id="statictext_msgkey_bad_group_label" label="good msgkey and bad msggroup" />
+									</sectioncol>
+									<sectioncol id="statictext_sr11_sc2">
+										<statictext id="statictext_msgkey_bad_group" msgkey="smartfillhelptext" msggroup="badgroup" />
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+						<tab id="Textbox" label="Textbox">
+							<helpgrid id="textbox_TODO" innerhtml="This is NOT finished TODO finish it." />
+							<tabgroup id="textboxtabs">
+								<tab id="TextboxDatatype" label="Datatype">
+								</tab>
+								<tab id="TextboxProperties" label="Properties">
+									<section id="textbox_s1" label="Property: dataattribute">
+										<textbox dataattribute="INVALID" id="textbox_dataattribute_invalid" label="INVALID" />
+									</section>
+									<section id="textbox_s2" label="Property: hidelabel">
+										<textbox dataattribute="REF_ALN10" hidelabel="invalid" id="textbox_hidelabel_invalid" label="invalid" />
+									</section>
+									<section id="textbox_s3" label="Property: inputmode">
+										<textbox dataattribute="REF_ALN10" id="textbox_inputmode_invalid" inputmode="invalid" label="invalid" />
+									</section>
+									<section id="textbox_s4" label="Property: label">
+									</section>
+									<section id="textbox_s5" label="Property: lookup">
+										<textbox dataattribute="REF_ALN10" id="textbox_lookup_invalid" lookup="INVALID" label="INVALID" />
+									</section>
+									<section id="textbox_s6" label="Property: menutype">
+										<textbox dataattribute="REF_ALN10" id="textbox_menutype_invalid" menutype="INVALID" label="INVALID"/>
+									</section>
+								</tab>
+								
+							</tabgroup>
+						</tab>
+					</tabgroup>
+				</tab>
+
+				<tab id="SpecialChars" label="Special Chars">
+				</tab>
+				<tab id="ScriptInjection" label="Script Injection">
+				</tab>
+				
+				<tab id="DojoSample" label="Dojo">
+				</tab>
+
+				<tab id="iWidgets" label="iWidgets">
+				</tab>
+
+				<tab id="Invalid" label="Invalid">
+					<helpgrid id="Invalid_help" innerhtml="A bunch of invalid things to help check that the framework handles them gracefully, These things should NOT be done in actual applications." />
+					<section id="Nonexistant_control_section" label="Nonexistant Control">
+						<helpgrid id="Nonexistant_control_help" innerhtml="A nonexistant control." />
+						<invalid id="invalid_nonexistant_control"/>
+					</section>
+					<section id="Nonexistant_component_section" label="Nonexistant Component">
+						<helpgrid id="Nonexistant_component_help" innerhtml="A control that has a reference to a nonexistant component." />
+						<referenceToAnInvalidComponent id="invalid_nonexistant_component"/>
+					</section>
+					<section id="invalid_classes_section" label="Nonexistant Component">
+						<helpgrid id="invalid_control_class_help" innerhtml="A control that has an invalid instance class." />
+						<invalidInstanceClass id="invalid_control_class"/>
+						<helpgrid id="invalid_component_class_help" innerhtml="A control that has a reference to a component that has an invalid instance class." />
+						<referenceToAComponentWithAnInvalidInstanceClass id="invalid_component_class"/>
+					</section>
+					<section id="exception_section" label="Controls and Components that misbehave">
+						<helpgrid id="misbehaving_control_help" innerhtml="A control that misbehaves by throwing exceptions." />
+						<misbehavingControl id="misbehaving_control"/>
+						<helpgrid id="misbehaving_componentInstance_help" innerhtml="A control that has a reference to a component instance that misbehaves by throwing exceptions." />
+						<misbehavingComponentInstance id="misbehaving_componentInstance"/>
+						<helpgrid id="misbehaving_componentJsp_help" innerhtml="A control that has a reference to a component jsp that misbehaves by throwing exceptions." />
+						<misbehavingComponentJsp id="misbehaving_componentJsp"/>
+					</section>
+				</tab>
+
+			</tabgroup>
+		</clientarea>
+		<include id="pageFooter"/>
+	</page>
+
+</presentation>

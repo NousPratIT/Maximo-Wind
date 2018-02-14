@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<presentation id="refauto" ismobile="false" mboname="REF" resultstableid="results_showlist" version="6.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation='../presentations/presentation.xsd' xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<page id="mainrec">
+		<include id="pageHeader"/>
+		<clientarea id="clientarea">
+			<tabgroup id="maintabs" style="form">
+				<tab default="true" id="results" label="List" type="list">
+					<menubar event="search" id="actiontoolbar1" sourcemethod="getAppSearchOptions"/>
+					<table id="results_showlist" inputmode="readonly" label="TABLE TITLE" mboname="REF" selectmode="multiple">
+						<tablebody displayrowsperpage="15" filterable="true" filterexpanded="true" id="results_showlist_tablebody">
+							<tablecol dataattribute="REFID" filterable="false" id="results_showlist_column_select" mxevent="toggleselectrow" mxevent_desc="Select Row {0}" sortable="false" type="event"/>
+							<tablecol dataattribute="REF" id="results_showlist_column_link" mxevent="selectrecord" mxevent_desc="Go To %1" type="link" usefieldsizegroup="false"/>
+							<tablecol dataattribute="DESCRIPTION" id="results_showlist_column2"/>
+							<tablecol dataattribute="REFID" id="results_showlist_column1" mxevent="selectrecord" mxevent_desc="Go To %1" type="LINK"/>
+							<tablecol filterable="false" id="results_bookmark" mxevent="BOOKMARK" mxevent_desc="Add to Bookmarks" mxevent_icon="btn_addtobookmarks.gif" sortable="false" type="event"/>
+						</tablebody>
+					</table>
+				</tab>
+				<tab id="main" label="Main" type="insert">
+				
+				</tab>				
+			</tabgroup>
+		</clientarea>
+		<include id="pageFooter"/>
+	</page>
+
+	<dialog beanclass="psdi.webclient.system.beans.ViewBookmarksBean" id="searchbook" label="My Bookmarks" mboname="REF">
+	    <table id="bookmarks_table" inputmode="readonly" selectmode="single">
+	      <tablebody displayrowsperpage="20" filterable="true" id="bookmarks_table_tablebody">
+	        <tablecol dataattribute="REFID" id="bookmarks_tablecolumn_1" mxevent="selectrecord" type="link" />
+	        <tablecol dataattribute="description" id="bookmarks_tablecolumn_2" />
+	        <tablecol filterable="false" id="bookmarks_tablecolumn_3" mxevent="instantdelete" mxevent_desc="Delete" mxevent_icon="btn_delete.gif" sortable="false" type="event" />
+	      </tablebody>
+	    </table>
+	    <buttongroup id="bookmarks_2">
+	      <pushbutton default="true" id="bookmarks_2_1" label="OK" mxevent="dialogok" />
+	    </buttongroup>
+	 </dialog>
+	  
+	 <dialog beanclass="psdi.webclient.system.beans.QbeBean" id="searchmore" inputmode="query" label="More Search Fields">
+	    <section id="searchmore_1">
+	      <textbox dataattribute="REF" id="searchmore_attr1" />
+	      <textbox dataattribute="DESCRIPTION" id="searchmore_attr2" />
+	      <textbox dataattribute="STATE" id="searchmore_attr5" />
+	    </section>
+	    <buttongroup id="searchmore_buttongroup">
+	      <pushbutton default="true" id="searchmore_buttongroup_1" label="Find" mxevent="dialogok" />
+	      <pushbutton id="qbe_restoreappdefault_button" label="Restore Application Defaults" mxevent="qbeclear" />
+	      <pushbutton id="qbe_revisebutton" label="Revise" menutype="SEARCHMOREREVISE" targetid="searchmore" />
+	      <pushbutton id="searchmore_buttongroup_3" label="Cancel" mxevent="qbecancel" />
+	    </buttongroup>
+  	</dialog>
+
+	<dialog id="referencedialog" label="Reference Dialog" mboname="ref" modal="false">
+		<section id="1227558106546">
+			<buttongroup id="1227558731671">
+				<pushbutton default="true" id="1227558738546" label="OK" mxevent="dialogclose"/>
+				<pushbutton id="1227558731687" label="Cancel" mxevent="dialogclose"/>
+			</buttongroup>
+		</section>
+	</dialog>
+</presentation>

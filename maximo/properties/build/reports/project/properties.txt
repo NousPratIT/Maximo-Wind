@@ -1,0 +1,89 @@
+
+------------------------------------------------------------
+Project :properties
+------------------------------------------------------------
+
+allprojects: [project ':properties']
+ant: org.gradle.api.internal.project.DefaultAntBuilder@be1ca78d
+antBuilderFactory: org.gradle.api.internal.project.DefaultAntBuilderFactory@c14fa827
+artifacts: org.gradle.api.internal.artifacts.dsl.DefaultArtifactHandler_Decorated@8e742d8e
+asDynamicObject: org.gradle.api.internal.ExtensibleDynamicObject@f7f09dac
+baseClassLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@56f4c0f1
+buildDir: /var/lib/jenkins/jobs/LightningExtensionCD/workspace/LightningExtension/applications/maximo/properties/build
+buildFile: /var/lib/jenkins/jobs/LightningExtensionCD/workspace/LightningExtension/applications/maximo/properties/build.gradle
+buildScriptSource: org.gradle.groovy.scripts.NonExistentFileScriptSource@a535968c
+buildscript: org.gradle.api.internal.initialization.DefaultScriptHandler@5c9029c
+childProjects: {}
+class: class org.gradle.api.internal.project.DefaultProject_Decorated
+classLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@21828a71
+components: []
+configurationActions: org.gradle.configuration.project.DefaultProjectConfigurationActionContainer@29f2800d
+configurations: []
+convention: org.gradle.api.internal.plugins.DefaultConvention@65900960
+defaultTasks: []
+deferredProjectConfiguration: org.gradle.api.internal.project.DeferredProjectConfiguration@61469fcd
+dependencies: org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler_Decorated@c05ec276
+dependencyReport: task ':properties:dependencyReport'
+depth: 1
+description: null
+displayName: root project 'lightning'
+ext: org.gradle.api.internal.plugins.DefaultExtraPropertiesExtension@8534c278
+extensions: org.gradle.api.internal.plugins.DefaultConvention@65900960
+fileOperations: org.gradle.api.internal.file.DefaultFileOperations@2752591
+fileResolver: org.gradle.api.internal.file.BaseDirFileResolver@e99b6540
+gradle: build 'lightning'
+group: com.ibm.maximo
+htmlDependencyReport: task ':properties:htmlDependencyReport'
+inheritedScope: org.gradle.api.internal.ExtensibleDynamicObject$InheritedDynamicObject@572a5968
+javaProjects: [project ':businessobjects', project ':tools']
+logger: org.gradle.logging.internal.slf4j.OutputEventListenerBackedLogger@dc702c92
+logging: org.gradle.logging.internal.DefaultLoggingManager@19c3b76e
+maximoBuildNumber: 20161014-1326
+maximoDir: /var/lib/jenkins/jobs/LightningExtensionCD/workspace/build_lightning_extension_CD-7.6.0.1-20161014-1326
+maximoSubDir: /var/lib/jenkins/jobs/LightningExtensionCD/workspace/build_lightning_extension_CD-7.6.0.1-20161014-1326/applications/maximo/properties
+maximoVersion: 7.6.0.6
+mayImplementMissingMethods: false
+mayImplementMissingProperties: false
+modelRegistry: org.gradle.model.internal.registry.DefaultModelRegistry@ca127410
+modelSchemaStore: org.gradle.model.internal.manage.schema.extract.DefaultModelSchemaStore@9e576e25
+module: org.gradle.api.internal.artifacts.ProjectBackedModule@251232d6
+mxInstall: task ':properties:mxInstall'
+mxTemplates: task ':properties:mxTemplates'
+name: properties
+org.gradle.daemon: false
+org.gradle.jvmargs: -Xmx2048m
+org.gradle.parallel: true
+parent: root project 'lightning'
+parentIdentifier: root project 'lightning'
+path: :properties
+pluginManager: org.gradle.api.internal.plugins.DefaultPluginManager_Decorated@f00ba7dc
+plugins: [org.gradle.api.plugins.ReportingBasePlugin@1be2a2ab, org.gradle.api.plugins.ProjectReportsPlugin@f6f42645, org.gradle.api.plugins.HelpTasksPlugin@e1d6ac6d]
+processOperations: org.gradle.api.internal.file.DefaultFileOperations@2752591
+project: project ':properties'
+projectDir: /var/lib/jenkins/jobs/LightningExtensionCD/workspace/LightningExtension/applications/maximo/properties
+projectEvaluationBroadcaster: ProjectEvaluationListener broadcast
+projectEvaluator: org.gradle.configuration.project.LifecycleProjectEvaluator@d97db0b
+projectRegistry: org.gradle.api.internal.project.DefaultProjectRegistry@52ace0af
+projectReport: task ':properties:projectReport'
+projectReportDir: /var/lib/jenkins/jobs/LightningExtensionCD/workspace/LightningExtension/applications/maximo/properties/build/reports/project
+projectReportDirName: project
+projects: [project ':properties']
+properties: {...}
+propertyReport: task ':properties:propertyReport'
+reporting: org.gradle.api.reporting.ReportingExtension_Decorated@ab8ba84
+repositories: []
+resources: org.gradle.api.internal.resources.DefaultResourceHandler@9a0e41c2
+rootDir: /var/lib/jenkins/jobs/LightningExtensionCD/workspace/LightningExtension
+rootProject: root project 'lightning'
+scriptHandlerFactory: org.gradle.api.internal.initialization.DefaultScriptHandlerFactory@c766880b
+scriptPluginFactory: org.gradle.configuration.DefaultScriptPluginFactory@7e9ee1f6
+serviceRegistryFactory: org.gradle.internal.service.scopes.ProjectScopeServices$4@97c35f1d
+services: ProjectScopeServices
+standardOutputCapture: org.gradle.logging.internal.DefaultLoggingManager@19c3b76e
+state: project state 'EXECUTED'
+staticProjects: [project ':dbc_nxtgenui', project ':properties']
+status: release
+subprojects: []
+taskReport: task ':properties:taskReport'
+tasks: [task ':properties:dependencyReport', task ':properties:htmlDependencyReport', task ':properties:mxInstall', task ':properties:mxTemplates', task ':properties:projectReport', task ':properties:propertyReport', task ':properties:taskReport']
+version: 7.6.0.0

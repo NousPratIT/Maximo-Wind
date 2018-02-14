@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script SYSTEM "../../../../../tools/maximo/script.dtd">
+<script author="AppFwTeam" scriptname="RefbasicappUndo">
+	<description>REFBASICApp_undo</description>
+	<statements>
+		<!--drop_module module="REFAPPS"/-->
+		<freeform description="Cleanup module">
+			<sql target="all">
+				delete from maxmodules where module='REFAPPS';
+				delete from maxmenu where menutype='MODULE' AND moduleapp='REFAPPS';
+			</sql>
+		</freeform>
+
+		<freeform description="Delete condition used for sigoption that unconditionally hides controls">
+			<sql target="all">
+				delete from condition where conditionnum='REF_FALSE';
+			</sql>
+		</freeform>
+
+		<drop_app app="REFBASIC" />
+		<drop_app app="REFMOBILE" />
+		<drop_app app="REFNEG" />
+		<drop_app app="REFCOMM" />
+
+		<drop_table object="REFCOMBOVALUES4" />
+		<drop_table object="REFCOMBOVALUES0" />
+		<drop_table object="REFTABLE4" />
+		<drop_table object="REFTABLEHEX" />
+		<drop_table object="REFTABLEEMPTY" />
+		<drop_table object="REFMAIN" />
+		<drop_table object="REFCHILDA" />
+		<drop_table object="REFCHILDB" />
+
+		<!-- drop_domain fails if the domain doesn't exist, so can't use it for now. 
+		<drop_domain domainid="REFSTATE" />
+		<drop_domain domainid="REFCOMBOVALUES4" />
+		<drop_domain domainid="REFCOMBOVALUES0" />
+		<drop_domain domainid="REFABC" />
+		<drop_domain domainid="REFBIG" />
+		<drop_domain domainid="REFTABLE4" />
+		<drop_domain domainid="REFTABLEHEX" />
+		<drop_domain domainid="REFHEX" />
+		<drop_domain domainid="REFTABLEEMPTY" / -->
+		<freeform description="Cleanup domains">
+			<sql target="all">
+				delete from maxdomain where domainid = 'REFSTATE';
+				delete from alndomain where domainid = 'REFSTATE';
+
+				delete from maxdomain where domainid = 'REFAB';
+				delete from alndomain where domainid = 'REFAB';
+
+				delete from maxdomain where domainid = 'REFJK';
+				delete from alndomain where domainid = 'REFJK';
+
+				delete from maxdomain where domainid = 'REFXY';
+				delete from alndomain where domainid = 'REFXY';
+
+				delete from maxdomain where domainid = 'REFHEX';
+				delete from alndomain where domainid = 'REFHEX';
+
+				delete from maxdomain where domainid = 'REFSPECIALCHAR';
+				delete from alndomain where domainid = 'REFSPECIALCHAR';
+
+				delete from maxdomain where domainid = 'REFMATCH';
+				delete from alndomain where domainid = 'REFMATCH';
+
+				delete from maxdomain where domainid = 'REFENTITY';
+				delete from alndomain where domainid = 'REFENTITY';
+
+				delete from maxdomain where domainid = 'REFSCRIPTINJECT';
+				delete from alndomain where domainid = 'REFSCRIPTINJECT';
+
+				delete from maxdomain where domainid = 'REFBIG';
+				delete from alndomain where domainid = 'REFBIG';
+
+				delete from maxdomain where domainid = 'REF100';
+				delete from numericdomain where domainid = 'REF100';
+
+				delete from maxdomain where domainid = 'REFCOMBOVALUES4';
+				delete from maxtabledomain where domainid = 'REFCOMBOVALUES4';
+
+				delete from maxdomain where domainid = 'REFCOMBOVALUES0';
+				delete from maxtabledomain where domainid = 'REFCOMBOVALUES0';
+
+				delete from maxdomain where domainid = 'REFTABLE4';
+				delete from maxtabledomain where domainid = 'REFTABLE4';
+
+				delete from maxdomain where domainid = 'REFTABLEHEX';
+				delete from maxtabledomain where domainid = 'REFTABLEHEX';
+
+				delete from maxdomain where domainid = 'REFTABLEEMPTY';
+				delete from maxtabledomain where domainid = 'REFTABLEEMPTY';
+			</sql>
+		</freeform>
+
+		<freeform description="Cleanup autokeys">
+			<sql target="all">
+				delete from autokey where autokeyname='REFMAINNUM';
+				delete from autokey where autokeyname='REFCHILDANUM';
+				delete from autokey where autokeyname='REF_KEY';
+				delete from autokey where autokeyname='REF_KEY_CHILDA';
+			</sql>
+		</freeform>
+	</statements>
+</script>

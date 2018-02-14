@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- If you add a message in this file, don't forget to add the deletion to deletemessages.xml -->
+
+<messages cleanup="false" version="THRASHER">
+  <Message id="REFAA0001W" group="refapp" key="warndemo" prefix="YES">
+    <Display method="MSGBOX">
+      <Option>MSG_BTNOK</Option>
+    </Display>
+    <MsgText>The value provided does not start with &apos;&apos;A&apos;&apos;.</MsgText>
+    <Explanation></Explanation>
+    <AdminResponse></AdminResponse>
+    <OperatorResponse></OperatorResponse>
+  </Message>
+  <Message id="REFAA0002E" group="refapp" key="yesnocanceltest" prefix="YES">
+    <Display method="MSGBOX">
+      <Option>MSG_BTNYES</Option>
+      <Option>MSG_BTNNO</Option>
+      <Option>MSG_BTNCANCEL</Option>
+    </Display>
+    <MsgText>The value provided does not start with &quot;A&quot;. Would you like to prepend &apos;&apos;A&apos;&apos; to the value entered?</MsgText>
+    <Explanation></Explanation>
+    <AdminResponse></AdminResponse>
+    <OperatorResponse></OperatorResponse>
+  </Message>
+  <Message id="REFAA0003W" group="refapp" key="yesnocancelaction" prefix="YES">
+    <Display method="MSGBOX">
+      <Option>MSG_BTNOK</Option>
+    </Display>
+    <MsgText>Warning the other field does not have a value.</MsgText>
+    <Explanation></Explanation>
+    <AdminResponse></AdminResponse>
+    <OperatorResponse></OperatorResponse>
+  </Message>
+  <Message id="REFAA0004W" group="refapp" key="warncheckbox" prefix="YES">
+    <Display method="MSGBOX">
+      <Option>MSG_BTNOK</Option>
+    </Display>
+    <MsgText>You checked the checkbox</MsgText>
+    <Explanation></Explanation>
+    <AdminResponse></AdminResponse>
+    <OperatorResponse></OperatorResponse>
+  </Message>
+  <Message id="REFAA0005E" group="refapp" key="errorcheckbox" prefix="YES">
+    <Display method="MSGBOX">
+      <Option>MSG_BTNOK</Option>
+    </Display>
+    <MsgText>Checking this checkbox is not allowed.</MsgText>
+    <Explanation></Explanation>
+    <AdminResponse></AdminResponse>
+    <OperatorResponse></OperatorResponse>
+  </Message>
+  <Message id="REFAA0006W" group="refapp" key="ynccheckbox" prefix="YES">
+    <Display method="MSGBOX">
+      <Option>MSG_BTNYES</Option>
+      <Option>MSG_BTNNO</Option>
+      <Option>MSG_BTNCANCEL</Option>
+    </Display>
+    <MsgText>Are you sure you want to check this checkbox?</MsgText>
+    <Explanation></Explanation>
+    <AdminResponse></AdminResponse>
+    <OperatorResponse></OperatorResponse>
+  </Message>
+
+  <Message id="REFAA0007E" group="refapp" key="msgClose" prefix="YES">
+    <Display method="MSGBOX">
+      <Option>MSG_BTNCLOSE</Option>
+    </Display>
+    <MsgText>Error message with a close button</MsgText>
+    <Explanation></Explanation>
+    <AdminResponse></AdminResponse>
+    <OperatorResponse></OperatorResponse>
+  </Message>
+
+  <Message id="REFAA0008I" group="refapp" key="msgOk" prefix="YES">
+    <Display method="MSGBOX">
+      <Option>MSG_BTNOK</Option>
+    </Display>
+    <MsgText>Informational message with an OK button</MsgText>
+    <Explanation></Explanation>
+    <AdminResponse></AdminResponse>
+    <OperatorResponse></OperatorResponse>
+  </Message>
+
+  <Message id="REFAA0009W" group="refapp" key="msgOkCancel" prefix="YES">
+    <Display method="MSGBOX">
+      <Option>MSG_BTNOK</Option>
+      <Option>MSG_BTNCANCEL</Option>
+    </Display>
+    <MsgText>Warning message with OK and Cancel buttons</MsgText>
+    <Explanation></Explanation>
+    <AdminResponse></AdminResponse>
+    <OperatorResponse></OperatorResponse>
+  </Message>
+
+  <Message id="REFAA0010W" group="refapp" key="msgYesNo" prefix="YES">
+    <Display method="MSGBOX">
+      <Option>MSG_BTNYES</Option>
+      <Option>MSG_BTNNO</Option>
+    </Display>
+    <MsgText>Warning message with Yes and No buttons</MsgText>
+    <Explanation></Explanation>
+    <AdminResponse></AdminResponse>
+    <OperatorResponse></OperatorResponse>
+  </Message>
+
+  <Message id="REFAA0011W" group="refapp" key="msgYesNoCancel" prefix="YES">
+    <Display method="MSGBOX">
+      <Option>MSG_BTNYES</Option>
+      <Option>MSG_BTNNO</Option>
+      <Option>MSG_BTNCANCEL</Option>
+    </Display>
+    <MsgText>Warning message with Yes, No, and Cancel buttons</MsgText>
+    <Explanation></Explanation>
+    <AdminResponse></AdminResponse>
+    <OperatorResponse></OperatorResponse>
+  </Message>
+
+  <Message id="REFAA0012E" group="refapp" key="statusMsg" prefix="YES">
+    <Display method="STATUS"/>
+    <MsgText>Status message</MsgText>
+    <Explanation></Explanation>
+    <AdminResponse></AdminResponse>
+    <OperatorResponse></OperatorResponse>
+  </Message>
+
+</messages>

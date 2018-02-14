@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script SYSTEM "../../../../../tools/maximo/script.dtd">
+<script author="MAXIMO" scriptname="refapp">
+  <description>Maximo Reference Application</description>
+  <statements>
+    <create_app app="REFAUTO" description="Auto Reference Application" maintbname="REF" />
+    <specify_aln_domain maxtype="UPPER" length="2" domainid="STATE" description="State Abbreviations" overwrite="false">
+      <alnvalueinfo value="AL" description="ALABAMA" />
+      <alnvalueinfo value="AK" description="ALASKA" />
+      <alnvalueinfo value="AS" description="AMERICAN SAMOA" />
+      <alnvalueinfo value="AZ" description="ARIZONA " />
+      <alnvalueinfo value="AR" description="ARKANSAS" />
+      <alnvalueinfo value="CA" description="CALIFORNIA " />
+      <alnvalueinfo value="CO" description="COLORADO " />
+      <alnvalueinfo value="CT" description="CONNECTICUT" />
+      <alnvalueinfo value="DE" description="DELAWARE" />
+      <alnvalueinfo value="DC" description="DISTRICT OF COLUMBIA" />
+      <alnvalueinfo value="FM" description="FEDERATED STATES OF MICRONESIA" />
+      <alnvalueinfo value="FL" description="FLORIDA" />
+      <alnvalueinfo value="GA" description="GEORGIA" />
+      <alnvalueinfo value="GU" description="GUAM " />
+      <alnvalueinfo value="HI" description="HAWAII" />
+      <alnvalueinfo value="ID" description="IDAHO" />
+      <alnvalueinfo value="IL" description="ILLINOIS" />
+      <alnvalueinfo value="IN" description="INDIANA" />
+      <alnvalueinfo value="IA" description="IOWA" />
+      <alnvalueinfo value="KS" description="KANSAS" />
+      <alnvalueinfo value="KY" description="KENTUCKY" />
+      <alnvalueinfo value="LA" description="LOUISIANA" />
+      <alnvalueinfo value="ME" description="MAINE" />
+      <alnvalueinfo value="MH" description="MARSHALL ISLANDS" />
+      <alnvalueinfo value="MD" description="MARYLAND" />
+      <alnvalueinfo value="MA" description="MASSACHUSETTS" />
+      <alnvalueinfo value="MI" description="MICHIGAN" />
+      <alnvalueinfo value="MN" description="MINNESOTA" />
+      <alnvalueinfo value="MS" description="MISSISSIPPI" />
+      <alnvalueinfo value="MO" description="MISSOURI" />
+      <alnvalueinfo value="MT" description="MONTANA" />
+      <alnvalueinfo value="NE" description="NEBRASKA" />
+      <alnvalueinfo value="NV" description="NEVADA" />
+      <alnvalueinfo value="NH" description="NEW HAMPSHIRE" />
+      <alnvalueinfo value="NJ" description="NEW JERSEY" />
+      <alnvalueinfo value="NM" description="NEW MEXICO" />
+      <alnvalueinfo value="NY" description="NEW YORK" />
+      <alnvalueinfo value="NC" description="NORTH CAROLINA" />
+      <alnvalueinfo value="ND" description="NORTH DAKOTA" />
+      <alnvalueinfo value="MP" description="NORTHERN MARIANA ISLANDS" />
+      <alnvalueinfo value="OH" description="OHIO" />
+      <alnvalueinfo value="OK" description="OKLAHOMA" />
+      <alnvalueinfo value="OR" description="OREGON" />
+      <alnvalueinfo value="PW" description="PALAU" />
+      <alnvalueinfo value="PA" description="PENNSYLVANIA" />
+      <alnvalueinfo value="PR" description="PUERTO RICO" />
+      <alnvalueinfo value="RI" description="RHODE ISLAND" />
+      <alnvalueinfo value="SC" description="SOUTH CAROLINA" />
+      <alnvalueinfo value="SD" description="SOUTH DAKOTA" />
+      <alnvalueinfo value="TN" description="TENNESSEE" />
+      <alnvalueinfo value="TX" description="TEXAS" />
+      <alnvalueinfo value="UT" description="UTAH" />
+      <alnvalueinfo value="VT" description="VERMONT" />
+      <alnvalueinfo value="VI" description="VIRGIN ISLANDS" />
+      <alnvalueinfo value="VA" description="VIRGINIA " />
+      <alnvalueinfo value="WA" description="WASHINGTON" />
+      <alnvalueinfo value="WV" description="WEST VIRGINIA" />
+      <alnvalueinfo value="WI" description="WISCONSIN" />
+      <alnvalueinfo value="WY" description="WYOMING" />
+    </specify_aln_domain>
+    <define_table persistent="true" type="system" object="REF" description="Reference" service="CUSTAPP" classname="psdi.app.refapp.RefSet">
+      <attrdef attribute="REF" defaultvalue="&amp;AUTOKEY&amp;" autokey="REFAPPNUM" maxtype="UPPER" title="RefId" remarks="Ref Id" length="10" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="true" restricted="false" />
+      <attrdef attribute="DESCRIPTION" maxtype="ALN" title="Description" remarks="Description" length="50" persistent="true" haslongdesc="true" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="DECIMAL" maxtype="DECIMAL" title="Decimal" remarks="Decimal Attribute" length="16" scale="2" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="INTEGER" maxtype="INTEGER" title="Integer" remarks="Integer Attribute" length="12" scale="0" persistent="false" haslongdesc="false" required="false" mustbe="false" ispositive="true" canautonum="false" restricted="false" />
+      <attrdef attribute="STATE" maxtype="UPPER" domain="STATE" title="State" remarks="State" length="2" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="Alphanumeric" maxtype="ALN" title="Alphanumeric" remarks="Alphanumeric" length="30" scale="0" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="ShortAlpha" maxtype="ALN" title="Short Alpha" remarks="Short Alphanumeric" length="5" scale="0" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="YORN" maxtype="YORN" defaultvalue="0" title="YORN" remarks="YORN Attribute" length="1" scale="0" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="LongAlpha" maxtype="ALN" title="Long Alpha" remarks="Long Alphanumeric" length="50" persistent="true" haslongdesc="true" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="DATE" maxtype="DATE" title="Date" remarks="Date Attribute" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="AMOUNT" maxtype="AMOUNT" title="Amount" remarks="Amount Attribute" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="ALN" maxtype="ALN" title="Alphanumeric" remarks="Alphanumeric" length="30" scale="0" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="BLOB" maxtype="BLOB" title="BLOB" remarks="BLOB" length="30" scale="0" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="CLOB" maxtype="CLOB" title="CLOB" remarks="CLOB" length="30" scale="0" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="CRYPTO" maxtype="CRYPTO" title="CRYPTO" remarks="CRYPTO" length="30" scale="0" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="CRYPTOX" maxtype="CRYPTOX" title="CRYPTOX" remarks="CRYPTOX" length="30" scale="0" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="DURATION" maxtype="DURATION" title="DURATION" remarks="DURATION" length="30" scale="0" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="FLOAT" maxtype="FLOAT" title="FLOAT" remarks="FLOAT" length="30" scale="0" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="GL" maxtype="GL" title="GL" remarks="GL" length="30" scale="0" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="LOWER" maxtype="LOWER" title="LOWER" remarks="LOWER" length="30" scale="0" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="SMALLINT" maxtype="SMALLINT" title="SMALLINT" remarks="SMALLINT" length="30" scale="0" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="UPPER" maxtype="UPPER" title="UPPER" remarks="UPPER" length="30" scale="0" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="DATETIME" maxtype="DATETIME" title="DATETIME" remarks="Date-Time Attribute" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="TIME" maxtype="TIME" title="Time" remarks="Time Attribute" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="ALNWLD" maxtype="ALN" title="AlphanumericWLD" remarks="Alphanumeric w\ LD" length="30" scale="0" persistent="true" haslongdesc="true" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="ALNREQ" maxtype="ALN" title="AlphanumericDBRequired" remarks="Alphanumeric DB Required" length="30" scale="0" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="ALNREQWLD" maxtype="ALN" title="AlphanumericDBRequiredWLD" remarks="Alphanumeric DB Required w\ LD" length="30" scale="0" persistent="true" haslongdesc="true" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+    </define_table>
+    <define_table persistent="true" type="system" object="REFCHILD" description="Reference Child" service="CUSTAPP" classname="psdi.app.refapp.ChildSet">
+      <attrdef attribute="CHILD" maxtype="ALN" title="Child Name" remarks="Child Name" length="30" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="REF" maxtype="UPPER" title="Ref" remarks="Ref" sameasobject="REF" sameasattribute="REF" length="10" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+      <attrdef attribute="DESCRIPTION" maxtype="ALN" title="Description" remarks="Description" length="50" persistent="true" haslongdesc="true" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" />
+    </define_table>
+    <create_relationship parent="REFAUTO" name="REFCHILD" child="REFCHILD" whereclause="ref=:ref" remarks="RefChild" />
+    <create_relationship parent="REFAUTO" name="IMGLIB" child="IMGLIB" whereclause="refobject = 'REF' and refobjectid = :refid" remarks="Record Image" />
+    <add_sigoption visible="true" app="REFAUTO" optionname="DELETE" description="Delete REF" prerequisite="SAVE" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="false" app="REFAUTO" optionname="BOOKMARK" description="Add to Bookmarks" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAUTO" optionname="SEARCHMORE" description="More Search Fields" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAUTO" optionname="READ" description="Read Access to REF" alsogrants="CLEAR,BOOKMARK,NEXT,PREVIOUS" alsorevokes="ALL" langcode="EN" />
+    <add_sigoption visible="true" app="REFAUTO" optionname="SEARCHTIPS" description="View Search Tips" langcode="EN" />
+    <add_sigoption visible="true" app="REFAUTO" optionname="SEARCHBOOK" description="Bookmarks" langcode="EN" />
+    <add_sigoption visible="true" app="REFAUTO" optionname="SEARCHSQRY" description="Save Current Query" langcode="EN" />
+    <add_sigoption visible="true" app="REFAUTO" optionname="SEARCHVMQR" description="View/Manage Queries" langcode="EN" />
+    <add_sigoption visible="true" app="REFAUTO" optionname="SEARCHWHER" description="Where Clause" langcode="EN" />
+    <add_sigoption visible="true" app="REFAUTO" optionname="SAVE" description="Save REF" alsorevokes="INSERT,DUPLICATE,DELETE" langcode="EN" />
+    <add_sigoption visible="true" app="REFAUTO" optionname="INSERT" description="New REF" alsogrants="SAVE" alsorevokes="DUPLICATE" langcode="EN" />
+    <add_sigoption visible="false" app="REFAUTO" optionname="CLEAR" description="Clear Changes" langcode="EN" />
+    <add_sigoption visible="false" app="REFAUTO" optionname="PREVIOUS" description="Previous REF" langcode="EN" />
+    <add_sigoption visible="false" app="REFAUTO" optionname="NEXT" description="Next REF" langcode="EN" />
+    <add_sigoption visible="true" app="REFAUTO" optionname="DUPLICATE" description="Duplicate REF" prerequisite="INSERT" langcode="EN" />
+    <add_sigoption visible="true" app="REFAUTO" optionname="ITEMIMAGE" description="Add/Modify Image" />
+    <freeform description="add long descriptions">
+      <sql target="all">
+      insert into REF (refid, ref, state, hasld) values (1, '1001', 'AL', 1);
+      insert into REF (refid, ref, state, hasld) values (2, '1002', 'AK', 0);
+      insert into REF (refid, ref, state, hasld) values (3, '1003', 'AZ', 1);
+      insert into REF (refid, ref, state, hasld) values (4, '1004', 'AR', 0);
+      insert into REF (refid, ref, state, hasld) values (5, '1005', 'CA', 0);
+      insert into REF (refid, ref, state, hasld) values (6, '1006', 'CO', 0);
+      insert into REF (refid, ref, state, hasld) values (7, '1007', 'CT', 0);
+      insert into REF (refid, ref, state, hasld) values (8, '1008', 'DE', 0); 
+      insert into REF (refid, ref, state, hasld) values (9, '1009', 'FL', 0);
+      insert into REF (refid, ref, state, hasld) values (10, '1010', 'GA', 0); 
+      insert into REF (refid, ref, state, hasld) values (11, '1011', 'HI', 0); 
+      insert into REF (refid, ref, state, hasld) values (12, '1012', 'ID', 0); 
+      insert into REF (refid, ref, state, hasld) values (13, '1013', 'IL', 0);
+      insert into REF (refid, ref, state, hasld) values (14, '1014', 'IN', 0); 
+      insert into REF (refid, ref, state, hasld) values (15, '1015', 'IA', 0); 
+      insert into REF (refid, ref, state, hasld) values (16, '1016', 'KS', 0);
+      insert into REF (refid, ref, state, hasld) values (17, '1017', 'KY', 0);
+      insert into REF (refid, ref, state, hasld) values (18, '1018', 'LA', 0);
+      insert into REF (refid, ref, state, hasld) values (19, '1019', 'ME', 0);
+      insert into REF (refid, ref, state, hasld) values (20, '1020', 'MD', 0); 
+      insert into REF (refid, ref, state, hasld) values (21, '1021', 'MA', 0);
+      insert into REF (refid, ref, state, hasld) values (22, '1022', 'MI', 0);
+      insert into REF (refid, ref, state, hasld) values (23, '1023', 'MN', 0); 
+      insert into REF (refid, ref, state, hasld) values (24, '1024', 'MS', 0);
+      insert into REF (refid, ref, state, hasld) values (25, '1025', 'MO', 0);
+      insert into REF (refid, ref, state, hasld) values (26, '1026', 'MT', 0);
+      insert into REF (refid, ref, state, hasld) values (27, '1027', 'NE', 0);
+      insert into REF (refid, ref, state, hasld) values (28, '1028', 'NV', 0);
+      insert into REF (refid, ref, state, hasld) values (29, '1029', 'NH', 0);
+      insert into REF (refid, ref, state, hasld) values (30, '1030', 'NJ', 0);
+      insert into REF (refid, ref, state, hasld) values (31, '1031', 'NM', 0);
+      insert into REF (refid, ref, state, hasld) values (32, '1032', 'NY', 0);
+      insert into REF (refid, ref, state, hasld) values (33, '1033', 'NC', 0);
+      insert into REF (refid, ref, state, hasld) values (34, '1034', 'ND', 0);
+      insert into REF (refid, ref, state, hasld) values (35, '1035', 'OH', 0); 
+      insert into REF (refid, ref, state, hasld) values (36, '1036', 'OK', 0);
+      insert into REF (refid, ref, state, hasld) values (37, '1037', 'OR', 0);
+      insert into REF (refid, ref, state, hasld) values (38, '1038', 'PA', 0);
+      insert into REF (refid, ref, state, hasld) values (39, '1039', 'RI', 0);
+      insert into REF (refid, ref, state, hasld) values (40, '1040', 'SC', 0);
+      insert into REF (refid, ref, state, hasld) values (41, '1041', 'SD', 0);
+      insert into REF (refid, ref, state, hasld) values (42, '1042', 'TN', 0);
+      insert into REF (refid, ref, state, hasld) values (43, '1043', 'TX', 0);
+      insert into REF (refid, ref, state, hasld) values (44, '1044', 'UT', 0);
+      insert into REF (refid, ref, state, hasld) values (45, '1045', 'VT', 0);
+      insert into REF (refid, ref, state, hasld) values (46, '1046', 'VA', 0); 
+      insert into REF (refid, ref, state, hasld) values (47, '1047', 'WA', 0);
+      insert into REF (refid, ref, state, hasld) values (48, '1048', 'WV', 0);
+      insert into REF (refid, ref, state, hasld) values (49, '1049', 'WI', 0);
+      insert into REF (refid, ref, state, hasld) values (50, '1050', 'WY', 0);
+      
+      insert into LONGDESCRIPTION (contentuid, ldkey, ldownertable, ldownercol, ldtext) values ('REF1', 1, 'REF', 'DESCRIPTION', 'A piece of long description here.');
+      insert into LONGDESCRIPTION (contentuid, ldkey, ldownertable, ldownercol, ldtext) values ('REF3', 3, 'REF', 'DESCRIPTION', 'Some good long text.');
+      insert into LONGDESCRIPTION (contentuid, ldkey, ldownertable, ldownercol, ldtext) values ('REF5', 5, 'REF', 'DESCRIPTION', 'More long text.');
+      
+      insert into REFCHILD (child, ref, description) values ('GEO POINT 114A', '1001MONT', 'description');
+      insert into REFCHILD (child, ref, description) values ('GEO POINT 114B', '1001MONT', 'description');
+      insert into REFCHILD (child, ref, description) values ('GEO POINT 117A', '1001MONT',  'description');
+      insert into REFCHILD (child, ref, description) values ('GEO POINT 117B', '1001MONT',  'description');
+      insert into REFCHILD (child, ref, description) values ('GEO POINT 117C', '1001MONT',  'description');
+      insert into REFCHILD (child, ref, description) values ('GEO POINT 117D', '1001MONT',  'description');
+      insert into REFCHILD (child, ref, description) values ('GEO POINT 124A', '1001MONT',  'description');
+      insert into REFCHILD (child, ref, description) values ('GEO POINT 124C', '1001MONT',  'description');
+      insert into REFCHILD (child, ref, description) values ('GEO POINT 124D', '1001MONT',  'description');
+      insert into REFCHILD (child, ref, description) values ('GEO POINT 124E', '1001MONT',  'description');
+      insert into REFCHILD (child, ref, description) values ('GEO POINT 124F', '1001MONT',  'description');
+      insert into REFCHILD (child, ref, description) values ('Marquette Lake', '1002JUNE',  'description');
+      insert into REFCHILD (child, ref, description) values ('Dunstable Peak', '1002JUNE',  'description');
+      insert into REFCHILD (child, ref, description) values ('Turkey Landing Airfield', '1002JUNE',  'description');
+      insert into REFCHILD (child, ref, description) values ('Lansing Firetower', '1002JUNE',  'description');
+
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAUTO',12,0,'OPTION','DELETE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAUTO',13,0,'OPTION','BOOKMARK','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAUTO',2,0,'SEP','AT2','',1,'','','');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAUTO',10,0,'HEADER','SM10','Advanced Search',1,'atb_search.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAUTO',11,0,'OPTION','DUPLICATE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAUTO',20,0,'HEADER','SM20','Save Query',1,'atb_save.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAUTO',10,10,'OPTION','SEARCHMORE','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAUTO',30,0,'OPTION','SEARCHBOOK','',1,'atb_bookmark.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAUTO',1,2,'OPTION','SAVE','',1,'nav_icon_save.gif','CTRL+ALT+S','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAUTO',1,1,'OPTION','INSERT','',1,'nav_icon_insert.gif','CTRL+ALT+I','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAUTO',1,3,'OPTION','CLEAR','',1,'nav_icon_clear.gif','CTRL+ALT+C','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAUTO',2,1,'OPTION','PREVIOUS','',1,'nav_icon_previous.gif','CTRL+ALT+P','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAUTO',2,2,'OPTION','NEXT','',1,'nav_icon_next.gif','CTRL+ALT+N','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAUTO',10,20,'OPTION','SEARCHWHER','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAUTO',20,20,'OPTION','SEARCHVMQR','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAUTO',10,30,'OPTION','SEARCHTIPS','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAUTO',20,10,'OPTION','SEARCHSQRY','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAUTO',14,0,'OPTION','ITEMIMAGE','',1,'','','MAIN');
+      
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','READ');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','SEARCHBOOK');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','SEARCHWHER');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','SEARCHMORE');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','SEARCHSQRY');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','SEARCHTIPS');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','SEARCHVMQR');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','DELETE');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','INSERT');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','NEXT');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','DUPLICATE');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','CLEAR');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','SAVE');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','PREVIOUS');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','BOOKMARK');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFAUTO','ITEMIMAGE');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('TICKRESP','REFAUTO','SEARCHBOOK');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('TICKRESP','REFAUTO','SEARCHWHER');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('TICKRESP','REFAUTO','SEARCHMORE');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('TICKRESP','REFAUTO','SEARCHSQRY');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('TICKRESP','REFAUTO','SEARCHTIPS');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('TICKRESP','REFAUTO','SEARCHVMQR');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('TICKRESP','REFAUTO','DELETE');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('TICKRESP','REFAUTO','INSERT');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('TICKRESP','REFAUTO','NEXT');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('TICKRESP','REFAUTO','DUPLICATE');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('TICKRESP','REFAUTO','CLEAR');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('TICKRESP','REFAUTO','SAVE');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('TICKRESP','REFAUTO','PREVIOUS');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('TICKRESP','REFAUTO','BOOKMARK');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('TICKRESP','REFAUTO','ITEMIMAGE');
+      
+      insert into MAXMENU (MENUTYPE,MODULEAPP,POSITION,SUBPOSITION,ELEMENTTYPE,KEYVALUE,VISIBLE,IMAGE) values ('MODULE','REFAPPS',11142,0,'APP','REFAUTO',1,'appimg_ref.gif');
+      insert into autokey (seed, autokeyname, langcode, autokeyid) values (1051, 'REFAPPNUM', 'EN', autokeyseq.nextval);
+      </sql>
+    </freeform>
+  </statements>
+</script>

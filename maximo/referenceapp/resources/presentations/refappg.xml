@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presentation id="refappg" ismobile="false" mboname="REFMAIN" resultstableid="refappg_results_showlist" version="6.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation='presentation.xsd' xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<page id="mainrec">
+		<include id="pageHeader"/>
+		<clientarea id="refappg_clientarea">
+			<helpgrid id="refappg_1_help" innerhtml="This app demonstrates following test cases &lt;br /&gt; 
+				&lt;ul&gt;
+					&lt;li&gt; on {control} --- &lt;code&gt;{property='value'}&lt;/code&gt;  where {some other notes}.
+				&lt;/ul&gt;"/>		
+			<tabgroup id="refappg_maintabs" style="form">
+				<tab default="true" id="refappg_results" label="List" type="list">
+					<menubar event="search" id="refappg_actiontoolbar1" sourcemethod="getAppSearchOptions"/>
+					<table id="refappg_results_showlist" inputmode="readonly" label="Main Records" mboname="REFMAIN" selectmode="multiple">
+						<tablebody displayrowsperpage="15" filterable="true" filterexpanded="true" id="refappg_results_showlist_tablebody">
+							<tablecol dataattribute="REFMAINID" filterable="false" id="refappg_results_showlist_column_select" mxevent="toggleselectrow" mxevent_desc="Select Row {0}" sortable="false" type="event"/>
+							<tablecol dataattribute="REFMAINNUM" id="refappg_results_showlist_column_link" mxevent="selectrecord" mxevent_desc="Go To %1" type="link" usefieldsizegroup="false"/>
+							<tablecol dataattribute="ALN100_WITHLD" id="refappg_results_showlist_column2"/>
+							<tablecol dataattribute="REFMAINID" id="refappg_results_showlist_column1" mxevent="selectrecord" mxevent_desc="Go To %1" type="LINK"/>
+							<tablecol filterable="false" id="refappg_results_bookmark" mxevent="BOOKMARK" mxevent_desc="Add to Bookmarks" mxevent_icon="btn_addtobookmarks.gif" sortable="false" type="event"/>
+						</tablebody>
+					</table>
+				</tab>
+				<tab id="refappg_main" label="Main" type="insert">
+					<section id="refappg_main_section">
+						<multiparttextbox dataattribute="REFMAINNUM" descdataattribute="ALN100_WITHLD" id="refappg_main_section_1"/>
+					</section>
+					<section id="refappg_maintab_section" label="Main Record Info">
+						<textbox dataattribute="ALN10" id="refappg_maintab_attr1"/>
+						<combobox dataattribute="ALNDOMAINAB" id="refappg_maintab_attr2"/>
+					</section>
+				</tab>
+				
+			</tabgroup>
+		</clientarea>
+		<include id="pageFooter"/>
+	</page>	
+</presentation>

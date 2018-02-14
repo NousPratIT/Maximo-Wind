@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<systemlib id="menus" version="7.1.0.0"
+		xsi:noNamespaceSchemaLocation='../../../../applications/maximo/properties/systemlib.xsd' 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+	<menu id="SHOWSINGLE" showsingle="true">
+    	<menuitem id="showsingle0" label="Select Value" event="selectvalue" image="menu_icon_find.gif" />
+	</menu>
+
+	<menu id="DISABLEDNULL">
+    	<menuitem id="disablednull" label="Select Value" event="selectvalue" image="menu_icon_find.gif"/>
+    	<menuitem id="disablednulllsep" label="-" />
+    	<menuitem id="disablednull1" label="Select Value (should be disabled if field value is null)" event="selectvalue" image="menu_icon_find.gif" disablenull="true"/>
+	</menu>
+
+	<menu id="SHOWSINGLEICON" label="Should show expbuilder icon" showsingle="true" image="img_expbuilder.gif">
+    	<menuitem id="single0" label="Select Value" event="selectvalue" image="menu_icon_find.gif" />
+	</menu>
+
+	<menu id="SINGLEICON" label="Should show expbuilder icon" image="img_expbuilder.gif">
+    	<menuitem id="single1" label="Select Value" event="selectvalue" image="menu_icon_find.gif" />
+	</menu>
+
+	<menu id="SINGLE" >
+    	<menuitem id="single2" label="Select Value" event="selectvalue" image="menu_icon_find.gif" />
+	</menu>
+
+    <menu id="ICONTEST1">
+     <menuitem id="icontest1_mi1" label="Select Value" event="selectvalue" image="menu_icon_find.gif" />
+     <menuitem id="icontest1_mi2" label="Go To" event="applink" image="menu_icon_link.gif" applinkid="ci"  />
+     <menuitem id="icontest1_mi3" label="Go To" event="applink" image="menu_icon_link.gif" applinkid="asset"  />
+     <menuitem id="icontest1_mi4" label="Classifications(w/Sigopt)" event="searchClassificationCI" image="action_insert_launch.gif" sigoption="REFICONS" />
+     <menuitem id="icontest1_mi5" label="Attributes" event="searchAttributeCI"  image="menu_icon_catalog.gif" />
+    </menu>
+
+    <menu id="ICONTEST2">
+     <menuitem id="icontest2_mi1" label="Classifications" event="searchClassificationCI" image="action_insert_launch.gif" />
+     <menuitem id="icontest2_mi2" label="Attributes" event="searchAttributeCI"  image="menu_icon_catalog.gif" />
+     <menuitem id="workorder2" label="Classification" event="searchClassificationWO" value="WO" image="menu_icon_catalog.gif" disablenull="true"/>
+    </menu>
+</systemlib>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<applicationbnd:ApplicationBinding xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:applicationbnd="applicationbnd.xmi" xmi:id="ApplicationBinding_1077125442431">
+  <authorizationTable xmi:id="AuthorizationTable_1077125442431">
+    <authorizations xmi:id="RoleAssignment_1077125442431">
+      <role href="META-INF/application.xml#SecurityRole_1077125442431"/>
+      <groups xmi:id="Group_1077125442441" name="maximousers"/>
+    </authorizations>
+  </authorizationTable>
+  <application href="META-INF/application.xml#Application_1077125442441"/>
+</applicationbnd:ApplicationBinding>

@@ -1,0 +1,4 @@
+// WebSphere Application Server Security Policy for maximo
+grant codeBase "file:${application}" {
+  permission java.security.AllPermission;
+};

@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script SYSTEM "../../../../../tools/maximo/script.dtd">
+<script author="AppFwTeam" scriptname="DBC for Basic Reference App">
+  <description>DBC for Basic Reference App</description>
+  <statements>
+    <specify_aln_domain maxtype="ALN" length="3" domainid="REFHEX" description="Simple domain with hex digits" overwrite="false">
+      <alnvalueinfo value="0x0" description="0" />
+      <alnvalueinfo value="0x1" description="1" />
+      <alnvalueinfo value="0x2" description="2" />
+      <alnvalueinfo value="0x3" description="3" />
+      <alnvalueinfo value="0x4" description="4" />
+      <alnvalueinfo value="0x5" description="5" />
+      <alnvalueinfo value="0x6" description="6" />
+      <alnvalueinfo value="0x7" description="7" />
+      <alnvalueinfo value="0x8" description="8" />
+      <alnvalueinfo value="0x9" description="9" />
+      <alnvalueinfo value="0xA" description="A" />
+      <alnvalueinfo value="0xB" description="B" />
+      <alnvalueinfo value="0xC" description="C" />
+      <alnvalueinfo value="0xD" description="D" />
+      <alnvalueinfo value="0xE" description="E" />
+      <alnvalueinfo value="0xF" description="F" />
+    </specify_aln_domain>
+
+    <specify_aln_domain maxtype="ALN" length="3" domainid="REFLETTERS" description="Simple domain with hex digits" overwrite="false">
+      <alnvalueinfo value="A" description="Letter A" />
+      <alnvalueinfo value="B" description="Letter B" />
+      <alnvalueinfo value="C" description="Letter C" />
+      <alnvalueinfo value="D" description="Letter D" />
+      <alnvalueinfo value="E" description="Letter E" />
+      <alnvalueinfo value="F" description="Letter F" />
+      <alnvalueinfo value="G" description="Letter G" />
+      <alnvalueinfo value="H" description="Letter H" />
+      <alnvalueinfo value="I" description="Letter I" />
+      <alnvalueinfo value="J" description="Letter J" />
+      <alnvalueinfo value="K" description="Letter K" />
+      <alnvalueinfo value="L" description="Letter L" />
+      <alnvalueinfo value="M" description="Letter M" />
+      <alnvalueinfo value="N" description="Letter N" />
+      <alnvalueinfo value="O" description="Letter O" />
+      <alnvalueinfo value="P" description="Letter P" />
+      <alnvalueinfo value="Q" description="Letter Q" />
+      <alnvalueinfo value="R" description="Letter R" />
+      <alnvalueinfo value="S" description="Letter S" />
+      <alnvalueinfo value="T" description="Letter T" />
+      <alnvalueinfo value="U" description="Letter U" />
+      <alnvalueinfo value="V" description="Letter V" />
+      <alnvalueinfo value="W" description="Letter W" />
+      <alnvalueinfo value="X" description="Letter X" />
+      <alnvalueinfo value="Y" description="Letter Y" />
+      <alnvalueinfo value="Z" description="Letter Z" />
+    </specify_aln_domain>
+
+    <specify_aln_domain maxtype="UPPER" length="1" domainid="REFAB" description="Simple domain with two items: A and B" overwrite="false">
+      <alnvalueinfo value="A" description="Letter A" />
+      <alnvalueinfo value="B" description="Letter B" />
+    </specify_aln_domain>
+    <specify_aln_domain maxtype="UPPER" length="1" domainid="REFJK" description="Simple domain with two items: J and K" overwrite="false">
+      <alnvalueinfo value="J" description="Letter J" />
+      <alnvalueinfo value="K" description="Letter K" />
+    </specify_aln_domain>
+    <specify_aln_domain maxtype="UPPER" length="1" domainid="REFXY" description="Simple domain with two items: X and Y" overwrite="false">
+      <alnvalueinfo value="X" description="Letter X" />
+      <alnvalueinfo value="Y" description="Letter Y" />
+    </specify_aln_domain>
+
+    <specify_numeric_domain length="2" domainid="REF100" description="A domain with 100 items, for scroll/trunctation testing" overwrite="false">
+      <numericvalueinfo value="0"  description="0" /><numericvalueinfo value="1"  description="1" /><numericvalueinfo value="2"  description="2" />
+      <numericvalueinfo value="3"  description="3" /><numericvalueinfo value="4"  description="4" /><numericvalueinfo value="5"  description="5" />
+      <numericvalueinfo value="6"  description="6" /><numericvalueinfo value="7"  description="7" /><numericvalueinfo value="8"  description="8" />
+      <numericvalueinfo value="9"  description="9" />
+      <numericvalueinfo value="10" description="10" /><numericvalueinfo value="11" description="11" /><numericvalueinfo value="12" description="12" />
+      <numericvalueinfo value="13" description="13" /><numericvalueinfo value="14" description="14" /><numericvalueinfo value="15" description="15" />
+      <numericvalueinfo value="16" description="16" /><numericvalueinfo value="17" description="17" /><numericvalueinfo value="18" description="18" />
+      <numericvalueinfo value="19" description="19" />
+      <numericvalueinfo value="20" description="20" /><numericvalueinfo value="21" description="21" /><numericvalueinfo value="22" description="22" />
+      <numericvalueinfo value="23" description="23" /><numericvalueinfo value="24" description="24" /><numericvalueinfo value="25" description="25" />
+      <numericvalueinfo value="26" description="26" /><numericvalueinfo value="27" description="27" /><numericvalueinfo value="28" description="28" />
+      <numericvalueinfo value="29" description="29" />
+      <numericvalueinfo value="30" description="30" /><numericvalueinfo value="31" description="31" /><numericvalueinfo value="32" description="32" />
+      <numericvalueinfo value="33" description="33" /><numericvalueinfo value="34" description="34" /><numericvalueinfo value="35" description="35" />
+      <numericvalueinfo value="36" description="36" /><numericvalueinfo value="37" description="37" /><numericvalueinfo value="38" description="38" />
+      <numericvalueinfo value="39" description="39" />
+      <numericvalueinfo value="40" description="40" /><numericvalueinfo value="41" description="41" /><numericvalueinfo value="42" description="42" />
+      <numericvalueinfo value="43" description="43" /><numericvalueinfo value="44" description="44" /><numericvalueinfo value="45" description="45" />
+      <numericvalueinfo value="46" description="46" /><numericvalueinfo value="47" description="47" /><numericvalueinfo value="48" description="48" />
+      <numericvalueinfo value="49" description="49" />
+      <numericvalueinfo value="50" description="50" /><numericvalueinfo value="51" description="51" /><numericvalueinfo value="52" description="52" />
+      <numericvalueinfo value="53" description="53" /><numericvalueinfo value="54" description="54" /><numericvalueinfo value="55" description="55" />
+      <numericvalueinfo value="56" description="56" /><numericvalueinfo value="57" description="57" /><numericvalueinfo value="58" description="58" />
+      <numericvalueinfo value="59" description="59" />
+      <numericvalueinfo value="60" description="60" /><numericvalueinfo value="61" description="61" /><numericvalueinfo value="62" description="62" />
+      <numericvalueinfo value="63" description="63" /><numericvalueinfo value="64" description="64" /><numericvalueinfo value="65" description="65" />
+      <numericvalueinfo value="66" description="66" /><numericvalueinfo value="67" description="67" /><numericvalueinfo value="68" description="68" />
+      <numericvalueinfo value="69" description="69" />
+      <numericvalueinfo value="70" description="70" /><numericvalueinfo value="71" description="71" /><numericvalueinfo value="72" description="72" />
+      <numericvalueinfo value="73" description="73" /><numericvalueinfo value="74" description="74" /><numericvalueinfo value="75" description="75" />
+      <numericvalueinfo value="76" description="76" /><numericvalueinfo value="77" description="77" /><numericvalueinfo value="78" description="78" />
+      <numericvalueinfo value="79" description="79" />
+      <numericvalueinfo value="80" description="80" /><numericvalueinfo value="81" description="81" /><numericvalueinfo value="82" description="82" />
+      <numericvalueinfo value="83" description="83" /><numericvalueinfo value="84" description="84" /><numericvalueinfo value="85" description="85" />
+      <numericvalueinfo value="86" description="86" /><numericvalueinfo value="87" description="87" /><numericvalueinfo value="88" description="88" />
+      <numericvalueinfo value="89" description="89" />
+      <numericvalueinfo value="90" description="90" /><numericvalueinfo value="91" description="91" /><numericvalueinfo value="92" description="92" />
+      <numericvalueinfo value="93" description="93" /><numericvalueinfo value="94" description="94" /><numericvalueinfo value="95" description="95" />
+      <numericvalueinfo value="96" description="96" /><numericvalueinfo value="97" description="97" /><numericvalueinfo value="98" description="98" />
+      <numericvalueinfo value="99" description="99" />
+    </specify_numeric_domain>
+
+    <specify_aln_domain maxtype="ALN" length="1" domainid="REFSPECIALCHAR" description="HTML/XML Special characters &amp;&quot;'()%&lt;&gt;" overwrite="false">
+      <alnvalueinfo value="&amp;" description="&amp;" />
+      <alnvalueinfo value="&quot;" description="&quot;" />
+      <alnvalueinfo value="'" description="'" />
+      <alnvalueinfo value="(" description="(" />
+      <alnvalueinfo value=")" description=")" />
+      <alnvalueinfo value="%" description="%" />
+      <alnvalueinfo value="&lt;" description="&lt;" />
+      <alnvalueinfo value="&gt;" description="&gt;" />
+    </specify_aln_domain>
+
+    <specify_aln_domain maxtype="ALN" length="256" domainid="REFSCRIPTINJECT" description="Script injection" overwrite="false">
+      <alnvalueinfo value="&lt;script&gt;alert('domainvalue');&lt;/script&gt;&lt;img src=" description="&gt;&lt;script&gt;alert('domainvalue');&lt;/script&gt;" />
+      <!--alnvalueinfo value="&gt;&lt;script&gt;alert('domainvalue');&lt;/script&gt;&lt;img src=" description="&gt;&lt;script&gt;alert('domainvalue');&lt;/script&gt;&lt;img src=" /-->
+      <!--alnvalueinfo value="&quot;&gt;&lt;script&gt;alert('quoteddomainvalue');&lt;/script&gt;&lt;img src=&quot;" description="&quot;&gt;&lt;script&gt;alert('quoteddomainvalue');&lt;/script&gt;&lt;img src=&quot;" / -->
+    </specify_aln_domain>
+
+    <specify_aln_domain maxtype="UPPER" length="3" domainid="REFMATCH" description="String matching" overwrite="false">
+      <alnvalueinfo value="1X1" description="Description - 3 - Key(Middle)" />
+      <alnvalueinfo value="X2" description="X Description - 2 - Key &amp; Desc(Start)" />
+      <alnvalueinfo value="X1" description="Description - 1 - Key(Start)" />
+      <alnvalueinfo value="Z2" description=" X Description - 6 - Desc(Middle)" />
+      <alnvalueinfo value="Z1" description="X Description - 5 - Desc(Start)" />
+      <alnvalueinfo value="1X2" description=" X Description - 4 - Key &amp; Desc(Middle)" />
+    </specify_aln_domain>
+
+    <specify_aln_domain maxtype="ALN" length="10" domainid="REFENTITY" description="HTML/XML Entity refs: &amp;amp;&amp;quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&amp;lt;&amp;gt;" overwrite="false">
+      <alnvalueinfo value="&amp;amp;" description="&amp;amp;" />
+      <alnvalueinfo value="&amp;quot;" description="&amp;quot;" />
+      <alnvalueinfo value="&amp;#39;" description="&amp;#39;" />
+      <alnvalueinfo value="&amp;#40;" description="&amp;#40;" />
+      <alnvalueinfo value="&amp;#41;" description="&amp;#41;" />
+      <alnvalueinfo value="&amp;#37;" description="&amp;#37;" />
+      <alnvalueinfo value="&amp;lt;" description="&amp;lt;" />
+      <alnvalueinfo value="&amp;gt;" description="&amp;gt;" />
+    </specify_aln_domain>
+
+
+    <define_table persistent="true" type="system" object="REFTABLE4" description="Table for a table domain with 4 values" service="CUSTAPP" classname="psdi.app.refapp.RefTable4ValuesSet" primarykey="VALUE" mainobject="false" internal="false">
+      <attrdef attribute="VALUE"   maxtype="SMALLINT" remarks="-" title="Small Int Key" />
+      <attrdef attribute="AB"    maxtype="UPPER"    remarks="-" title="Upper (1 char) Domain AB" domain="REFAB" length="1"/>
+      <attrdef attribute="DESCRIPTION" maxtype="ALN" remarks="-" title="Alphnumeric (10 char) number word ie 'One'..." length="10" />
+    </define_table>
+    <freeform description="Initialize 4 values in REFTABLE4">
+      <sql target="all">
+		insert into REFTABLE4 (VALUE, AB, DESCRIPTION) values (1, 'A', 'One');
+		insert into REFTABLE4 (VALUE, AB, DESCRIPTION) values (2, 'A', 'Two');
+		insert into REFTABLE4 (VALUE, AB, DESCRIPTION) values (3, 'B', 'Three');
+		insert into REFTABLE4 (VALUE, AB, DESCRIPTION) values (4, 'B', 'Four');
+	  </sql>
+    </freeform>
+	<specify_table_domain domainid="REFTABLE4" objectname="REFTABLE4" validationwhereclause="1=1" description="Table domain with 4 values" listwhereclause="1=1" />
+
+    <define_table persistent="true" type="system" object="REFTABLEHEX" description="Table for a table domain with Hex values" service="CUSTAPP" classname="psdi.app.refapp.RefTable4ValuesSet" primarykey="VALUE" mainobject="false" internal="false">
+      <attrdef attribute="VALUE"   maxtype="SMALLINT" remarks="-" title="Small Int Key" />
+      <attrdef attribute="HEXVAL"    maxtype="ALN"    remarks="-" title="Hex Character for value" domain="REFHEX" length="3"/>
+      <attrdef attribute="DESCRIPTION" maxtype="ALN" remarks="-" title="Alphnumeric number word ie 'Ten'..." length="10" />
+    </define_table>
+    <freeform description="Initialize 6 values in REFTABLEHEX">
+      <sql target="all">
+		insert into REFTABLEHEX (VALUE, HEXVAL, DESCRIPTION) values (10, '0xA', 'Ten');
+		insert into REFTABLEHEX (VALUE, HEXVAL, DESCRIPTION) values (11, '0xB', 'Eleven');
+		insert into REFTABLEHEX (VALUE, HEXVAL, DESCRIPTION) values (12, '0xC', 'Twelve');
+		insert into REFTABLEHEX (VALUE, HEXVAL, DESCRIPTION) values (13, '0xD', 'Thirteen');
+		insert into REFTABLEHEX (VALUE, HEXVAL, DESCRIPTION) values (14, '0xE', 'Fourteen');
+		insert into REFTABLEHEX (VALUE, HEXVAL, DESCRIPTION) values (15, '0xF', 'Fifteen');
+	  </sql>
+    </freeform>
+	<specify_table_domain domainid="REFTABLEHEX" objectname="REFTABLEHEX" validationwhereclause="1=1" description="Table domain with hex values" listwhereclause="1=1" />
+
+    <define_table persistent="true" type="system" object="REFTABLEEMPTY" description="Table for an empty table domain" service="CUSTAPP" classname="psdi.app.refapp.RefTableEmptySet" primarykey="REFTABLEEMPTYID" mainobject="false" internal="false">
+      <attrdef attribute="KEY"   maxtype="SMALLINT" remarks="-" title="Small Int Key" />
+      <attrdef attribute="VALUE" maxtype="ALN"      remarks="-" title="Alphanumeric (20 char)" length="20"  />
+    </define_table>
+	<specify_table_domain domainid="REFTABLEEMPTY" objectname="REFTABLEEMPTY" validationwhereclause="1=1" description="Table domain with no values" listwhereclause="1=1" />
+
+    <create_app app="REFBASIC" description="Reference Application" maintbname="REFMAIN" />
+    <create_app app="REFMOBILE" description="Mobile" maintbname="REFMAIN" />
+    <create_app app="REFNEG" description="Negative Tests" maintbname="REFMAIN" />
+    <create_app app="REFCOMM" description="Server Communications" maintbname="REFMAIN" />
+
+    <define_table persistent="true" type="system" object="REFMAIN" description="Main MBO for Reference App Basic" service="CUSTAPP" classname="psdi.app.refapp.RefMainSet" primarykey="REFMAINID" mainobject="false" internal="false">
+      <attrdef attribute="KEY"         maxtype="UPPER" defaultvalue="&amp;AUTOKEY&amp;" title="Key" remarks="Key Attribute with AutoKey" autokey="REF_KEY" length="10" required="true" mustbe="false" />
+      <attrdef attribute="CONTROL"     maxtype="ALN"   remarks="-" title="Control(s) under test" length="30" required="true" />
+      <attrdef attribute="DESCRIPTION" maxtype="ALN"   remarks="-" title="Description of test data" length="100" required="true" />
+
+      <attrdef attribute="REF_ALN10"         maxtype="ALN"      remarks="-" title="Alphanumeric (10)" length="10" />
+      <attrdef attribute="REF_ALN10_REQ"     maxtype="ALN"      remarks="-" title="Alphanumeric (10) Required" length="10" required="true" defaultvalue="defaultval" />
+      <attrdef attribute="REF_ALN100_WITHLD" maxtype="ALN"      remarks="-" title="Alphanumeric (100) with long description" length="100" haslongdesc="true" localizable="true" />
+      <attrdef attribute="REF_ALN900"        maxtype="ALN"      remarks="-" title="Alphanumeric (900)" length="900"  />
+      <attrdef attribute="REF_UPPER10"       maxtype="UPPER"    remarks="-" title="Upper (10)" length="10" />
+      <attrdef attribute="REF_LOWER10"       maxtype="LOWER"    remarks="-" title="Lower (10)" length="10" />
+      <attrdef attribute="REF_YORN"          maxtype="YORN"     remarks="-" title="YorN" />
+      <attrdef attribute="REF_DATE"          maxtype="DATE"     remarks="-" title="Date" />
+      <attrdef attribute="REF_DATETIME"      maxtype="DATETIME" remarks="-" title="DateTime" />
+      <attrdef attribute="REF_TIME"          maxtype="TIME"     remarks="-" title="Time" />
+      <attrdef attribute="REF_SMALLINT"      maxtype="SMALLINT" remarks="-" title="Small Integer" />
+      <attrdef attribute="REF_INTEGER"       maxtype="INTEGER"  remarks="-" title="Integer" />
+      <attrdef attribute="REF_BIGINT"        maxtype="BIGINT"   remarks="-" title="Big Integer" />
+      <attrdef attribute="REF_DECIMAL8x2"    maxtype="DECIMAL"  remarks="-" title="Decimal (6.2)" length="8" scale="2" />
+      <attrdef attribute="REF_FLOAT"         maxtype="FLOAT"    remarks="-" title="Float" />
+      <attrdef attribute="REF_AMOUNT"        maxtype="AMOUNT"   remarks="-" title="Amount" />
+      <attrdef attribute="REF_DURATION"      maxtype="DURATION" remarks="-" title="Duration" />
+<!--	GL -->
+<!--	LONGALN -->
+<!--	CRYPTO -->
+<!--	CRYPTOX -->
+<!--	BLOB -->
+      <attrdef attribute="REF_CLOB" maxtype="CLOB" title="Clob" remarks="-" length="999999" restricted="true" />
+
+      <!-- Attributes based on domains -->
+      <attrdef attribute="REF_ALNDOMAINAB"      maxtype="UPPER"   domain="REFAB"         remarks="-" title="Upper domain with two items: A and B"            length="1" />
+      <attrdef attribute="REF_ALNDOMAINAB_REQ"  maxtype="UPPER"   domain="REFAB"         remarks="-" title="Upper domain with two items: A and B (Required)" length="1" required="true" />
+      <attrdef attribute="REF_ALNDOMAINAB_WITH_GETLIST"      maxtype="UPPER"   domain="REFAB"         remarks="-" title="Same domain as Upper domain with two items: A and B (fld class with a getList())"   classname="psdi.app.refapp.FldGetList"       length="1" />
+      <attrdef attribute="REF_ALNDOMAINJK_WITH_GETLIST"   maxtype="UPPER" domain="REFJK" classname="psdi.app.refapp.FldGetList" remarks="-" title="Upper domain with two items: J and K (fld class defines a getList())" length="1" />
+      <attrdef attribute="REF_ALNDOMAINXY_INHERIT_GETLST" maxtype="UPPER" domain="REFXY" classname="psdi.app.refapp.FldGetListNotInSubclass" remarks="-" title="Upper domain with two items: X and Y (fld class inherits getList())" length="1" />
+      <attrdef attribute="REF_NUMDOMAIN100"     maxtype="INTEGER" domain="REF100"        remarks="-" title="Numeric domain with 100 numbers (0-99)"        length="2" />
+      <attrdef attribute="REF_TABLEDOMAIN4"     maxtype="ALN"     domain="REFTABLE4"     remarks="-" title="Table domain with 4 entries"                   length="20" />
+      <attrdef attribute="REF_TABLEDOMAINEMPTY" maxtype="ALN"     domain="REFTABLEEMPTY" remarks="-" title="Empty table domain"                            length="20" />
+      <attrdef attribute="REF_UPPERDOMAINMATCH" maxtype="UPPER"   domain="REFMATCH"      remarks="-" title="Upper domain to check if X is correctly matched" length="3" />
+
+      <attrdef attribute="REF_ALNDOMAINHEX"      maxtype="ALN"   domain="REFHEX"         remarks="-" title="Aln domain of Hex digits"            length="3" />
+      <attrdef attribute="REF_TABLEDOMAINHEX"     maxtype="ALN"     domain="REFTABLEHEX"     remarks="-" title="Table domain of Hex and Decimal values"                   length="20" />
+
+      <!-- Attributes that are made required by inputmode in the presentation -->
+      <attrdef attribute="REF_ALNDOMAINAB_PRESREQ_RBG" maxtype="UPPER" domain="REFAB" remarks="-" title="Upper DomainAB Dynamic RadioButtonGroup Presentation Required" length="1" />
+      <attrdef attribute="REF_ALN10_PRESREQ_RBG"       maxtype="ALN"                  remarks="-" title="ALN (10) Static RadioButtonGroup Presentation Required"        length="10" />
+      
+      <attrdef attribute="REF_ALNDOMAINAB_PRESREQ_COMBO" maxtype="UPPER" domain="REFAB" remarks="-" title="Upper DomainAB Combobox Presentation Required" length="1" />
+
+      <attrdef attribute="REF_ALNDOMAINAB_PRESREQ_LISTBX" maxtype="ALN" domain="REFAB" remarks="-" title="Upper DomainAB Listbox Presentation Required" length="1" />
+
+      <attrdef attribute="REF_ALN10_PRESREQ_TEXTBOX" maxtype="ALN" remarks="-" title="ALN (10) Textbox Presentation Required" defaultvalue="defaultval" length="10" />
+      <attrdef attribute="REF_ALN10_PRESREQ_TEXTB_SIGOPT" maxtype="ALN" remarks="-" title="ALN (10) Textbox Presentation Required with a Sig Option to hide it" defaultvalue="defaultval" length="10" />
+      
+      <attrdef attribute="REF_ALN10_PRESREQ_MLTEXTBOX" maxtype="ALN" remarks="-" title="ALN (10) Multiline Textbox Presentation Required" defaultvalue="defaultval" length="10" />
+      
+      <attrdef attribute="REF_ALN10_PRESREQ_MPTXTBX1"     maxtype="ALN" remarks="-" title="ALN (10) Multipart Textbox Part 1 Presentation Required"          defaultvalue="defaultval" length="10" />
+      <attrdef attribute="REF_ALN10_PRESREQ_MPTXTBX1_PWD" maxtype="ALN" remarks="-" title="ALN (10) Multipart Textbox Part 1 Password Presentation Required" defaultvalue="defaultval" length="10" />
+      <attrdef attribute="REF_ALN10_PRESREQ_MPTXTBX2"     maxtype="ALN" remarks="-" title="ALN (10) Multipart Textbox Part 2 Presentation Required"          defaultvalue="defaultval" length="10" />
+      <attrdef attribute="REF_ALN10_PRESREQ_MPTXTBX2_PWD" maxtype="ALN" remarks="-" title="ALN (10) Multipart Textbox Part 2 Password Presentation Required" defaultvalue="defaultval" length="10" />
+
+      <!-- Attributes with validation -->
+      <attrdef attribute="REF_ALN10_WSTARTWITHA"          maxtype="ALN"  length="10" classname="psdi.app.refapp.FldWarnDoesntStartWithA"                     remarks="-" title="ALN (10) Warning if doesn't start with 'A'" />
+	  <attrdef attribute="REF_ALN10_ESTARTSWITHA"         maxtype="ALN"  length="10" classname="psdi.app.refapp.FldYNCErrorDoesntStartWithA"                 remarks="-" title="ALN (10) Yes No Cancel if doesn't start with 'A'" />
+      <attrdef attribute="REF_ALN10_ESTARTSWITHA_WEMPOTH" maxtype="ALN"  length="10" classname="psdi.app.refapp.FldYNCErrorDoesntStartWithAWarnOnOtherEmpty" remarks="-" title="ALN (10) Yes No Cancel if doesn't start with 'A', warn if ALN10_EMPTY blank" />
+      <attrdef attribute="REF_ALN10_EMPTY"                maxtype="ALN"  length="10"                                                                         remarks="-" title="ALN (10) Tied to ALN10_YESNOCANCEL_EMPTYWARNING" />
+
+	  <attrdef attribute="REF_ALN10_PASSWORDLENGTH" maxtype="ALN" length="10" classname="psdi.app.refapp.FldPasswordLength" remarks="-" title="ALN (10) Warn if less than 6 characters" />
+      
+      <attrdef attribute="REF_YORN_WARNONYES"  maxtype="YORN" length="1" classname="psdi.app.refapp.FldYornWarnOnYes"  remarks="-" title="YorN, will get a warning if value is Y" defaultvalue="0" />     
+      <attrdef attribute="REF_YORN_ERRORONYES" maxtype="YORN" length="1" classname="psdi.app.refapp.FldYornErrorOnYes" remarks="-" title="YorN, will get a error if value is Y"   defaultvalue="0" />     
+      <attrdef attribute="REF_YORN_YNCONYES"   maxtype="YORN" length="1" classname="psdi.app.refapp.FldYornYNCOnYes"   remarks="-" title="YorN, Yes No Cancel if value is Y"      defaultvalue="0" />     
+
+      <!-- Special HTML/XML characters -->
+      <attrdef attribute="REF_SPECIALCHAR" maxtype="ALN" length="128" 
+      			       title="&amp;&quot;'()%&lt;&gt;"
+      			     remarks="&amp;&quot;'()%&lt;&gt;" 
+      			defaultvalue="&amp;&quot;'()%&lt;&gt;" />
+      <attrdef attribute="REF_ALNDOMAIN_SPECIALCHAR" maxtype="ALN" domain="REFSPECIALCHAR" length="1" remarks="-" title="ALN Domain html/xml special characters" />
+      <attrdef attribute="REF_ENTITIES" maxtype="ALN" length="128" 
+      			       title="&amp;amp;&amp;quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&amp;lt;&amp;gt;"
+      			     remarks="&amp;amp;&amp;quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&amp;lt;&amp;gt;" 
+      			defaultvalue="&amp;amp;&amp;quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&amp;lt;&amp;gt;" />
+      <attrdef attribute="REF_ALNDOMAIN_ENTITY" maxtype="ALN" domain="REFENTITY" length="10" remarks="-" title="ALN Domain html/xml entities" />
+
+      <attrdef attribute="REF_SCRIPTINJECT" maxtype="ALN" length="256" 
+      			       title="&gt;&lt;script&gt;alert('attr title');&lt;/script&gt;&lt;img src="
+      			     remarks="&gt;&lt;script&gt;alert('attr remarks');&lt;/script&gt;&lt;img src=" 
+      			defaultvalue="&gt;&lt;script&gt;alert('attr defval');&lt;/script&gt;&lt;img src=" />
+      <attrdef attribute="REF_SCRIPTINJECT_QUOTED" maxtype="ALN" length="256" 
+      			       title="&quot;&gt;&lt;script&gt;alert('attr title');&lt;/script&gt;&lt;img src=&quot;"
+      			     remarks="&quot;&gt;&lt;script&gt;alert('attr remarks');&lt;/script&gt;&lt;img src=&quot;" 
+      			defaultvalue="&quot;&gt;&lt;script&gt;alert('attr defval');&lt;/script&gt;&lt;img src=&quot;" />
+      <attrdef attribute="REF_ALNDOMAIN_SCRIPTINJECT" maxtype="ALN" domain="REFSCRIPTINJECT" length="256" remarks="-" title="ALN Domain script injection" />
+
+    </define_table>
+
+    <define_table persistent="true" type="system" object="REFCHILDB" description="CHILD B table for Reference app" service="CUSTAPP" classname="psdi.app.refapp.RefChildBSet" primarykey="REFCHILDBID" mainobject="false" internal="false">
+      <attrdef attribute="CHILDBNAME"  maxtype="UPPER" remarks="-" title="Name"  length="20" required="true" userdefined="false" />
+      <attrdef attribute="DESCRIPTION" maxtype="ALN"   remarks="-" title="Description" length="250"  />
+      <attrdef attribute="REF_ALNDOMAINLETTERS"      maxtype="ALN"   domain="REFLETTERS"         remarks="-" title="Aln domain of letters"            length="3" />
+      <attrdef attribute="REF_TABLEDOMAINHEX"     maxtype="ALN"     domain="REFTABLEHEX"     remarks="-" title="Table domain of Hex and Decimal values"                   length="20" />
+    </define_table>
+
+    <define_table persistent="true" type="system" object="REFCHILDA" description="Child MBO set for Reference Basic App" service="CUSTAPP" classname="psdi.app.refapp.RefChildASet" primarykey="REFCHILDAID" mainobject="false" internal="false">
+      <attrdef attribute="PARENTKEY" maxtype="UPPER" remarks="-" title="Parent Key Attribute" sameasobject="REFMAIN" sameasattribute="KEY" length="10"  />
+      <attrdef attribute="KEY"       maxtype="UPPER" remarks="-" title="Key Attribute" defaultvalue="&amp;AUTOKEY&amp;" autokey="REF_KEY_CHILDA" length="10" canautonum="true" />
+      <attrdef attribute="DESCRIPTION"      maxtype="ALN"      remarks="-" title="Description" length="250" haslongdesc="true" />
+      <attrdef attribute="CHILDBNAME"       classname="psdi.app.refapp.FldChildBName" remarks="-" title="ChildB Name" sameasobject="REFCHILDB" sameasattribute="CHILDBNAME"  />
+
+      <attrdef attribute="REF_DATETIME_REQ" maxtype="DATETIME" remarks="-" title="Date Time Required" length="10" required="true" userdefined="false" />
+      <attrdef attribute="REF_DATE"         maxtype="DATE"     remarks="-" title="Date" length="4"  />
+      <attrdef attribute="REF_ALNDOMAINAB"  maxtype="ALN"      remarks="-" title="DomainAB" domain="REFAB" length="1"  />
+    </define_table>
+
+    <freeform description="Add autokey entries">
+      <sql target="all">
+        insert into autokey (seed, autokeyname, langcode, autokeyid) values (1010, 'REF_KEY',        'EN', autokeyseq.nextval);
+        insert into autokey (seed, autokeyname, langcode, autokeyid) values (1005, 'REF_KEY_CHILDA', 'EN', autokeyseq.nextval);
+      </sql>
+    </freeform>
+
+
+    <create_relationship parent="REFCHILDA" name="REFCHILDB" child="REFCHILDB" whereclause="childbname =:childbname"                           remarks="Relationship between Refchilda and refchildB" />
+    <create_relationship parent="REFMAIN"   name="REFCHILDA" child="REFCHILDA" whereclause="parentkey =:key"                                   remarks="One to many relationship between refmain and refchilda" />
+    <create_relationship parent="REFMAIN"   name="IMGLIB"    child="IMGLIB"    whereclause="refobject = 'REFMAIN' and refobjectid =:refmainid" remarks="Record Image" />
+
+    <!-- Add a module to the goto menu, and add the basic reference app to the module -->
+	<create_module module="REFAPPS" description="Reference Applications">
+		<module_menu_app app="REFBASIC" image="appimg_refbasic.gif"/>
+		<module_menu_app app="REFMOBILE" image="appimg_refbasic.gif"/>
+		<module_menu_app app="REFNEG" image="appimg_refbasic.gif"/>
+		<module_menu_app app="REFCOMM" image="appimg_refbasic.gif"/>
+	</create_module>
+
+	<!--create_app_menu app="REFBASIC">
+		<app_menu_option tabdisplay="ALL" option="" accesskey="" image=""/>
+		<app_menu_header headerdescription="" image="" ></app_menu_header>
+	</create_app_menu>
+	<additional_app_menu app=""></additional_app_menu-->
+	
+    <freeform description="appmenu entries">
+      <sql target="all">
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, VISIBLE, IMAGE, TABDISPLAY) values ('APPMENU', 'REFBASIC', 11,  0, 'OPTION', 'DUPLICATE',  1, '', 'MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, VISIBLE, IMAGE, TABDISPLAY) values ('APPMENU', 'REFBASIC', 12,  0, 'OPTION', 'DELETE',     1, '', 'MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, VISIBLE, IMAGE, TABDISPLAY) values ('APPMENU', 'REFBASIC', 13,  0, 'OPTION', 'BOOKMARK',   1, '', 'MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, VISIBLE, IMAGE, TABDISPLAY) values ('APPMENU', 'REFBASIC', 10, 20, 'OPTION', 'SEARCHWHER', 1, '', 'ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, VISIBLE, IMAGE, TABDISPLAY) values ('APPMENU', 'REFBASIC', 20, 20, 'OPTION', 'SEARCHVMQR', 1, '', 'ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, VISIBLE, IMAGE, TABDISPLAY) values ('APPMENU', 'REFBASIC', 10, 30, 'OPTION', 'SEARCHTIPS', 1, '', 'ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, VISIBLE, IMAGE, TABDISPLAY) values ('APPMENU', 'REFBASIC', 20, 10, 'OPTION', 'SEARCHSQRY', 1, '', 'ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, VISIBLE, IMAGE, TABDISPLAY) values ('APPMENU', 'REFBASIC', 14,  0, 'OPTION', 'ITEMIMAGE',  1, '', 'MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, VISIBLE, IMAGE, TABDISPLAY) values ('APPMENU', 'REFBASIC', 36, 10, 'OPTION', 'MANAGELIB',  1, '', 'ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, VISIBLE, IMAGE, TABDISPLAY) values ('APPMENU', 'REFBASIC', 36, 20, 'OPTION', 'MANAGEFOLD', 1, '', 'ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, VISIBLE, IMAGE, TABDISPLAY) values ('APPMENU', 'REFBASIC', 36, 30, 'OPTION', 'ASSOCFOLD',  1, '', 'ALL');
+
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, TABDISPLAY) values ('APPMENU', 'REFBASIC', 36,  0, 'HEADER', 'AM36', '', 1, 'Attachment Library/Folders', 'ALL');
+      </sql>
+    </freeform>
+
+    <freeform description="searchmenu entries">
+      <sql target="all">
+      insert into maxmenu (menutype,     moduleapp,  position, subposition, elementtype, keyvalue,     headerdescription, visible, image,              accesskey, tabdisplay)
+                   values ('SEARCHMENU', 'REFBASIC', 10,       0,           'HEADER',    'SM10',      'Advanced Search',  1,       'atb_search.gif',   '',        'ALL');
+      insert into maxmenu (menutype,     moduleapp,  position, subposition, elementtype, keyvalue,     headerdescription, visible, image,              accesskey, tabdisplay)
+                   values ('SEARCHMENU', 'REFBASIC', 10,       10,          'OPTION',    'SEARCHMORE', '',                1,       '',                 '',        'ALL');
+      insert into maxmenu (menutype,     moduleapp,  position, subposition, elementtype, keyvalue,     headerdescription, visible, image,              accesskey, tabdisplay)
+                   values ('SEARCHMENU', 'REFBASIC', 10,       30,          'OPTION',    'SEARCHTIPS', '',                1,       '',                 '',        'ALL');
+      insert into maxmenu (menutype,     moduleapp,  position, subposition, elementtype, keyvalue,     headerdescription, visible, image,              accesskey, tabdisplay)
+                   values ('SEARCHMENU', 'REFBASIC', 10,       20,          'OPTION',    'SEARCHWHER', '',                1,       '',                 '',        'ALL');
+
+      insert into maxmenu (menutype,     moduleapp,  position, subposition, elementtype, keyvalue,     headerdescription, visible, image,              accesskey, tabdisplay)
+                   values ('SEARCHMENU', 'REFBASIC', 20,       0,           'HEADER',    'SM20',      'Save Query',       1,       'atb_save.gif',     '',        'ALL');
+      insert into maxmenu (menutype,     moduleapp,  position, subposition, elementtype, keyvalue,     headerdescription, visible, image,              accesskey, tabdisplay)
+                   values ('SEARCHMENU', 'REFBASIC', 20,       10,          'OPTION',    'SEARCHSQRY', '',                1,       '',                 '',        'ALL');
+      insert into maxmenu (menutype,     moduleapp,  position, subposition, elementtype, keyvalue,     headerdescription, visible, image,              accesskey, tabdisplay)
+                   values ('SEARCHMENU', 'REFBASIC', 20,       20,          'OPTION',    'SEARCHVMQR', '',                1,       '',                 '',        'ALL');
+
+      insert into maxmenu (menutype,     moduleapp,  position, subposition, elementtype, keyvalue,     headerdescription, visible, image,              accesskey, tabdisplay)
+                   values ('SEARCHMENU', 'REFBASIC', 30,       0,           'OPTION',    'SEARCHBOOK', '',                1,       'atb_bookmark.gif', '',        'ALL');
+      </sql>
+    </freeform>
+
+    <freeform description="app toolbar entries">
+      <sql target="all">
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL', 'REFBASIC',  1,  1, 'OPTION', 'INSERT',   '', 1, 'nav_icon_insertkey.gif', 'CTRL+ALT+I', 'ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL', 'REFBASIC',  1,  2, 'OPTION', 'SAVE',     '', 1, 'nav_icon_save.gif',      'CTRL+ALT+S', 'MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL', 'REFBASIC',  1,  3, 'OPTION', 'CLEAR',    '', 1, 'nav_icon_clear.gif',     'CTRL+ALT+C', 'MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL', 'REFBASIC',  2,  0, 'SEP',    'SEP1',     '', 1, '',                       '',           '');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL', 'REFBASIC',  2,  1, 'OPTION', 'PREVIOUS', '', 1, 'nav_icon_previous.gif',  'CTRL+ALT+P', 'MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL', 'REFBASIC',  2,  2, 'OPTION', 'NEXT',     '', 1, 'nav_icon_next.gif',      'CTRL+ALT+N', 'MAIN');
+      </sql>
+    </freeform>
+
+    <add_sigoption visible="true" app="REFBASIC" optionname="DELETE"     description="Delete Record"           grantapp="REFBASIC"  grantoption="SAVE"   esigenabled="false" langcode="EN" prerequisite="SAVE" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="BOOKMARK"   description="Add to Bookmarks"        grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="SEARCHMORE" description="More Search Fields"      grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="READ"       description="Read Access to Ref Main" grantapp="STARTCNTR" grantoption="READ"   esigenabled="false" langcode="EN" alsogrants="CLEAR,BOOKMARK,NEXT,PREVIOUS" alsorevokes="ALL" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="SEARCHTIPS" description="View Search Tips"        grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="SEARCHBOOK" description="Bookmarks"               grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="SEARCHSQRY" description="Save Current Query"      grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="SEARCHVMQR" description="View/Manage Queries"     grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="SEARCHWHER" description="Where Clause"            grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="SAVE"       description="Save Record"             grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" alsorevokes="INSERT,DUPLICATE,DELETE" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="INSERT"     description="New Record"              grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" alsogrants="SAVE" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="CLEAR"      description="Clear Changes"           grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="PREVIOUS"   description="Previous Record"         grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="NEXT"       description="Next Record"             grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="DUPLICATE"  description="Duplicate Record"        grantapp="REFBASIC"  grantoption="INSERT" esigenabled="false" langcode="EN" prerequisite="INSERT" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="ITEMIMAGE"  description="Add/Modify Image"        grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="ASSOCFOLD"  description="Associate Folders"       grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="MANAGEFOLD" description="Manage Folders"          grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFBASIC" optionname="MANAGELIB"  description="Manage Library"          grantapp="REFBASIC"  grantoption="READ"   esigenabled="false" langcode="EN" />
+
+    <add_sigoption visible="true" app="REFMOBILE" optionname="READ" description="Read Access to Ref Mobile" grantapp="STARTCNTR" grantoption="READ"   esigenabled="false" langcode="EN" alsogrants="CLEAR,BOOKMARK,NEXT,PREVIOUS" alsorevokes="ALL" />
+    <add_sigoption visible="true" app="REFNEG" optionname="READ" description="Read Access to Ref Neg" grantapp="STARTCNTR" grantoption="READ"   esigenabled="false" langcode="EN" alsogrants="CLEAR,BOOKMARK,NEXT,PREVIOUS" alsorevokes="ALL" />
+    <add_sigoption visible="true" app="REFCOMM" optionname="READ" description="Read Access to Ref Comm" grantapp="STARTCNTR" grantoption="READ" esigenabled="false" langcode="EN" alsogrants="CLEAR,BOOKMARK,NEXT,PREVIOUS" alsorevokes="ALL" />
+
+    <create_relationship parent="REFMAIN" name="DOCLINKS" child="DOCLINKS" whereclause="ownertable='REFMAIN' and ownerid=:KEY" remarks="Relationship to doclinks table" />
+
+
+    <add_sigoption visible="true" app="REFBASIC" optionname="HIDE" description="For unconditionally hiding a control" grantapp="REFBASIC" grantoption="READ" />
+
+    <freeform description="Add an option for unconditionally hiding controls">
+      <sql target="all">
+       insert into condition(conditionnum, type, expression, description, conditionid)
+         values('REF_FALSE', 'EXPRESSION', '0=1', 'Reference app condition that always evaluates false', conditionseq.nextval);
+       update applicationauth set conditionnum = 'REF_FALSE' where app = 'REFBASIC' and optionname = 'HIDE';
+      </sql> 
+    </freeform>
+
+
+    <freeform description="data for childb">
+      <sql target="all">
+        insert into refchildb (childbname,description,refchildbid) values ('VALUE1', 'Description for Value 1', refchildbseq.nextval);
+        insert into refchildb (childbname,description,refchildbid) values ('VALUE2', 'Description for Value 2', refchildbseq.nextval);
+        insert into refchildb (childbname,description,refchildbid) values ('VALUE3', 'Description for Value 3', refchildbseq.nextval);
+	  </sql>
+    </freeform>
+    <freeform description="Data for attachments">
+      <sql target="all">
+        delete from appdoctype where app = 'REFBASIC';
+        insert into appdoctype (app, doctype, appdoctypeid) 
+          (select 'REFBASIC', doctype, appdoctypeseq.nextval from appdoctype where app = 'ITEM');
+      </sql>
+    </freeform>
+    <freeform description="Data for the Dialog Control">
+      <sql target="all">
+		insert into refmain (key, control, description, ref_aln10_req, ref_alndomainab_req, ref_numdomain100, ref_clob,
+				ref_alndomainab_presreq_rbg, ref_aln10_presreq_rbg, ref_alndomainab_presreq_combo,
+				ref_specialchar, ref_entities,
+				ref_scriptinject, ref_scriptinject_quoted,
+				refmainid, hasld, langcode) 
+			values ('1002','Tooltip dialog','?? What''s this for?','5','A',0,null,
+				'A','123','A',
+				'&amp;&quot;''()%&lt;&gt;', '&amp;amp;&amp;quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&amp;lt;&amp;gt;',
+				'&gt;&lt;script&gt;alert(''attr'');&lt;/script&gt;&lt;img src=', '&quot;&gt;&lt;script&gt;alert(''attr quoted'');&lt;/script&gt;&lt;img src=&quot;', 
+				refmainseq.nextval,0,'EN');
+		insert into refmain (key, control, description, ref_aln10_req, ref_alndomainab_req, ref_numdomain100, ref_clob,
+				ref_alndomainab_presreq_rbg, ref_aln10_presreq_rbg, ref_alndomainab_presreq_combo,
+				refmainid, hasld, langcode) 
+			values ('1003','Tooltip dialog','?? What''s this for?','2','B',1,null,
+				'A','123','A',
+				refmainseq.nextval,0,'EN');
+		insert into refmain (key, control, description, ref_aln10_req, ref_alndomainab_req, ref_numdomain100, ref_clob,
+				ref_alndomainab_presreq_rbg, ref_aln10_presreq_rbg, ref_alndomainab_presreq_combo,
+				refmainid, hasld, langcode) 
+			values ('1004','Dialog','Child A and child B data','4','A',2,null,
+				'A','123','A',
+				refmainseq.nextval,0,'EN');
+		insert into refmain (key, control, description, ref_aln10_req, ref_alndomainab_req, ref_numdomain100, ref_clob,
+				ref_alndomainab_presreq_rbg, ref_aln10_presreq_rbg, ref_alndomainab_presreq_combo,
+				refmainid, hasld, langcode) 
+			values ('1006','Tooltip dialog','?? What''s this for?','Test','B',null,null,
+				'A','123','A',
+				refmainseq.nextval,0,'EN');
+		insert into refmain (key, control, description, ref_aln10_req, ref_alndomainab_req, ref_numdomain100, ref_clob,
+				ref_alndomainab_presreq_rbg, ref_aln10_presreq_rbg, ref_alndomainab_presreq_combo,
+				refmainid, hasld, langcode) 
+			values ('1008','Tooltip dialog','?? What''s this for?','Test','A',null,null,
+				'A','123','A',
+				refmainseq.nextval,0,'EN');
+      </sql>
+      <sql target="db2">
+		insert into refchilda (parentkey, key, ref_datetime_req, ref_alndomainab, description, childbname, refchildaid, hasld, langcode) 
+			values ('1004', '1001', sysdate, null, 'Child 1 of refmain 1004', 'VALUE1', refchildaseq.nextval, 0, 'EN');
+		insert into refchilda (parentkey, key, ref_datetime_req, ref_alndomainab, description, childbname, refchildaid, hasld, langcode) 
+			values ('1004', '1002', sysdate, null, 'Child 2 of refmain 1004', 'VALUE2', refchildaseq.nextval, 0, 'EN');
+      </sql>
+      <sql target="not_db2">
+		insert into refchilda (parentkey, key, ref_datetime_req, ref_alndomainab, description, childbname, refchildaid, hasld, langcode) 
+			values ('1004', '1001', sysdate, null, 'Child 1 of refmain 1004', 'VALUE1', 10, 0, 'EN');
+		insert into refchilda (parentkey, key, ref_datetime_req, ref_alndomainab, description, childbname, refchildaid, hasld, langcode) 
+			values ('1004', '1002', sysdate, null, 'Child 2 of refmain 1004', 'VALUE2', 20, 0, 'EN');
+      </sql>
+    </freeform>
+    <freeform description="Data for Rich Text Editor/Viewer">
+      <sql target="all">
+		insert into refmain (key, control, description, ref_aln10_req, ref_alndomainab_req, ref_clob, refmainid, hasld, langcode) 
+			values ('1009','Rich Text','Comments should be stripped','Test','A',null, refmainseq.nextval,1,'EN');
+		insert into longdescription (ldkey, ldownertable, ldownercol, langcode, longdescriptionid, contentuid, ldtext) 
+			values ((select refmainid from refmain where key='1009'), 'REFMAIN', 'REF_ALN100_WITHLD', 'EN', longdescriptionseq.nextval, TRIM(CAST(longdescriptionseq.nextval as char(50))), '&lt;div&gt;If you see anything (even whitespace) between the dashes, it is an ERROR -&lt;!-- Some comment --&gt;-&lt;/div&gt;');
+		insert into refmain (key, control, description, ref_aln10_req, ref_alndomainab_req, ref_clob, refmainid, hasld, langcode) 
+			values ('1010','Rich Text','CDATA should be stripped','Test','A',null, refmainseq.nextval,1,'EN');
+		insert into longdescription (ldkey, ldownertable, ldownercol, langcode, longdescriptionid, contentuid, ldtext) 
+			values ((select refmainid from refmain where key='1010'), 'REFMAIN', 'REF_ALN100_WITHLD', 'EN', longdescriptionseq.nextval, TRIM(CAST(longdescriptionseq.nextval as char(50))), '&lt;div&gt;If you see anything (even whitespace) between the dashes, it is an ERROR -&lt;![CDATA[ Some cdata ]]&gt;-&lt;/div&gt;');
+      </sql>
+      <sql target="all"><![CDATA[
+		insert into refmain (key, control, description, ref_aln10_req, ref_alndomainab_req, ref_clob, refmainid, hasld, langcode) 
+			values ('1011','Rich Text','Example with most available styles','Test','A',null, refmainseq.nextval,1,'EN');
+		insert into longdescription (ldkey, ldownertable, ldownercol, langcode, longdescriptionid, contentuid, ldtext) 
+			values ((select refmainid from refmain where key='1011'), 'REFMAIN', 'REF_ALN100_WITHLD', 'EN', longdescriptionseq.nextval, TRIM(CAST(longdescriptionseq.nextval as char(50))), '<b>Bold</b><br />
+<i>Italics</i><br />
+<u>Underline</u><br />
+<strike>Strikethrough</strike><br />
+<ol><li>Numbered list item 1</li><li>item 2</li><ol><li>sub item 1</li></ol></ol>
+<ul><li>Bulleted list item 1</li><li>item 2</li><ul><li>sub item 1</li></ul></ul>
+<blockquote>Indent</blockquote>
+<div align="left">Left align</div>
+<div align="center">Center</div>
+<div align="right">Right align</div>
+<div align="justify">Justify justify justify justify justify justify justify justify justify justify justify justify justify justify justify justify justify justify 
+justify justify justify justify justify justify justify justify justify justify justify justify justify justify justify justify justify justify justify justify justify</div>
+<a href="http://www.ibm.com" target="_self">www.ibm.com</a><br />
+<font color="#ff0000">Red text</font><br />
+<font color="#008000">Green text</font><br />
+<font color="#0000ff">Blue text</font><br />
+<span style="background-color: rgb(255, 0, 0);">Red background</span><br />
+<span style="background-color: rgb(0, 128, 0);">Green background</span><br />
+<span style="background-color: rgb(0, 0, 255);">Blue background</span><br />
+<font face="Arial">Arial</font><br />
+<font face="Times New Roman">Time New Roman</font><br />
+<font face="Comic Sans MS">Comic Sans MS</font><br />
+<font face="Courier New">Courier New</font><br />
+<font size="1">xx-small</font><br />
+<font size="2">x-small</font><br />
+<font size="3">small</font><br />
+<font size="4">medium</font><br />
+<font size="5">large</font><br />
+<font size="6">x-large</font><br />
+<font size="7">xx-large</font><br />
+<p>Paragraph</p>
+<h1>Heading</h1>
+<h2>Subheading</h2>
+<h3>Sub-subheading</h3>
+<pre>Preformatted (two lines)
+blah blah blah</pre><br />
+');
+		insert into refmain (key, control, description, ref_aln10_req, ref_alndomainab_req, ref_clob, refmainid, hasld, langcode) 
+			values ('1012','Rich Text','Html entities','Test','A',null, refmainseq.nextval,1,'EN');
+		insert into longdescription (ldkey, ldownertable, ldownercol, langcode, longdescriptionid, contentuid, ldtext) 
+			values ((select refmainid from refmain where key='1012'), 'REFMAIN', 'REF_ALN100_WITHLD', 'EN', longdescriptionseq.nextval, TRIM(CAST(longdescriptionseq.nextval as char(50))), 
+			'&lt; &gt; &quot; &amp;'' \ \'' \&quot; \\ $ # % ! ` , . ? * ~ @ ( ) % &amp;amp; &amp;amp;amp; &amp;quot; &amp;lt; &amp;gt;<br />');
+		insert into refmain (key, control, description, ref_aln10_req, ref_alndomainab_req, ref_clob, refmainid, hasld, langcode) 
+			values ('1013','Rich Text','Bad Stuff: Script, Object, Embed','Test','A',null, refmainseq.nextval,1,'EN');
+		insert into longdescription (ldkey, ldownertable, ldownercol, langcode, longdescriptionid, contentuid, ldtext) 
+			values ((select refmainid from refmain where key='1013'), 'REFMAIN', 'REF_ALN100_WITHLD', 'EN', longdescriptionseq.nextval, TRIM(CAST(longdescriptionseq.nextval as char(50))), 
+			'Bad Stuff: Script, Object, Embed, if you get any javascript alerts on this page, it is an ERROR<br />
+div |<div onmouseover="alert(''mouseover div'');">Mouseover div</div>|<br />
+href1 |<a href="javascript:alert(''javascript:href'');">javascript:href</a>|<br />
+href2 |<a href="alert(''href'');">href no javascript protocol</a>|<br />
+<h3>If you see anything (even whitespace) between the dashes on the following lines, it is an ERROR</h3>
+embed -<embed src="blah"> <noembed></noembed> </embed>-<br />
+object(applet) -<object><applet alt="If you see this, it is an ERROR." title="If you see this, it is an ERROR." height="20"></applet></object>-<br />
+object -<object codebase="" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" title="If you see this, it is an ERROR." height="20"><param name="movie" value="foo" /><param name="bgcolor" value="#ff0000" /></object>-<br />
+script1 -<script>alert(''<script></script></script>-<br />
+script2 -<script>document.write(''If you see this, it is an <b>ERROR</b>.'');</script>-<br />
+script3 -<script>document.write(''If you see this, it is an <b>ERROR</b>.'');</script  
+>-<br />
+script4 -<script></script   <img alt="If you see this, it is an ERROR." />-<br />
+');
+		]]>
+      </sql>
+    </freeform>
+  </statements>
+</script>

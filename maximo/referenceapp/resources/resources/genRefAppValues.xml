@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <default>
+    <dataattribute>
+      <domain>MAXTYPE</domain>
+    </dataattribute>
+    <inputmode>
+      <domain>INPUTMODE</domain>
+    </inputmode>
+    <label>
+      <value>label</value>
+    </label>
+    <title>
+      <value>Title</value>
+    </title>
+    <in_column>
+      <exclude />
+    </in_column>
+    <datasrc>
+      <value>MAINRECORD</value>
+    </datasrc>
+    <longdescreadonly>
+      <value>true</value>
+      <value>false</value>
+    </longdescreadonly>
+    <longdescription>
+      <value>true</value>
+      <value>false</value>
+    </longdescription>
+    <size>
+      <value>10</value>
+      <value>30</value>
+      <value>90</value>
+    </size>
+    <lookup>
+      <value>longdesc</value>
+      <value>datelookup</value>
+    </lookup>
+    <ondatachange>
+      <value>resetchildren</value>
+      <value>refreshtable</value>
+    </ondatachange>x
+    <sortable>
+      <value>true</value>
+      <value>false</value>
+    </sortable>
+    <descinputmode>
+      <domain>INPUTMODE</domain>
+    </descinputmode>
+    <prepend>
+      <value>&amp;gt</value>
+    </prepend>
+  </default>
+  <action>
+    <exclude />
+  </action>
+  <appbar>
+    <exclude />
+  </appbar>
+  <attachdoc>
+    <exclude />
+  </attachdoc>
+  <checkbox>
+    <imagename>
+      <value>signoutuser</value>
+    </imagename>
+    <dataattribute>
+    	<value>YORN</value>
+    </dataattribute>
+  </checkbox>
+  <combobox>
+  	<exclude />
+  </combobox>
+  <controlcontainer>
+    <exclude />
+  </controlcontainer>
+  <datasrc>
+    <exclude />
+  </datasrc>
+  <designer_canvas>
+    <exclude />
+  </designer_canvas>
+  <designer_toolbox>
+    <exclude />
+  </designer_toolbox>
+  <displayrule>
+    <exclude />
+  </displayrule>
+  <exact>
+    <exclude />
+  </exact>
+  <footer>
+    <exclude />
+  </footer>
+  <header>
+    <exclude />
+  </header>
+  <importapp>
+    <exclude />
+  </importapp>
+  <listbox>
+  	<exclude />
+  </listbox>
+  <quicksearch>
+    <exclude />
+  </quicksearch>
+  <reasonchange>
+    <exclude />
+  </reasonchange>
+  <sectionheader>
+    <exclude />
+  </sectionheader>
+  <simpleheadertable>
+    <exclude />
+  </simpleheadertable>
+  <table>
+    <exclude />
+  </table>
+  <table-selectrow>
+    <exclude />
+  </table-selectrow>
+  <table-text>
+    <exclude />
+  </table-text>
+  <table-title>
+    <exclude />
+  </table-title>
+  <tablebody>
+    <exclude />
+  </tablebody>
+  <tablecol>
+    <exclude />
+  </tablecol>
+  <tabledetails>
+    <exclude />
+  </tabledetails>
+  <textbox>
+    <_longdescription>
+      <exclude />
+    </_longdescription>
+  </textbox>
+  <toolbarcombobox>
+    <exclude />
+  </toolbarcombobox>
+  <wallcalendar>
+    <exclude />
+  </wallcalendar>
+  <glnavigator>
+    <exclude />
+  </glnavigator>
+  <fieldhelp>
+    <exclude />
+  </fieldhelp> 
+  <messagebox>
+    <exclude />
+  </messagebox>   
+  <tree>
+    <exclude />
+  </tree>
+  <treeattribute>
+    <exclude />
+  </treeattribute>  
+  <range>
+    <exclude />
+  </range>  
+  <param>
+    <exclude />
+  </param>
+  <paramvalues>
+    <exclude />
+  </paramvalues>
+  <defaultvalue>
+    <exclude />
+  </defaultvalue>
+  <radiobutton>
+    <exclude />
+  </radiobutton>
+  <radiobuttongroup>
+    <exclude />
+  </radiobuttongroup>  
+  <wfcanvas>
+    <exclude />
+  </wfcanvas>
+  <imicon>
+    <exclude />
+  </imicon>
+</configuration>
+

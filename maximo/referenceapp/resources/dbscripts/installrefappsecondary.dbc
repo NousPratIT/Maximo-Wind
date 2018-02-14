@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script SYSTEM "../../../../../tools/maximo/script.dtd">
+<script author="AppFwTeam" scriptname="DBC for Secondary Reference App">
+  <description>DBC for Secondary Reference App</description>
+  <statements>
+	<define_table persistent="true" type="system" object="REFSECONDARY" description="Secondary MBO for Reference App Basic" service="CUSTAPP" classname="psdi.app.refapp.RefSecondarySet" primarykey="keycol" mainobject="true" internal="false">
+    <attrdef attribute="KEYCOL"     maxtype="UPPER" defaultvalue="&amp;AUTOKEY&amp;" title="Key" remarks="Key Attribute with AutoKey" autokey="REF_SEC_KEY" length="10" required="true" mustbe="false" />
+    <attrdef attribute="DESCRIPTION" maxtype="ALN"   remarks="-" title="Description of test data" length="100" required="false" haslongdesc="true" />
+	<attrdef attribute="ALNVALUE1"		 maxtype="ALN"   remarks="-" title="Additional ALN value" length="100" required="false" />
+	<attrdef attribute="ALNVALUE2"		 maxtype="ALN"   remarks="-" title="Additional ALN value 2" length="100" required="false" />
+	<attrdef attribute="DATEVALUE"	 maxtype="DATE"   remarks="-" title="Additional Date value" length="4" required="false" />
+	<attrdef attribute="AMTVALUE"	 maxtype="AMOUNT" remarks="-" title="Additional Amount" length="10" scale="2" required="false" />
+    <attrdef attribute="YORNVALUE"   maxtype="YORN"   remarks="-" title="YorN" length="1"/>
+    <attrdef attribute="DATETIMEVALUE"  maxtype="DATETIME" remarks="-" title="DateTime" length="10"/>
+    <attrdef attribute="TIMEVALUE"      maxtype="TIME"     remarks="-" title="Time" length="3" />
+    <attrdef attribute="DECIMALVALUE"   maxtype="DECIMAL"  remarks="-" title="Decimal (6.2)" length="8" scale="2" />
+    <attrdef attribute="FLOATVALUE"     maxtype="FLOAT"    remarks="-" title="Float" length="9" />
+    <attrdef attribute="DURATIONVALUE" maxtype="DURATION" remarks="-" title="Duration" length="8"/>
+	</define_table>
+	
+	<create_app app="REFSECON" description="Secondary Reference Application" maintbname="REFSECONDARY" />
+	
+	<add_sigoption app="REFSECON" visible="true" optionname="DELETE" description="Delete Record" esigenabled="false" grantapp="REFSECON" grantoption="READ" prerequisite="SAVE"  langcode="EN" />
+	<add_sigoption app="REFSECON" visible="true" optionname="INSERT" description="New Record" esigenabled="false" grantapp="REFSECON" grantoption="READ" alsogrants="SAVE" langcode="EN" />	
+	<add_sigoption app="REFSECON" visible="true" optionname="READ" description="Read Record" esigenabled="false" grantapp="REFSECON" grantoption="READ" alsogrants="NEXT, PREVIOUS" langcode="EN" />
+	<add_sigoption app="REFSECON" visible="true" optionname="SAVE" description="Save Record" esigenabled="false" grantapp="REFSECON" grantoption="READ" langcode="EN" />
+	<add_sigoption app="REFSECON" visible="false" optionname="NEXT" description="Next Record" esigenabled="false" grantapp="REFSECON" grantoption="READ" langcode="EN" />
+	<add_sigoption app="REFSECON" visible="false" optionname="PREVIOUS" description="Previous Record" esigenabled="false" grantapp="REFSECON" grantoption="READ" langcode="EN" />
+	
+    <add_sigoption visible="true" app="REFSECON" optionname="BOOKMARK" description="Add to Bookmarks" grantapp="REFSECON" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFSECON" optionname="SEARCHMORE" description="More Search Fields" grantapp="REFSECON" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFSECON" optionname="SEARCHTIPS" description="View Search Tips" grantapp="REFSECON" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFSECON" optionname="SEARCHBOOK" description="Bookmarks" grantapp="REFSECON" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFSECON" optionname="SEARCHSQRY" description="Save Current Query" grantapp="REFSECON" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFSECON" optionname="SEARCHVMQR" description="View/Manage Queries" grantapp="REFSECON" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFSECON" optionname="SEARCHWHER" description="Where Clause" grantapp="REFSECON" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFSECON" optionname="CLEAR" description="Clear Changes" grantapp="REFSECON" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFSECON" optionname="PREVIOUS" description="Previous Record" grantapp="REFSECON" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFSECON" optionname="NEXT" description="Next Record" grantapp="REFSECON" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFSECON" optionname="DUPLICATE" description="Duplicate Record" prerequisite="INSERT" grantapp="REFSECON" grantoption="INSERT" esigenabled="false" langcode="EN" />
+
+	<add_sigoption app="REFSECON" visible="true" optionname="SHOWHOVER" description="Show/Hide Attribute on Record Hover" esigenabled="false" grantapp="REFSECON" grantoption="READ" langcode="EN" />
+	
+	<add_sigoption app="REFBASIC" visible="true" optionname="ENABLHOVER" description="Show/Hide Record Hover" esigenabled="false" grantapp="REFBASIC" grantoption="READ" langcode="EN" />
+	
+    <create_relationship parent="REFMAIN" name="REFSECONDARY" child="REFSECONDARY" whereclause="keycol=:refsecondary" remarks="Relationship to secondary table for first keycol" />	
+	<create_relationship parent="REFMAIN" name="REFSECONDARY2" child="REFSECONDARY" whereclause="keycol=:refsecondary2" remarks="Relationship to secondary table for second keycol" />	
+	<create_relationship parent="REFMAIN" name="REFSECONDARY3" child="REFSECONDARY" whereclause="keycol=:refsecondary3" remarks="Relationship to secondary table for third keycol" />	
+	<create_relationship parent="REFCHILDA" name="REFSECONDARY" child="REFSECONDARY" whereclause="keycol=:refsecondary" remarks="Relationship to secondary table from REFCHILDA table" />	
+	<create_relationship parent="REFCHILDA" name="REFSECONDARY2" child="REFSECONDARY" whereclause="keycol=:refsecondary2" remarks="Relationship to secondary table for second keycol from REFCHILDA" />	
+	
+	<add_attributes object="REFMAIN">
+		<attrdef attribute="REFSECONDARY" maxtype="UPPER" remarks="-" title="Secondary Information 1" length="10" sameasobject="REFSECONDARY" sameasattribute="KEYCOL"/>
+		<attrdef attribute="REFSECONDARY2" maxtype="UPPER" remarks="-" title="Secondary Information 2" length="10" sameasobject="REFSECONDARY" sameasattribute="KEYCOL"/>
+		<attrdef attribute="REFSECONDARY3" maxtype="UPPER" remarks="-" title="Secondary Information 3" length="10" sameasobject="REFSECONDARY" sameasattribute="KEYCOL"/>
+	</add_attributes>
+
+	<add_attributes object="REFCHILDA">
+		<attrdef attribute="REFSECONDARY" maxtype="UPPER" remarks="-" title="Secondary Information 1" length="10" sameasobject="REFSECONDARY" sameasattribute="KEYCOL"/>
+		<attrdef attribute="REFSECONDARY2" maxtype="UPPER" remarks="-" title="Secondary Information 2" length="10" sameasobject="REFSECONDARY" sameasattribute="KEYCOL"/>
+	</add_attributes>
+
+   <freeform description="maxmenu entries">
+      <sql target="all">
+        insert into MAXMENU (MENUTYPE,MODULEAPP,POSITION,SUBPOSITION,ELEMENTTYPE,KEYVALUE,VISIBLE,IMAGE) values ('MODULE','REFAPPS',99999,0,'APP','REFSECON',1,'appimg_refbasic.gif');
+		
+		update maxmenu set position=(select max(position)+1 from maxmenu where MENUTYPE='MODULE' and MODULEAPP='REFAPPS') where MENUTYPE='MODULE' and MODULEAPP='REFAPPS' and keyvalue='REFSECON';
+		
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFSECON',12,0,'OPTION','DELETE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFSECON',13,0,'OPTION','BOOKMARK','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFSECON',2,0,'SEP','AT2','',1,'','','');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFSECON',10,0,'HEADER','SM10','Advanced Search',1,'atb_search.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFSECON',11,0,'OPTION','DUPLICATE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFSECON',20,0,'HEADER','SM20','Save Query',1,'atb_save.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFSECON',10,10,'OPTION','SEARCHMORE','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFSECON',30,0,'OPTION','SEARCHBOOK','',1,'atb_bookmark.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFSECON',1,2,'OPTION','SAVE','',1,'nav_icon_save.gif','CTRL+ALT+S','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFSECON',1,1,'OPTION','INSERT','',1,'nav_icon_insertkey.gif','CTRL+ALT+I','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFSECON',1,3,'OPTION','CLEAR','',1,'nav_icon_clear.gif','CTRL+ALT+C','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFSECON',2,1,'OPTION','PREVIOUS','',1,'nav_icon_previous.gif','CTRL+ALT+P','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFSECON',2,2,'OPTION','NEXT','',1,'nav_icon_next.gif','CTRL+ALT+N','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFSECON',10,20,'OPTION','SEARCHWHER','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFSECON',20,20,'OPTION','SEARCHVMQR','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFSECON',10,30,'OPTION','SEARCHTIPS','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFSECON',20,10,'OPTION','SEARCHSQRY','',1,'','','ALL');
+	</sql>
+	</freeform>
+
+   <freeform description="applicationauth entries">
+      <sql target="all">
+	  insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFSECON','READ');
+	  insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFSECON','SEARCHBOOK');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFSECON','SEARCHWHER');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFSECON','SEARCHMORE');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFSECON','SEARCHSQRY');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFSECON','SEARCHTIPS');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFSECON','SEARCHVMQR');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFSECON','DELETE');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFSECON','INSERT');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFSECON','NEXT');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFSECON','DUPLICATE');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFSECON','CLEAR');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFSECON','SAVE');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFSECON','PREVIOUS');
+      insert into APPLICATIONAUTH (GROUPNAME,APP,OPTIONNAME) values ('MAXADMIN','REFSECON','BOOKMARK');
+	</sql>
+	</freeform>
+
+	
+	</statements>
+</script>

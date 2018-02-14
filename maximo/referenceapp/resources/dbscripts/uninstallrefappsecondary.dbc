@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script SYSTEM "../../../../../tools/maximo/script.dtd">
+<script author="AppFwTeam" scriptname="uninstallrefappsecondary">
+	<description>REFBASICApp_undo</description>
+	<statements>
+		<drop_app app="REFSECON" />
+		<drop_table object="REFSECONDARY" />
+		<freeform description="Cleanup autokeys">
+			<sql target="all">
+				delete from autokey where autokeyname='REF_SEC_KEY';
+			</sql>
+		</freeform>
+	</statements>
+</script>

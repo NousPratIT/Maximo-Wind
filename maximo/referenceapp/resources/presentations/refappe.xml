@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presentation id="refappe" ismobile="false" mboname="REFMAIN" resultstableid="refappe_results_showlist" version="6.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation='presentation.xsd' xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<page id="refappe_mainrec">
+	   <header id="refappc_pageHeader" >	
+		    <titlebar id="refappc_pageTitlebar" hidewhen="{mobile}==false">
+		      <accessiblelink id="refappc_accessibilityhelp" label="Accessibility Help" link="../webclient/utility/accessibility.jsp" targetid="{PAGE}" classname="powerwhite" />
+		      <webreplaylink id="refappc_webreplaylink" label="Web Replay" mxevent="togglewebreplay" targetid="{PAGE}" classname="powerwhite" image="btn_webreplay.gif"/>
+		      <performancelink id="refappc_perflink" label="Performance" mxevent="showmenu" targetid="refappc_pageTitlebar" eventvalue="performance"  classname="powerwhite" image="btn_performance.gif"/>
+		      <bulletinboardlink id="refappc_bboardlink" label="Bulletins:" mxevent="showbboard" mboname="BULLETINBOARD" imagecss="pwimg" image="btn_bboard.gif" accesskey="ALT+B" />
+		      <gotolink id="refappc_gotolink" label="Go To" mxevent="showmenu" targetid="refappc_pageTitlebar" eventvalue="goto" classname="powerwhite goto" imagecss="pwimg" image="btn_goto.gif" accesskey="ALT+G"/>
+		      <hyperlink id="refappc_reportslink" label="Reports" mxevent="showmenu" targetid="refappc_pageTitlebar" eventvalue="reportsmenu" classname="powerwhite" imagecss="pwimg" image="btn_reporting.gif" accesskey="ALT+R"/>
+		      <hyperlink id="refappc_sslink" label="Start Center" mxevent="startcenter" classname="powerwhite" imagecss="pwimg" image="btn_startcenter.gif" separator="false" accesskey="ALT+C"/>
+		      <hyperlink id="refappc_profilelink" label="Profile" mxevent="showmenu" targetid="refappc_pageTitlebar" eventvalue="profile" classname="powerwhite" imagecss="pwimg" image="btn_profile.gif" accesskey="ALT+P"/>
+		      <hyperlink id="refappc_signoutlink" label="Sign Out" mxevent="signout" classname="powerwhite" imagecss="pwimg" image="btn_signout.gif"  accesskey="ALT+S"/>
+		      <hyperlink id="refappc_helplink" label="Help" mxevent="showmenu" targetid="refappc_pageTitlebar" eventvalue="help" classname="powerwhite" imagecss="pwimg" image="btn_help.gif" accesskey="ALT+H"/>
+		    </titlebar>
+	 	</header>
+		<clientarea id="refappe_clientarea">
+			<helpgrid id="refappe_1_help" innerhtml="This app demonstrates following test cases &lt;br /&gt; 
+				&lt;ul&gt;
+					&lt;li&gt; on titlebar control --- &lt;code&gt;hidewhen='{mobile}==false'&lt;/code&gt;  where the file does not exist.
+				&lt;/ul&gt;"/>
+			<tabgroup id="refappe_maintabs" style="form">
+				<tab default="true" id="refappe_results" label="List" type="list">
+					<menubar event="search" id="refappe_actiontoolbar1" sourcemethod="getAppSearchOptions"/>
+					<table id="refappe_results_showlist" inputmode="readonly" label="Main Records" mboname="REFMAIN" selectmode="multiple">
+						<tablebody displayrowsperpage="15" filterable="true" filterexpanded="true" id="refappe_results_showlist_tablebody">
+							<tablecol dataattribute="REFMAINID" filterable="false" id="refappe_results_showlist_column_select" mxevent="toggleselectrow" mxevent_desc="Select Row {0}" sortable="false" type="event"/>
+							<tablecol dataattribute="REFMAINNUM" id="refappe_results_showlist_column_link" mxevent="selectrecord" mxevent_desc="Go To %1" type="link" usefieldsizegroup="false"/>
+							<tablecol dataattribute="ALN100_WITHLD" id="refappe_results_showlist_column2"/>
+							<tablecol dataattribute="REFMAINID" id="refappe_results_showlist_column1" mxevent="selectrecord" mxevent_desc="Go To %1" type="LINK"/>
+							<tablecol filterable="false" id="refappe_results_bookmark" mxevent="BOOKMARK" mxevent_desc="Add to Bookmarks" mxevent_icon="btn_addtobookmarks.gif" sortable="false" type="event"/>
+						</tablebody>
+					</table>
+				</tab>
+				<tab id="refappe_main" label="Main" type="insert">
+					<section id="refappe_main_section">
+						<multiparttextbox dataattribute="REFMAINNUM" descdataattribute="ALN100_WITHLD" id="refappe_main_section_1"/>
+					</section>
+					<section id="refappe_maintab_section" label="Main Record Info">
+						<textbox dataattribute="ALN10" id="refappe_maintab_attr1"/>
+						<combobox dataattribute="ALNDOMAINAB" id="refappe_maintab_attr2"/>
+					</section>
+				</tab>
+				
+			</tabgroup>
+		</clientarea>
+		<include id="pageFooter"/>
+	</page>	
+</presentation>

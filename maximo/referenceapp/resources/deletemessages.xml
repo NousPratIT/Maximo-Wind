@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<messages cleanup="true" version="THRASHER">
+  <Message group="refapp" key="warndemo" delete="yes" />
+  <Message group="refapp" key="yesnocanceltest" delete="yes" />
+  <Message group="refapp" key="yesnocancelaction" delete="yes" />
+  <Message group="refapp" key="warncheckbox" delete="yes" />
+  <Message group="refapp" key="errorcheckbox" delete="yes" />
+  <Message group="refapp" key="ynccheckbox" delete="yes" />
+</messages>
+  

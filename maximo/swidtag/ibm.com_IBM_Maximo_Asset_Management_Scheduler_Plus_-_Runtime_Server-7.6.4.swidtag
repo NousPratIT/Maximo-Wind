@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SoftwareIdentity name="IBM Maximo Asset Management Scheduler Plus - Runtime Server" tagId="ibm.com-f3a4039e347646da9e8da9d109db823b-7.6.4" version="7.6.4" versionScheme="multipartnumeric" xmlns="http://standards.iso.org/iso/19770/-2/2015/schema.xsd" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.iso.org/iso/19770/-2/2015-current/schema.xsd schema.xsd">
+    <Meta persistentId="f3a4039e347646da9e8da9d109db823b"/>
+    <Meta taxonomyCode="SS9NUN"/>
+    <Meta taggingProcess="4-1-20160901"/>
+    <Entity name="IBM" regid="ibm.com" role="licensor tagCreator softwareCreator"/>
+</SoftwareIdentity>

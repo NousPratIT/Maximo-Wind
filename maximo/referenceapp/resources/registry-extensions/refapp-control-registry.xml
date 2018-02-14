@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* Licensed Materials - Property of IBM
+* Restricted Materials of IBM
+* 5724-U18
+* (C) COPYRIGHT IBM CORP. 2011 All Rights Reserved.
+* US Government Users Restricted Rights - Use, duplication or
+* disclosure restricted by GSA ADP Schedule Contract with
+* IBM Corp.
+-->
+<control-registry basedir="webclient\controls" package="psdi.refapp.controls"
+		xsi:noNamespaceSchemaLocation='control-registry.xsd'
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<control-descriptor name="refbutton">
+		<property-list>
+			<property name="display" type="xsd:boolean">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="refbuttontype" />
+		</property-list>
+		<component-list>
+			<components id="${name}_comps1" layout="vertical">
+				<components id="${name}_comps2" layout="horizontal" valign="middle">
+					<refbutton id="${name}_refbutton" refbuttontype="@{refbuttontype}"/>
+				</components>
+			</components>
+		</component-list>
+		<containers>
+			<container name="buttongroup" />
+			<container name="section" />
+			<container name="sectioncol" />
+		</containers>
+	</control-descriptor>
+
+	<control-descriptor name="iwidget">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="display" type="xsd:boolean">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+			<property name="name" />
+			<property name="textcss">
+				<flag name="global" />
+				<flag name="final" />
+				<default-value>text</default-value>
+			</property>
+			<property name="width" />
+			<property name="height" />
+			<property name="href" />
+			<property name="islocal" type="xsd:boolean">
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+		<component-list>
+			<components id="${name}_components_h" layout="horizontal" nowrap="true">
+				<iframe id="${name}_iframe" scroll="no" height="@{height}" width="@{width}" src="/webclient/components/refapp/iwidget.jsp" textcss="@{textcss}" />
+			</components>
+		</component-list>
+		<containers>
+			<container name="tab" />
+			<container name="section" />
+			<container name="sectioncol" />
+			<container name="dialog" />
+			<container name="clientarea" />
+			<container name="page" />
+		</containers>
+	</control-descriptor>
+
+	<control-descriptor name="stockiwidget">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="display" type="xsd:boolean">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+			<property name="name" />
+			<property name="textcss">
+				<flag name="global" />
+				<flag name="final" />
+				<default-value>text</default-value>
+			</property>
+			<property name="width" />
+			<property name="height" />
+			<property name="number" />
+		</property-list>
+		<component-list>
+			<components id="${name}_components_h" layout="horizontal" nowrap="true">
+				<iframe id="${name}_iframe" scroll="no" height="@{height}" width="@{width}" src="/webclient/components/refapp/stockiwidget.jsp" textcss="@{textcss}" />
+			</components>
+		</component-list>
+		<containers>
+			<container name="tab" />
+			<container name="section" />
+			<container name="sectioncol" />
+			<container name="dialog" />
+			<container name="clientarea" />
+			<container name="page" />
+		</containers>
+	</control-descriptor>
+	
+	<control-descriptor name="dojo-sample-dialog">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+		</property-list>
+		<component-list>
+			<components id="${name}_comps1" layout="vertical">
+				<components id="${name}_comps2" layout="horizontal" valign="middle">
+					<dojo-sample-dialog id="${name}" />
+				</components>
+			</components>
+		</component-list>
+		<containers>
+			<container name="tab" />
+			<container name="section" />
+			<container name="sectioncol" />
+			<container name="dialog" />
+			<container name="clientarea" />
+			<container name="page" />
+		</containers>
+	</control-descriptor>
+
+	<control-descriptor name="dojo-sample-dialogcreateonshow">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+		</property-list>
+		<component-list>
+			<components id="${name}_comps1" layout="vertical">
+				<components id="${name}_comps2" layout="horizontal" valign="middle">
+					<dojo-sample-dialogcreateonshow id="${name}" />
+				</components>
+			</components>
+		</component-list>
+		<containers>
+			<container name="tab" />
+			<container name="section" />
+			<container name="sectioncol" />
+			<container name="dialog" />
+			<container name="clientarea" />
+			<container name="page" />
+		</containers>
+	</control-descriptor>
+
+	<control-descriptor name="dojo-sample-button">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+		</property-list>
+		<component-list>
+			<components id="${name}_comps1" layout="vertical">
+				<components id="${name}_comps2" layout="horizontal" valign="middle">
+					<dojo-sample-button id="${name}" />
+				</components>
+			</components>
+		</component-list>
+		<containers>
+			<container name="tab" />
+			<container name="section" />
+			<container name="sectioncol" />
+			<container name="dialog" />
+			<container name="clientarea" />
+			<container name="page" />
+		</containers>
+	</control-descriptor>
+
+	<control-descriptor name="dojo-sample-slider">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="dataattribute">
+				<flag name="final" />
+			</property>
+			<property name="datasrc">
+				<flag name="nonconditional" />
+				<flag name="global" />
+			</property>
+			<property name="hidelabel" type="xsd:boolean">
+				<default-value>false</default-value>
+			</property>
+			<property name="label">
+				<flag name="translatable" />
+			</property>
+			<property name="synchronous" type="xsd:boolean">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="inputmode">
+				<flag name="global" />
+			</property>
+
+			<property name="minimum" type="xsd:integer">
+				<default-value>0</default-value>
+			</property>
+			<property name="maximum" type="xsd:positiveInteger">
+				<default-value>100</default-value>
+			</property>
+			<property name="increment" type="xsd:positiveInteger">
+				<default-value>1</default-value>
+			</property>
+			<property name="labelincrement" type="xsd:positiveInteger">
+				<default-value>10</default-value>
+			</property>
+
+		</property-list>
+		<component-list>
+			<components id="${name}_comps1" layout="vertical">
+				<components id="${name}_comps2" layout="horizontal" valign="middle">
+					<label id="${name}_label" dataattribute="@{dataattribute}" inputmode="@{inputmode}" title="@{label}"
+						align="right" hidelabel="@{hidelabel}" ignoredatachange="true" labelfor="${name}_richtextviewer" />
+					<dojo-sample-slider id="${name}" dataattribute="@{dataattribute}" synchronous="@{synchronous}" inputmode="@{inputmode}" 
+						minimum="@{minimum}" maximum="@{maximum}" increment="@{increment}" labelincrement="@{labelincrement}"/>
+				</components>
+			</components>
+		</component-list>
+		<containers>
+			<container name="tab" />
+			<container name="section" />
+			<container name="sectioncol" />
+			<container name="dialog" />
+			<container name="clientarea" />
+			<container name="page" />
+		</containers>
+		<template>
+			<dojo-sample-slider id="ctrl_dojo-sample-slider"/>
+		</template>
+	</control-descriptor>
+	
+</control-registry>

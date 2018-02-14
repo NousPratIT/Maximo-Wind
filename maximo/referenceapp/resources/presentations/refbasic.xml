@@ -1,0 +1,2640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<presentation beanclass="psdi.refapp.webclient.beans.RefBasicAppBean" id="refbasic" ismobile="false" mboname="REFMAIN" resultstableid="results_showlist" version="6.0.0">
+	<page id="mainrec">
+		<include id="pageHeader"/>
+		<clientarea id="clientarea">
+			<tabgroup id="maintabs" style="form">
+				<tab default="true" id="List" label="List" type="list">
+					<menubar event="search" id="actiontoolbar1" sourcemethod="getAppSearchOptions"/>
+					<table id="results_showlist" inputmode="readonly" label="Main Records" mboname="REFMAIN" selectmode="multiple">
+						<tablebody displayrowsperpage="15" filterable="true" filterexpanded="true" id="results_showlist_tablebody">
+							<tablecol dataattribute="REFMAINID" filterable="false" id="results_showlist_column_select" mxevent="toggleselectrow" mxevent_desc="Select Row {0}" sortable="false" type="event"/>
+							<tablecol dataattribute="KEY" id="results_showlist_column_link" mxevent="selectrecord" mxevent_desc="Go To %1" type="link" usefieldsizegroup="false"/>
+							<tablecol dataattribute="CONTROL" id="results_showlist_control"/>
+							<tablecol dataattribute="DESCRIPTION" id="results_showlist_description"/>
+							<tablecol dataattribute="REFMAINID" id="results_showlist_column1" mxevent="selectrecord" mxevent_desc="Go To %1" type="LINK"/>
+							<tablecol filterable="false" id="results_bookmark" mxevent="BOOKMARK" mxevent_desc="Add to Bookmarks" mxevent_icon="btn_addtobookmarks.gif" sortable="false" type="event"/>
+						</tablebody>
+					</table>
+				</tab>
+				<tab id="Main" label="Main" type="insert">
+					<section id="main_section">
+						<sectionrow id="main_section_row">
+							<sectioncol id="main_section_col_1">
+								<multiparttextbox dataattribute="CONTROL" descdataattribute="DESCRIPTION" id="main_section_controlanddescription"/>
+							</sectioncol>
+							<sectioncol id="main_section_col_2">
+								<textbox dataattribute="KEY" id="main_section_key"/>
+							</sectioncol>
+						</sectionrow>
+					</section>
+					<section id="maintab_section" label="Main Record Info">
+						<section id="maintab_section_1">
+							<textbox dataattribute="REF_ALN10_REQ" id="maintab_attr1"/>
+							<combobox dataattribute="REF_ALNDOMAINAB" id="maintab_attr2"/>
+							<combobox dataattribute="REF_NUMDOMAIN100" id="maintab_attr3"/>
+							<textbox dataattribute="REF_ALNDOMAINAB" id="maintab_attr4" lookup="valuelist"/>
+						</section>
+						<table id="maintab_section_2" label="Table Domain" mboname="REFTABLE4">
+							<tablebody id="maintab_reftable4">
+								<tablecol dataattribute="VALUE" id="maintab_reftable4_value"/>
+								<tablecol dataattribute="DESCRIPTION" id="maintab_reftable4_description"/>
+								<tablecol dataattribute="AB" id="maintab_reftable4_ab"/>
+							</tablebody>
+							<buttongroup id="maintab_reftable4_buttons">                                                                                  
+								<pushbutton default="true" id="maintab_reftable4_save" label="Save" mxevent="save"/>
+								<pushbutton default="true" id="maintab_reftable4_addrow" label="New Row" mxevent="addrow"/>
+							</buttongroup>
+						</table>
+					</section>
+					
+					<section id="maintab_section_rechover" label="Record Hovers">					
+						<multiparttextbox id="maintab_section_rechover_1" rechover="secondarylookup" dataattribute="refsecondary" menutype="normal" applink="refsecon" descdataattribute="refsecondary.description" descinputmode="readonly" longdescreadonly="true"/>
+						<textbox id="maintab_section_rechover_2" rechover="secondarylookup2" dataattribute="refsecondary2" menutype="normal" applink="refsecon"/>
+						<textbox id="maintab_section_rechover_3" rechover="secondarylookup3" dataattribute="refsecondary3" menutype="normal" applink="refsecon"/>
+<!--						<multilinetextbox id="maintab_section_rechover_3" rechover="secondarylookup3" dataattribute="refsecondary3" menutype="normal" applink="refsecon" />  -->
+					</section>
+				</tab>
+				<tab id="AttachmentsAndAttachDoc" label="Attachments">
+					<tabgroup id="attachmenttabs">
+						<tab id="Attachdoc" label="Attachdoc">
+							<helpgrid id="attachdoc_help" innerhtml="This is NOT finished TODO finish it."/>
+						</tab>
+						<tab id="Attachimage" label="Attachimage">
+							<helpgrid id="attachimage_help" innerhtml="This is NOT finished TODO finish it."/>
+						</tab>
+						<tab id="Attachments" label="Attachments">
+							<section id="refattachments_section">
+								<helpgrid id="refattachments_help1" innerhtml="Default label, menutype and event. It saves the main record when opening each menu dialog"/>
+								<attachments id="refattachments_default"/>
+								<helpgrid id="refattachments_help2" innerhtml="User defined label, menutype drattachments and drviewattachments. Must use this menutype and event if the attachment is used in tabledetails control. It opens the menu dialog without saving the main record."/>
+								<attachments event="drviewattachments" id="refattachments_custom" label="Customized Attachments" menutype="drattachments"/>
+							</section>
+						</tab>
+					</tabgroup>
+				</tab>
+				<tab id="Buttons" label="Buttons">
+					<tabgroup id="buttontabs">
+						<tab id="Pushbutton" label="Pushbutton">
+							<helpgrid id="refpushbutton_help" innerhtml="TODO linkedfocusid cssclass textcss          hidewhen dictionarysupport mxeventjshandler advancedlongop longopmessage"/>
+							<section id="pushbutton_label" label="Label">
+								<pushbutton id="pushbutton_label_custom" label="Custom Label"/>
+								<pushbutton id="pushbutton_label_default"/>
+							</section>
+							<section id="pushbutton_disabled" label="Disabled">
+								<pushbutton disabled="true" id="pushbutton_disabled_true" label="true"/>
+								<pushbutton disabled="false" id="pushbutton_disabled_false" label="false"/>
+								<pushbutton id="pushbutton_disabled_default" label="(unspecified)"/>
+							</section>
+							<section id="pushbutton_default" label="Default">
+								<pushbutton default="true" id="pushbutton_default_true" label="true"/>
+								<pushbutton default="false" id="pushbutton_default_false" label="false"/>
+								<pushbutton id="pushbutton_default_default" label="(unspecified)"/>
+							</section>
+							<section id="pushbutton_image" label="Image">
+								<pushbutton id="pushbutton_image_16x16" image="refapp_grid_16x16.gif" label="16x16"/>
+								<pushbutton id="pushbutton_image_32x32" image="refapp_grid_32x32.gif" label="32x32"/>
+							</section>
+							<section id="pushbutton_menutype" label="Menutype">
+								<pushbutton id="pushbutton_menutype_none" label="NONE" menutype="NONE"/>
+								<pushbutton id="pushbutton_menutype_help" label="HELP" menutype="HELP"/>
+							</section>
+							<section id="pushbutton_width" label="Width">
+								<pushbutton id="pushbutton_width_100" label="100" width="100"/>
+								<pushbutton id="pushbutton_width_50" label="50" width="50"/>
+								<pushbutton id="pushbutton_width_100px" label="100px" width="100px"/>
+								<pushbutton id="pushbutton_width_50px" label="50px" width="50px"/>
+								<pushbutton id="pushbutton_width_100percent" label="100%" width="100x"/>
+								<pushbutton id="pushbutton_width_50percent" label="50%" width="50px"/>
+								<pushbutton id="pushbutton_width_default" label="(unspecified)"/>
+							</section>
+							<section id="pushbutton_event" label="events">
+								<pushbutton id="pushbutton_event_dlg_ok_1" label="mxevent:dlg_ok_1" mxevent="dlg_ok_1"/>
+								<textbox dataattribute="REF_ALNDOMAINAB" id="pushbutton_event_ab"/>
+								<pushbutton id="pushbutton_event_value" label="mxevent:lookup  value:valuelist  targetid:pushbutton_ab" mxevent="lookup" targetid="pushbutton_event_ab" value="valuelist"/>
+							</section>
+						</tab>
+						<tab id="Buttongroup" label="Buttongroup">
+							<helpgrid id="refbuttongroup_help" innerhtml="TODO licensekey sigoption sigoptiondatasrc labelcss textcss"/>
+							<section id="refbuttongroup_label" label="label">
+								<buttongroup id="buttongroup_label_custom" label="Custom Label">
+									<pushbutton id="buttongroup_label_custom_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_label_custom_pushbutton_two" label="Two"/>
+								</buttongroup>
+								<buttongroup id="buttongroup_label_default">
+									<pushbutton id="buttongroup_label_default_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_label_default_pushbutton_two" label="Two"/>
+								</buttongroup>
+							</section>
+							<section id="refbuttongroup_labelalign" label="labelalign">
+								<buttongroup id="buttongroup_labelalign_left" label="left" labelalign="left">
+									<pushbutton id="buttongroup_labelalign_left_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_labelalign_left_pushbutton_two" label="Two"/>
+								</buttongroup>
+								<buttongroup id="buttongroup_labelalign_right" label="right" labelalign="right">
+									<pushbutton id="buttongroup_labelalign_right_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_labelalign_right_pushbutton_two" label="Two"/>
+								</buttongroup>
+								<buttongroup id="pushbutton_labelalign_default" label="(unspecified)">
+									<pushbutton id="buttongroup_labelalign_default_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_labelalign_default_pushbutton_two" label="Two"/>
+								</buttongroup>
+							</section>
+							<section id="buttongroup_buttonsenabled" label="buttonsenabled">
+								<buttongroup buttonsenabled="true" id="buttongroup_buttonsenabled_true" label="true">
+									<pushbutton id="buttongroup_buttonsenabled_true_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_buttonsenabled_true_pushbutton_two" label="Two"/>
+								</buttongroup>
+								<helpgrid id="buttongroup_buttonsenabled_false_help" innerhtml="There is a buttonsenabled=&quot;false&quot; group here, and it should be hidden"/>
+								<buttongroup buttonsenabled="false" id="buttongroup_buttonsenabled_false" label="false">
+									<pushbutton id="buttongroup_buttonsenabled_false_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_buttonsenabled_false_pushbutton_two" label="Two"/>
+								</buttongroup>
+								<buttongroup id="buttongroup_buttonsenabled_default" label="(unspecified)">
+									<pushbutton id="buttongroup_buttonsenabled_default_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_buttonsenabled_default_pushbutton_two" label="Two"/>
+								</buttongroup>
+							</section>
+							<section id="buttongroup_show" label="show">
+								<buttongroup id="buttongroup_show_true" label="true" show="true">
+									<pushbutton id="buttongroup_show_true_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_show_true_pushbutton_two" label="Two"/>
+								</buttongroup>
+								<buttongroup id="buttongroup_show_false" label="false" show="false">
+									<pushbutton id="buttongroup_show_false_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_show_false_pushbutton_two" label="Two"/>
+								</buttongroup>
+								<buttongroup id="buttongroup_show_default" label="(unspecified)">
+									<pushbutton id="buttongroup_show_default_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_show_default_pushbutton_two" label="Two"/>
+								</buttongroup>
+							</section>
+							<section id="refbuttongroup_align" label="align">
+								<buttongroup align="left" id="buttongroup_align_left" label="left">
+									<pushbutton id="buttongroup_align_left_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_align_left_pushbutton_two" label="Two"/>
+								</buttongroup>
+								<buttongroup align="center" id="buttongroup_align_center" label="center">
+									<pushbutton id="buttongroup_align_center_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_align_center_pushbutton_two" label="Two"/>
+								</buttongroup>
+								<buttongroup align="right" id="buttongroup_align_right" label="right">
+									<pushbutton id="buttongroup_align_right_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_align_right_pushbutton_two" label="Two"/>
+								</buttongroup>
+								<buttongroup id="pushbutton_align_default" label="(unspecified)">
+									<pushbutton id="buttongroup_align_default_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_align_default_pushbutton_two" label="Two"/>
+								</buttongroup>
+							</section>
+							<section id="buttongroup_display" label="display">
+								<buttongroup display="true" id="buttongroup_display_true" label="true">
+									<pushbutton id="buttongroup_display_true_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_display_true_pushbutton_two" label="Two"/>
+								</buttongroup>
+								<helpgrid id="buttongroup_display_false_help" innerhtml="There is a display=&quot;false&quot; group here, and it should be hidden"/>
+								<buttongroup display="false" id="buttongroup_display_false" label="false">
+									<pushbutton id="buttongroup_display_false_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_display_false_pushbutton_two" label="Two"/>
+								</buttongroup>
+								<buttongroup id="buttongroup_display_default" label="(unspecified)">
+									<pushbutton id="buttongroup_display_default_pushbutton_one" label="One"/>
+									<pushbutton id="buttongroup_display_default_pushbutton_two" label="Two"/>
+								</buttongroup>
+							</section>
+						</tab>
+						<tab id="Checkbox" label="Checkbox">
+							<section border="false" id="checkbox_dataattribute" label="Data Attribute">
+								<checkbox dataattribute="REF_YORN" id="checkbox_dataattribute_yornfield1" label="YORN"/>
+							</section>
+							<section id="checkbox_inputmode" label="Input Mode">
+								<checkbox dataattribute="REF_YORN" id="checkbox_inputmode_readonly" inputmode="readonly" label="readonly"/>
+								<checkbox dataattribute="REF_YORN" id="checkbox_inputmode_default" label="(unspecified)"/>
+							</section>
+							<section id="checkbox_label" label="Label">
+								<checkbox dataattribute="REF_YORN" id="checkbox_label_custom" label="Custom Label"/>
+								<checkbox dataattribute="REF_YORN" id="checkbox_label_default"/>
+							</section>
+							<section id="refvalidation_checkbox_async" label="Validation class">
+								<helpgrid id="refvalidation_checkbox_warn_help_async" innerhtml="This checkbox will generate a warning if checked."/>
+								<sectionrow id="refvalidation_checkbox_warn_row_async">
+									<sectioncol id="refvalidation_checkbox_warn_col_async">
+										<checkbox dataattribute="REF_YORN_WARNONYES" id="refvalidation_checkbox_warn_async" synchronous="false"/>
+										<checkbox dataattribute="REF_YORN_WARNONYES" id="refvalidation_checkbox_warn_sync" label="Synchronous" synchronous="true"/>
+									</sectioncol>
+								</sectionrow>
+								<helpgrid id="refvalidation_checkbox_error_help_async" innerhtml="This checkbox will generate an error if checked."/>
+								<sectionrow id="refvalidation_checkbox_error_row_async">
+									<sectioncol id="refvalidation_checkbox_error_col_async">
+										<checkbox dataattribute="REF_YORN_ERRORONYES" id="refvalidation_checkbox_error_async" synchronous="false"/>
+										<checkbox dataattribute="REF_YORN_ERRORONYES" id="refvalidation_checkbox_error_sync" label="Synchronous" synchronous="true"/>
+									</sectioncol>
+								</sectionrow>
+								<helpgrid id="refvalidation_checkbox_ync_help_async" innerhtml="This checkbox will generate an Yes/No/Cancel if checked."/>
+								<sectionrow id="refvalidation_checkbox_ync_row_async">
+									<sectioncol id="refvalidation_checkbox_ync_col_async">
+										<checkbox dataattribute="REF_YORN_YNCONYES" id="refvalidation_checkbox_ync_async" synchronous="false"/>
+										<checkbox dataattribute="REF_YORN_YNCONYES" id="refvalidation_checkbox_ync_sync" label="Synchronous" synchronous="true"/>
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+						<tab id="RadioButton" label="Radio Buttons" type="radiobuttons">
+							<tabgroup id="radiobuttontabs">
+								<tab id="Radiobuttongroup" label="Radiobuttongroup">
+									<section id="rb_sec1">
+										<textbox dataattribute="REF_ALN10" id="rb_sec1_attr1" inputmode="readonly" label="For focus testing"/>
+									</section>
+									<section id="radiobutton_header">
+										<sectionrow id="radiobutton_row">
+											<sectioncol id="radiobutton_col_static">
+												<helpgrid id="radiobutton_static" innerhtml="Static"/>
+											</sectioncol>
+											<sectioncol id="radiobutton_col_dynamic">
+												<helpgrid id="radiobutton_dynamic" innerhtml="Dynamic"/>
+											</sectioncol>
+										</sectionrow>
+									</section>
+									<section id="radiobuttongroup_align" label="align">
+										<sectionrow id="radiobuttongroup_align_row">
+											<sectioncol id="radiobuttongroup_align_static_col">
+												<section id="radiobuttongroup_align_static_left" label="left">
+													<radiobuttongroup align="left" dataattribute="REF_ALN10" id="radiobuttongroup_static_align_left">
+														<radiobutton id="radiobutton_align_left_one" label="One" value="one"/>
+														<radiobutton id="radiobutton_align_left_two" label="Two" value="two"/>
+													</radiobuttongroup>
+												</section>
+												<section id="radiobuttongroup_align_static_center" label="center">
+													<radiobuttongroup align="center" dataattribute="REF_ALN10" id="radiobuttongroup_static_align_center">
+														<radiobutton id="radiobutton_align_center_one" label="One" value="one"/>
+														<radiobutton id="radiobutton_align_center_two" label="Two" value="two"/>
+													</radiobuttongroup>
+												</section>
+												<section id="radiobuttongroup_align_static_right" label="right">
+													<radiobuttongroup align="right" dataattribute="REF_ALN10" id="radiobuttongroup_static_align_right">
+														<radiobutton id="radiobutton_align_right_one" label="One" value="one"/>
+														<radiobutton id="radiobutton_align_right_two" label="Two" value="two"/>
+													</radiobuttongroup>
+												</section>
+											</sectioncol>
+											<sectioncol id="radiobuttongroup_align_col_dynamic">
+												<section id="radiobuttongroup_dynamic_align_left_sec" label="left">
+													<radiobuttongroup align="left" dataattribute="REF_ALNDOMAINAB" id="radiobuttongroup_dynamic_align_left"/>
+												</section>
+												<section id="radiobuttongroup_dynamic_align_center_sec" label="center">
+													<radiobuttongroup align="center" dataattribute="REF_ALNDOMAINAB" id="radiobuttongroup_dynamic_align_center"/>
+												</section>
+												<section id="radiobuttongroup_dynamic_align_right_sec" label="right">
+													<radiobuttongroup align="right" dataattribute="REF_ALNDOMAINAB" id="radiobuttongroup_dynamic_align_right"/>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+									<section id="radiobuttongroup_inputmode" label="inputmode">
+										<sectionrow id="radiobuttongroup_inputmode_row">
+											<sectioncol id="radiobuttongroup_inputmode_col_static">
+												<section id="section_static_inputmode_readonly" label="readonly">
+													<radiobuttongroup dataattribute="REF_ALN10" id="radiobuttongroup_static_inputmode_readonly" inputmode="readonly">
+														<radiobutton id="radiobutton_inputmode_readonly_one" label="One" value="one"/>
+														<radiobutton id="radiobutton_inputmode_readonly_two" label="Two" value="two"/>
+													</radiobuttongroup>
+												</section>
+												<section id="section_static_inputmode_required" label="required">
+													<radiobuttongroup dataattribute="REF_ALN10_PRESREQ_RBG" id="radiobuttongroup_static_inputmode_required" inputmode="required">
+														<radiobutton id="radiobutton_inputmode_required_one" label="One" value="one"/>
+														<radiobutton id="radiobutton_inputmode_required_two" label="Two" value="two"/>
+													</radiobuttongroup>
+												</section>
+											</sectioncol>
+											<sectioncol id="radiobuttongroup_inputmode_col_dynamic">
+												<section id="section_dynamic_inputmode_readonly" label="readonly">
+													<radiobuttongroup dataattribute="REF_ALNDOMAINAB" id="radiobuttongroup_dynamic_inputmode_readonly" inputmode="readonly"/>
+												</section>
+												<section id="section_dynamic_inputmode_required" label="required">
+													<radiobuttongroup dataattribute="REF_ALNDOMAINAB_PRESREQ_RBG" id="radiobuttongroup_dynamic_inputmode_required" inputmode="required"/>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+									<section id="radiobuttongroup_label" label="label">
+										<sectionrow id="radiobuttongroup_label_row">
+											<sectioncol id="radiobuttongroup_static_label_col">
+												<section id="section_static_label_default" label="(unspecified)">
+													<radiobuttongroup dataattribute="REF_ALN10" id="radiobuttongroup_static_label_default">
+														<radiobutton id="radiobutton_label_default_one" label="One" value="one"/>
+														<radiobutton id="radiobutton_label_default_two" label="Two" value="two"/>
+													</radiobuttongroup>
+												</section>
+												<section id="section_static_label_custom" label="Custom label">
+													<radiobuttongroup dataattribute="REF_ALN10" id="radiobuttongroup_static_label_custom" label="Custom label">
+														<radiobutton id="radiobutton_label_custom_one" label="One" value="one"/>
+														<radiobutton id="radiobutton_label_custom_two" label="Two" value="two"/>
+													</radiobuttongroup>
+												</section>
+											</sectioncol>
+											<sectioncol id="radiobuttongroup_dynamic_label_col">
+												<section id="section_dynamic_label_default" label="(unspecified)">
+													<radiobuttongroup dataattribute="REF_ALNDOMAINAB" id="radiobuttongroup_dynamic_label_default"/>
+												</section>
+												<section id="section_dynamic_label_custom" label="Custom label">
+													<radiobuttongroup dataattribute="REF_ALNDOMAINAB" id="radiobuttongroup_dynamic_label_custom" label="Custom label"/>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+									<section id="radiobuttongroup_hidelabel" label="hidelabel">
+										<sectionrow id="radiobuttongroup_hidelabel_row">
+											<sectioncol id="radiobuttongroup_hidelabel_col_static">
+												<section id="section_hidelabel_false" label="false">
+													<radiobuttongroup dataattribute="REF_ALN10" hidelabel="false" id="radiobuttongroup_static_hidelabel_false" label="Custom label">
+														<radiobutton id="radiobutton_hidelabel_false_one" label="One" value="one"/>
+														<radiobutton id="radiobutton_hidelabel_false_two" label="Two" value="two"/>
+													</radiobuttongroup>
+												</section>
+												<section id="section_hidelabel_true" label="true">
+													<radiobuttongroup dataattribute="REF_ALN10" hidelabel="true" id="radiobuttongroup_static_hidelabel_true" label="Custom label">
+														<radiobutton id="radiobutton_hidelabel_true_one" label="One" value="one"/>
+														<radiobutton id="radiobutton_hidelabel_true_two" label="Two" value="two"/>
+													</radiobuttongroup>
+												</section>
+											</sectioncol>
+											<sectioncol id="radiobuttongroup_hidelabel_col_dynamic">
+												<section id="section_dynamic_hidelabel_false" label="false">
+													<radiobuttongroup dataattribute="REF_ALNDOMAINAB" hidelabel="false" id="radiobuttongroup_dynamic_hidelabel_false" label="Custom label"/>
+												</section>
+												<section id="section_dynamic_hidelabel_true" label="true">
+													<radiobuttongroup dataattribute="REF_ALNDOMAINAB" hidelabel="true" id="radiobuttongroup_dynamic_hidelabel_true" label="Custom label"/>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+									<section id="radiobuttongroup_border" label="border">
+										<sectionrow id="radiobuttongroup_border_row">
+											<sectioncol id="radiobuttongroup_static_border_col">
+												<section id="section_static_border_true" label="true">
+													<radiobuttongroup border="true" dataattribute="REF_ALN10" id="radiobuttongroup_static_border_true">
+														<radiobutton id="radiobuttongroup_border_true_one" label="One" value="one"/>
+														<radiobutton id="radiobuttongroup_border_true_two" label="Two" value="two"/>
+													</radiobuttongroup>
+												</section>
+												<section id="section_static_border_false" label="false">
+													<radiobuttongroup border="false" dataattribute="REF_ALN10" id="radiobuttongroup_static_border_false">
+														<radiobutton id="radiobuttongroup_border_false_one" label="One" value="one"/>
+														<radiobutton id="radiobuttongroup_border_false_two" label="Two" value="two"/>
+													</radiobuttongroup>
+												</section>
+											</sectioncol>
+											<sectioncol id="radiobuttongroup_dynamic_border_col">
+												<section id="section_dynamic_border_true" label="true">
+													<radiobuttongroup border="true" dataattribute="REF_ALNDOMAINAB" id="radiobuttongroup_dynamic_border_true"/>
+												</section>
+												<section id="section_dynamic_border_false" label="false">
+													<radiobuttongroup border="false" dataattribute="REF_ALNDOMAINAB" id="radiobuttongroup_dynamic_border_false"/>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+									<section id="radiobuttongroup_dataattribute" label="dataattribute">
+										<sectionrow id="radiobuttongroup_dataattribute_row">
+											<sectioncol id="radiobuttongroup_static_dataattribute_col">
+												<section id="section_static_dataattribute_unspecified" label="(unspecified)">
+													<radiobuttongroup id="radiobuttongroup_static_dataattribute_default">
+														<radiobutton id="radiobutton_dataattribute_default_one" label="One" value="one"/>
+														<radiobutton id="radiobutton_dataattribute_default_two" label="Two" value="two"/>
+													</radiobuttongroup>
+												</section>
+												<section id="section_static_dataattribute_aln10" label="ALN10">
+													<radiobuttongroup dataattribute="REF_ALN10" id="radiobuttongroup_static_dataattribute_aln10">
+														<radiobutton id="radiobutton_dataattribute_aln10_one" label="One" value="one"/>
+														<radiobutton id="radiobutton_dataattribute_aln10_two" label="Two" value="two"/>
+													</radiobuttongroup>
+												</section>
+											</sectioncol>
+											<sectioncol id="radiobutton_dynamic_dataattribute_col">
+												<section id="section_dynamic_dataattribute_default" label="(unspecified)">
+													<radiobuttongroup id="radiobuttongroup_dynamic_dataattribute_default"/>
+												</section>
+												<section id="section_dynamic_dataattribute_alndomainab" label="ALNDOMAINAB">
+													<radiobuttongroup dataattribute="REF_ALNDOMAINAB" id="radiobuttongroup_dynamic_dataattribute_domainab"/>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+									<section id="radiobutton_ondatachange" label="ondatachange">
+										<sectionrow id="radiobutton_ondatachange_row">
+											<sectioncol id="radiobutton_static_ondatachange_col">
+												<section id="radiobutton_static_ondatachange_resetchildren" label="resetchildren">
+													<radiobuttongroup dataattribute="REF_ALN10" id="radiobutton_static_ondatachange_group_resetchildren" ondatachange="resetchildren">
+														<radiobutton id="radiobutton_static_ondatachange_resetchildren_one" label="One" value="one"/>
+														<radiobutton id="radiobutton_static_ondatachange_resetchildren_two" label="Two" value="two"/>
+													</radiobuttongroup>
+												</section>
+											</sectioncol>
+											<sectioncol id="radiobutton_dynamic_ondatachange_col">
+												<section id="radiobutton_dynamic_ondatachange_resetchildren" label="resetchildren">
+													<radiobuttongroup dataattribute="REF_ALNDOMAINAB" id="radiobutton_dynamic_ondatachange_group_resetchildren" ondatachange="resetchildren"/>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+									<section id="radiobutton_parameters" label="parameters">
+										<sectionrow id="radiobutton_parameters_row">
+											<sectioncol id="radiobutton_paramvalues_col">
+												<section id="radiobutton_paramvalues" label="Use ParamValues">
+													<radiobuttongroup dataattribute="REF_ALNDOMAINAB" id="inputwf_t2aa" label="1. {0}">
+														<paramvalues id="main_grid1_sec_param_1" property="label">
+															<paramvalue dataattribute="CONTROL" id="main_grid1_sec_param_1_A" position="0"/>
+														</paramvalues>
+													</radiobuttongroup>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+									<section id="radiobutton_bigdomain" label="dataattribute: NUMDOMAIN100">
+										<radiobuttongroup dataattribute="REF_NUMDOMAIN100" id="radiobutton_numdomain100"/>
+									</section>
+								</tab>
+								<tab id="StaticRadiobutton" label="Static Radiobutton">
+									<section id="radiobutton_static_value_label" label="value and label">
+										<radiobuttongroup dataattribute="REF_ALN10" id="radiobutton_static_group_value_label">
+											<radiobutton id="radiobutton_static_value_label_one" label="One" value="one"/>
+											<radiobutton id="radiobutton_static_value_label_two" label="Two" value="two"/>
+											<radiobutton id="radiobutton_static_value_label_empty" label="Empty value"/>
+										</radiobuttongroup>
+									</section>
+									<section id="radiobutton_static_default" label="default">
+										<radiobuttongroup dataattribute="REF_ALN10" id="radiobutton_static_default_group">
+											<radiobutton default="true" id="radiobutton_static_default_true" label="true" value="one"/>
+											<radiobutton default="false" id="radiobutton_static_default_false" label="false" value="two"/>
+											<radiobutton id="radiobutton_static_default_default" label="(unspecified)" value="three"/>
+										</radiobuttongroup>
+									</section>
+									<section id="radiobutton_static_checked" label="checked">
+										<radiobuttongroup dataattribute="REF_ALN10" id="radiobutton_static_checked_group">
+											<radiobutton checked="true" id="radiobutton_static_checked_true" label="true" value="one"/>
+											<radiobutton checked="false" id="radiobutton_static_checked_false" label="false" value="two"/>
+											<radiobutton id="radiobutton_static_checked_default" label="(unspecified)" value="three"/>
+										</radiobuttongroup>
+									</section>
+									<section id="radiobutton_static_nested_content" label="With nested content">
+										<radiobuttongroup dataattribute="REF_NUMDOMAIN100" id="radiobutton_static_nested_content_group">
+											<radiobutton id="radiobutton_static_nested_content_1" label="1" value="1">
+												<section id="radiobutton_static_nested_content_1_section">
+													<blankline id="radiobutton_static_nested_content_1_blankline"/>
+													<textbox dataattribute="REF_ALN10" id="radiobutton_static_nested_content_1_textbox"/>
+												</section>
+											</radiobutton>
+											<radiobutton id="radiobutton_static_nested_content_2" label="2" value="2">
+												<textbox dataattribute="REF_ALN10" id="radiobutton_static_nested_content_2_textbox"/>
+											</radiobutton>
+											<radiobutton id="radiobutton_static_nested_content_3" label="3" value="3">
+												<section id="radiobutton_static_nested_content_3_section">
+													<radiobuttongroup dataattribute="REF_ALNDOMAINAB" id="radiobutton_static_nested_content_3_group">
+														<radiobutton id="radiobutton_static_nested_content_3_section_a" label="A" value="A">
+															<textbox dataattribute="REF_ALN10" id="radiobutton_static_nested_content_3_section_a_textbox"/>
+														</radiobutton>
+														<radiobutton id="radiobutton_static_nested_content_3_section_b" label="B" value="B">
+															<textbox dataattribute="REF_ALN10" id="radiobutton_static_nested_content_3_section_b_textbox"/>
+														</radiobutton>
+													</radiobuttongroup>
+												</section>
+											</radiobutton>
+											<radiobutton id="radiobutton_static_nested_content_4" label="4" value="4">
+												<section id="radiobutton_static_nested_content_4_section">
+													<sectionrow id="radiobutton_static_nested_content_4_sectionrow">
+														<sectioncol id="radiobutton_static_nested_content_4_sectioncol">
+															<section id="radiobutton_static_nested_content_4_section_inner">
+																<textbox dataattribute="REF_ALN10" hidelabel="true" id="radiobutton_static_nested_content_4_textbox"/>
+															</section>
+														</sectioncol>
+													</sectionrow>
+												</section>
+											</radiobutton>
+											<radiobutton id="radiobutton_static_nested_content_5" label="5" value="5">
+												<combobox dataattribute="REF_ALNDOMAINAB" id="radiobutton_static_nested_content_5_textbox"/>
+											</radiobutton>
+											<radiobutton id="radiobutton_static_nested_content_6" label="6" value="6">
+												<section id="radiobutton_static_nested_content_6_section">
+													<textbox dataattribute="REF_ALN10" id="radiobutton_static_nested_content_6_textbox"/>
+												</section>
+											</radiobutton>
+										</radiobuttongroup>
+									</section>
+								</tab>
+							</tabgroup>
+						</tab>
+					</tabgroup>
+				</tab>
+				<tab id="Containers" label="Containers">
+					<tabgroup id="containerstabs">
+						<tab id="ContainersTab" label="Tab">
+							<helpgrid id="reftab_help" innerhtml="TODO finish this"/>
+							<tabgroup id="normal_tabs">
+								<tab id="normal_tabs_1" label="One">
+									<section id="normal_tabs_1_content" label="Content would be here in a real app">
+										<textbox dataattribute="REF_INTEGER" id="normal_tabs_1_content_integer"/>
+									</section>
+								</tab>
+								<tab id="normal_tabs_2" label="Two">
+									<section id="normal_tabs_2_content" label="Content would be here in a real app">
+										<textbox dataattribute="REF_INTEGER" id="normal_tabs_2_content_integer"/>
+									</section>
+								</tab>
+								<tab id="normal_tabs_3" label="Three">
+									<section id="normal_tabs_3_content" label="Content would be here in a real app">
+										<textbox dataattribute="REF_INTEGER" id="normal_tabs_3_content_integer"/>
+									</section>
+								</tab>
+							</tabgroup>
+							<tabgroup format="wizard" id="wizard_tabs">
+								<tab id="wizard_tabs_1" label="One">
+									<section id="wizard_tabs_1_content" label="Content would be here in a real app">
+										<textbox dataattribute="REF_INTEGER" id="wizard_tabs_1_content_integer"/>
+									</section>
+								</tab>
+								<tab id="wizard_tabs_2" label="Two">
+									<section id="wizard_tabs_2_content" label="Content would be here in a real app">
+										<textbox dataattribute="REF_INTEGER" id="wizard_tabs_2_content_integer"/>
+									</section>
+								</tab>
+								<tab id="wizard_tabs_3" label="Three">
+									<section id="wizard_tabs_3_content" label="Content would be here in a real app">
+										<textbox dataattribute="REF_INTEGER" id="wizard_tabs_3_content_integer"/>
+									</section>
+								</tab>
+							</tabgroup>
+						</tab>
+						<tab id="ContainersSection" label="Section">
+							<section id="section_useproportionalcols" label="useproportionalcols">
+								<section id="section_useproportionalcols1">
+									<section id="section_useproportionalcols_false" label="false" useproportionalcols="false">
+										<sectionrow id="section_useproportionalcols_false_row">
+											<sectioncol id="section_useproportionalcols_false_col1">
+												<section id="section_useproportionalcols_false_col1_section" label="Short">
+													<statictext id="section_useproportionalcols_false_col1_section_text" label="Short text"/>
+												</section>
+											</sectioncol>
+											<sectioncol id="section_useproportionalcols_false_col2">
+												<section id="section_useproportionalcols_false_col2_section" label="Long">
+													<statictext id="section_useproportionalcols_false_col2_section_text" label="Some long and wordy text that just keeps going on and on and sometimes starts over and repeats itself. Some long and wordy text that just keeps going on and on and sometimes starts over and repeats itself."/>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+								</section>
+								<section id="section_useproportionalcols2">
+									<section id="section_useproportionalcols_true" label="true" useproportionalcols="true">
+										<sectionrow id="section_useproportionalcols_true_row">
+											<sectioncol id="section_useproportionalcols_true_col1">
+												<section id="section_useproportionalcols_true_col1_section" label="Short">
+													<statictext id="section_useproportionalcols_true_col1_section_text" label="Short text"/>
+												</section>
+											</sectioncol>
+											<sectioncol id="section_useproportionalcols_true_col2">
+												<section id="section_useproportionalcols_true_col2_section" label="Long">
+													<statictext id="section_useproportionalcols_true_col2_section_text" label="Some long and wordy text that just keeps going on and on and sometimes starts over and repeats itself. Some long and wordy text that just keeps going on and on and sometimes starts over and repeats itself."/>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+								</section>
+								<section id="section_useproportionalcols3">
+									<section id="section_useproportionalcols_default" label="(default)">
+										<sectionrow id="section_useproportionalcols_default_row">
+											<sectioncol id="section_useproportionalcols_default_col1">
+												<section id="section_useproportionalcols_default_col1_section" label="Short">
+													<statictext id="section_useproportionalcols_default_col1_section_text" label="Short text"/>
+												</section>
+											</sectioncol>
+											<sectioncol id="section_useproportionalcols_default_col2">
+												<section id="section_useproportionalcols_default_col2_section" label="Long">
+													<statictext id="section_useproportionalcols_default_col2_section_text" label="Some long and wordy text that just keeps going on and on and sometimes starts over and repeats itself. Some long and wordy text that just keeps going on and on and sometimes starts over and repeats itself."/>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+								</section>
+							</section>
+						</tab>
+					</tabgroup>
+				</tab>
+				<tab id="Dialogs" label="Dialogs">
+					<tabgroup id="dialogtabs">
+						<tab id="Dialog" label="Dialog">
+							<helpgrid id="dlg_help" innerhtml="This shows many variations of using the Dialog control. There are pushbuttons to load each of the dialogs being tested."/>
+							<section id="dlg_s1">
+								<sectionrow id="dlg_sr1">
+									<sectioncol id="dlg_sr1_sc1">
+										<section id="dlg_sec1" label="beanclass">
+											<pushbutton id="dlg_pb_beanclass_1" label="beanclass" mxevent="dlg_beanclass_1"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr4_sc1">
+										<section id="dlg_sec10" label="datasrc">
+											<pushbutton id="dlg_pb_datasrc_1" label="datasrc" mxevent="dlg_datasrc_1"/>
+											<pushbutton id="dlg_pb_mboname_1" label="mboname" mxevent="dlg_mboname_1"/>
+											<pushbutton id="dlg_pb_relationship_1" label="relationship" mxevent="dlg_relationship_1"/>
+											<pushbutton id="dlg_pb_relationship_2" label="relationship w/ parentdatasrc" mxevent="dlg_relationship_2"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr1_sc2">
+										<section id="dlg_sec2" label="height, width">
+											<pushbutton id="dlg_pb_height_1" label="height=no value" mxevent="dlg_height_1"/>
+											<pushbutton id="dlg_pb_height_2" label="height=500" mxevent="dlg_height_2"/>
+											<pushbutton id="dlg_pb_width_1" label="width=no value" mxevent="dlg_width_1"/>
+											<pushbutton id="dlg_pb_width_2" label="width=800" mxevent="dlg_width_2"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="dlg_sr2">
+									<sectioncol id="dlg_sr2_sc2">
+										<section id="dlg_sec5" label="hidehelp">
+											<pushbutton id="dlg_pb_hidehelp_1" label="hidehelp=true" mxevent="dlg_hidehelp_1"/>
+											<pushbutton id="dlg_pb_hidehelp_2" label="hidehelp=false" mxevent="dlg_hidehelp_2"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr1_sc3">
+										<section id="dlg_sec3" label="icon">
+											<pushbutton id="dlg_pb_icon_1" label="dialog icon" mxevent="dlg_icon_1"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr2_sc1">
+										<section id="dlg_sec4" label="inputmode">
+											<pushbutton id="dlg_pb_inputmode_1" label="Searchmore" mxevent="searchmore"/>
+											<pushbutton id="dlg_pb_inputmode_2" label="READONLY" mxevent="dlg_inputmode_2"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="dlg_sr3">
+									<sectioncol id="dlg_sr2_sc3">
+										<section id="dlg_sec6" label="label">
+											<pushbutton id="dlg_pb_label_1" label="label" mxevent="dlg_label_1"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr3_sc1">
+										<section id="dlg_sec7" label="orderby">
+											<pushbutton id="dlg_pb_orderby_1" label="orderby alndomainab" mxevent="dlg_orderby_1"/>
+											<pushbutton id="dlg_pb_orderby_2" label="orderby w/ datasrc" mxevent="dlg_orderby_2"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr3_sc3">
+										<section id="dlg_sec9" label="ok, cancel, close buttons">
+											<pushbutton id="dlg_pb_ok_1" label="OK" mxevent="dlg_ok_1"/>
+											<pushbutton id="dlg_pb_cancel_1" label="Cancel" mxevent="dlg_cancel_1"/>
+											<pushbutton id="dlg_pb_close_1" label="Close" mxevent="dlg_close_1"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="dlg_sr4">
+									<sectioncol id="dlg_sr3_sc2">
+										<section id="dlg_sec8" label="savemode">
+											<pushbutton id="dlg_pb_savemode_1" label="onload" mxevent="dlg_savemode_1"/>
+											<pushbutton id="dlg_pb_savemode_2" label="onloadunload" mxevent="dlg_savemode_2"/>
+											<pushbutton id="dlg_pb_savemode_3" label="onunload" mxevent="dlg_savemode_3"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr4_sc2">
+										<section id="dlg_sec11" label="scrolling">
+											<pushbutton id="dlg_pb_scrolling_1" label="horizontal" mxevent="dlg_scrolling_1"/>
+											<pushbutton id="dlg_pb_scrolling_2" label="vertical" mxevent="dlg_scrolling_2"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="dlg_sr5_sc2">
+										<section id="dlg_sec12a" label="datastores">
+											<pushbutton id="dlg_pb_datastores_1" label="Dialog with Type-Ahead" mxevent="dialogtypeahead"/>
+											<pushbutton id="dlg_pb_datastores_2" label="Dialog with Type-Ahead and new datasrc" mxevent="dialogtypeahead2"/>
+											<pushbutton id="dlg_pb_datastores_3" label="Dialog with Type-Ahead and related datasrcs" mxevent="dialogtypeahead3"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+							</section>
+							<section id="dlg_sec12" label="Dialog Test Data">
+								<section id="dlg_sec12_sec1" label="Main Record Fields">
+									<multiparttextbox dataattribute="KEY" descdataattribute="REF_ALN100_WITHLD" id="dlg_main_section_1" inputmode="readonly"/>
+									<textbox dataattribute="REF_ALN10_REQ" id="dlg_maintab_attr1"/>
+								</section>
+								<table id="dlg_table1_table" inputmode="readonly" label="Table 1  (mboname=REFMAIN)" mboname="REFMAIN">
+									<tablebody displayrowsperpage="10" filterable="true" filterexpanded="true" id="dlg_table1_tablebody">
+										<tablecol dataattribute="REFMAINID" id="dlg_table1_col_1"/>
+										<tablecol dataattribute="KEY" id="dlg_table1_col_2"/>
+										<tablecol dataattribute="REF_ALN100_WITHLD" id="dlg_table1_col_3"/>
+										<tablecol dataattribute="REF_ALNDOMAINAB" id="dlg_table1_col_4"/>
+									</tablebody>
+								</table>
+								<table id="dlg_table2_table" label="Table 2  (relationship=REFCHILDA)" orderby="KEY" parentdatasrc="dlg_table1_table" relationship="refchilda">
+									<tablebody displayrowsperpage="10" filterable="true" id="dlg_table_tablebody">
+										<tablecol dataattribute="KEY" id="dlg_table2_col_2"/>
+										<tablecol dataattribute="DESCRIPTION" id="dlg_table2_col_4" lookup="longdesc"/>
+										<tablecol dataattribute="REF_DATETIME_REQ" id="dlg_table2_col_6"/>
+									</tablebody>
+								</table>
+							</section>
+						</tab>
+						<tab id="LongDescription" label="Long Description">
+							<section id="reflongdescription_standard" label="Standard longdesc dialog">
+								<helpgrid id="reflongdescription_standard_normal_help" innerhtml="Normal"/>
+								<textbox dataattribute="REF_ALN100_WITHLD" descdataattribute="REF_ALN100_WITHLD" id="reflongdescription_standard_normal" lookup="longdesc"/>
+								<helpgrid id="reflongdescription_standard_readonly_help" innerhtml="From a readonly textbox. The long description should be readonly too."/>
+								<textbox dataattribute="REF_ALN100_WITHLD" descdataattribute="REF_ALN100_WITHLD" id="reflongdescription_standard_readonly" inputmode="readonly" lookup="longdesc"/>
+							</section>
+							<section id="reflongdescription_columns" label="columns">
+								<helpgrid id="reflongdescription_columns_7_help" innerhtml="7"/>
+								<textbox dataattribute="REF_ALN100_WITHLD" descdataattribute="REF_ALN100_WITHLD" id="reflongdescription_columns_7" lookup="reflongdescription_columns_7"/>
+							</section>
+							<section id="reflongdescription_rows" label="rows">
+								<helpgrid id="reflongdescription_rows_2_help" innerhtml="2"/>
+								<textbox dataattribute="REF_ALN100_WITHLD" descdataattribute="REF_ALN100_WITHLD" id="reflongdescription_rows_2" lookup="reflongdescription_rows_2"/>
+								<helpgrid id="reflongdescription_rows_2000_help" innerhtml="2000"/>
+								<textbox dataattribute="REF_ALN100_WITHLD" descdataattribute="REF_ALN100_WITHLD" id="reflongdescription_rows_2000" lookup="reflongdescription_rows_2000"/>
+							</section>
+						</tab>
+						<tab id="MessageBox" label="Message Boxes" type="msgs">
+							<helpgrid id="msgbox_help" innerhtml="This shows various ways of invoking Message Box functionality"/>
+							<section border="true" id="msgbox_sec1">
+								<sectionrow id="msg_row_1_1">
+									<sectioncol id="msg_col_1_2">
+										<section id="msgbox_library" label="Invoke the messagebox defined in library.xml">
+											<buttongroup align="left" id="msgbox_buttongroup_library">
+												<pushbutton id="msgbox_button_msgbox" label="Show" mxevent="msgbox"/>
+											</buttongroup>
+										</section>
+										<section id="msg_1_2-1" label="Size">
+											<buttongroup align="left" id="msgbox_buttongroup_size">
+												<pushbutton id="msgbox_button_msgboxrefappht" label="Height 400" mxevent="msgboxrefappht"/>
+												<pushbutton id="msgbox_button_msgboxrefappwt" label="Width 800 (negative test)" mxevent="msgboxrefappwt"/>
+											</buttongroup>
+										</section>
+									</sectioncol>
+									<sectioncol id="msg_col_1_1">
+										<section id="msgbox_showMsgGroupKey" label="Show using msg group and key">
+											<buttongroup align="left" id="msgbox_buttongroup_showMsgGroupKey">
+												<pushbutton id="msgbox_button_showMsgGroupKey" label="Show" mxevent="showMsgGroupKey"/>
+											</buttongroup>
+										</section>
+										<section id="msgbox_showMsgException" label="Show from an exception">
+											<buttongroup align="left" id="msgbox_buttongroup_showMsgException">
+												<pushbutton id="msgbox_button_showMsgException" label="Show" mxevent="showMsgException"/>
+											</buttongroup>
+										</section>
+										<section id="msgbox_showMsgTwoForOne" label="One event to show two message boxes">
+											<helpgrid id="msgbox_helpgrid_showMsgTwoForOne" innerhtml="Dismissing the first message box should cause the second to appear"/>
+											<buttongroup align="left" id="msgbox_buttongroup_showMsgTwoForOne">
+												<pushbutton id="msgbox_button_showMsgTwoForOne" label="Show" mxevent="showMsgTwoForOne"/>
+											</buttongroup>
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="msg_row_2_1">
+									<sectioncol id="msg_col_2_1">
+										<section id="msgbox_bottons" label="Buttons">
+											<buttongroup align="left" id="msgbox_buttongroup_buttons">
+												<pushbutton id="msgbox_button_showMsgButtonOk" label="Ok" mxevent="showMsgButtonOk"/>
+												<pushbutton id="msgbox_button_showMsgButtonClose" label="Close" mxevent="showMsgButtonClose"/>
+												<pushbutton id="msgbox_button_showMsgButtonYesNo" label="Yes and No" mxevent="showMsgButtonYesNo"/>
+												<pushbutton id="msgbox_button_showMsgButtonOkCancel" label="Ok and Cancel" mxevent="showMsgButtonOkCancel"/>
+												<pushbutton id="msgbox_button_showMsgButtonYesNoCancel" label="Yes, No, and Cancel" mxevent="showMsgButtonYesNoCancel"/>
+											</buttongroup>
+										</section>
+									</sectioncol>
+									<sectioncol id="msg_row_2_2">
+										<section id="msgbox_displayMethod" label="DisplayMethod">
+											<buttongroup align="left" id="msgbox_buttongroup_displayMethod">
+												<pushbutton id="msgbox_button_showMsgDisplayAsStatusMessage" label="Status" mxevent="showMsgDisplayAsStatusMessage"/>
+												<pushbutton id="msgbox_button_showMsgDisplayAsMessageBox" label="MsgBox" mxevent="showMsgDisplayAsMessageBox"/>
+											</buttongroup>
+										</section>
+										<section id="msgbox_clientside" label="No server roundtrip">
+											<buttongroup align="left" id="msgbox_buttongroup_clientside">
+												<pushbutton id="msgbox_button_clientside" label="Show" mxeventjshandler="showCustomPopup({&quot;compid&quot;:&quot;mx123&quot;, &quot;systemdialog&quot;:true, &quot;focus&quot;:true, &quot;content&quot;:&quot;Custom client side messagebox. &quot;, &quot;icon&quot;:&quot;st_MessageInformation.png&quot;, &quot;closeX&quot;:false,&quot;buttons&quot;:[{&quot;id&quot;:&quot;custmgs_button1&quot;,&quot;text&quot;:&quot;OK&quot;,&quot;event&quot;:&quot;applyCurrentUpdate&quot;}]});return REQUESTTYPE_NONE;"/>
+											</buttongroup>
+										</section>
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+					</tabgroup>
+				</tab>
+				<tab id="Images" label="Images">
+					<tabgroup id="Imagestabs">
+						<tab id="Image" label="Image">
+							<section id="image_section">
+								<sectionrow id="image_section_row1">
+									<sectioncol id="image_section_col1">
+										<section id="image_align" label="Align">
+											<helpgrid id="image_align_help1" innerhtml="Centered"/>
+											<image align="CENTER" id="image_align_center" imagename="refapp_grid_16x16.gif"/>
+											<helpgrid id="image_align_help2" innerhtml="Right"/>
+											<image align="RIGHT" id="image_align_right" imagename="refapp_grid_16x16.gif"/>
+											<helpgrid id="image_align_help3" innerhtml="Left"/>
+											<image align="LEFT" id="image_align_left" imagename="refapp_grid_16x16.gif"/>
+										</section>
+										<section id="image_imagename" label="Imagename">
+											<helpgrid id="image_imagename_help1" innerhtml="valid imagename"/>
+											<image id="image_imagename_valid" imagename="refapp_grid_16x16.gif"/>
+										</section>
+										<section id="image_imagename_type" label="Image type">
+											<helpgrid id="image_imagename_type_help1_gif" innerhtml=".GIF image"/>
+											<image id="image_imagename_type_gif" imagename="refapp_grid_16x16.gif"/>
+											<helpgrid id="image_imagename_type_help_png" innerhtml=".PNG image"/>
+											<image id="image_imagename_type_png" imagename="refapp_grid_16x16.png"/>
+											<helpgrid id="image_imagename_type_help_jpg" innerhtml=".jpg image"/>
+											<image id="image_imagename_type_jpg" imagename="refapp_grid_16x16.jpg"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="image_section_col2">
+										<section id="image_height" label="Height">
+											<helpgrid id="image_height_help1" innerhtml="Default Height"/>
+											<image id="image_height_default" imagename="refapp_grid_16x16.gif"/>
+											<helpgrid id="image_height_help2" innerhtml="height=50"/>
+											<image height="50" id="image_height_50" imagename="refapp_grid_16x16.gif"/>
+											<helpgrid id="image_height_help3" innerhtml="height=20"/>
+											<image height="20" id="image_height_20" imagename="refapp_grid_16x16.gif"/>
+										</section>
+										<section id="image_width" label="Width">
+											<helpgrid id="image_width_help1" innerhtml="Default Width"/>
+											<image id="image_width_default" imagename="refapp_grid_16x16.gif"/>
+											<helpgrid id="image_width_help2" innerhtml="width=50"/>
+											<image id="image_width_50" imagename="refapp_grid_16x16.gif" width="50"/>
+											<helpgrid id="image_width_help3" innerhtml="width=10"/>
+											<image id="image_width_10" imagename="refapp_grid_16x16.gif" width="10"/>
+										</section>
+										<section id="image_width_height" label="Width and Height">
+											<helpgrid id="image_width_height_help2" innerhtml="width=50 height=10"/>
+											<image height="10" id="image_width_height_50x10" imagename="refapp_grid_16x16.gif" width="50"/>
+											<helpgrid id="image_width_height_help3" innerhtml="width=10 height=50"/>
+											<image height="50" id="image_width_height_10x50" imagename="refapp_grid_16x16.gif" width="10"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+						<tab id="ToggleImage" label="ToggleImage">
+							<helpgrid id="reftoggleimage_help" innerhtml="Toggleimage is used for the expand/contract image on a section."/>
+							<section id="toggleimage_section" label="Toggleimage Test Section">
+								<toggleimage id="toggleimage_test"/>
+							</section>
+						</tab>
+						<tab id="RecordImage" label="RecordImage">
+							<helpgrid id="refrecordimage_help" innerhtml="TODO"/>
+							<section id="recordimage_section">
+								<recordimage id="recordimage_test"/>
+							</section>
+						</tab>
+					</tabgroup>
+				</tab>
+				<tab id="Links" label="Links">
+					<tabgroup id="linkstabs">
+						<tab id="Accessiblelink" label="Accessiblelink">
+							<helpgrid id="refaccessiblelink_help" innerhtml="TODO"/>
+							<section id="refaccessiblelink_section">
+								<toggleimage id="refaccessiblelink_test"/>
+							</section>
+						</tab>
+						<tab id="Hyperlink" label="Hyperlink">
+							<section id="hyp_s1">
+								<sectionrow id="hyp_sr1">
+									<sectioncol id="hyp_sr1_sc1">
+										<section id="hyp_sec1" label="Access Key">
+											<statictext align="left" id="hyp_focustext" label="[Focus Here]"/>
+											<hyperlink accesskey="ALT+Y" id="hyp_acckey" label="Hyperlink1" mxevent="dlg_ok_1"/>
+											<hyperlink accesskey="ALT+Z" id="hyp_acckey4" label="Hyperlink2" mxevent="dlg_ok_1"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="hyp_sr1_sc2">
+										<section id="alignment" label="Alignment">
+											<section id="hyp_sec2" label="Align Left">
+												<hyperlink align="left" id="hyp_alignl" label="Hyperlink3" mxevent="dlg_ok_1"/>
+											</section>
+											<section id="hyp_sec3" label="Align Center">
+												<hyperlink align="center" id="hyp_alignc" label="Hyperlink4" mxevent="dlg_ok_1"/>
+											</section>
+											<section id="hyp_sec4" label="Align Right">
+												<hyperlink align="right" id="hyp_alignr" label="Hyperlink5" mxevent="dlg_ok_1"/>
+											</section>
+											<section id="hyp_sec5" label="Align Not Set">
+												<hyperlink id="hyp_align" label="Hyperlink6" mxevent="dlg_ok_1"/>
+											</section>
+											<section id="hyp_sec6" label="Align Blank">
+												<hyperlink id="hyp_alignb" label="Hyperlink7" mxevent="dlg_ok_1"/>
+											</section>
+										</section>
+									</sectioncol>
+									<sectioncol id="hyp_sr1_sc3">
+										<section id="hyp_sec7" label="Image">
+											<hyperlink id="hyp_img" image="refapp_grid_16x16.gif" mxevent="dlg_ok_1"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="hyp_sr1_sc4">
+										<section id="imagealign" label="Image Align">
+											<section id="hyp_sec8" label="Image Align Left">
+												<hyperlink id="hyp_imgalignl" image="refapp_grid_16x16.gif" imagealign="left" label="Hyperlink9" mxevent="dlg_ok_1"/>
+											</section>
+											<section id="hyp_sec9" label="Image Align Right">
+												<hyperlink id="hyp_imgalignr" image="refapp_grid_16x16.gif" imagealign="right" label="Hyperlink10" mxevent="dlg_ok_1"/>
+											</section>
+											<section id="hyp_sec10" label="Image Align Not Set">
+												<hyperlink id="hyp_imgalign" image="refapp_grid_16x16.gif" label="Hyperlink11" mxevent="dlg_ok_1"/>
+											</section>
+										</section>
+									</sectioncol>
+									<sectioncol id="hyp_sr1_sc5">
+										<section id="hyp_sec11" label="MX Event - Event Value - Target ID">
+											<hyperlink eventvalue="goto" id="hyp_mxe" label="Hyperlink12" mxevent="showmenu" targetid="pageTitlebar"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="hyp_sr2">
+									<sectioncol id="hyp_sr2_sc1">
+										<section id="hyp_sec12" label="CSS Class Name">
+											<hyperlink classname="um" id="hyp_cssclass" label="Hyperlink13" mxevent="dlg_ok_1"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="hyp_sr2_sc2">
+										<section id="hyp_sec13" label="Tooltip">
+											<hyperlink id="hyp_tt1" label="Hyperlink14" mxevent="dlg_ok_1" tooltip="Tooltip"/>
+											<hyperlink accesskey="ALT+T" id="hyp_tt2" label="Hyperlink15" mxevent="dlg_ok_1" tooltip="Tooltip"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="hyp_sr2_sc3">
+										<section id="hyp_sec15" label="URL">
+											<hyperlink id="hyp_url1" label="Hyperlink16" url="http://www.ibm.com"/>
+											<hyperlink id="hyp_url2" label="Hyperlink17" url="?event=loadapp&amp;value=refbasic"/>
+											<hyperlink id="hyp_url3" label="Hyperlink18" url="www.ibm.com"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="hyp_sr2_sc4">
+										<section id="hyp_sec18" label="Two Hyperlink, Same Access Key">
+											<hyperlink accesskey="ALT+X" id="hyp_acckey2" label="Hyperlink19" url="http://www.ibm.com"/>
+											<hyperlink accesskey="ALT+X" id="hyp_acckey3" label="Hyperlink20" mxevent="dlg_ok_1"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+						<tab id="Gotolink" label="Gotolink">
+							<helpgrid id="refgotolink_help" innerhtml="TODO"/>
+							<section id="refgotolink_section">
+								<toggleimage id="refgotolink_test"/>
+							</section>
+						</tab>
+					</tabgroup>
+				</tab>
+				<tab id="Lists" label="Lists">
+					<tabgroup id="liststabs">
+						<tab id="Combobox" label="Combobox">
+							<section border="true" id="refcombobox_section">
+								<sectionrow id="refcombobox_row_1">
+									<sectioncol id="refcombobox_col_1">
+										<section id="refcombobox_dataattribute" label="dataattribute">
+											<combobox dataattribute="REF_ALNDOMAINAB" id="refcombobox_dataattribute_domainab" label="ALNDOMAINAB"/>
+											<combobox dataattribute="REF_NUMDOMAIN100" id="refcombobox_dataattribute_domain100" label="NUMDOMAIN100"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="refcombobox_col_2">
+										<section id="refcombobox__datasrc" label="datasrc">
+											<combobox dataattribute="REF_ALNDOMAINAB" datasrc="MAINRECORD" id="refcombobox_datasrc_mainrecord" label="MAINRECORD"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="refcombobox_col_3">
+										<section id="refcombobox_label" label="label">
+											<combobox dataattribute="REF_ALNDOMAINAB" id="refcombobox_label_default"/>
+											<combobox dataattribute="REF_ALNDOMAINAB" id="refcombobox_label_custom" label="Custom"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="refcombobox_row_2">
+									<sectioncol id="refcombobox_col_4">
+										<section id="refcombobox_displayattribute" label="displayattribute">
+											<combobox dataattribute="REF_TABLEDOMAIN4" displayattribute="DESCRIPTION" id="refcombobox_displayattribute_displayattribute4" keyattribute="KEY" label="KEY TABLEDOMAIN4"/>
+											<combobox dataattribute="REF_TABLEDOMAINEMPTY" displayattribute="DESCRIPTION" id="refcombobox_displayattribute_displayattribute0" keyattribute="KEY" label="TABLEDOMAINEMPTY"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="refcombobox_col_5">
+										<section id="refcombobox_keyattribute" label="keyattribute">
+											<combobox dataattribute="REF_TABLEDOMAIN4" displayattribute="DESCRIPTION" id="refcombobox_keyattribute_key_tabledomain4" keyattribute="KEY" label="KEY TABLEDOMAIN4"/>
+											<combobox dataattribute="REF_TABLEDOMAINEMPTY" displayattribute="DESCRIPTION" id="refcombobox_keyattribute_key_tabledomainempty" keyattribute="KEY" label="KEY TABLEDOMAINEMPTY"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="refcombobox_col_6">
+										<section id="refcombobox_usereditable" label="usereditable">
+											<combobox dataattribute="REF_ALNDOMAINAB" id="refcombobox_usereditable_true" label="true" usereditable="true"/>
+											<combobox dataattribute="REF_ALNDOMAINAB" id="refcombobox_usereditable_false" label="false" usereditable="false"/>
+											<combobox dataattribute="REF_ALNDOMAINAB" id="refcombobox_usereditable_default" label="default"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="refcombobox_row_3">
+									<sectioncol id="refcombobox_col_7">
+										<section id="refcombobox_inputmode" label="inputmode">
+											<combobox dataattribute="REF_ALNDOMAINAB" id="refcombobox_inputmode_unspecified" label="(unspecified)"/>
+											<combobox dataattribute="REF_ALNDOMAINAB_REQ" id="refcombobox_inputmode_unspecified_req_attr" label="(unspecified) but bound to a required data attribute"/>
+											<combobox dataattribute="REF_ALNDOMAINAB" id="refcombobox_inputmode_default" inputmode="default" label="default"/>
+											<combobox dataattribute="REF_ALNDOMAINAB" id="refcombobox_inputmode_query" inputmode="query" label="query"/>
+											<combobox dataattribute="REF_ALNDOMAINAB" id="refcombobox_inputmode_readonly" inputmode="readonly" label="readonly"/>
+											<combobox dataattribute="REF_ALNDOMAINAB_PRESREQ_COMBO" id="refcombobox_inputmode_required" inputmode="required" label="required"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="refcombobox_col_8">
+										<section id="refcombobox_width" label="width">
+											<combobox dataattribute="REF_ALNDOMAINAB" id="refcombobox_width_0" label="width = 0" width="0"/>
+											<combobox dataattribute="REF_ALNDOMAINAB" id="refcombobox_width_50" label="width = 50" width="50"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="refcombobox_col_9">
+										<section id="refcombobox_intable" label="In a table">
+											<table download="false" id="refcombobox_intable_table" relationship="REFCHILDA" showcount="false">
+												<tablebody displayrowsperpage="10" filterable="false" filterexpanded="false" id="refcombobox_intable_tablebody">
+													<tablecol dataattribute="REF_ALNDOMAINAB" id="refcombobox_table_default_col" label="default">
+														<combobox id="refcombobox_table_default"/>
+													</tablecol>
+													<tablecol dataattribute="REF_ALNDOMAINAB" id="refcombobox_table_usereditable_col" label="usereditable">
+														<combobox id="refcombobox_table_usereditable" usereditable="true"/>
+													</tablecol>
+												</tablebody>
+											</table>
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="refcombobox_row_4">
+									<sectioncol id="refcombobox_col_10">
+										<section id="refcombobox_large" label="Large domain scrolling/truncation test">
+											<combobox dataattribute="REF_NUMDOMAIN100" id="refcombobox_large_numdomain100"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+						<tab id="Listbox" label="Listbox">
+							<helpgrid id="listbox_help" innerhtml="This is NOT finished TODO finish it. autorefresh, refreshonreloadevent, displayimages, listitemimage, keyvalue, returnattribute, title, textcss, labelcss, licensekey, sigoption, sigoptiondatasrc, mboname, datasrc, designermboname, relationship, synchronous"/>
+							<section id="reflistbox_section">
+								<sectionrow id="reflistbox_row_1">
+									<sectioncol id="reflistbox_row_1_col_1">
+										<section id="reflistbox_width" label="width">
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" id="reflistbox_width_default" keyattribute="value" label="default"/>
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" id="reflistbox_width_0" keyattribute="value" label="0" width="0"/>
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" id="reflistbox_width_200" keyattribute="value" label="200" width="200"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_1_col_2">
+										<section id="reflistbox_height" label="height">
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" id="reflistbox_height_default" keyattribute="value" label="default"/>
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" height="0" id="reflistbox_height_0" keyattribute="value" label="0"/>
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" height="100" id="reflistbox_height_200" keyattribute="value" label="100"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_1_col_3">
+										<section id="reflistbox_inputmode" label="inputmode">
+											<listbox dataattribute="REF_ALNDOMAINAB" id="reflistbox_inputmode_readonly" inputmode="readonly" label="readonly"/>
+											<listbox dataattribute="REF_ALNDOMAINAB_REQ" id="reflistbox_inputmode_required_attr" label="required attribute"/>
+											<listbox dataattribute="REF_ALNDOMAINAB_PRESREQ_LISTBX" id="reflistbox_inputmode_required_pres" inputmode="required" label="required by presentation"/>
+											<listbox dataattribute="REF_ALNDOMAINAB" id="reflistbox_inputmode_default" label="(unspecified)"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="reflistbox_row_2">
+									<sectioncol id="reflistbox_row_2_col_1">
+										<section id="reflistbox_label" label="label">
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" id="reflistbox_label_default" keyattribute="value"/>
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" id="reflistbox_label_custom" keyattribute="value" label="Custom label"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_2_col_2">
+										<section id="reflistbox_hidelabel" label="hidelabel">
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" hidelabel="true" id="reflistbox_hidelabel_true" keyattribute="value" label="true"/>
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" hidelabel="false" id="reflistbox_hidelabel_false" keyattribute="value" label="false"/>
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" id="reflistbox_hidelabel_default" keyattribute="value" label="(unspecified)"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_2_col_3">
+										<section id="reflistbox_maxlistitems" label="maxlistitems">
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" id="reflistbox_maxlistitems_default" keyattribute="value" label="default"/>
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" id="reflistbox_maxlistitems_0" keyattribute="value" label="0" maxlistitems="0"/>
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" id="reflistbox_maxlistitems_2" keyattribute="value" label="2" maxlistitems="2"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="reflistbox_row_3">
+									<sectioncol id="reflistbox_row_3_col_1">
+										<section id="reflistbox_dataattribute" label="dataattribute">
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" id="reflistbox_dataattribute_tabledomain4" keyattribute="value" label="REF_TABLEDOMAIN4"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_3_col_2">
+										<section id="reflistbox_keyattribute" label="keyattribute">
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" id="reflistbox_keyattribute_value" keyattribute="value" label="value"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_3_col_3">
+										<section id="reflistbox_displayattribute" label="displayattribute">
+											<listbox dataattribute="REF_TABLEDOMAIN4" displayattribute="description" id="reflistbox_dispattribute_description" keyattribute="value" label="description"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="reflistbox_row_4">
+									<sectioncol id="reflistbox_row_4_col_1">
+										<section id="reflistbox_html_entities" label="Html entities">
+											<listbox dataattribute="REF_ALNDOMAIN_SPECIALCHAR" displayattribute="description" id="reflistbox_html_entities_tabledomain4" keyattribute="value" label="REF_TABLEDOMAIN4"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_4_col_2">
+										<section id="reflistbox_html_entityref" label="Html entity references">
+											<listbox dataattribute="REF_ALNDOMAIN_ENTITY" displayattribute="description" id="reflistbox_html_entityref_value" keyattribute="value" label="value"/>
+										</section>
+									</sectioncol>
+									<sectioncol id="reflistbox_row_4_col_3">
+										<section id="reflistbox_script_injection" label="Script injection">
+											<listbox dataattribute="REF_ALNDOMAIN_SCRIPTINJECT" displayattribute="description" id="reflistbox_script_injection_value" keyattribute="value" label="value"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+						<tab beanclass="psdi.webclient.beans.common.SearchSpecBean" id="Tree" label="Tree" mboname="CLASSSTRUCTURE">
+							<helpgrid id="tree_help" innerhtml="This is NOT finished TODO finish it."/>
+							<section id="reftree_">
+								<tree beanclass="psdi.webclient.beans.common.SearchSpecBean" id="reftree_classification" mboname="CLASSSTRUCTURE">
+									<treenode id="reftree_classification_node" keyattribute="classstructureuid" objectname="CLASSSTRUCTURE">
+										<treeattribute dataattribute="classificationid" display="true" id="reftree_classification_id"/>
+										<treeattribute dataattribute="classificationdesc" display="true" id="reftree_classification_desc"/>
+									</treenode>
+								</tree>
+							</section>
+							<section id="reftree_2" label="maxchildren">
+								<tree id="reftree_node_maxchildren" label="2">
+									<treenode id="reftree_node_maxchildren_2" keyattribute="classstructureuid" maxchildren="2" objectname="CLASSSTRUCTURE">
+										<treeattribute dataattribute="classificationid" display="true" id="reftree_node_maxchildren_2_id"/>
+										<treeattribute dataattribute="classificationdesc" display="true" id="reftree_node_maxchildren_2_desc"/>
+									</treenode>
+								</tree>
+							</section>
+						</tab>
+					</tabgroup>
+				</tab>
+				<tab id="MenuAndToolbar" label="Menu and Toolbar">
+					<tabgroup id="menuandtoolbartabs">
+						<tab id="Appbar" label="Appbar">
+							<helpgrid id="appbar_help" innerhtml="This is NOT finished TODO finish it."/>
+							<helpgrid id="appbar_help1" innerhtml="Default appbar"/>
+							<appbar id="appbar_simple"/>
+							<section id="appbar_event" label="event"/>
+							<section id="appbar_sourcemethod" label="sourcemethod">
+								<helpgrid id="appbar_sourcemethod_empty_help" innerhtml="(empty)"/>
+								<appbar id="appbar_sourcemethod_empty"/>
+							</section>
+						</tab>
+						<tab id="Menubar" label="Menubar">
+							<helpgrid id="menubar_help1" innerhtml="Default menubar"/>
+							<menubar id="menubar_simple"/>
+							<section id="menubar_event" label="event">
+								<helpgrid id="menubar_event_seach_help" innerhtml="search"/>
+								<menubar event="search" id="menubar_event_search"/>
+								<blankline id="menubar_event_blankline"/>
+							</section>
+							<section id="menubar_sourcemethod" label="sourcemethod">
+								<helpgrid id="menubar_sourcemethod_empty_help" innerhtml="(empty)"/>
+								<menubar id="menubar_sourcemethod_empty"/>
+							</section>
+						</tab>
+						<tab id="Toolbar" label="Toolbar">
+							<helpgrid id="toolbar_help" innerhtml="This is NOT finished TODO finish it."/>
+						</tab>
+						<tab id="Menus" label="Menus">
+							<section id="pop_downward" label="Menus should pop downward.">
+								<sectionrow id="pop_downwardsr">
+									<sectioncol id="pop_downwardsc">
+										<section id="menus_combobox_down" label="Combobox">
+											<combobox dataattribute="REF_NUMDOMAIN100" id="menutab_combo_down" label="Has many items. Will scroll."/>
+										</section>
+										<section id="menus_tb_down" label="Textbox Detail Menu">
+											<textbox dataattribute="REF_ALN10" id="textbox_menu_help_down" label="Has sub Menus" menutype="HELP"/>
+										</section>
+										<section id="menus_tb_singles" label="Textbox Single Menu Item">
+											<textbox dataattribute="REF_NUMDOMAIN100" id="textbox_menu_help_down_sm" label="Single menu item (shown)" lookup="valuelist" menutype="SHOWSINGLE"/>
+											<textbox dataattribute="REF_NUMDOMAIN100" id="textbox_menu_help_down_sm1" label="Single menu item (shown) (with custom icon)" lookup="valuelist" menutype="SHOWSINGLEICON"/>
+											<textbox dataattribute="REF_NUMDOMAIN100" id="textbox_menu_help_down_sm2" label="Single menu item (automatically triggered)" lookup="valuelist" menutype="SINGLE"/>
+											<textbox dataattribute="REF_NUMDOMAIN100" id="textbox_menu_help_down_sm3" label="Single menu item (with custom icon)" lookup="valuelist" menutype="SINGLEICON"/>
+											<textbox dataattribute="REF_NUMDOMAIN100" id="textbox_menu_help_down_menu_dis_null" label="Two items (second is disabled if field is null) (also has sep between items)" lookup="valuelist" menutype="DISABLEDNULL"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+							</section>
+							<helpgrid id="menu_help" innerhtml="A lot of menu testing can be done via the Goto Menu and Toolbar Comboboxes. They can have multiple submenus, some are more than one level deep."/>
+							<helpgrid id="menu_help1" innerhtml="There is also a context menu that is used in App Designer."/>
+							<helpgrid id="menu_help2" innerhtml="Considerations for menus are: &lt;br&gt;&lt;ul&gt; &lt;li&gt;Positioning  &lt;ul&gt;   &lt;li&gt;Comboboxes drop below field. Check on Toolbar, main form and dialog. (left aligned / Bidi is right aligned)&lt;/li&gt;   &lt;li&gt;Detail Menus drop below image (to the right / Bidi is to the left)&lt;/li&gt;   &lt;li&gt;Goto Menu Drops below link (to the right / Bidi is to the left)&lt;/li&gt;  &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;Keystrokes  &lt;ul&gt;   &lt;li&gt;Up and down arrows navigate items within a menu. Disabled items can be navigated, but no other interaction&lt;/li&gt;   &lt;li&gt;Left and right arrows navigate to and from sub menus. Right arrow will open a sub and left will close it (In Bidi these reverse)&lt;/li&gt;   &lt;li&gt;Enter toggles a menu item or opens a sub menu / Escape will close a menu and focus on the parent menu or item that opened the menu&lt;/li&gt;  &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;Focus  &lt;ul&gt;   &lt;li&gt;When a menu is opened the first item should get focus *(exceptions:  submenus opened by mouseover / typeahead menus)&lt;/li&gt;   &lt;li&gt;when a sub menu is closed the parent item should get focus *(exception:  submenus closed by mouseover)&lt;/li&gt;   &lt;li&gt;when a top level menu is closed the element that popped the menu should get focus&lt;/li&gt;  &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;Bidi  &lt;ul&gt;   &lt;li&gt;Pop locations reversed&lt;/li&gt;   &lt;li&gt;Backgrounds and general layout reversed&lt;/li&gt;   &lt;li&gt;Sub menu pop locations reversed&lt;/li&gt;   &lt;li&gt;Left and right arrows reversed&lt;/li&gt;  &lt;/ul&gt; &lt;/li&gt;  &lt;li&gt;Accessibility  &lt;ul&gt;   &lt;li&gt;WAI-ARIA TAGS and Keystroke navigation using arrows&lt;/li&gt;   &lt;li&gt;ROLES: menu / menuitem&lt;/li&gt; &lt;li&gt;aria-disabled (for disabled items) / aria-haspopup (for items with a sub menu) / aria-label (on textnode of item)&lt;/li&gt;  &lt;/ul&gt;  &lt;/li&gt;&lt;/ul&gt;"/>
+							<helpgrid id="menu_help3" innerhtml="Make sure to test menus with different window sizes to make sure we have sizing, pop location and direction should work."/>
+							<section id="pop_upward" label="Menus should pop upward.">
+								<sectionrow id="pop_upwardsr">
+									<sectioncol id="pop_upwardsc">
+										<section id="menus_combobox" label="Combobox">
+											<combobox dataattribute="REF_NUMDOMAIN100" id="menutab_combo" label="Has many items. Will scroll."/>
+										</section>
+										<section id="menus_tb" label="Textbox Detail Menu">
+											<textbox dataattribute="REF_ALN10" id="textbox_menu_help" label="Has sub Menus" menutype="HELP"/>
+										</section>
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+					</tabgroup>
+				</tab>
+				<tab id="Tables" label="Tables">
+					<tabgroup id="tabletabs">
+						<tab id="Table" label="Table">
+							<table id="table" label="Table" orderby="KEY" relationship="REFCHILDA">
+								<tablebody displayrowsperpage="10" filterable="true" id="table_tablebody">
+									<tablecol filterable="false" id="table_tablebody_detailtoggle" mxevent="toggledetailstate" mxevent_desc="Show Detail" sortable="false" type="event"/>
+									<tablecol dataattribute="KEY" id="table_tablebody_key"/>
+									<tablecol dataattribute="KEY" id="table_tablebody_custom_col_label" label="Custom Label"/>
+								</tablebody>
+								<tabledetails id="table_details">
+									<section id="table_details_section" label="Details">
+										<textbox dataattribute="KEY" id="table_details_key"/>
+									</section>
+								</tabledetails>
+							</table>
+						</tab>
+						<tab id="SimpleHeaderTable" label="Simple Header Table">
+							<simpleheadertable id="simbleheadertable" label="Table" orderby="KEY" relationship="REFCHILDA">
+								<tablebody displayrowsperpage="10" filterable="true" id="simbleheadertable_tablebody">
+									<tablecol filterable="false" id="simbleheadertable_tablebody_detailtoggle" mxevent="toggledetailstate" mxevent_desc="Show Detail" sortable="false" type="event"/>
+									<tablecol dataattribute="KEY" id="simbleheadertable_tablebody_key"/>
+									<tablecol dataattribute="KEY" id="simbleheadertable_tablebody_custom_col_label" label="Custom Label"/>
+								</tablebody>
+								<tabledetails id="simbleheadertable_details">
+									<section id="simbleheadertable_details_section" label="Details">
+										<textbox dataattribute="KEY" id="simbleheadertable_details_key"/>
+									</section>
+								</tabledetails>
+							</simpleheadertable>
+						</tab>
+						<tab id="ChildATable" label="Child Table">
+							<section id="childa_sec_1">
+								<helpgrid id="childa_sec_1_help" innerhtml="This tab demonstrates a construct found in most power apps i.e. a table based on a relationship off the mainrecord."/>
+							</section>
+							<section id="childa_sec_2">
+								<multiparttextbox dataattribute="KEY" descdataattribute="REF_ALN100_WITHLD" id="childa_section_1"/>
+							</section>
+							<table id="childa_table" label="Child A Records for Main Records {0}" orderby="KEY" relationship="REFCHILDA">
+								<sectionheader id="childa_table_sectionheader">
+									<paramvalues id="childa_table_1_sec_params" property="label">
+										<paramvalue dataattribute="KEY" datasrc="MAINRECORD" id="childa_table_1_sec_param_1" position="0"/>
+									</paramvalues>
+								</sectionheader>
+								<tablebody displayrowsperpage="10" filterable="true" id="childa_table_tablebody">
+									<tablecol filterable="false" id="childa_table_tablebody_1" mxevent="toggledetailstate" mxevent_desc="Show Detail" sortable="false" type="event"/>
+									<tablecol dataattribute="KEY" id="childa_table_tablebody_2"/>
+									<tablecol dataattribute="DESCRIPTION" id="childa_table_tablebody_4" lookup="longdesc"/>
+									<tablecol dataattribute="REF_DATETIME_REQ" id="childa_table_tablebody_6"/>
+									<tablecol dataattribute="REF_DATE" id="childa_table_tablebody_8"/>
+									<tablecol dataattribute="REF_ALNDOMAINAB" id="childa_table_tablebody_12"/>
+									<tablecol dataattribute="CHILDBNAME" id="childa_table_tablebody_13"/>
+									<tablecol dataattribute="REFSECONDARY" id="childa_table_tablebody_15" rechover="secondarylookup" applink="refsecon"/>
+									<tablecol dataattribute="REFSECONDARY2" id="childa_table_tablebody_16" rechover="secondarylookup4" applink="refsecon"/>
+									<tablecol filterable="false" id="childa_table_tablebody_14" mxevent="toggledeleterow" mxevent_desc="Mark Row for Delete" mxevent_icon="btn_garbage.gif" sortable="false" type="event"/>
+								</tablebody>
+								<tabledetails id="childa_table_1">
+									<section id="childa_table_1_grid1" label="Details">
+										<sectionrow id="childa_table_1_grid1_row">
+											<sectioncol id="childa_table_1_grid1s_secol">
+												<section id="childa_table_1_grid1_column_section1">
+													<multiparttextbox dataattribute="KEY" descdataattribute="DESCRIPTION" id="childa_table_1_grid1_1" inputmode="READONLY" sizeintable="7"/>
+													<textbox dataattribute="REF_DATETIME_REQ" id="childa_table_1_grid1_2"/>
+													<textbox dataattribute="REF_DATE" id="childa_table_1_grid1_4"/>
+												</section>
+											</sectioncol>
+											<sectioncol id="childa_table_1_grid2">
+												<section id="childa_table_1_grid2_column_section2">
+													<multiparttextbox dataattribute="CHILDBNAME" descdataattribute="REFCHILDB.DESCRIPTION" descinputmode="readonly" id="childa_table_1_grid2_4" lookup="refchildb"/>
+													<combobox dataattribute="REF_ALNDOMAINAB" id="childa_table_1_grid1_5"/>
+													<multiparttextbox id="childa_table_1_grid1_6" rechover="secondarylookup" dataattribute="refsecondary" menutype="normal" applink="refsecon" descdataattribute="refsecondary.description" descinputmode="readonly" longdescreadonly="true"/>
+													<multiparttextbox id="childa_table_1_grid1_7" rechover="secondarylookup4" dataattribute="refsecondary2" menutype="normal" applink="refsecon" descdataattribute="refsecondary2.description" descinputmode="readonly" longdescreadonly="true"/>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+								</tabledetails>
+								<buttongroup id="childa_table_2">
+									<pushbutton default="true" id="childa_table_2_1" label="New Row" mxevent="addrow"/>
+								</buttongroup>
+							</table>
+						</tab>
+						<tab id="Subtabs_In_Details" label="Tabs in Details">               
+							<table id="SID_Main_Table" mboname="REFMAIN">
+								<tablebody id="1345138497843">
+                                 <tablecol id="SID_details" type="event" mxevent="toggledetailstate" mxevent_desc="Show Detail" sortable="false" filterable="false" />
+                                 <tablecol dataattribute="REFMAINID" filterable="false" id="SID_column_select" mxevent="toggleselectrow" mxevent_desc="Select Row {0}" sortable="false" type="event"/>
+                                 <tablecol dataattribute="KEY" id="SID_column_link" mxevent="selectrecord" mxevent_desc="Go To %1" type="link" usefieldsizegroup="false"/>
+                                 <tablecol dataattribute="CONTROL" id="SID_control"/>
+                                 <tablecol dataattribute="DESCRIPTION" id="SID_description"/>
+                                 <tablecol dataattribute="REFMAINID" id="SID_column1" mxevent="selectrecord" mxevent_desc="Go To %1" type="LINK"/>
+                                 <tablecol filterable="false" id="SID_bookmark" mxevent="BOOKMARK" mxevent_desc="Add to Bookmarks" mxevent_icon="btn_addtobookmarks.gif" sortable="false" type="event"/>
+								</tablebody>
+                                <buttongroup id="SID_buttons">                                                                                  
+                                    <pushbutton default="true" id="SID_save" label="Save" mxevent="save"/>
+                                    <pushbutton default="true" id="SID_addrow" label="New Row" mxevent="addrow"/>
+                                </buttongroup>
+								<tabledetails id="SID_Main_Table_Details">
+                                 <section id="SID_main_section">
+                                     <sectionrow id="SID_main_section_row">
+                                         <sectioncol id="SID_main_section_col_1">
+                                             <multiparttextbox dataattribute="CONTROL" descdataattribute="DESCRIPTION" id="SID_main_section_controlanddescription"/>
+                                         </sectioncol>
+                                         <sectioncol id="SID_main_section_col_2">
+                                             <textbox dataattribute="KEY" id="SID_main_section_key"/>
+                                         </sectioncol>
+                                     </sectionrow>
+                                 </section>
+                                  <tabgroup id="SID_subtabgroup">
+                                   <tab id="SID_ChildA" label="Tab 1">
+                                     <section id="SID_table_1_grid1" label="Details">
+                                         <sectionrow id="SID_table_1_grid1_row">
+                                             <sectioncol id="SID_table_1_grid1s_secol">
+                                                 <section id="SID_table_1_grid1_column_section1">
+                                                     <multiparttextbox dataattribute="KEY" descdataattribute="DESCRIPTION" id="SID_table_1_grid1_1" inputmode="READONLY" sizeintable="7"/>
+                                                     <textbox dataattribute="REF_DATE" id="SID_table_1_grid1_4"/>
+                                                 </section>
+                                             </sectioncol>
+                                         </sectionrow>
+                                     </section>
+                                   </tab>
+                                   <tab id="SID_ChildB" label="Tab 2">
+                                    <section id="SID_table_2_grid1" label="Details">
+                                        <sectionrow id="SID_table_2_grid1_row">
+                                            <sectioncol id="SID_table_2_grid1s_secol">
+                                                <section id="SID_table_2_grid2_column_section2">
+                                                    <combobox dataattribute="REF_ALNDOMAINAB" id="SID_table_2_grid1_5"/>
+                                                </section>
+                                            </sectioncol>
+                                        </sectionrow>
+                                    </section>
+                                   </tab>
+                                  </tabgroup>
+                                 </tabledetails>
+							</table>
+						</tab>
+					</tabgroup>
+				</tab>
+				<tab id="Text" label="Text">
+					<tabgroup id="texttabs">
+						<tab id="Helpgrid" label="Helpgrid">
+							<section id="helpgrid_s1">
+								<sectionrow id="helpgrid_sr1">
+									<sectioncol id="helpgrid_sr1_sc1">
+										<statictext id="helpgrid_i1" label="innerhtml only"/>
+									</sectioncol>
+									<sectioncol id="helpgrid_sr1_sc2">
+										<helpgrid id="helpgrid_1" innerhtml="Some help text"/>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="helpgrid_sr2">
+									<sectioncol id="helpgrid_sr2_sc1">
+										<statictext id="helpgrid_i2" label="morehelp only"/>
+									</sectioncol>
+									<sectioncol id="helpgrid_sr2_sc2">
+										<helpgrid id="helpgrid_2" morehelp="package,filename"/>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="helpgrid_sr3">
+									<sectioncol id="helpgrid_sr3_sc1">
+										<statictext id="helpgrid_i3" label="innerhtml and morehelp"/>
+									</sectioncol>
+									<sectioncol id="helpgrid_sr3_sc2">
+										<helpgrid id="helpgrid_3" innerhtml="Some help text" morehelp="package,filename"/>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="helpgrid_sr7">
+									<sectioncol id="helpgrid_sr7_sc1">
+										<statictext id="helpgrid_i7" label="good msgkey and msggroup"/>
+									</sectioncol>
+									<sectioncol id="helpgrid_sr7_sc2">
+										<helpgrid id="helpgrid_7" msggroup="asynch" msgkey="smartfillhelptext"/>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="helpgrid_sr10">
+									<sectioncol id="helpgrid_sr10_sc1">
+										<statictext id="helpgrid_i10" label="good msgkey and msggroup and morehelp"/>
+									</sectioncol>
+									<sectioncol id="helpgrid_sr10_sc2">
+										<helpgrid id="helpgrid_10" morehelp="package,filename" msggroup="asynch" msgkey="smartfillhelptext"/>
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+						<tab id="MultilineTextbox" label="MultilineTextbox">
+							<tabgroup id="multilinetextboxtabs">
+								<tab id="MultilinetextboxDatatype" label="Datatype">
+									<section id="refmultilinetextbox_datatype_section">
+										<sectionrow id="refmultilinetextbox_datatype_sectionrow_1">
+											<sectioncol id="refmultilinetextbox_datatype_sectioncol_1">
+												<section id="refmultilinetextbox_text_section" label="Text">
+													<multilinetextbox dataattribute="REF_ALN10" id="refmultilinetextbox_text_aln" rechover="rc" />
+													<multilinetextbox dataattribute="REF_UPPER10" id="refmultilinetextbox_text_upper"/>
+													<multilinetextbox dataattribute="REF_LOWER10" id="refmultilinetextbox_text_lower"/>
+												</section>
+												<section id="refmultilinetextbox_validation_section" label="Validation class">
+													<multilinetextbox dataattribute="REF_ALN10_WSTARTWITHA" id="refmultilinetextbox_validation_wstartswitha_async" synchronous="false"/>
+													<multilinetextbox dataattribute="REF_ALN10_WSTARTWITHA" id="refmultilinetextbox_validation_wstartswitha_sync" label="Synchronous" synchronous="true"/>
+													<multilinetextbox dataattribute="REF_ALN10_ESTARTSWITHA" id="refmultilinetextbox_validation_estartswitha_async" synchronous="false"/>
+													<multilinetextbox dataattribute="REF_ALN10_ESTARTSWITHA" id="refmultilinetextbox_validation_estartswitha_sync" label="Synchronous" synchronous="true"/>
+													<multilinetextbox dataattribute="REF_ALN10_PASSWORDLENGTH" id="refmultilinetextbox_validation_passwordlength_async" inputmode="PASSWORD" synchronous="false"/>
+													<multilinetextbox dataattribute="REF_ALN10_PASSWORDLENGTH" id="refmultilinetextbox_validation_passwordlength_sync" inputmode="PASSWORD" label="Synchronous" synchronous="true"/>
+												</section>
+											</sectioncol>
+											<sectioncol id="refmultilinetextbox_datatype_sectioncol_2">
+												<section id="refmultilinetextbox_numeric_section" label="Numeric">
+													<multilinetextbox dataattribute="REF_SMALLINT" id="refmultilinetextbox_numeric_smallint"/>
+													<multilinetextbox dataattribute="REF_INTEGER" id="refmultilinetextbox_numeric_integer"/>
+													<multilinetextbox dataattribute="REF_BIGINT" id="refmultilinetextbox_numeric_bigint"/>
+													<multilinetextbox dataattribute="REF_DECIMAL8x2" id="refmultilinetextbox_numeric_decimal"/>
+													<multilinetextbox dataattribute="REF_FLOAT" id="refmultilinetextbox_numeric_float"/>
+													<multilinetextbox dataattribute="REF_AMOUNT" id="refmultilinetextbox_numeric_amount"/>
+													<multilinetextbox dataattribute="REF_DURATION" id="refmultilinetextbox_numeric_duration"/>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+								</tab>
+								<tab id="MultilineTextboxProperties" label="Properties">
+									<section id="refmultilinetextbox_dataattribute" label="Property: dataattribute">
+										<multilinetextbox dataattribute="REF_ALN900" id="refmultilinetextbox_mltextboxattribute01" label="ALN900"/>
+									</section>
+									<section id="refmultilinetextbox_inputmode" label="Property: inputmode">
+										<multilinetextbox dataattribute="REF_ALN900" id="refmultilinetextbox_inputmode_default" label="(unspecified)"/>
+										<multilinetextbox dataattribute="REF_ALN900" id="refmultilinetextbox_inputmode_query" inputmode="QUERY" label="query"/>
+										<multilinetextbox dataattribute="REF_ALN900" id="refmultilinetextbox_inputmode_readonly" inputmode="READONLY" label="readonly"/>
+										<multilinetextbox dataattribute="REF_ALN10_PRESREQ_MLTEXTBOX" id="refmultilinetextbox_inputmode_required" inputmode="REQUIRED" label="required"/>
+										<multilinetextbox dataattribute="REF_ALN10_PRESREQ_MLTEXTBOX" id="refmultilinetextbox_inputmode_requiredsideeffect" label="This should be required as a sideeffect of the previous field being required"/>
+										<multilinetextbox dataattribute="REF_ALN10_REQ" id="refmultilinetextbox_required" label="This should be required because the attribute its bound to is required"/>
+									</section>
+									<section id="refmultilinetextbox_label" label="Property: label">
+										<helpgrid id="refmultilinetextbox_label_help" innerhtml="First item should get its label from the attribute definition"/>
+										<multilinetextbox dataattribute="REF_ALN900" id="refmultilinetextbox_label_default"/>
+										<multilinetextbox dataattribute="REF_ALN900" id="refmultilinetextbox_label_custom" label="Custom Label"/>
+									</section>
+									<section id="refmultilinetextbox_hidelabel" label="Property: hidelabel">
+										<helpgrid id="refmultilinetextbox_hidelabel_help" innerhtml="The first one should not have a label"/>
+										<multilinetextbox dataattribute="REF_ALN900" hidelabel="true" id="refmultilinetextbox_hidelabel_true" label="true"/>
+										<multilinetextbox dataattribute="REF_ALN900" hidelabel="false" id="refmultilinetextbox_hidelabel_false" label="false"/>
+										<multilinetextbox dataattribute="REF_ALN900" id="refmultilinetextbox_hidelabel_default" label="(unspecified)"/>
+									</section>
+									<section id="refmultilinetextbox_lookup" label="Property: lookup">
+										<multilinetextbox dataattribute="REF_ALNDOMAINAB" id="refmultilinetextbox_lookup_valuelist" label="VALUELIST" lookup="valuelist"/>
+									</section>
+									<section id="refmultilinetextbox_menutype" label="Property: menutype">
+										<multilinetextbox dataattribute="REF_ALN900" id="refmultilinetextbox_menutype_help" label="HELP" menutype="HELP"/>
+									</section>
+									<section id="refmultilinetextbox_columns" label="Property: columns">
+										<multilinetextbox dataattribute="REF_ALN900" id="refmultilinetextbox_columns_default" label="(unspecified)"/>
+										<multilinetextbox columns="20" dataattribute="REF_ALN900" id="refmultilinetextbox_columns_20" label="20"/>
+									</section>
+									<section id="refmultilinetextbox_rows" label="Property: rows">
+										<multilinetextbox dataattribute="REF_ALN900" id="refmultilinetextbox_rows_default" label="(unspecified)"/>
+										<multilinetextbox dataattribute="REF_ALN900" id="refmultilinetextbox_rows_4" label="4" rows="4"/>
+									</section>
+								</tab>
+							</tabgroup>
+						</tab>
+						<tab id="MultipartTextbox" label="MultipartTextbox">
+							<tabgroup id="multiparttextboxtabs">
+								<tab id="MultiparttextboxDatatype" label="Datatype">
+									<section id="refmultiparttextbox_datatype_section">
+										<sectionrow id="refmultiparttextbox_datatype_sectionrow_1">
+											<sectioncol id="refmultiparttextbox_datatype_sectioncol_1">
+												<section id="refmultiparttextbox_text_section" label="Text">
+													<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10" id="refmultiparttextbox_text_aln"/>
+													<multiparttextbox dataattribute="REF_UPPER10" descdataattribute="REF_UPPER10" id="refmultiparttextbox_text_upper"/>
+													<multiparttextbox dataattribute="REF_LOWER10" descdataattribute="REF_LOWER10" id="refmultiparttextbox_text_lower"/>
+												</section>
+												<section id="refmultiparttextbox_validation_section" label="Validation class">
+													<multiparttextbox dataattribute="REF_ALN10_WSTARTWITHA" descdataattribute="REF_ALN10_WSTARTWITHA" id="refmultiparttextbox_validation_wstartswitha_async" synchronous="false"/>
+													<multiparttextbox dataattribute="REF_ALN10_WSTARTWITHA" descdataattribute="REF_ALN10_WSTARTWITHA" id="refmultiparttextbox_validation_wstartswitha_sync" label="Synchronous" synchronous="true"/>
+													<multiparttextbox dataattribute="REF_ALN10_ESTARTSWITHA" descdataattribute="REF_ALN10_ESTARTSWITHA" id="refmultiparttextbox_validation_estartswitha_async" synchronous="false"/>
+													<multiparttextbox dataattribute="REF_ALN10_ESTARTSWITHA" descdataattribute="REF_ALN10_ESTARTSWITHA" id="refmultiparttextbox_validation_estartswitha_sync" label="Synchronous" synchronous="true"/>
+													<multiparttextbox dataattribute="REF_ALN10_PASSWORDLENGTH" descdataattribute="REF_ALN10_PASSWORDLENGTH" descinputmode="PASSWORD" id="refmultiparttextbox_validation_passwordlength_async" inputmode="PASSWORD" synchronous="false"/>
+													<multiparttextbox dataattribute="REF_ALN10_PASSWORDLENGTH" descdataattribute="REF_ALN10_PASSWORDLENGTH" descinputmode="PASSWORD" id="refmultiparttextbox_validation_passwordlength_sync" inputmode="PASSWORD" label="Synchronous" synchronous="true"/>
+												</section>
+											</sectioncol>
+											<sectioncol id="refmultiparttextbox_datatype_sectioncol_2">
+												<section id="refmultiparttextbox_numeric_section" label="Numeric">
+													<multiparttextbox dataattribute="REF_SMALLINT" descdataattribute="REF_SMALLINT" id="refmultiparttextbox_numeric_smallint"/>
+													<multiparttextbox dataattribute="REF_INTEGER" descdataattribute="REF_INTEGER" id="refmultiparttextbox_numeric_integer"/>
+													<multiparttextbox dataattribute="REF_BIGINT" descdataattribute="REF_BIGINT" id="refmultiparttextbox_numeric_bigint"/>
+													<multiparttextbox dataattribute="REF_DECIMAL8x2" descdataattribute="REF_DECIMAL8x2" id="refmultiparttextbox_numeric_decimal"/>
+													<multiparttextbox dataattribute="REF_FLOAT" descdataattribute="REF_FLOAT" id="refmultiparttextbox_numeric_float"/>
+													<multiparttextbox dataattribute="REF_AMOUNT" descdataattribute="REF_AMOUNT" id="refmultiparttextbox_numeric_amount"/>
+													<multiparttextbox dataattribute="REF_DURATION" descdataattribute="REF_DURATION" id="refmultiparttextbox_numeric_duration"/>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+								</tab>
+								<tab id="MultipartTextboxProperties" label="Properties">
+									<section id="refmultiparttextbox_mentutype" label="Property: menutype (dataattribute / descdataattribute)">
+										<multiparttextbox dataattribute="KEY" descdataattribute="REF_ALN100_WITHLD" id="refmultiparttextbox_mentutype_ticket" label="ticket" menutype="ticket"/>
+									</section>
+									<section id="refmultiparttextbox_datasrc" label="datasrc">
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN100_WITHLD" id="refmultiparttextbox_datasrc_default" label="(unspecified)"/>
+										<multiparttextbox dataattribute="REF_ALN10" datasrc="MAINRECORD" descdataattribute="REF_ALN100_WITHLD" id="refmultiparttextbox_datasrc_mainrecord" label="mainrecord"/>
+									</section>
+									<section id="refmultiparttextbox_dataattr" label="dataattribute / descdataattribute">
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN100_WITHLD" id="refmultiparttextbox_dataattr_valid" label="Value: REF_ALN10 / REF_ALN100_WITHLD"/>
+									</section>
+									<section id="refmultiparttextbox_inputmode" label="inputmode / descinputmode">
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10" descinputmode="PASSWORD" id="refmultiparttextbox_inputmode_password_password" inputmode="PASSWORD" label="password / password"/>
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10" descinputmode="PASSWORDREADONLY" id="refmultiparttextbox_inputmode_password_passwordreadonly" inputmode="PASSWORD" label="password / password readonly"/>
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10_PRESREQ_MPTXTBX2_PWD" descinputmode="PASSWORDREQUIRED" id="refmultiparttextbox_inputmode_password_passwordrequired" inputmode="PASSWORD" label="password / password required"/>
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10" descinputmode="READONLY" id="refmultiparttextbox_inputmode_password_readonly" inputmode="PASSWORD" label="password / readonly"/>
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10_PRESREQ_MPTXTBX2" descinputmode="REQUIRED" id="refmultiparttextbox_inputmode_password_required" inputmode="PASSWORD" label="password / required"/>
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10" descinputmode="PASSWORD" id="refmultiparttextbox_inputmode_passwordreadonly_password" inputmode="PASSWORDREADONLY" label="password readonly / password"/>
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10" descinputmode="PASSWORDREADONLY" id="refmultiparttextbox_inputmode_passwordreadonly_passwordreadonly" inputmode="PASSWORDREADONLY" label="password readonly / password readonly"/>
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10_PRESREQ_MPTXTBX2_PWD" descinputmode="PASSWORDREQUIRED" id="refmultiparttextbox_inputmode_passwordreadonly_passwordrequired" inputmode="PASSWORDREADONLY" label="password readonly / password required"/>
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10" descinputmode="READONLY" id="refmultiparttextbox_inputmode_passwordreadonly_readonly" inputmode="PASSWORDREADONLY" label="password readonly / readonly"/>
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10_PRESREQ_MPTXTBX2" descinputmode="REQUIRED" id="refmultiparttextbox_inputmode_passwordreadonly_required" inputmode="PASSWORDREADONLY" label="password readonly / required"/>
+										<multiparttextbox dataattribute="REF_ALN10_PRESREQ_MPTXTBX1_PWD" descdataattribute="REF_ALN10" descinputmode="PASSWORD" id="refmultiparttextbox_inputmode_passwordrequired_password" inputmode="PASSWORDREQUIRED" label="password required / password"/>
+										<multiparttextbox dataattribute="REF_ALN10_PRESREQ_MPTXTBX1_PWD" descdataattribute="REF_ALN10" descinputmode="PASSWORDREADONLY" id="refmultiparttextbox_inputmode_passwordrequired_passwordreadonly" inputmode="PASSWORDREQUIRED" label="password required / password readonly"/>
+										<multiparttextbox dataattribute="REF_ALN10_PRESREQ_MPTXTBX1_PWD" descdataattribute="REF_ALN10_PRESREQ_MPTXTBX2_PWD" descinputmode="PASSWORDREQUIRED" id="refmultiparttextbox_inputmode_passwordrequired_passwordrequired" inputmode="PASSWORDREQUIRED" label="password required / password required"/>
+										<multiparttextbox dataattribute="REF_ALN10_PRESREQ_MPTXTBX1_PWD" descdataattribute="REF_ALN10" descinputmode="READONLY" id="refmultiparttextbox_inputmode_passwordrequired_readonly" inputmode="PASSWORDREQUIRED" label="password required / readonly"/>
+										<multiparttextbox dataattribute="REF_ALN10_PRESREQ_MPTXTBX1_PWD" descdataattribute="REF_ALN10_PRESREQ_MPTXTBX2" descinputmode="REQUIRED" id="refmultiparttextbox_inputmode_passwordrequired_required" inputmode="PASSWORDREQUIRED" label="password required / required"/>
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10" descinputmode="QUERY" id="refmultiparttextbox_inputmode_query_query" inputmode="QUERY" label="query / query"/>
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10" descinputmode="PASSWORD" id="refmultiparttextbox_inputmode_readonly_password" inputmode="READONLY" label="readonly / password"/>
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10" descinputmode="PASSWORDREADONLY" id="refmultiparttextbox_inputmode_readonly_passwordreadonly" inputmode="READONLY" label="readonly / password readonly"/>
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10_PRESREQ_MPTXTBX2_PWD" descinputmode="PASSWORDREQUIRED" id="refmultiparttextbox_inputmode_readonly_passwordrequired" inputmode="READONLY" label="readonly / password required"/>
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10" descinputmode="READONLY" id="refmultiparttextbox_inputmode_readonly_readonly" inputmode="READONLY" label="readonly / readonly"/>
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN10_PRESREQ_MPTXTBX2" descinputmode="REQUIRED" id="refmultiparttextbox_inputmode_readonly_required" inputmode="READONLY" label="readonly / required"/>
+										<multiparttextbox dataattribute="REF_ALN10_PRESREQ_MPTXTBX1" descdataattribute="REF_ALN10" descinputmode="PASSWORD" id="refmultiparttextbox_inputmode_required_password" inputmode="REQUIRED" label="required / password"/>
+										<multiparttextbox dataattribute="REF_ALN10_PRESREQ_MPTXTBX1" descdataattribute="REF_ALN10" descinputmode="PASSWORDREADONLY" id="refmultiparttextbox_inputmode_required_passwordreadonly" inputmode="REQUIRED" label="required / password readonly"/>
+										<multiparttextbox dataattribute="REF_ALN10_PRESREQ_MPTXTBX1" descdataattribute="REF_ALN10_PRESREQ_MPTXTBX2_PWD" descinputmode="PASSWORDREQUIRED" id="refmultiparttextbox_inputmode_required_passwordrequired" inputmode="REQUIRED" label="required / password required"/>
+										<multiparttextbox dataattribute="REF_ALN10_PRESREQ_MPTXTBX1" descdataattribute="REF_ALN10" descinputmode="READONLY" id="refmultiparttextbox_inputmode_required_readonly" inputmode="REQUIRED" label="required / readonly"/>
+										<multiparttextbox dataattribute="REF_ALN10_PRESREQ_MPTXTBX1" descdataattribute="REF_ALN10_PRESREQ_MPTXTBX2" descinputmode="REQUIRED" id="refmultiparttextbox_inputmode_required_required" inputmode="REQUIRED" label="required / required"/>
+									</section>
+									<section id="refmultiparttextbox_label" label="label">
+										<helpgrid id="refmultiparttextbox_label_help" innerhtml="First item should get its label from the attribute definition"/>
+										<multiparttextbox dataattribute="KEY" descdataattribute="REF_ALN100_WITHLD" id="refmultiparttextbox_label_default"/>
+										<multiparttextbox dataattribute="KEY" descdataattribute="REF_ALN100_WITHLD" id="refmultiparttextbox_label_custom" label="Custom label"/>
+									</section>
+									<section id="refmultiparttextbox_longdescreadonly" label="longdescreadonly">
+										<multiparttextbox dataattribute="KEY" descdataattribute="REF_ALN100_WITHLD" id="refmultiparttextbox_longdescreadonly_default" label="(unspecified)"/>
+										<multiparttextbox dataattribute="KEY" descdataattribute="REF_ALN100_WITHLD" id="refmultiparttextbox_longdescreadonly_false" label="false" longdescreadonly="false"/>
+										<multiparttextbox dataattribute="KEY" descdataattribute="REF_ALN100_WITHLD" id="refmultiparttextbox_longdescreadonly_true" label="true" longdescreadonly="true"/>
+									</section>
+									<section id="refmultiparttextbox_applink" label="applink">
+										<multiparttextbox dataattribute="REF_ALN10" descdataattribute="REF_ALN100_WITHLD" id="refmultiparttextbox_applink_default" label="(unspecified)"/>
+										<multiparttextbox applink="asset" dataattribute="REF_ALN10" descdataattribute="REF_ALN100_WITHLD" id="refmultiparttextbox_applink_asset" label="ASSET"/>
+									</section>
+									<section id="refmultiparttextbox_lookup" label="lookup">
+										<multiparttextbox dataattribute="REF_ALNDOMAINAB" descdataattribute="REF_ALN100_WITHLD" id="refmultiparttextbox_lookup_valuelist" label="valuelist" lookup="valuelist"/>
+									</section>
+									<section id="refmultiparttextbox_smartfilloff" label="smartfilloff">
+										<multiparttextbox dataattribute="REF_ALNDOMAINAB" descdataattribute="REF_NUMDOMAIN100" desclookup="VALUELIST" id="refmultiparttextbox_smartfilloff_default" label="(unspecified)" lookup="VALUELIST"/>
+										<multiparttextbox dataattribute="REF_ALNDOMAINAB" descdataattribute="REF_NUMDOMAIN100" desclookup="VALUELIST" id="refmultiparttextbox_smartfilloff_false" label="false" lookup="VALUELIST" smartfilloff="false"/>
+										<multiparttextbox dataattribute="REF_ALNDOMAINAB" descdataattribute="REF_NUMDOMAIN100" desclookup="VALUELIST" id="refmultiparttextbox_smartfilloff_true" label="true" lookup="VALUELIST" smartfilloff="true"/>
+									</section>
+									<section id="refmultiparttextbox_iconmenu" label="Property: iconmenu">
+                                     <helpgrid id="reficon_mptext_help" innerhtml="menutype and  iconmenu are icontest1:  Five icons, selectValue, applink to CI, applink to Assets, Attributes, Classifications(protected by sigopt=REFICONS)"/>
+										<multiparttextbox dataattribute="REF_LOWER10" id="reficon_mptext_1" descdataattribute="REF_ALN100_WITHLD" lookup="ci" applink="ci" menutype="icontest1" iconmenu="icontest1" desciconmenu="icontest1"/>
+									</section>
+								</tab>
+							</tabgroup>
+						</tab>
+						<tab id="RichText" label="RichText">
+							<tabgroup id="richtexttabs">
+								<tab id="richtext_viewer" label="Viewer">
+									<section id="richtext_viewer_dataattribute" label="dataattribute">
+										<richtextviewer dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" id="richtextviewer_dataattribute" label="default"/>
+									</section>
+									<section id="richtext_viewer_width_height" label="width, height">
+										<richtextviewer dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" height="50" id="richtextviewer_100x50" label="Dimensions (100x50)" width="100"/>
+									</section>
+									<section id="richtext_viewer_dialog" label="In a dialog">
+										<buttongroup align="left" id="richtextviewer_buttongroup">
+											<pushbutton id="richtextviewer_button_dialog" label="Open dialog" mxevent="dlg_richtextviewer"/>
+										</buttongroup>
+									</section>
+									<table download="false" id="richtext_viewer_table" label="In a table" mboname="REFMAIN" showcount="false">
+										<tablebody id="richtext_viewer_tablebody">
+											<tablecol filterable="false" id="richtext_viewer_tablebody_detailtoggle" mxevent="toggledetailstate" mxevent_desc="Show Detail" sortable="false" type="event"/>
+											<tablecol dataattribute="CONTROL" id="richtext_viewer_tablebody_control"/>
+											<tablecol dataattribute="DESCRIPTION" id="richtext_viewer_tablebody_description"/>
+											<tablecol dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" id="richtext_viewer_tablebody_viewer">
+												<richtextviewer id="richtextviewer_tablecolumn"/>
+											</tablecol>
+										</tablebody>
+										<tabledetails id="richtext_viewer_tabledetails">
+											<section id="richtext_viewer_tabledetails_section">
+												<richtextviewer dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" id="richtextviewer_tabledetails"/>
+											</section>
+										</tabledetails>
+									</table>
+								</tab>
+								<tab id="richtext_editor" label="Editor">
+									<tabgroup id="richtexteditortabs">
+										<tab id="richtext_editor_basic" label="Basic">
+											<richtexteditor dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" id="richtexteditor_default" label="Default"/>
+											<richtexteditor dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" height="80" id="richtexteditor_readonly" inputmode="readonly" label="Readonly" width="660"/>
+											<buttongroup align="left" id="richtexteditor_buttongroup">
+												<pushbutton id="richtexteditor_button_dialog" label="In a dialog" mxevent="dlg_richtexteditor"/>
+											</buttongroup>
+										</tab>
+										<tab id="richtext_editor_tabletab" label="Table">
+											<table download="false" id="richtext_editor_table" label="In table details" mboname="REFMAIN" showcount="false">
+												<tablebody id="richtext_editor_tablebody">
+													<tablecol filterable="false" id="richtext_editor_tablebody_detailtoggle" mxevent="toggledetailstate" mxevent_desc="Show Detail" sortable="false" type="event"/>
+													<tablecol dataattribute="CONTROL" id="richtext_editor_tablebody_control"/>
+													<tablecol dataattribute="DESCRIPTION" id="richtext_editor_tablebody_description"/>
+												</tablebody>
+												<tabledetails id="richtext_editor_tabledetails">
+													<section id="richtext_editor_tabledetails_section">
+														<richtexteditor dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" id="richtexteditor_tabledetails"/>
+													</section>
+												</tabledetails>
+											</table>
+										</tab>
+										<tab id="richtext_editor_size" label="Size">
+											<helpgrid id="richtext_help_dimensions" innerhtml="Variations of height and width."/>
+											<richtexteditor dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" height="80" id="richtexteditor_height_x_width" label="660x80" width="660"/>
+											<richtexteditor dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" height="-1" id="richtexteditor_height_negative" label="Height negative value"/>
+											<richtexteditor dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" height="40" id="richtexteditor_width_negative" label="Width negative value" width="-1"/>
+										</tab>
+										<tab id="richtext_editor_toolbars" label="Toolbars">
+											<helpgrid id="richtext_help_plugins" innerhtml="Variations of toolbar plugins and extra_plugins."/>
+											<richtexteditor dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" extra_plugins="['viewsource']" height="80" id="richtexteditor_non_default_plugins" label="Nondefault plugins and extra plugins" plugins="['bold']" width="640"/>
+											<richtexteditor dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" height="80" id="richtexteditor_empty_plugins" label="Empty plugins" plugins="[]" width="640"/>
+											<richtexteditor dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" extra_plugins="[]" height="80" id="richtexteditor_empty_extra_plugins" label="Empty extra_plugins" width="640"/>
+											<richtexteditor dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" extra_plugins="[]" height="80" id="richtexteditor_empty_empty" label="Empty plugins and extra_plugins" plugins="[]" width="640"/>
+											<richtexteditor dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" extra_plugins="['viewsource']" height="80" id="richtexteditor_empty_nonempty" label="Empty plugins and nonempty extra_plugins" plugins="[]" width="640"/>
+											<richtexteditor dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" extra_plugins="[]" height="80" id="richtexteditor_nonempty_empty" label="Nonempty plugins and empty extra_plugins" plugins="['bold']" width="640"/>
+										</tab>
+									</tabgroup>
+								</tab>
+							</tabgroup>
+						</tab>
+						<tab id="StaticText" label="StaticText">
+							<helpgrid id="statictext_help" innerhtml="This is NOT finished TODO finish it."/>
+							<section id="statictext_label" label="Property: label">
+								<statictext id="statictext_label_custom" label="Custom label"/>
+							</section>
+							<section id="statictext_span" label="Property: span">
+								<statictext id="statictext_span_1" label="1" span="1"/>
+							</section>
+							<section id="statictext_align" label="Property: align">
+								<statictext align="left" id="statictext_align_left" label="left"/>
+								<statictext align="center" id="statictext_align_center" label="center"/>
+								<statictext align="right" id="statictext_align_right" label="right"/>
+							</section>
+							<section id="statictext_link" label="Property: link">
+								<statictext id="statictext_link_label" label="link" link="link"/>
+							</section>
+							<section id="statictext_plaintext" label="Property: plaintext">
+								<statictext id="statictext_plaintext_true" label="true - Some html &lt;b&gt;bold&lt;/b&gt; &lt;i&gt;italics&lt;/i&gt; &lt;a href=&quot;http://www.ibm.com&quot;&gt;IBM.com&lt;/a&gt;" plaintext="true"/>
+								<statictext id="statictext_plaintext_false" label="false - Some html &lt;b&gt;bold&lt;/b&gt; &lt;i&gt;italics&lt;/i&gt; &lt;a href=&quot;http://www.ibm.com&quot;&gt;IBM.com&lt;/a&gt;" plaintext="false"/>
+								<statictext id="statictext_plaintext_unspecified" label="(unspecified) - Some html &lt;b&gt;bold&lt;/b&gt; &lt;i&gt;italics&lt;/i&gt; &lt;a href=&quot;http://www.ibm.com&quot;&gt;IBM.com&lt;/a&gt;"/>
+							</section>
+							<section id="statictext_msg" label="msggroup and msgkey">
+								<sectionrow id="statictext_sr9">
+									<sectioncol id="statictext_sr9_sc1">
+										<statictext id="statictext_msgkey_group_label" label="good msgkey and msggroup"/>
+									</sectioncol>
+									<sectioncol id="statictext_sr9_sc2">
+										<statictext id="statictext_msgkey_group" msggroup="asynch" msgkey="smartfillhelptext"/>
+									</sectioncol>
+								</sectionrow>
+								<sectionrow id="statictext_sr12">
+									<sectioncol id="statictext_sr12_sc1">
+										<statictext id="statictext_msgkey_group_link_label" label="good msgkey and msggroup and link"/>
+									</sectioncol>
+									<sectioncol id="statictext_sr12_sc2">
+										<statictext id="statictext_msgkey_group_link" link="link" msggroup="asynch" msgkey="smartfillhelptext"/>
+									</sectioncol>
+								</sectionrow>
+							</section>
+						</tab>
+						<tab id="Textbox" label="Textbox">
+							<helpgrid id="textbox_TODO" innerhtml="This is NOT finished TODO finish it."/>
+							<tabgroup id="textboxtabs">
+								<tab id="TextboxDatatype" label="Datatype">
+									<section id="reftextbox_datatype_section">
+										<sectionrow id="reftextbox_datatype_sectionrow_1">
+											<sectioncol id="reftextbox_datatype_sectioncol_1">
+												<section id="reftextbox_text_section" label="Text">
+                                                    <textboxlink dataattribute="REF_ALN10" id="tedtest1" mxevent="showmenu" menutype="reficon" label="with link"   eventvalue="help" classname="powerwhite" image="btn_help.gif" />
+													<textbox dataattribute="REF_ALN10" id="reftextbox_text_aln"/>
+													<textbox dataattribute="REF_UPPER10" id="reftextbox_text_upper"/>
+													<textbox dataattribute="REF_LOWER10" id="reftextbox_text_lower"/>
+												</section>
+												<section id="reftextbox_numeric_section" label="Numeric">
+													<textbox dataattribute="REF_SMALLINT" id="reftextbox_numeric_smallint"/>
+													<textbox dataattribute="REF_INTEGER" id="reftextbox_numeric_integer"/>
+													<textbox dataattribute="REF_BIGINT" id="reftextbox_numeric_bigint"/>
+													<textbox dataattribute="REF_DECIMAL8x2" id="reftextbox_numeric_decimal"/>
+													<textbox dataattribute="REF_FLOAT" id="reftextbox_numeric_float"/>
+													<textbox dataattribute="REF_AMOUNT" id="reftextbox_numeric_amount"/>
+													<textbox dataattribute="REF_DURATION" id="reftextbox_numeric_duration"/>
+												</section>
+												<section id="reftextbox_domain_async" label="Domains">
+													<textbox dataattribute="REF_UPPERDOMAINMATCH" id="reftextbox_domain_match" lookup="valuelist"/>
+													<textbox dataattribute="REF_NUMDOMAIN100" id="reftextbox_domain_100" lookup="valuelist"/>
+													<helpgrid id="reftextbox_domain_simple_help" innerhtml="Choosing A or B in the 'ALN domain with two items: A and B:' field should change the value in the 'Shared attribute' field because they are bound to the same attribute."/>
+													<textbox dataattribute="REF_ALNDOMAINAB" id="reftextbox_domain_ab" lookup="valuelist"/>
+													<textbox dataattribute="REF_ALNDOMAINAB" id="reftextbox_domain_ab2" label="Shared attribute"/>
+													<helpgrid id="reftextbox_domain_getlist_help" innerhtml="The attributes the next two fields are bound to have a getList() method and therefore they aren't simple, and shouldn't have typeahead because its not explicitly configured."/>
+													<textbox dataattribute="REF_ALNDOMAINAB_WITH_GETLIST" id="reftextbox_domain_ab_with_getlist" lookup="valuelist"/>
+													<textbox dataattribute="REF_ALNDOMAINJK_WITH_GETLIST" id="reftextbox_domain_jk_with_getlist" lookup="valuelist"/>
+													<textbox dataattribute="REF_ALNDOMAINXY_INHERIT_GETLST" id="reftextbox_domain_xy_with_inherited_getlist" lookup="valuelist"/>
+													<helpgrid id="reftextbox_domain_filter_help" innerhtml="The data available in the type ahead on the next field will be limited based on the value in the 'ALN domain with two items: A and B:' field. 1 through 4 will be available it it is blank, 1 and 2 if it is A, and 3 and 4 if it is B. When a value is selected the description is set into the 'Alphanumeric (10)' field as a result of a setvalue defined on the datasource.&lt;br/&gt;&lt;b&gt;Note:&lt;/b&gt; in a production app this same filter behavior should be included in the business logic as well."/>
+													<textbox dataattribute="REF_TABLEDOMAIN4" id="reftextbox_domain_4" lookup="valuelist"/>
+													<textbox dataattribute="REF_ALN10" id="reftextbox_text_aln_domainset"/>
+													<helpgrid id="reftextbox_domain_specialchar_help" innerhtml="Type an '&amp;amp;' in the field and ensure that you get just one match."/>
+													<textbox dataattribute="REF_ALNDOMAIN_SPECIALCHAR" id="reftextbox_domain_specialchar" lookup="valuelist"/>
+													<helpgrid id="reftextbox_domain_entity_help" innerhtml="Type '&amp;amp;a' in the field and ensure that you get just one match. Also type '&amp;amp;amp;' in the field and make sure that no matches are found"/>
+													<textbox dataattribute="REF_ALNDOMAIN_ENTITY" id="reftextbox_domain_entity" lookup="valuelist"/>
+												</section>  												
+
+											</sectioncol>
+											<sectioncol id="reftextbox_datatype_sectioncol_2">
+												<section id="reftextbox_validation_section" label="Validation class">
+													<section id="reftextbox_validation_basic">
+														<textbox dataattribute="REF_ALN10_WSTARTWITHA" id="reftextbox_validation_async_aln10_startswitha" synchronous="false"/>
+														<textbox dataattribute="REF_ALN10_WSTARTWITHA" id="reftextbox_validation_sync_aln10_startswitha" label="Synchronous" synchronous="true"/>
+													</section>
+													<section id="reftextbox_validation_errorwarn_info">
+														<helpgrid id="refvalidation_textbox_errorwarn_help_async" innerhtml="The first here has a field validation class that will throw an exception in validate() if it's value does not start with A (it will allow an empty string).&lt;br&gt;If validate() passes, the action() will add a warning if the second field is empty."/>
+													</section>
+													<section id="reftextbox_validation_errorwarn">
+														<textbox dataattribute="REF_ALN10_ESTARTSWITHA_WEMPOTH" id="reftextbox_validation_async_errorandwarn" synchronous="false"/>
+														<textbox dataattribute="REF_ALN10_ESTARTSWITHA_WEMPOTH" id="reftextbox_validation_sync_errorandwarn" label="Synchronous" synchronous="true"/>
+														<textbox dataattribute="REF_ALN10_EMPTY" id="reftextbox_validation_async_empty" synchronous="false"/>
+														<textbox dataattribute="REF_ALN10_EMPTY" id="reftextbox_validation_sync_empty" label="Synchronous" synchronous="true"/>
+													</section>
+												</section>
+												<section id="reftextbox_datetime_section" label="Date/Time">
+													<helpgrid id="reftextbox_datetime_help" innerhtml="No lookup specified. Date and DateTime shouldn't have a button, Time gets one automatically"/>
+													<section id="reftextbox_datetime_section_default">
+														<textbox dataattribute="REF_DATETIME" id="reftextbox_datetime_datetime"/>
+														<textbox dataattribute="REF_DATE" id="reftextbox_datetime_date"/>
+														<textbox dataattribute="REF_TIME" id="reftextbox_datetime_time"/>
+													</section>
+													<helpgrid id="reftextbox_datetime_datetimelookup_help" innerhtml="Datetime lookup specified. Auto corrected to match actual type if Date, DateTime, or Time."/>
+													<section id="reftextbox_datetime_section_datetimelookup">
+														<textbox dataattribute="REF_DATETIME" id="reftextbox_datetime_datetime_datetimelookup" lookup="datetimelookup"/>
+														<textbox dataattribute="REF_DATE" id="reftextbox_datetime_date_datetimelookup" lookup="datetimelookup"/>
+														<textbox dataattribute="REF_TIME" id="reftextbox_datetime_time_datetimelookup" lookup="datetimelookup"/>
+														<textbox dataattribute="REF_ALN10" id="reftextbox_datetime_aln_datetimelookup" lookup="datetimelookup"/>
+													</section>
+													<helpgrid id="reftextbox_datetime_datelookup_help" innerhtml="Date lookup specified. Auto corrected to match actual type if Date, DateTime, or Time."/>
+													<section id="reftextbox_datetime_section_datelookup">
+														<textbox dataattribute="REF_DATETIME" id="reftextbox_datetime_datetime_datelookup" lookup="datelookup"/>
+														<textbox dataattribute="REF_DATE" id="reftextbox_datetime_date_datelookup" lookup="datelookup"/>
+														<textbox dataattribute="REF_TIME" id="reftextbox_datetime_time_datelookup" lookup="datelookup"/>
+														<textbox dataattribute="REF_ALN10" id="reftextbox_datetime_aln_datelookup" lookup="datelookup"/>
+													</section>
+													<helpgrid id="reftextbox_datetime_lookup_readonly_help" innerhtml="Lookup specified and readonly. Clicking the lookup should do nothing."/>
+													<section id="reftextbox_datetime_section_readonly">
+														<textbox dataattribute="REF_DATETIME" id="reftextbox_datetime_datetime_lookup_readonly" inputmode="readonly" lookup="datetimelookup"/>
+														<textbox dataattribute="REF_DATE" id="reftextbox_date_datetime_lookup_readonly" inputmode="readonly" lookup="datetimelookup"/>
+														<textbox dataattribute="REF_TIME" id="reftextbox_time_datetime_lookup_readonly" inputmode="readonly" lookup="datetimelookup"/>
+													</section>
+												</section>
+											</sectioncol>
+										</sectionrow>
+									</section>
+								</tab>
+								<tab id="TextboxProperties" label="Properties">
+									<section id="textbox_s1" label="Property: dataattribute">
+										<textbox dataattribute="REF_ALN10" id="textbox_dataattribute_description" label="description"/>
+									</section>
+									<section id="textbox_s2" label="Property: hidelabel">
+										<textbox dataattribute="REF_ALN10" id="textbox_hidelabel_default" label="(unspecified)"/>
+										<textbox dataattribute="REF_ALN10" hidelabel="true" id="textbox_hidelabel_true" label="true"/>
+										<textbox dataattribute="REF_ALN10" hidelabel="false" id="textbox_hidelabel_false" label="false"/>
+									</section>
+									<section id="textbox_s3" label="Property: inputmode">
+										<textbox dataattribute="REF_ALN10" id="textbox_inputmode_default" label="(unspecified)"/>
+										<textbox dataattribute="REF_ALN10" id="textbox_inputmode_query" inputmode="query" label="query"/>
+										<textbox dataattribute="REF_ALN10" id="textbox_inputmode_readonly" inputmode="readonly" label="readonly"/>
+										<textbox dataattribute="REF_ALN10_PRESREQ_TEXTBOX" id="textbox_inputmode_required" inputmode="required" label="required"/>
+										<textbox dataattribute="REF_ALN10_PRESREQ_TEXTB_SIGOPT" id="textbox_inputmode_required_sigopt_hide" inputmode="required" label="Required but hidden by sigopt" sigoption="HIDE"/>
+										<textbox dataattribute="REF_ALN10_PRESREQ_TEXTBOX" id="textbox_inputmode_requiredsideeffect" label="This should be required as a sideeffect of the previous field being required"/>
+										<textbox dataattribute="REF_ALN10_REQ" id="textbox_required" label="This should be required because the attribute its bound to is required"/>
+										<textbox dataattribute="REFCHILDA.KEY" id="textbox_readonly" label="This should be readonly because the attribute is a dot notation reference that should return a zombie mbo"/>
+									</section>
+									<section id="textbox_s4" label="Property: label">
+										<textbox dataattribute="REF_ALN10" id="textbox_label_default"/>
+										<textbox dataattribute="REF_ALN10" id="textbox_label_custom" label="Custom label"/>
+									</section>
+									<section id="textbox_s5" label="Property: lookup">
+										<textbox dataattribute="REF_ALNDOMAINAB" id="textbox_lookup_valuelist" label="valuelist" lookup="valuelist"/>
+									</section>
+									<section id="textbox_s6" label="Property: menutype">
+										<textbox dataattribute="REF_ALN10" id="textbox_menutype_help" label="HELP" menutype="HELP"/>
+									</section>
+                                    <section id="textbox_s7" label="Property: iconmenu">                                        
+                                        <helpgrid id="textbox_s7_tb1_help" innerhtml="menutype and  iconmenu are icontest1:  Five icons, selectValue, applink to CI, applink to Assets, Attributes, Classifications(protected by sigopt=REFICONS)"/>
+                                        <textbox dataattribute="REF_LOWER10" id="reficon_text_1" lookup="ci" applink="ci, asset" menutype="icontest1" iconmenu="icontest1"/>
+                                        <helpgrid id="textbox_s7_tb2_help" innerhtml="menutype and iconmenu are icontest2:  Three icons, Classifications, Attributes, WO (but the WO should never show as it has a disablenull property on it."/>
+                                        <textbox dataattribute="REF_LOWER10" id="reficon_text_2" label="Two Icons" menutype="icontest2" iconmenu="icontest2"/>
+                                    </section>
+								</tab>
+							</tabgroup>
+						</tab>
+					</tabgroup>
+				</tab>
+				<tab id="SpecialChars" label="Special Chars">
+					<section id="specialchars" label="Special Chars: &amp;&quot;'()%&lt;&gt;">
+						<sectionrow id="specialchars_row_1">
+							<sectioncol id="specialchars_row_1_col_1">
+								<helpgrid id="specialchars_helpgrid" innerhtml="&amp;&quot;'()%&lt;&gt;"/>
+								<statictext align="left" id="specialchars_statictext_label" label="&amp;&quot;'()%&lt;&gt;"/>
+								<statictext align="left" dataattribute="REF_SPECIALCHAR" id="specialchars_statictext_data"/>
+								<textbox dataattribute="REF_SPECIALCHAR" id="specialchars_textbox" label="&amp;&quot;'()%&lt;&gt;"/>
+								<multilinetextbox dataattribute="REF_SPECIALCHAR" id="specialchars_multilinetextbox" label="&amp;&quot;'()%&lt;&gt;"/>
+								<multiparttextbox dataattribute="REF_SPECIALCHAR" descdataattribute="REF_SPECIALCHAR" id="specialchars_multiparttextbox" label="&amp;&quot;'()%&lt;&gt;"/>
+								<pushbutton id="specialchars_button" label="&amp;&quot;'()%&lt;&gt;"/>
+								<combobox dataattribute="REF_ALNDOMAIN_SPECIALCHAR" id="specialchars_combobox" label="&amp;&quot;'()%&lt;&gt;"/>
+								<radiobuttongroup dataattribute="REF_ALNDOMAIN_SPECIALCHAR" id="specialchars_radiobuttongroup_dynamic"/>
+								<radiobuttongroup dataattribute="REF_SPECIALCHAR" id="specialchars_radiobuttongroup_static">
+									<radiobutton id="specialchars_radiobutton" label="&amp;&quot;'()%&lt;&gt;"/>
+								</radiobuttongroup>
+								<checkbox dataattribute="REF_YORN" id="specialchars_checkbox" label="&amp;&quot;'()%&lt;&gt;"/>
+								<image id="specialchars_image" imagename="refapp_grid_16x16.gif" label="&amp;&quot;'()%&lt;&gt;"/>
+								<pushbutton id="specialchars_dialog" label="Dialog label" mxevent="dlg_label_special_chars"/>
+							</sectioncol>
+						</sectionrow>
+						<sectionrow id="specialchars_row_2">
+							<sectioncol id="specialchars_row_2_col_1">
+								<table id="specialchars_table" label="&amp;&quot;'()%&lt;&gt; {0}" mboname="REFMAIN" selectmode="multiple">
+									<sectionheader id="specialchars_table_sectionheader">
+										<paramvalues id="specialchars_table_table_params">
+											<paramvalue dataattribute="REF_SPECIALCHAR" id="specialchars_table_param_1" position="0"/>
+										</paramvalues>
+									</sectionheader>
+									<tablebody displayrowsperpage="10" filterable="true" id="specialchars_table_tablebody">
+										<tablecol dataattribute="REF_SPECIALCHAR" id="specialchars_table_tablebody_datatitle"/>
+										<tablecol dataattribute="REF_SPECIALCHAR" id="specialchars_table_tablebody_label" label="&amp;&quot;'()%&lt;&gt;"/>
+									</tablebody>
+								</table>
+							</sectioncol>
+						</sectionrow>
+					</section>
+					<section id="entities" label="Entity References: &amp;amp;&quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&lt;&gt;">
+						<sectionrow id="entities_row_1">
+							<sectioncol id="entities_row_1_col_1">
+								<helpgrid id="entities_helpgrid" innerhtml="&amp;amp;&quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&lt;&gt;"/>
+								<statictext align="left" id="entities_statictext_label" label="&amp;amp;&quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&lt;&gt;"/>
+								<statictext align="left" dataattribute="REF_ENTITIES" id="entities_statictext_data"/>
+								<textbox dataattribute="REF_ENTITIES" id="entities_textbox" label="&amp;amp;&quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&lt;&gt;"/>
+								<multilinetextbox dataattribute="REF_ENTITIES" id="entities_multilinetextbox" label="&amp;amp;&quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&lt;&gt;"/>
+								<multiparttextbox dataattribute="REF_ENTITIES" descdataattribute="REF_ENTITIES" id="entities_multiparttextbox" label="&amp;amp;&quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&lt;&gt;"/>
+								<pushbutton id="entities_button" label="&amp;amp;&quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&lt;&gt;"/>
+								<combobox dataattribute="REF_ALNDOMAIN_ENTITY" id="entities_combobox" label="&amp;amp;&quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&lt;&gt;"/>
+								<radiobuttongroup dataattribute="REF_ALNDOMAIN_ENTITY" id="entities_radiobuttongroup_dynamic"/>
+								<radiobuttongroup dataattribute="REF_ENTITIES" id="entities_radiobuttongroup_static">
+									<radiobutton id="entities_radiobutton" label="&amp;amp;&quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&lt;&gt;"/>
+								</radiobuttongroup>
+								<checkbox dataattribute="REF_YORN" id="entities_checkbox" label="&amp;amp;&quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&lt;&gt;"/>
+								<image id="entities_image" imagename="refapp_grid_16x16.gif" label="&amp;amp;&quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&lt;&gt;"/>
+								<pushbutton id="entities_dialog" label="Dialog label" mxevent="dlg_label_entity_refs"/>
+							</sectioncol>
+						</sectionrow>
+						<sectionrow id="entities_row_2">
+							<sectioncol id="entities_row_2_col_1">
+								<table id="entities_table" label="&amp;amp;&quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&lt;&gt; {0}" mboname="REFMAIN" selectmode="multiple">
+									<sectionheader id="entities_table_sectionheader">
+										<paramvalues id="entities_table_table_params">
+											<paramvalue dataattribute="REF_ENTITIES" id="entities_table_param_1" position="0"/>
+										</paramvalues>
+									</sectionheader>
+									<tablebody displayrowsperpage="10" filterable="true" id="entities_table_tablebody">
+										<tablecol dataattribute="REF_ENTITIES" id="entities_table_tablebody_datatitle"/>
+										<tablecol dataattribute="REF_ENTITIES" id="entities_table_tablebody_label" label="&amp;amp;&quot;&amp;#39;&amp;#40;&amp;#41;&amp;#37;&lt;&gt;"/>
+									</tablebody>
+								</table>
+							</sectioncol>
+						</sectionrow>
+					</section>
+				</tab>
+				<tab id="ScriptInjection" label="Script Injection">
+					<section id="scriptinjection" label="Script Injection: &lt;script&gt;console.warn('Script injection in section label');&lt;/script&gt;">
+						<sectionrow id="scriptinjection_row_1">
+							<sectioncol id="scriptinjection_row_1_col_1">
+								<helpgrid id="scriptinjection_helpgrid" innerhtml="&lt;script&gt;console.warn('Script injection in helpgrid innerhtml');&lt;/script&gt;"/>
+								<statictext align="left" id="scriptinjection_statictext_label" label="&lt;script&gt;console.warn('Script injection in statictext label');&lt;/script&gt;"/>
+								<statictext align="left" dataattribute="REF_SCRIPTINJECT" id="scriptinjection_statictext_data"/>
+								<textbox dataattribute="REF_SCRIPTINJECT" id="scriptinjection_textbox" label="&lt;script&gt;console.warn('Script injection in textbox label');&lt;/script&gt;"/>
+								<multilinetextbox dataattribute="REF_SCRIPTINJECT" id="scriptinjection_multilinetextbox" label="&lt;script&gt;console.warn('Script injection in multilinetextbox label');&lt;/script&gt;"/>
+								<multiparttextbox dataattribute="REF_SCRIPTINJECT" descdataattribute="REF_SCRIPTINJECT" id="scriptinjection_multiparttextbox" label="&lt;script&gt;console.warn('Script injection in multiparttextbox label');&lt;/script&gt;"/>
+								<pushbutton id="scriptinjection_button" label="&lt;script&gt;console.warn('Script injection in button label');&lt;/script&gt;"/>
+								<combobox dataattribute="REF_ALNDOMAIN_SCRIPTINJECT" id="scriptinjection_combobox" label="&lt;script&gt;console.warn('Script injection in combobox label');&lt;/script&gt;"/>
+								<radiobuttongroup dataattribute="REF_ALNDOMAIN_SCRIPTINJECT" id="scriptinjection_radiobuttongroup_dynamic"/>
+								<radiobuttongroup dataattribute="REF_SCRIPTINJECT" id="scriptinjection_radiobuttongroup_static">
+									<radiobutton id="scriptinjection_radiobutton" label="&lt;script&gt;console.warn('Script injection in radiobutton label');&lt;/script&gt;"/>
+								</radiobuttongroup>
+								<checkbox dataattribute="REF_YORN" id="scriptinjection_checkbox" label="&lt;script&gt;console.warn('Script injection in checkbox label');&lt;/script&gt;"/>
+								<image id="scriptinjection_image" imagename="refapp_grid_16x16.gif" label="&lt;script&gt;console.warn('Script injection in image label');&lt;/script&gt;"/>
+								<pushbutton id="scriptinjection_dialog" label="Dialog label" mxevent="dlg_label_special_chars"/>
+							</sectioncol>
+						</sectionrow>
+						<sectionrow id="scriptinjection_row_2">
+							<sectioncol id="scriptinjection_row_2_col_1">
+								<table id="scriptinjection_table" label="&lt;script&gt;console.warn('Script injection in table label');&lt;/script&gt; {0}" mboname="REFMAIN" selectmode="multiple">
+									<sectionheader id="scriptinjection_table_sectionheader">
+										<paramvalues id="scriptinjection_table_table_params">
+											<paramvalue dataattribute="REF_SCRIPTINJECT" id="scriptinjection_table_param_1" position="0"/>
+										</paramvalues>
+									</sectionheader>
+									<tablebody displayrowsperpage="10" filterable="true" id="scriptinjection_table_tablebody">
+										<tablecol dataattribute="REF_SCRIPTINJECT" id="scriptinjection_table_tablebody_datatitle"/>
+										<tablecol dataattribute="REF_SCRIPTINJECT" id="scriptinjection_table_tablebody_label" label="&lt;script&gt;console.warn('Script injection in tablecol label');&lt;/script&gt;"/>
+									</tablebody>
+								</table>
+							</sectioncol>
+						</sectionrow>
+					</section>
+					<section id="scriptinjection_quoted" label="Script Injection Quoted: &quot;&lt;script&gt;console.warn('Script injection quoted in section label');&lt;/script&gt;">
+						<sectionrow id="scriptinjection_quoted_row_1">
+							<sectioncol id="scriptinjection_quoted_row_1_col_1">
+								<helpgrid id="scriptinjection_quoted_helpgrid" innerhtml="&quot;&lt;script&gt;console.warn('Script injection quoted in helpgrid innerhtml');&lt;/script&gt;&quot;"/>
+								<statictext align="left" id="scriptinjection_quoted_statictext_label" label="&quot;&lt;script&gt;console.warn('Script injection quoted in statictext label');&lt;/script&gt;&quot;"/>
+								<statictext align="left" dataattribute="REF_SCRIPTINJECT_QUOTED" id="scriptinjection_quoted_statictext_data"/>
+								<textbox dataattribute="REF_SCRIPTINJECT_QUOTED" id="scriptinjection_quoted_textbox" label="&quot;&lt;script&gt;console.warn('Script injection quoted in textbox label');&lt;/script&gt;&quot;"/>
+								<multilinetextbox dataattribute="REF_SCRIPTINJECT_QUOTED" id="scriptinjection_quoted_multilinetextbox" label="&quot;&lt;script&gt;console.warn('Script injection quoted in multilinetextbox label');&lt;/script&gt;&quot;"/>
+								<multiparttextbox dataattribute="REF_SCRIPTINJECT_QUOTED" descdataattribute="REF_SCRIPTINJECT_QUOTED" id="scriptinjection_quoted_multiparttextbox" label="&quot;&lt;script&gt;console.warn('Script injection quoted in multiparttextbox label');&lt;/script&gt;&quot;"/>
+								<pushbutton id="scriptinjection_quoted_button" label="&quot;&lt;script&gt;console.warn('Script injection quoted in button label');&lt;/script&gt;&quot;"/>
+								<radiobuttongroup dataattribute="REF_SCRIPTINJECT_QUOTED" id="scriptinjection_quoted_radiobuttongroup_static">
+									<radiobutton id="scriptinjection_quoted_radiobutton" label="&quot;&lt;script&gt;console.warn('Script injection quoted in radiobutton label');&lt;/script&gt;&quot;"/>
+								</radiobuttongroup>
+								<checkbox dataattribute="REF_YORN" id="scriptinjection_quoted_checkbox" label="&quot;&lt;script&gt;console.warn('Script injection quoted in checkbox label');&lt;/script&gt;&quot;"/>
+								<image id="scriptinjection_quoted_image" imagename="refapp_grid_16x16.gif" label="&quot;&lt;script&gt;console.warn('Script injection quoted in image label');&lt;/script&gt;&quot;"/>
+								<pushbutton id="scriptinjection_quoted_dialog" label="Dialog label" mxevent="dlg_label_special_chars"/>
+							</sectioncol>
+						</sectionrow>
+						<sectionrow id="scriptinjection_quoted_row_2">
+							<sectioncol id="scriptinjection_quoted_row_2_col_1">
+								<table id="scriptinjection_quoted_table" label="&quot;&lt;script&gt;console.warn('Script injection quoted in table label');&lt;/script&gt;&quot; {0}" mboname="REFMAIN" selectmode="multiple">
+									<sectionheader id="scriptinjection_quoted_table_sectionheader">
+										<paramvalues id="scriptinjection_quoted_table_table_params">
+											<paramvalue dataattribute="REF_SCRIPTINJECT_QUOTED" id="scriptinjection_quoted_table_param_1" position="0"/>
+										</paramvalues>
+									</sectionheader>
+									<tablebody displayrowsperpage="10" filterable="true" id="scriptinjection_quoted_table_tablebody">
+										<tablecol dataattribute="REF_SCRIPTINJECT_QUOTED" id="scriptinjection_quoted_table_tablebody_datatitle"/>
+										<tablecol dataattribute="REF_SCRIPTINJECT_QUOTED" id="scriptinjection_quoted_table_tablebody_label" label="&quot;&lt;script&gt;console.warn('Script injection quoted in tablecol label');&lt;/script&gt;&quot;"/>
+									</tablebody>
+								</table>
+							</sectioncol>
+						</sectionrow>
+					</section>
+				</tab>
+				<tab id="DojoSample" label="Dojo">
+					<section id="dojo_sample_programmatic" label="Sample programmatic dojo controls">
+						<helpgrid id="dojo_sample_button_help" innerhtml="A simple dojo button, clicking the button will repeatedly append 'Click' after the button."/>
+						<helpgrid id="dojo_sample_dialog_help" innerhtml="A dialog that is created when the button is rendered, and shown when the button is clicked."/>
+						<helpgrid id="dojo_sample_dialogcreateonshow_help" innerhtml="A dialog that is created and shown when the button is clicked."/>
+						<section id="dojo_sample_programmatic_sub">
+							<helpgrid id="dojo_sample_slider_help" innerhtml="A slider that is updated when the value in the subsequent field is updated and updates itself when the field is changed."/>
+							<textbox dataattribute="REF_SMALLINT" id="dojo_sample_numeric_smallint" label="Bound to the same data attribute as the slider"/>
+						</section>
+					</section>
+				</tab>
+				<tab id="iWidgets" label="iWidgets">
+					<helpgrid id="iWidget_help" innerhtml="This shows a basic hello world iWidget."/>
+					<section id="iwidget_section" label="iWidget"/>
+				</tab>
+			</tabgroup>
+		</clientarea>
+		<include id="pageFooter"/>
+	</page>
+
+	<dialog id="dlg_inputmode_2" inputmode="READONLY" label="dlg_inputmode_2">
+		<statictext align="left" id="dlg_inputmode2_st" label="inputmode=READONLY"/>
+		<textbox dataattribute="REFMAINID" id="dlg_inputmode2_tb1"/>
+		<textbox dataattribute="REF_ALN10_REQ" id="dlg_inputmode2_tb2"/>
+		<buttongroup id="dlg_inputmode2_bg1">
+			<pushbutton default="true" id="dlg_inputmode2_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="msgokdialog" label="OK BUTTON EVENT">
+		<buttongroup id="msgokdialog_bt">
+			<pushbutton default="true" id="msgokdialog_bt_1" label="Cancel" mxevent="dialogcancel"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_label_1" label="Dialog Test Label">
+		<statictext align="left" id="dlg_label_st1" label="label=Dialog Test Label"/>
+		<buttongroup id="dlg_label_bg1">
+			<pushbutton default="true" id="dlg_label_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_scrolling_1" label="dlg_scrolling_1">
+		<statictext align="left" id="dlg_scrolling_st1" label="Test of horizontal scrolling"/>
+		<table id="dlg_scrolling_table" inputmode="readonly" label="These records should match 'Table 1'" mboname="REFMAIN">
+			<tablebody displayrowsperpage="10" filterable="true" filterexpanded="true" id="dlg_scrolling_tablebody">
+				<tablecol dataattribute="REFMAINID" id="dlg_scrolling_col_1"/>
+				<tablecol dataattribute="KEY" id="dlg_scrolling_col_2"/>
+				<tablecol dataattribute="REF_ALN100_WITHLD" id="dlg_scrolling_col_3"/>
+				<tablecol dataattribute="REF_ALN10_REQ" id="dlg_scrolling_col_4"/>
+				<tablecol dataattribute="REF_ALNDOMAINAB" id="dlg_scrolling_col_5"/>
+				<tablecol dataattribute="REF_NUMDOMAIN100" id="dlg_scrolling_col_6"/>
+				<tablecol dataattribute="REF_CLOB" id="dlg_scrolling_col_7"/>
+				<tablecol dataattribute="REF_ALN10" id="dlg_scrolling_col_8"/>
+				<tablecol dataattribute="REF_YORN" id="dlg_scrolling_col_9"/>
+				<tablecol dataattribute="HASLD" id="dlg_scrolling_col_10"/>
+				<tablecol dataattribute="LANGCODE" id="dlg_scrolling_col_11"/>
+			</tablebody>
+		</table>
+		<buttongroup id="dlg_scrolling_1_bg1">
+			<pushbutton default="true" id="dlg_scrolling_1_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_scrolling_2" label="dlg_scrolling_2">
+		<statictext align="left" id="dlg_scrolling_st2" label="Test of vertical scrolling"/>
+		<section id="vsdlg_s1">
+			<section id="vsdlg_sec1" label="beanclass">
+				<pushbutton id="vsdlg_pb_beanclass_1" label="beanclass" mxevent="dlg_beanclass_1"/>
+			</section>
+			<section id="vsdlg_sec10" label="datasrc">
+				<pushbutton id="vsdlg_pb_datasrc_1" label="datasrc" mxevent="dlg_datasrc_1"/>
+				<pushbutton id="vsdlg_pb_mboname_1" label="mboname" mxevent="dlg_mboname_1"/>
+				<pushbutton id="vsdlg_pb_relationship_1" label="relationship" mxevent="dlg_relationship_1"/>
+				<pushbutton id="vsdlg_pb_relationship_2" label="relationship w/ parentdatasrc" mxevent="dlg_relationship_2"/>
+			</section>
+			<section id="vsdlg_sec2" label="height, width">
+				<pushbutton id="vsdlg_pb_height_1" label="height=no value" mxevent="dlg_height_1"/>
+				<pushbutton id="vsdlg_pb_height_2" label="height=500" mxevent="dlg_height_2"/>
+				<pushbutton id="vsdlg_pb_width_1" label="width=no value" mxevent="dlg_width_1"/>
+				<pushbutton id="vsdlg_pb_width_2" label="width=800" mxevent="dlg_width_2"/>
+			</section>
+			<section id="vsdlg_sec5" label="hidehelp">
+				<pushbutton id="vsdlg_pb_hidehelp_1" label="hidehelp=true" mxevent="dlg_hidehelp_1"/>
+				<pushbutton id="vsdlg_pb_hidehelp_2" label="hidehelp=false" mxevent="dlg_hidehelp_2"/>
+			</section>
+			<section id="vsdlg_sec3" label="icon">
+				<pushbutton id="vsdlg_pb_icon_1" label="dialog icon" mxevent="dlg_icon_1"/>
+			</section>
+			<section id="vsdlg_sec4" label="inputmode">
+				<pushbutton id="vsdlg_pb_inputmode_1" label="Searchmore" mxevent="searchmore"/>
+				<pushbutton id="vsdlg_pb_inputmode_2" label="READONLY" mxevent="dlg_inputmode_2"/>
+			</section>
+			<section id="vsdlg_sec6" label="label">
+				<pushbutton id="vsdlg_pb_label_1" label="label" mxevent="dlg_label_1"/>
+			</section>
+			<section id="vsdlg_sec7" label="orderby">
+				<pushbutton id="vsdlg_pb_orderby_1" label="orderby alndomainab" mxevent="dlg_orderby_1"/>
+				<pushbutton id="vsvdlg_pb_orderby_2" label="orderby w/ datasrc" mxevent="dlg_orderby_2"/>
+			</section>
+			<section id="vsdlg_sec9" label="ok, cancel, close buttons">
+				<pushbutton id="vsdlg_pb_ok_1" label="OK" mxevent="dlg_ok_1"/>
+				<pushbutton id="vsdlg_pb_cancel_1" label="Cancel" mxevent="dlg_cancel_1"/>
+				<pushbutton id="vsdlg_pb_close_1" label="Close" mxevent="dlg_close_1"/>
+			</section>
+			<section id="vsdlg_sec8" label="savemode">
+				<pushbutton id="vsdlg_pb_savemode_1" label="onload" mxevent="dlg_savemode_1"/>
+				<pushbutton id="vsdlg_pb_savemode_2" label="onloadunload" mxevent="dlg_savemode_2"/>
+				<pushbutton id="vsdlg_pb_savemode_3" label="onunload" mxevent="dlg_savemode_3"/>
+			</section>
+			<section id="vsdlg_sec11" label="scrolling">
+				<pushbutton id="vsdlg_pb_scrolling_1" label="horizontal" mxevent="dlg_scrolling_1"/>
+				<pushbutton id="vsdlg_pb_scrolling_2" label="vertical" mxevent="dlg_scrolling_2"/>
+			</section>
+		</section>
+		<buttongroup id="dlg_scrolling_2_bg1">
+			<pushbutton default="true" id="dlg_scrolling_2_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_close_1" label="dlg_close_1">
+		<statictext align="left" id="dlg_close_st1" label="Test of dialogclose"/>
+		<buttongroup id="dlg_close_bg1">
+			<pushbutton default="true" id="dlg_close_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="viewattachments" label="View Attachments" savemode="ONLOAD">
+		<table id="viewattachments_table" inputmode="readonly">
+			<tablebody id="viewattachments_tablebody">
+				<tablecol dataattribute="DOCUMENT" id="viewattachments_table_tablebody_4" label="Document" type="openurl" urlattribute="weburl"/>
+				<tablecol dataattribute="DOCINFO.DESCRIPTION" id="viewattachments_table_tablebody_6" label="Description" sortable="false"/>
+				<tablecol dataattribute="DOCTYPE" id="viewattachments_table_tablebody_3" label="Document Folder"/>
+				<tablecol dataattribute="DOCVERSION" id="viewattachments_table_tablebody_5" label="Document Version"/>
+				<tablecol dataattribute="PRINTTHRULINK" id="viewattachments_table_tablebody_9" label="Print"/>
+				<tablecol dataattribute="OWNERTABLE" id="viewattachments_table_tablebody_1" label="Application"/>
+				<tablecol filterable="false" id="viewattachments_table_tablebody_7" mxevent="linkproperties" mxevent_desc="Attachment Properties" mxevent_icon="linkdocs_info.gif" sortable="false" type="event"/>
+				<tablecol filterable="false" id="viewattachments_table_tablebody_8" mxevent="instantdelete" mxevent_desc="Delete Row" mxevent_icon="btn_delete.gif" sortable="false" type="event"/>
+			</tablebody>
+		</table>
+		<buttongroup id="viewattachments_2">
+			<pushbutton default="true" id="viewattachments_2_1" label="OK" mxevent="dialogok"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog datasrc="dlg_table1_table" id="dlg_datasrc_1" label="dlg_datasrc_1">
+		<statictext align="left" id="dlg_datasrc_st1" label="datasrc=dlg_table1_table"/>
+		<table id="dlg_datasrc_table" inputmode="readonly" label="This table should match Table 1">
+			<tablebody displayrowsperpage="10" filterable="true" filterexpanded="true" id="dlg_datasrc_tablebody">
+				<tablecol dataattribute="REFMAINID" id="dlg_datasrc_col_1"/>
+				<tablecol dataattribute="KEY" id="dlg_datasrc_col_2"/>
+				<tablecol dataattribute="REF_ALN100_WITHLD" id="dlg_datasrc_col_3"/>
+				<tablecol dataattribute="REF_ALNDOMAINAB" id="dlg_datasrc_col_4"/>
+			</tablebody>
+		</table>
+		<buttongroup id="dlg_datasrc_bg1">
+			<pushbutton default="true" id="dlg_datasrc_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog beanclass="psdi.webclient.beans.doclinks.AddDocLinksDrBean" id="draddnewattachmentfile" label="Create a File Attachment" relationship="DOCLINKS">
+		<helpgrid id="draddnewattachmentfile_help" innerhtml="Only files with the following formats can be enabled for printing: .pdf, .xls, .csv, .txt, .doc, .gif, .jpg, .ppt. Clear the check box beside the Print attached document with report if printable type (Advanced Option) if the file being attached  is not in one of these formats."/>
+		<defaultvalue dataattribute="URLTYPE" id="draddnewattachments_file_d1" value="!FILE!"/>
+		<section id="draddnewattachments_file_1">
+			<combobox dataattribute="DOCTYPE" displayattribute="DOCTYPE" id="draddnewattachments_file_1_2" label="Select a Folder"/>
+			<attachdoc id="draddnewattachments_file_1_8" label="Specify a file"/>
+			<multiparttextbox dataattribute="DOCUMENT" descdataattribute="DESCRIPTION" id="draddnewattachments_file_1_4" label="Name the document"/>
+		</section>
+		<section id="draddnewattachments_file_2" label="Advanced Options">
+			<checkbox dataattribute="UPLOAD" id="draddnewattachments_file_2_row2_col1_1_1" label="Copy document to the default location set by your administrator (recommended)"/>
+			<checkbox dataattribute="SHOW" id="draddnewattachments_file_2_row3_col1_1_1" label="Add document to the document library for others to use"/>
+			<checkbox dataattribute="PRINTTHRULINK" id="draddnewattachments_file_2_1" label="Print attached document with report if printable type"/>
+		</section>
+		<buttongroup id="draddnewattachments_file_3">
+			<doclinkuploadbutton default="true" id="draddnewattachments_file_3_1" label="OK"/>
+			<pushbutton id="draddnewattachments_file_3_2" label="Cancel" mxevent="dialogcancel"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_ok_1" label="dlg_ok_1">
+		<statictext align="left" id="dlg_ok_st1" label="Test of dialogok"/>
+		<buttongroup id="dlg_ok_bg1">
+			<pushbutton default="true" id="dlg_ok_pb1" label="OK" mxevent="dialogok"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="msgyesdialog" label="YES BUTTON EVENT">
+		<buttongroup id="msgyesdialog_bt">
+			<pushbutton default="true" id="msgyesdialog_bt_1" label="Cancel" mxevent="dialogcancel"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog beanclass="psdi.webclient.system.beans.ViewBookmarksBean" id="searchbook" label="My Bookmarks" mboname="REFMAIN">
+		<table id="bookmarks_table" inputmode="readonly" selectmode="single">
+			<tablebody displayrowsperpage="20" filterable="true" id="bookmarks_table_tablebody">
+				<tablecol dataattribute="REFMAINID" id="bookmarks_tablecolumn_1" mxevent="selectrecord" type="link"/>
+				<tablecol dataattribute="REF_ALN100_WITHLD" id="bookmarks_tablecolumn_2"/>
+				<tablecol filterable="false" id="bookmarks_tablecolumn_3" mxevent="instantdelete" mxevent_desc="Delete" mxevent_icon="btn_delete.gif" sortable="false" type="event"/>
+			</tablebody>
+		</table>
+		<buttongroup id="bookmarks_2">
+			<pushbutton default="true" id="bookmarks_2_1" label="OK" mxevent="dialogok"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_savemode_1" label="dlg_savemode_1" savemode="ONLOAD">
+		<statictext align="left" id="dlg_savemode_st1" label="savemode=ONLOAD"/>
+		<buttongroup id="dlg_savemode_1_bg1">
+			<pushbutton default="true" id="dlg_savemode_1_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_savemode_2" label="dlg_savemode_2" savemode="ONLOADUNLOAD">
+		<statictext align="left" id="dlg_savemode_st2" label="savemode=ONLOADUNLOAD"/>
+		<textbox dataattribute="REFMAINID" id="dlg_savemode2_tb1"/>
+		<textbox dataattribute="REF_ALN10_REQ" id="dlg_savemode2_tb2"/>
+		<buttongroup id="dlg_savemode_2_bg1">
+			<pushbutton id="dlg_savemode_2_pb1" label="OK" mxevent="dialogok"/>
+			<pushbutton default="true" id="dlg_savemode_2_pb2" label="Cancel" mxevent="dialogcancel"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_savemode_3" label="dlg_savemode_3" savemode="ONUNLOAD">
+		<statictext align="left" id="dlg_savemode_st3" label="savemode=ONUNLOAD"/>
+		<textbox dataattribute="REFMAINID" id="dlg_savemode3_tb1"/>
+		<textbox dataattribute="REF_ALN10_REQ" id="dlg_savemode3_tb2"/>
+		<buttongroup id="dlg_savemode_3_bg1">
+			<pushbutton id="dlg_savemode_3_pb1" label="OK" mxevent="dialogok"/>
+			<pushbutton default="true" id="dlg_savemode_3_pb2" label="Cancel" mxevent="dialogcancel"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog icon="img_longdescription_on.gif" id="lookup_reflongdescription_rows_2000" label="Long Description (rows)">
+		<section id="longdescrowscouter2000">
+			<helpgrid id="longdesrows_help2000" innerhtml="rows=2000"/>
+			<longdescription id="longdescrowsctext2000" rows="2000">
+				<buttongroup id="longdescrows_2000_buttons">
+					<pushbutton id="longdescrows_2000_reset" label="Reset" mxevent="resetvalue" targetid="longdescrowsctext2000"/>
+					<pushbutton id="longdescrows_2000_clear" label="Clear" mxevent="clearvalue" targetid="longdescrowsctext2000"/>
+				</buttongroup>
+			</longdescription>
+		</section>
+		<buttongroup id="longdesc_rows_buttons1_2000">
+			<pushbutton default="true" id="longdesc_rows_2000_ok" label="OK" mxevent="savechanges" targetid="longdescrowsctext2000"/>
+			<pushbutton id="longdesc_rows_2000_cancel" label="Cancel" mxevent="dialogcancel" targetid="longdescrowsctext2000"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_mboname_1" label="dlg_mboname_1" mboname="REFMAIN">
+		<statictext align="left" id="dlg_mboname_st1" label="mboname=REFMAIN"/>
+		<table id="dlg_mboname_table" inputmode="readonly" label="These records should match 'Table 1'">
+			<tablebody displayrowsperpage="10" filterable="true" filterexpanded="true" id="dlg_mboname_tablebody">
+				<tablecol dataattribute="REFMAINID" id="dlg_mboname_col_1"/>
+				<tablecol dataattribute="KEY" id="dlg_mboname_col_2"/>
+				<tablecol dataattribute="REF_ALN100_WITHLD" id="dlg_mboname_col_3"/>
+				<tablecol dataattribute="REF_ALNDOMAINAB" id="dlg_mboname_col_4"/>
+			</tablebody>
+		</table>
+		<buttongroup id="dlg_mboname_bg1">
+			<pushbutton default="true" id="dlg_mboname_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_width_1" label="dlg_width_1">
+		<statictext align="left" id="dlg_width_st1" label="width=no value"/>
+		<buttongroup id="dlg_width_bg1">
+			<pushbutton default="true" id="dlg_width_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_width_2" label="dlg_width_2" width="800">
+		<statictext align="left" id="dlg_width_st2" label="width=800"/>
+		<buttongroup id="dlg_width_bg2">
+			<pushbutton default="true" id="dlg_width_pb2" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_height_1" label="dlg_height_1">
+		<statictext align="left" id="dlg_height_st1" label="height=no value"/>
+		<buttongroup id="dlg_height_bg1">
+			<pushbutton default="true" id="dlg_height_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog beanclass="psdi.webclient.beans.refapp.DialogTestBean" id="dlg_beanclass_1" label="dlg_beanclass_1">
+		<statictext align="left" id="dlg_beanclass_st1" label="beanclass='psdi.webclient.beans.refapp.DialogTestBean'"/>
+		<buttongroup id="dlg_beanclass_bg1">
+			<pushbutton default="true" id="dlg_beanclass_pb1" label="OK" mxevent="dialogok"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog height="500" id="dlg_height_2" label="dlg_height_2">
+		<statictext align="left" id="dlg_height_st2" label="height=500"/>
+		<buttongroup id="dlg_height2_bg1">
+			<pushbutton default="true" id="dlg_height2_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_richtextviewer" label="Rich Text Viewer">
+		<richtextviewer dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" hidelabel="true" id="dlg_richtextviewer1"/>
+		<buttongroup id="dlg_richtextviewer_buttongroup">
+			<pushbutton default="true" id="dlg_richtextviewer_buttton_cancel" label="Cancel" mxevent="dialogcancel"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dialogtypeahead" label="Type-Ahead on Dialogs">
+		<section id="dta_existingdomains" label="Existing Domains from Main record">
+			<textbox dataattribute="REF_ALNDOMAINAB" id="dta_reftextbox_domain_ab" lookup="valuelist"/>
+			<textbox dataattribute="REF_TABLEDOMAIN4" id="dta_reftextbox_domain_4" lookup="valuelist"/>
+		</section>
+		<section id="dta_newdomains" label="New Domains for the dialog">
+			<textbox dataattribute="REF_ALNDOMAINHEX" id="dta_reftextbox_domain_hex" lookup="valuelist"/>
+			<textbox dataattribute="REF_TABLEDOMAINHEX" id="dta_reftextbox_domain_reftablehex" lookup="valuelist"/>
+		</section>
+		<buttongroup id="dta_buttons">
+			<pushbutton default="true" id="dta_buttons_1" label="OK" mxevent="dialogok"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog icon="img_longdescription_on.gif" id="lookup_reflongdescription_inputmode_readonly" label="Long Description (readonly)">
+		<section id="longdesreadonlyouter">
+			<helpgrid id="longdesreadonly_help" innerhtml="inputmode=readonly"/>
+			<longdescription id="longdescreadonlytext" inputmode="readonly">
+				<buttongroup id="longdescreadonly_buttons">
+					<pushbutton id="longdescreadonly_reset" label="Reset" mxevent="resetvalue" targetid="longdescreadonlytext"/>
+					<pushbutton id="longdescreadonly_clear" label="Clear" mxevent="clearvalue" targetid="longdescreadonlytext"/>
+				</buttongroup>
+			</longdescription>
+		</section>
+		<buttongroup id="longdescreadonly_buttons1">
+			<pushbutton default="true" id="longdescreadonly_ok" label="OK" mxevent="savechanges" targetid="longdescreadonlytext"/>
+			<pushbutton id="longdescreadonly_cancel" label="Cancel" mxevent="dialogcancel" targetid="longdescreadonlytext"/>
+		</buttongroup>
+	</dialog>
+	<messagebox height="400" icon="information.gif" id="msgboxrefappht" width="150"/>
+
+	<dialog icon="img_longdescription_on.gif" id="lookup_reflongdescription_columns_7" label="Long Description  (columns)">
+		<section id="longdescolsouter">
+			<helpgrid id="longdescols_help" innerhtml="columns=7"/>
+			<longdescription columns="7" id="longdesccolstext">
+				<buttongroup id="longdesccols_buttons">
+					<pushbutton id="longdesccols_reset" label="Reset" mxevent="resetvalue" targetid="longdesccolstext"/>
+					<pushbutton id="longdesccols_clear" label="Clear" mxevent="clearvalue" targetid="longdesccolstext"/>
+				</buttongroup>
+			</longdescription>
+		</section>
+		<buttongroup id="longdesccols_buttons1">
+			<pushbutton default="true" id="longdesccols_ok" label="OK" mxevent="savechanges" targetid="longdesccolstext"/>
+			<pushbutton id="longdesccols_cancel" label="Cancel" mxevent="dialogcancel" targetid="longdesccolstext"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_relationship_1" label="dlg_relationship_1" relationship="REFCHILDA">
+		<statictext align="left" id="dlg_relationship_st1" label="relationship=REFCHILDA"/>
+		<table id="dlg_relationship1_table" label="These records should match 'Table 2'" orderby="KEY">
+			<tablebody displayrowsperpage="10" filterable="true" id="dlg_relationship1_tablebody">
+				<tablecol dataattribute="KEY" id="dlg_relationship1_col_2"/>
+				<tablecol dataattribute="DESCRIPTION" id="dlg_relationship1_col_4" lookup="longdesc"/>
+				<tablecol dataattribute="REF_DATETIME_REQ" id="dlg_relationship1_col_6"/>
+			</tablebody>
+		</table>
+		<buttongroup id="dlg_relationship_1_bg1">
+			<pushbutton default="true" id="dlg_relationship_1_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="msgnodialog" label="NO BUTTON EVENT">
+		<buttongroup id="msgnodialog_bt">
+			<pushbutton default="true" id="msgnodialog_bt_1" label="Cancel" mxevent="dialogcancel"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog icon="refapp_grid_16x16.gif" id="dlg_icon_1" label="dlg_icon_1">
+		<statictext align="left" id="dlg_icon_st1" label="icon=refapp_grid_16x16.gif"/>
+		<buttongroup id="dlg_icon_bg1">
+			<pushbutton default="true" id="dlg_icon_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_relationship_2" label="dlg_relationship_2" parentdatasrc="dlg_table1_table" relationship="REFCHILDA">
+		<statictext align="left" id="dlg_relationship_st2" label="relationship=REFCHILDA, parentdatasrc=dlg_table1_table"/>
+		<table id="dlg_relationship2_table" label="These records should match 'Table 2'" orderby="KEY">
+			<tablebody displayrowsperpage="10" filterable="true" id="dlg_relationship2_tablebody">
+				<tablecol dataattribute="KEY" id="dlg_relationship2_col_2"/>
+				<tablecol dataattribute="DESCRIPTION" id="dlg_relationship2_col_4" lookup="longdesc"/>
+				<tablecol dataattribute="REF_DATETIME_REQ" id="dlg_relationship2_col_6"/>
+			</tablebody>
+		</table>
+		<buttongroup id="dlg_relationship_2_bg1">
+			<pushbutton default="true" id="dlg_relationship_2_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_cancel_1" label="dlg_cancel_1">
+		<statictext align="left" id="dlg_cancel_st1" label="Test of dialogcancel"/>
+		<buttongroup id="dlg_cancel_bg1">
+			<pushbutton default="true" id="dlg_cancel_pb1" label="Cancel" mxevent="dialogcancel"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dialogtypeahead2" label="Type-Ahead on Dialogs" mboname="refmain">
+		<section id="reftextbox_domain_async_2" label="Domains">
+			<textbox dataattribute="REF_UPPERDOMAINMATCH" id="reftextbox_domain_match_2" lookup="valuelist"/>
+			<textbox dataattribute="REF_NUMDOMAIN100" id="reftextbox_domain_100_2" lookup="valuelist"/>
+			<textbox dataattribute="REF_ALNDOMAINAB" id="reftextbox_domain_ab_2" lookup="valuelist"/>
+			<textbox dataattribute="REF_TABLEDOMAIN4" id="reftextbox_domain_4_2" lookup="valuelist"/>
+			<textbox dataattribute="REF_ALN10" id="reftextbox_text_aln_domainset_2"/>
+			<textbox dataattribute="REF_ALNDOMAINHEX" id="reftextbox_domain_alnhex_2" lookup="valuelist"/>
+			<textbox dataattribute="REF_TABLEDOMAINHEX" id="reftextbox_domain_tablehex_2" lookup="valuelist"/>
+		</section>
+		<buttongroup id="dta_buttons_2">
+			<pushbutton default="true" id="dta_buttons_1_2" label="OK" mxevent="dialogok"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dialogtypeahead3" label="datasrc and relationship" relationship="refchilda">
+		<section id="tpl_sec3">
+			<sectionrow id="tpl_secrow2">
+				<sectioncol id="tpl_seccol2">
+					<section border="true" id="tpl_sec4">
+						<textbox dataattribute="DESCRIPTION" id="reftextbox_description" lookup="valuelist"/>
+					</section>
+				</sectioncol>
+			</sectionrow>
+		</section>
+		<section id="tpl_sec1">
+			<datasrc id="dlg_tpl_table" relationship="refchildb"/>
+			<sectionrow id="tpl_secrow1">
+				<sectioncol datasrc="dlg_tpl_table" id="tpl_seccol1">
+					<section border="true" id="tpl_sec2">
+						<textbox dataattribute="REF_ALNDOMAINAB" id="tpl_sec2_tb1" lookup="valuelist"/>
+						<textbox dataattribute="REF_ALNDOMAINLETTERS" id="reftextbox_domain_alnhex_3" lookup="valuelist"/>
+						<textbox dataattribute="REF_TABLEDOMAINHEX" id="reftextbox_domain_tablehex_3" lookup="valuelist"/>
+					</section>
+				</sectioncol>
+			</sectionrow>
+		</section>
+		<buttongroup id="dta_buttons_3">
+			<pushbutton default="true" id="dta_buttons_3_1" label="OK" mxevent="dialogok"/>
+			<pushbutton default="false" id="dta_buttons_3_2" label="Cancel" mxevent="dialogcancel"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog beanclass="psdi.webclient.system.beans.LookupBean" id="lookup_refchildb">
+		<table id="lookup_refchildb_table" inputmode="readonly" selectmode="single">
+			<tablebody displayrowsperpage="20" filterable="true" filterexpanded="true" id="childb_lookup_tablebody">
+				<tablecol dataattribute="CHILDBNAME" id="childb_lookup_tablebody_col_1" mxevent="selectrecord" mxevent_desc="Go To %1" sortable="true" type="link"/>
+				<tablecol dataattribute="DESCRIPTION" id="childb_lookup_tablebody_col_2" sortable="true"/>
+			</tablebody>
+		</table>
+		<buttongroup id="lookup_childb_3">
+			<pushbutton default="true" id="lookup_childb_3_1" label="Cancel" mxevent="dialogcancel"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog hidehelp="true" id="dlg_hidehelp_1" label="dlg_hidehelp_1">
+		<statictext align="left" id="dlg_hidehelp_st1" label="hidehelp=true"/>
+		<buttongroup id="dlg_hidehelp1_bg1">
+			<pushbutton default="true" id="dlg_hidehelp1_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+	<messagebox height="150" icon="information.gif" id="msgboxrefappwt" width="600"/>
+
+	<dialog hidehelp="false" id="dlg_hidehelp_2" label="dlg_hidehelp_2">
+		<statictext align="left" id="dlg_hidehelp_st2" label="hidehelp=false"/>
+		<buttongroup id="dlg_hidehelp2_bg1">
+			<pushbutton default="true" id="dlg_hidehelp2_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_richtexteditor" label="Rich Text Editor">
+		<richtexteditor dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" hidelabel="true" id="dlg_richtexteditor1"/>
+		<buttongroup id="dlg_richtexteditor_buttongroup">
+			<pushbutton default="true" id="dlg_richtexteditor_button_cancel" label="Cancel" mxevent="dialogcancel"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_orderby_1" label="dlg_orderby_1" mboname="refmain" orderby="REF_ALNDOMAINAB">
+		<statictext align="left" id="dlg_orderby_st1" label="orderby=REF_ALNDOMAINAB"/>
+		<table id="dlg_orderby_table" inputmode="readonly" label="These records should match 'Table 1'">
+			<tablebody displayrowsperpage="10" filterable="true" filterexpanded="true" id="dlg_orderby_tablebody">
+				<tablecol dataattribute="REFMAINID" id="dlg_orderby_col_1"/>
+				<tablecol dataattribute="KEY" id="dlg_orderby_col_2"/>
+				<tablecol dataattribute="REF_ALN100_WITHLD" id="dlg_orderby_col_3"/>
+				<tablecol dataattribute="REF_ALNDOMAINAB" id="dlg_orderby_col_4"/>
+			</tablebody>
+		</table>
+		<buttongroup id="dlg_orderby_1_bg1">
+			<pushbutton default="true" id="dlg_orderby_1_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog datasrc="dlg_table1_table" id="dlg_orderby_2" label="dlg_orderby_2" orderby="REF_ALNDOMAINAB">
+		<statictext align="left" id="dlg_orderby_st2" label="orderby=REF_ALNDOMAINAB, datasrc=dlg_table1_table"/>
+		<table id="dlg_orderby2_table" inputmode="readonly" label="These records should match 'Table 1'">
+			<tablebody displayrowsperpage="10" filterable="true" filterexpanded="true" id="dlg_orderby2_tablebody">
+				<tablecol dataattribute="REFMAINID" id="dlg_orderby2_col_1"/>
+				<tablecol dataattribute="KEY" id="dlg_orderby2_col_2"/>
+				<tablecol dataattribute="REF_ALN100_WITHLD" id="dlg_orderby2_col_3"/>
+				<tablecol dataattribute="REF_ALNDOMAINAB" id="dlg_orderby2_col_4"/>
+			</tablebody>
+		</table>
+		<buttongroup id="dlg_orderby_2_bg1">
+			<pushbutton default="true" id="dlg_orderby_2_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog icon="img_longdescription_on.gif" id="lookup_reflongdescription_rows_2" label="Long Description (rows)">
+		<section id="longdescrowscouter">
+			<helpgrid id="longdesrows_help" innerhtml="rows=2"/>
+			<longdescription id="longdescrowsctext" rows="2">
+				<buttongroup id="longdescrows_buttons">
+					<pushbutton id="longdescrows_reset" label="Reset" mxevent="resetvalue" targetid="longdescrowsctext"/>
+					<pushbutton id="longdescrows_clear" label="Clear" mxevent="clearvalue" targetid="longdescrowsctext"/>
+				</buttongroup>
+			</longdescription>
+		</section>
+		<buttongroup id="longdesc_rows_buttons1">
+			<pushbutton default="true" id="longdesc_rows_ok" label="OK" mxevent="savechanges" targetid="longdescrowsctext"/>
+			<pushbutton id="longdesc_rows_cancel" label="Cancel" mxevent="dialogcancel" targetid="longdescrowsctext"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog beanclass="psdi.webclient.system.beans.QbeBean" id="searchmore" inputmode="query" label="More Search Fields">
+		<section id="searchmore_1">
+			<textbox dataattribute="KEY" id="searchmore_attr1"/>
+			<textbox dataattribute="REF_ALN100_WITHLD" id="searchmore_attr2"/>
+			<textbox dataattribute="REF_ALN100_WITHLD_LONGDESCRIPTION" id="searchmore_attr3"/>
+			<checkbox dataattribute="HASLD" id="searchmore_attr4"/>
+			<textbox dataattribute="REF_ALN10_REQ" id="searchmore_attr5"/>
+			<textbox dataattribute="REF_ALNDOMAINAB" id="searchmore_attr6"/>
+			<textbox dataattribute="REF_NUMDOMAIN100" id="searchmore_attr7"/>
+			<textbox dataattribute="REF_CLOB" id="searchmore_attr8"/>
+		</section>
+		<buttongroup id="searchmore_buttongroup">
+			<pushbutton default="true" id="searchmore_buttongroup_1" label="Find" mxevent="dialogok"/>
+			<pushbutton id="qbe_restoreappdefault_button" label="Restore Application Defaults" mxevent="qbeclear"/>
+			<pushbutton id="qbe_revisebutton" label="Revise" menutype="SEARCHMOREREVISE" targetid="searchmore"/>
+			<pushbutton id="searchmore_buttongroup_3" label="Cancel" mxevent="qbecancel"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="drviewattachments" label="View Attachments">
+		<table id="drviewattachments_table" inputmode="readonly">
+			<tablebody id="drviewattachments_tablebody">
+				<tablecol dataattribute="DOCUMENT" id="drviewattachments_table_tablebody_4" label="Document" type="openurl" urlattribute="weburl"/>
+				<tablecol dataattribute="DOCINFO.DESCRIPTION" id="drviewattachments_table_tablebody_6" label="Description" sortable="false"/>
+				<tablecol dataattribute="DOCTYPE" id="drviewattachments_table_tablebody_3" label="Document Folder"/>
+				<tablecol dataattribute="DOCVERSION" id="drviewattachments_table_tablebody_5" label="Document Version"/>
+				<tablecol dataattribute="PRINTTHRULINK" id="drviewattachments_table_tablebody_9" label="Print"/>
+				<tablecol dataattribute="OWNERTABLE" id="drviewattachments_table_tablebody_1" label="Application"/>
+				<tablecol filterable="false" id="drviewattachments_table_tablebody_7" mxevent="drlinkproperties" mxevent_desc="Attachment Properties" mxevent_icon="linkdocs_info.gif" sortable="false" type="event"/>
+				<tablecol filterable="false" id="drviewattachments_table_tablebody_8" mxevent="instantdelete" mxevent_desc="Delete Row" mxevent_icon="btn_delete.gif" sortable="false" type="event"/>
+			</tablebody>
+		</table>
+		<buttongroup id="drviewattachments_2">
+			<pushbutton default="true" id="drviewattachments_2_1" label="OK" mxevent="dialogok"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog beanclass="psdi.webclient.beans.doclinks.AddDocLinksBean" id="addnewattachmentfile" label="Create a File Attachment" relationship="DOCLINKS" savemode="ONLOAD">
+		<helpgrid id="addnewattachmentfile_help" innerhtml="Only files with the following formats can be enabled for printing: .pdf, .xls, .csv, .txt, .doc, .gif, .jpg, .ppt. Clear the check box beside the Print attached document with report if printable type option (Advanced Option) if the file being attached  is not in one of these formats."/>
+		<defaultvalue dataattribute="URLTYPE" id="addnewattachments_file_d1" value="!FILE!"/>
+		<section id="addnewattachments_file_1">
+			<combobox dataattribute="DOCTYPE" displayattribute="DOCTYPE" id="addnewattachments_file_1_2" label="Select a Folder"/>
+			<attachdoc id="addnewattachments_file_1_8"/>
+			<multiparttextbox dataattribute="DOCUMENT" descdataattribute="DESCRIPTION" id="addnewattachments_file_1_4" label="Name the document"/>
+		</section>
+		<section id="addnewattachments_file_2" label="Advanced Options">
+			<checkbox dataattribute="UPLOAD" id="addnewattachments_file_2_row2_col1_1_1" label="Copy document to the default location set by your administrator (recommended)"/>
+			<checkbox dataattribute="SHOW" id="addnewattachments_file_2_row3_col1_1_1" label="Add document to the document library for others to use"/>
+			<checkbox dataattribute="PRINTTHRULINK" id="addnewattachments_file_2_1" label="Print attached document with report if printable type"/>
+		</section>
+		<buttongroup id="addnewattachments_file_3">
+			<doclinkuploadbutton default="true" id="addnewattachments_file_3_1" label="OK"/>
+			<pushbutton id="addnewattachments_file_3_2" label="Cancel" mxevent="dialogcancel"/>
+		</buttongroup>
+	</dialog>
+
+	<dialog id="dlg_inputmode_1" inputmode="QUERY" label="dlg_inputmode_1">
+		<statictext align="left" id="dlg_inputmode1_st" label="inputmode=QUERY"/>
+		<buttongroup id="dlg_inputmode_bg1">
+			<pushbutton default="true" id="dlg_inputmode_pb1" label="Close" mxevent="dialogclose"/>
+		</buttongroup>
+	</dialog>
+	<configurationblock id="datastore_configurationblock">
+		<datastore cachedata="1" dataattribute="REF_TABLEDOMAIN4" datasrc="MAINRECORD" domain="REFTABLE4" id="refdatastore_table4" validfor="1">
+			<setvalue domainattribute="description" id="refdatastore_table4_typeahead_setvalue_description" toattribute="REF_ALN10"/>
+			<filter domainattribute="ab" fromattribute="REF_ALNDOMAINAB" id="refdatastore_table4_typeahead_filter_ab"/>
+			<typeahead domainattribute="description" id="refdatastore_table4_typeahead_description"/>
+			<typeahead domainattribute="value" id="refdatastore_table4_typeahead_value" keyattribute="true"/>
+		</datastore>
+	</configurationblock>
+	
+	
+	<recordhover id="secondarylookup" relationship="refsecondary" >
+		<recordhoverhelpgrid id="secondarylookup_1" innerhtml="&lt;b&gt;This is the help grid for the record hover&lt;/b&gt;&lt;br&gt;This is line two of the help grid" />
+		<recordhoversection id="secondarylookup_2">
+			<recordhoversectionrow id="secondarylookup_3">
+				<recordhoversectioncol id="secondarylookup_4">
+					<recordhovermultiparttextbox id="secondarylookup_5" dataattribute="keycol" descdataattribute="description" />
+					<recordhovertextbox id="secondarylookup_6" dataattribute="alnvalue1" />	
+					<recordhovercheckbox id="secondarylookup_7" dataattribute="yornvalue" />	
+					<recordhovermultilinetextbox id="secondarylookup_8" label="Multi-line Label" dataattribute="alnvalue2" rows="3"/>									
+					<recordhovertextbox id="secondarylookup_9" label="Amount Value:" dataattribute="amtvalue" />
+					<recordhovertextbox id="secondarylookup_10" label="Date/Time Value" dataattribute="datetimevalue" />
+				</recordhoversectioncol>
+				<recordhoversectioncol id="secondarylookup_16">					
+					<recordhovertextbox id="secondarylookup_11" label="Date Value" dataattribute="datevalue" />
+					<recordhovertextbox id="secondarylookup_12" label="Decimal Value" dataattribute="decimalvalue" />
+					<recordhovertextbox id="secondarylookup_13" label="Duration Value" dataattribute="durationvalue" />
+					<recordhovertextbox id="secondarylookup_14" label="Float Value" dataattribute="floatvalue" />
+					<recordhovertextbox id="secondarylookup_15" label="Time Value" dataattribute="timevalue" />							
+				</recordhoversectioncol>
+			</recordhoversectionrow>
+		</recordhoversection>
+		<recordhoversection id="secondarylookup_row2">
+			<recordhoverrichtextviewer id="secondarylookup_17" dataattribute="description_longdescription" width="500px" height="400px"/>
+		</recordhoversection>
+	</recordhover>
+
+	<recordhover id="secondarylookup2" relationship="refsecondary2" >
+		<recordhoverhelpgrid id="secondarylookup2_1" innerhtml="This is the help grid for record hover number 2&lt;br&gt;Additional ALN Value 1 should only display if the Show/Hide sigoption&lt;br&gt;is enabled in the secondary application" />
+		<recordhovermultiparttextbox id="secondarylookup2_5" dataattribute="keycol" descdataattribute="description" />
+		<recordhovertextbox id="secondarylookup2_6" label="Additional ALN Value 1" dataattribute="alnvalue1" sigoption="SHOWHOVER" sigoptionapp="REFSECON" />	
+		<recordhovercheckbox id="secondarylookup2_7" dataattribute="yornvalue" />	
+		<recordhovermultilinetextbox id="secondarylookup2_8" label="Multi-line Label" dataattribute="alnvalue2" rows="3"/>									
+		<recordhovertextbox id="secondarylookup2_9" label="Amount Value:" dataattribute="amtvalue" />
+		<recordhovertextbox id="secondarylookup2_10" label="Date/Time Value" dataattribute="datetimevalue" />
+	</recordhover>
+
+	<recordhover id="secondarylookup3" relationship="refsecondary3" sigoption="ENABLHOVER" sigoptiondatasrc="MAINRECORD">
+		<recordhoverhelpgrid id="secondarylookup3_1" innerhtml="This is the help grid for record hover number 3&lt;br&gt;This record hover should only be visible if Show/Hide Record Hover&lt;br&gt;is enabled on the Reference App." />				
+		<recordhovermultiparttextbox id="secondarylookup3_5" dataattribute="keycol" descdataattribute="description" />
+		<recordhovertextbox id="secondarylookup3_6" dataattribute="alnvalue1" />	
+		<recordhovercheckbox id="secondarylookup3_7" dataattribute="yornvalue" />	
+		<recordhovermultilinetextbox id="secondarylookup3_8" label="Multi-line Label" dataattribute="alnvalue2" rows="3"/>									
+		<recordhovertextbox id="secondarylookup3_9" label="Amount Value:" dataattribute="amtvalue" />
+		<recordhovertextbox id="secondarylookup3_10" label="Date/Time Value" dataattribute="datetimevalue" />
+	</recordhover>
+
+
+	<recordhover id="secondarylookup4" relationship="refsecondary2" sigoption="ENABLHOVER" sigoptiondatasrc="MAINRECORD">
+		<recordhoverhelpgrid id="secondarylookup4_1" innerhtml="This is the help grid for record hover number 4&lt;br&gt;This record hover should only be visible if Show/Hide Record Hover&lt;br&gt;is enabled on the Reference App." />				
+		<recordhovermultiparttextbox id="secondarylookup4_5" dataattribute="keycol" descdataattribute="description" />
+		<recordhovertextbox id="secondarylookup4_6" dataattribute="alnvalue1" />	
+		<recordhovercheckbox id="secondarylookup4_7" dataattribute="yornvalue" />	
+		<recordhovermultilinetextbox id="secondarylookup4_8" label="Multi-line Label" dataattribute="alnvalue2" rows="3"/>									
+		<recordhovertextbox id="secondarylookup4_9" label="Amount Value:" dataattribute="amtvalue" />
+		<recordhovertextbox id="secondarylookup4_10" label="Date/Time Value" dataattribute="datetimevalue" />
+	</recordhover>
+	
+</presentation>

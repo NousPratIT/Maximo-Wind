@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* Licensed Materials - Property of IBM
+* Restricted Materials of IBM
+* 5724-U18
+* (C) COPYRIGHT IBM CORP. 2010 All Rights Reserved.
+* US Government Users Restricted Rights - Use, duplication or
+* disclosure restricted by GSA ADP Schedule Contract with
+* IBM Corp.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:include schemaLocation="components.xsd" />
+	
+<!--	<xsd:complexType name="componentListType">-->
+<!--		<xsd:choice>-->
+<!--			<xsd:any maxOccurs="unbounded" processContents="lax"/>-->
+<!--		</xsd:choice>-->
+<!--	</xsd:complexType>-->
+
+	<xsd:element name="control-registry">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" ref="control-descriptor" />
+			</xsd:sequence>
+			<xsd:attribute name="package" type="xsd:string" />
+			<xsd:attribute name="basedir" type="xsd:string" />
+		</xsd:complexType>
+		<xsd:unique name="control-descriptor-name-uniqueness">
+			<xsd:selector xpath="control-descriptor"/>
+			<xsd:field    xpath="@name"/>
+		</xsd:unique>
+	</xsd:element>
+
+	<xsd:element name="control-descriptor">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="property-list" minOccurs="0" maxOccurs="1" />
+				<xsd:element ref="component-list" minOccurs="0" maxOccurs="1" />
+				<xsd:element ref="containers" minOccurs="0" maxOccurs="1" />
+				<xsd:element ref="bindlist" minOccurs="0" maxOccurs="1" />
+				<xsd:element ref="template" minOccurs="0" maxOccurs="1" />
+			</xsd:sequence>
+			<xsd:attribute name="instance-class" type="xsd:string" />
+			<xsd:attribute name="descriptor-class" type="xsd:string" />
+			<xsd:attribute name="name" type="xsd:string" use="required" />
+			<xsd:attribute name="controltype" type="xsd:string" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="property-list">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" ref="property" />
+			</xsd:sequence>
+		</xsd:complexType>
+		<xsd:unique name="property-name-uniqueness">
+			<xsd:selector xpath="property"/>
+			<xsd:field    xpath="@name"/>
+		</xsd:unique>
+	</xsd:element>
+	<xsd:element name="property">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="flag" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element ref="default-value" minOccurs="0" maxOccurs="1" />
+				<xsd:element ref="value" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:sequence>
+			<xsd:attribute name="name" type="xsd:string" use="required" />
+			<xsd:attribute name="type" type="xsd:QName" default="xsd:string"/>
+		</xsd:complexType>
+		<xsd:unique name="flag-name-uniqueness">
+			<xsd:selector xpath="flag"/>
+			<xsd:field    xpath="@name"/>
+		</xsd:unique>
+	</xsd:element>
+	<xsd:element name="flag">
+		<xsd:complexType>
+			<xsd:attribute name="name" type="flag" use="required" />
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:simpleType name="flag">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="global"></xsd:enumeration>
+			<xsd:enumeration value="system"></xsd:enumeration>
+			<xsd:enumeration value="final"></xsd:enumeration>
+			<xsd:enumeration value="translatable"></xsd:enumeration>
+			<xsd:enumeration value="nonconditional"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="default-value" type="xsd:string" />
+	<xsd:element name="value">
+		<xsd:complexType mixed="true">
+			<xsd:attribute name="default" type="xsd:boolean"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="component-list" type="componentListType" />
+
+	<xsd:element name="containers">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" maxOccurs="unbounded" ref="container" />
+			</xsd:sequence>
+		</xsd:complexType>
+		<xsd:unique name="container-name-uniqueness">
+			<xsd:selector xpath="container"/>
+			<xsd:field    xpath="@name"/>
+		</xsd:unique>
+	</xsd:element>
+	<xsd:element name="container">
+		<xsd:complexType>
+			<xsd:attribute name="name" type="xsd:string" use="required" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="bindlist">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" ref="attribute" />
+			</xsd:sequence>
+		</xsd:complexType>
+		<xsd:unique name="attribute-uniqueness">
+			<xsd:selector xpath="attribute"/>
+			<xsd:field    xpath="@property"/>
+		</xsd:unique>
+	</xsd:element>
+	<xsd:element name="attribute">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="label" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="property" type="xsd:string" />
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element ref="inputmode" />
+			</xsd:sequence>
+			<xsd:attribute name="property" type="xsd:string" use="required" />
+		</xsd:complexType>
+		<xsd:unique name="inputmode-uniqueness">
+			<xsd:selector xpath="inputmode"/>
+			<xsd:field    xpath="@property"/>
+		</xsd:unique>
+		<xsd:unique name="label-uniqueness">
+			<xsd:selector xpath="label"/>
+			<xsd:field    xpath="@property"/>
+		</xsd:unique>
+	</xsd:element>
+	<xsd:element name="inputmode">
+		<xsd:complexType>
+			<xsd:attribute name="property" type="xsd:string" use="required" />
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="template">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:any minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

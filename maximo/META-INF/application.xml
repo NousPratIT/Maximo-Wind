@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application id="Application_1077125442441" version="1.4" 
+xmlns="http://java.sun.com/xml/ns/j2ee" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/application_1_4.xsd">
+
+	<description>MAXIMO</description>
+	<display-name>MAXIMO</display-name>
+
+	<!-- List of Web application modules -->
+	<module id="WebModule_1077124925258">
+		<web>
+			<web-uri>maximouiweb.war</web-uri>
+			<context-root>/maximo</context-root>
+		</web>
+	</module>
+	  
+	<module id="WebModule_1077124925257">
+		<web>
+			<web-uri>mboweb.war</web-uri>
+			<context-root>/mbo</context-root>
+		</web>
+	</module>
+
+	<module id="WebModule_1077124923835">
+		<web>
+			<web-uri>meaweb.war</web-uri>
+			<context-root>/meaweb</context-root>
+		</web>
+	</module>
+	
+	<module id="WebModule_maxrest">
+		<web>
+			<web-uri>maxrestweb.war</web-uri>
+			<context-root>/maxrest</context-root>
+		</web>
+	</module>
+	<!-- List of EJB modules -->
+	<module id="EjbModule_1077124925247">
+		<ejb>mboejb.jar</ejb>
+	</module>
+	
+	<!-- List of Java client modules -->
+	<module>
+		<java>mbojava.jar</java>
+	</module>
+	
+	<!-- Security role used by the Application -->
+	<security-role id="SecurityRole_1077125442431">
+		<description>MAXIMO Application Users</description>
+		<role-name>maximouser</role-name>
+	</security-role>
+</application>

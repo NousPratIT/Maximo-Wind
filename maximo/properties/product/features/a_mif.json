@@ -1,0 +1,14 @@
+{
+	"product": "MIF",
+	"feature":
+	[
+	  {
+		"featurename": "fldmbo_161853",
+		"description": "Federated Mbo"
+	  },
+	  {
+		"featurename": "weather_220343",
+		"description": "MIF Build trouble..."
+	  }
+	] 
+}    

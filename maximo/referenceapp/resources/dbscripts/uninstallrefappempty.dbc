@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script SYSTEM "../../../../../tools/maximo/script.dtd">
+<script author="AppFwTeam" scriptname="RefEmpty App uninstall">
+	<description>RefEmpty App uninstall</description>
+	<statements>
+		<freeform description="Cleanup module">
+			<sql target="all">
+				delete from maxmodules where module='REFAPPS';
+				delete from maxmenu where menutype='MODULE' AND moduleapp='REFAPPS';
+			</sql>
+		</freeform>
+
+		<drop_app app="REFEMPTY" />
+
+<!-- 		<drop_table object="REFMAIN" /> -->
+	</statements>
+</script>

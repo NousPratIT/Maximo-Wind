@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* Licensed Materials - Property of IBM
+* Restricted Materials of IBM
+* 5724-U18
+* (C) COPYRIGHT IBM CORP. 2012 All Rights Reserved.
+* US Government Users Restricted Rights - Use, duplication or
+* disclosure restricted by GSA ADP Schedule Contract with
+* IBM Corp.
+-->
+<component-registry basedir="webclient\components">
+	<!-- No validation as these are negative tests 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation='../../../properties/component-registry.xsd'> -->
+
+	<component-descriptor name="misbehavingInstance"
+		instance-class="psdi.refapp.components.MisbehavingComponent">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="jsp-filename">
+				<default-value>refapp/blank</default-value>
+			</property>
+			<property name="display">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>
+
+	<component-descriptor name="misbehavingJsp">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="jsp-filename">
+				<default-value>refapp/misbehave</default-value>
+			</property>
+			<property name="display">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>
+
+	<component-descriptor name="invalidInstanceClass"
+		instance-class="INVALID">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="display">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>
+
+</component-registry>

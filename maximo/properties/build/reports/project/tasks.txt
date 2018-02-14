@@ -1,0 +1,29 @@
+
+------------------------------------------------------------
+All tasks runnable from project :properties
+------------------------------------------------------------
+
+Build tasks
+-----------
+mxInstall - Copies all assembled artifacts into a deployable directory
+mxTemplates - Fill in the template files for the project into
+
+Help tasks
+----------
+buildEnvironment - Displays all buildscript dependencies declared in project ':properties'.
+components - Displays the components produced by project ':properties'. [incubating]
+dependencies - Displays all dependencies declared in project ':properties'.
+dependencyInsight - Displays the insight into a specific dependency in project ':properties'.
+help - Displays a help message.
+model - Displays the configuration model of project ':properties'. [incubating]
+projects - Displays the sub-projects of project ':properties'.
+properties - Displays the properties of project ':properties'.
+tasks - Displays the tasks runnable from project ':properties'.
+
+Reporting tasks
+---------------
+projectReport - Generates a report about your project.
+
+To see all tasks and more detail, run gradlew tasks --all
+
+To see more detail about a task, run gradlew help --task <task>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script SYSTEM "../../../../../tools/maximo/script.dtd">
+<script author="AppFwTeam" scriptname="RefbasicappUndo">
+  <description>REFAPPMT_undo</description>
+  <statements>  
+    <drop_app app="REFAPPMT" />
+	<drop_table object="REFTENANT"/>
+	<drop_table object="REFMASTER"/>
+	<drop_table object="REFSYSTEM"/>
+	<drop_table object="REFTEMPLATE"/>
+	<drop_table object="REFSYSRESOURCE"/>
+	<drop_table object="REFMASTERSETUP"/>
+	<drop_table object="REFTEMPATESETUP"/>
+	<drop_table object="REFTENANTMON"/>
+
+	<define_table persistent="true" type="system" object="REFTENANT" description="Tenant Object" service="SYSTEM" classname="psdi.mbo.custapp.CustomMboSet" storagetype="tenant" primarykey="ATTR1" mainobject="true" internal="false">
+		<attrdef attribute="ATTR1" maxtype="UPPER" title="Key" remarks="Attribute 1" length="50" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true"/>
+		<attrdef attribute="DESCRIPTION" maxtype="ALN" length="200" remarks="Description" title="Description" persistent="true" required="false" haslongdesc="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR2" maxtype="ALN" remarks="Attribute ALN" title="Attribute ALN" length="50" persistent="true" haslongdesc="true" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR3" maxtype="INTEGER" title="Attribute Integer" remarks="Attribute 3" length="12" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="true" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR4" maxtype="YORN" defaultvalue="0" title="Attribute YORN" remarks="Attribute 4" length="1" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR5" maxtype="DATETIME" title="Attribute Date" remarks="Attribute 5" length="10" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+	</define_table>
+
+	<define_table persistent="true" type="system" object="REFMASTER" description="Delta Object" service="SYSTEM" classname="psdi.mbo.custapp.CustomMboSet" storagetype="master" primarykey="ATTR1" mainobject="false" internal="false">
+		<attrdef attribute="ATTR1" maxtype="UPPER" title="Key" remarks="Attribute 1" length="50" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true"/>
+		<attrdef attribute="DESCRIPTION" maxtype="ALN" length="200" remarks="Description" title="Description" persistent="true" required="false" haslongdesc="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR2" maxtype="ALN" remarks="Attribute ALN" title="Attribute ALN" length="50" persistent="true" haslongdesc="true" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR3" maxtype="INTEGER" title="Attribute Integer" remarks="Attribute 3" length="12" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="true" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR4" maxtype="YORN" defaultvalue="0" title="Attribute YORN" remarks="Attribute 4" length="1" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR5" maxtype="DATETIME" title="Attribute Date" remarks="Attribute 5" length="10" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+	</define_table>
+
+	<define_table persistent="true" type="system" object="REFSYSTEM" description="System Object" service="SYSTEM" classname="psdi.mbo.custapp.CustomMboSet" storagetype="system" primarykey="ATTR1" mainobject="false" internal="false">
+		<attrdef attribute="ATTR1" maxtype="UPPER" title="Key" remarks="Attribute 1" length="50" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true"/>
+		<attrdef attribute="DESCRIPTION" maxtype="ALN" length="200" remarks="Description" title="Description" persistent="true" required="false" haslongdesc="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR2" maxtype="ALN" remarks="Attribute ALN" title="Attribute ALN" length="50" persistent="true" haslongdesc="true" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR3" maxtype="INTEGER" title="Attribute Integer" remarks="Attribute 3" length="12" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="true" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR4" maxtype="YORN" defaultvalue="0" title="Attribute YORN" remarks="Attribute 4" length="1" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR5" maxtype="DATETIME" title="Attribute Date" remarks="Attribute 5" length="10" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+	</define_table>
+
+	<define_table persistent="true" type="system" object="REFTEMPLATE" description="Template Object" service="SYSTEM" classname="psdi.mbo.custapp.CustomMboSet" storagetype="template" primarykey="ATTR1" mainobject="false" internal="false">
+		<attrdef attribute="ATTR1" maxtype="UPPER" title="Key" remarks="Attribute 1" length="50" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true"/>
+		<attrdef attribute="DESCRIPTION" maxtype="ALN" length="200" remarks="Description" title="Description" persistent="true" required="false" haslongdesc="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR2" maxtype="ALN" remarks="Attribute ALN" title="Attribute ALN" length="50" persistent="true" haslongdesc="true" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR3" maxtype="INTEGER" title="Attribute Integer" remarks="Attribute 3" length="12" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="true" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR4" maxtype="YORN" defaultvalue="0" title="Attribute YORN" remarks="Attribute 4" length="1" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR5" maxtype="DATETIME" title="Attribute Date" remarks="Attribute 5" length="10" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+	</define_table>
+
+	<define_table persistent="true" type="system" object="REFSYSRESOURCE" description="System Resource Object" service="SYSTEM" classname="psdi.mbo.custapp.CustomMboSet" storagetype="system_resource" primarykey="ATTR1" mainobject="false" internal="false">
+		<attrdef attribute="ATTR1" maxtype="UPPER" title="Key" remarks="Attribute 1" length="50" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true"/>
+		<attrdef attribute="DESCRIPTION" maxtype="ALN" length="200" remarks="Description" title="Description" persistent="true" required="false" haslongdesc="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR2" maxtype="ALN" remarks="Attribute ALN" title="Attribute ALN" length="50" persistent="true" haslongdesc="true" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR3" maxtype="INTEGER" title="Attribute Integer" remarks="Attribute 3" length="12" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="true" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR4" maxtype="YORN" defaultvalue="0" title="Attribute YORN" remarks="Attribute 4" length="1" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR5" maxtype="DATETIME" title="Attribute Date" remarks="Attribute 5" length="10" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="TENANTCODE" sameasobject="TENANTREG" sameasattribute="TENANTCODE"  title="Tenant Code" remarks="Tenant Code" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true"/>
+	</define_table>
+
+	<define_table persistent="true" type="system" object="REFMASTERSETUP" description="Master (with setup) Object" service="SYSTEM" classname="psdi.mbo.custapp.CustomMboSet" storagetype="master_with_setup" primarykey="ATTR1" mainobject="false" internal="false">
+		<attrdef attribute="ATTR1" maxtype="UPPER" title="Key" remarks="Attribute 1" length="50" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true"/>
+		<attrdef attribute="DESCRIPTION" maxtype="ALN" length="200" remarks="Description" title="Description" persistent="true" required="false" haslongdesc="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR2" maxtype="ALN" remarks="Attribute ALN" title="Attribute ALN" length="50" persistent="true" haslongdesc="true" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR3" maxtype="INTEGER" title="Attribute Integer" remarks="Attribute 3" length="12" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="true" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR4" maxtype="YORN" defaultvalue="0" title="Attribute YORN" remarks="Attribute 4" length="1" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR5" maxtype="DATETIME" title="Attribute Date" remarks="Attribute 5" length="10" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+	</define_table>
+
+	<define_table persistent="true" type="system" object="REFTEMPATESETUP" description="Template (with seup) Object" service="SYSTEM" classname="psdi.mbo.custapp.CustomMboSet" storagetype="template_with_setup" primarykey="ATTR1" mainobject="false" internal="false">
+		<attrdef attribute="ATTR1" maxtype="UPPER" title="Key" remarks="Attribute 1" length="50" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true"/>
+		<attrdef attribute="DESCRIPTION" maxtype="ALN" length="200" remarks="Description" title="Description" persistent="true" required="false" haslongdesc="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR2" maxtype="ALN" remarks="Attribute ALN" title="Attribute ALN" length="50" persistent="true" haslongdesc="true" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR3" maxtype="INTEGER" title="Attribute Integer" remarks="Attribute 3" length="12" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="true" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR4" maxtype="YORN" defaultvalue="0" title="Attribute YORN" remarks="Attribute 4" length="1" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR5" maxtype="DATETIME" title="Attribute Date" remarks="Attribute 5" length="10" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+	</define_table>
+
+	<define_table persistent="true" type="system" object="REFTENANTMON" description="Tenant Monitor Object" service="SYSTEM" classname="psdi.mbo.custapp.CustomMboSet" storagetype="tenant_monitor" primarykey="ATTR1" mainobject="false" internal="false">
+		<attrdef attribute="ATTR1" maxtype="UPPER" title="Key" remarks="Attribute 1" length="50" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true"/>
+		<attrdef attribute="DESCRIPTION" maxtype="ALN" length="200" remarks="Description" title="Description" persistent="true" required="false" haslongdesc="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR2" maxtype="ALN" remarks="Attribute ALN" title="Attribute ALN" length="50" persistent="true" haslongdesc="true" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR3" maxtype="INTEGER" title="Attribute Integer" remarks="Attribute 3" length="12" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="true" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR4" maxtype="YORN" defaultvalue="0" title="Attribute YORN" remarks="Attribute 4" length="1" persistent="true" haslongdesc="false" required="true" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+		<attrdef attribute="ATTR5" maxtype="DATETIME" title="Attribute Date" remarks="Attribute 5" length="10" persistent="true" haslongdesc="false" required="false" mustbe="false" ispositive="false" canautonum="false" restricted="false" userdefined="true" />
+	</define_table>
+
+	<freeform description="Make new objects user-defined">
+      <sql target="all">
+		update maxobject set userdefined = 1 where objectname = 'REFTENANT';
+		update maxobject set userdefined = 1 where objectname = 'REFMASTER';
+		update maxobject set userdefined = 1 where objectname = 'REFSYSTEM';
+		update maxobject set userdefined = 1 where objectname = 'REFTEMPLATE';
+		update maxobject set userdefined = 1 where objectname = 'REFSYSRESOURCE';
+		update maxobject set userdefined = 1 where objectname = 'REFMASTERSETUP';
+		update maxobject set userdefined = 1 where objectname = 'REFTEMPATESETUP';
+		update maxobject set userdefined = 1 where objectname = 'REFTENANTMON';
+		update maxobjectcfg set userdefined = 1 where objectname = 'REFTENANT';
+		update maxobjectcfg set userdefined = 1 where objectname = 'REFMASTER';
+		update maxobjectcfg set userdefined = 1 where objectname = 'REFSYSTEM';
+		update maxobjectcfg set userdefined = 1 where objectname = 'REFTEMPLATE';
+		update maxobjectcfg set userdefined = 1 where objectname = 'REFSYSRESOURCE';
+		update maxobjectcfg set userdefined = 1 where objectname = 'REFMASTERSETUP';
+		update maxobjectcfg set userdefined = 1 where objectname = 'REFTEMPATESETUP';
+		update maxobjectcfg set userdefined = 1 where objectname = 'REFTENANTMON';
+		commit;
+	  </sql>
+    </freeform>
+
+    <create_app app="REFAPPMT" description="MT Reference Application" maintbname="REFTENANT" />
+    <add_sigoption visible="true" app="REFAPPMT" optionname="READ" description="Read" alsogrants="NEXT, PREVIOUS, BOOKMARK" alsorevokes="ALL" grantapp="INTOBJECT" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPMT" optionname="SAVE" description="Save" alsorevokes="DELETE,INSERT" grantapp="REFAPPMT" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPMT" optionname="DELETE" description="Delete" prerequisite="SAVE" grantapp="REFAPPMT" grantoption="SAVE" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPMT" optionname="INSERT" description="Insert" prerequisite="SAVE" grantapp="REFAPPMT" grantoption="SAVE" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPMT" optionname="SEARCHMORE" description="More Search Fields" grantapp="REFAPPMT" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPMT" optionname="BOOKMARK" description="Add to Bookmarks" grantapp="REFAPPMT" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPMT" optionname="SEARCHWHER" description="Where Clause" grantapp="REFAPPMT" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPMT" optionname="SEARCHSQRY" description="Save Current Query" grantapp="REFAPPMT" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPMT" optionname="SEARCHVMQR" description="View/Manage Queries" grantapp="REFAPPMT" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPMT" optionname="SEARCHTIPS" description="View Search Tips" grantapp="REFAPPMT" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPMT" optionname="SEARCHBOOK" description="Bookmarks" grantapp="REFAPPMT" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPMT" optionname="PREVIOUS" description="Previous Resource" grantapp="REFAPPMT" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPMT" optionname="NEXT" description="Next Resource" grantapp="REFAPPMT" grantoption="READ" esigenabled="false" langcode="EN" />
+    <create_app_menu app="REFAPPMT" type="tool">
+      <app_menu_option tabdisplay="ALL" option="SAVE" accesskey="CTRL+ALT+S" image="nav_icon_save.gif" />
+      <app_menu_option tabdisplay="ALL" option="CLEAR" accesskey="CTRL+ALT+C" image="nav_icon_clear.gif" />
+      <menu_separator />
+      <app_menu_option tabdisplay="ALL" option="PREVIOUS" accesskey="CTRL+ALT+P" image="nav_icon_previous.gif" />
+      <app_menu_option tabdisplay="ALL" option="NEXT" accesskey="CTRL+ALT+N" image="nav_icon_next.gif" />
+    </create_app_menu>
+    <create_app_menu app="REFAPPMT" type="action">
+     <app_menu_option tabdisplay="ALL" option="BOOKMARK" />
+    </create_app_menu>
+    <create_app_menu app="REFAPPMT" type="search">
+      <app_menu_header headerdescription="Advanced Search" image="atb_search.gif">
+        <app_menu_option tabdisplay="ALL" option="SEARCHMORE" />
+        <app_menu_option tabdisplay="ALL" option="SEARCHWHER" />
+      </app_menu_header>
+      <app_menu_header headerdescription="Save Query" image="atb_save.gif">
+        <app_menu_option tabdisplay="ALL" option="SEARCHSQRY" />
+        <app_menu_option tabdisplay="ALL" option="SEARCHVMQR" />
+      </app_menu_header>
+      <app_menu_option option="SEARCHBOOK" tabdisplay="ALL" image="atb_bookmark.gif" />
+    </create_app_menu>
+    
+    <freeform description="Add Max menu">
+      <sql target="all">insert into maxmenu(menutype, moduleapp, position, subposition, elementtype, keyvalue, headerdescription, url, visible, image, accesskey, tabdisplay, maxmenuid)
+		values('MODULE', 'SETUP', 77780, 0, 'APP', 'REFAPPMT', null, null, 1, null, null, null, maxmenuseq.nextval);</sql>
+    </freeform>
+  </statements>
+</script>

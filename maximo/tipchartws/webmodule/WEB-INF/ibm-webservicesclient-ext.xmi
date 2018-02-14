@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.etools.webservice.wscext:WsClientExtension xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.etools.webservice.wscext="http://www.ibm.com/websphere/appserver/schemas/5.0.2/wscext.xmi" xmi:id="WsClientExtension_1222364508343">
+  <serviceRefs xmi:id="ServiceRef_1222457897906" serviceRefLink="service/QueryService">
+    <portQnameBindings xmi:id="PortQnameBinding_1222457897906" portQnameLocalNameLink="QueryPort"/>
+  </serviceRefs>
+  <serviceRefs xmi:id="ServiceRef_1222457897907" serviceRefLink="service/ChartService">
+    <portQnameBindings xmi:id="PortQnameBinding_1222457897907" portQnameLocalNameLink="ChartPort"/>
+  </serviceRefs>
+</com.ibm.etools.webservice.wscext:WsClientExtension>

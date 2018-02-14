@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.etools.webservice.wsext:WsExtension xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.etools.webservice.wsext="http://www.ibm.com/websphere/appserver/schemas/5.0.2/wsext.xmi" xmi:id="WsExtension_1206050450921">
+  <wsDescExt xmi:id="WsDescExt_1206050450937" wsDescNameLink="QueryService">
+    <pcBinding xmi:id="PcBinding_1206050450937" pcNameLink="QueryPort">
+      <serverServiceConfig xmi:id="ServerServiceConfig_1209576699203">
+        <securityRequestConsumerServiceConfig xmi:id="SecurityRequestConsumerServiceConfig_1209576699203">
+          <requiredSecurityToken xmi:id="RequiredSecurityToken_1209665607796" name="ltpaToken" uri="http://www.ibm.com/websphere/appserver/tokentype/5.0.2" localName="LTPA"/>
+          <requiredSecurityToken xmi:id="RequiredSecurityToken_1209774951312" name="usernameToken" uri="" localName="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#UsernameToken"/>
+        </securityRequestConsumerServiceConfig>
+      </serverServiceConfig>
+    </pcBinding>
+  </wsDescExt>
+  <wsDescExt xmi:id="WsDescExt_1206050450938" wsDescNameLink="ChartService">
+    <pcBinding xmi:id="PcBinding_1206050450938" pcNameLink="ChartPort"/>
+  </wsDescExt>
+</com.ibm.etools.webservice.wsext:WsExtension>

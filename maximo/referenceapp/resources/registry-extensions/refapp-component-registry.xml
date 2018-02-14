@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* Licensed Materials - Property of IBM
+* Restricted Materials of IBM
+* 5724-U18
+* (C) COPYRIGHT IBM CORP. 2006,2012 All Rights Reserved.
+* US Government Users Restricted Rights - Use, duplication or
+* disclosure restricted by GSA ADP Schedule Contract with
+* IBM Corp.
+-->
+<component-registry basedir="webclient\components"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation='../../../properties/component-registry.xsd'>
+
+	<component-descriptor name="refbutton">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>refapp/refbutton</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="alwaysinclude">
+				<default-value>false</default-value>
+			</property>
+			<property name="defaultrender">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="refbuttontype">
+				<default-value>order</default-value>
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>
+
+	<component-descriptor name="dojo-sample-dialog">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>refapp/dojo-sample-dialog</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="alwaysinclude">
+				<default-value>false</default-value>
+			</property>
+			<property name="defaultrender">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>
+
+	<component-descriptor name="dojo-sample-dialogcreateonshow">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>refapp/dojo-sample-dialogcreateonshow</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="alwaysinclude">
+				<default-value>false</default-value>
+			</property>
+			<property name="defaultrender">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>
+
+	<component-descriptor name="dojo-sample-button">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>refapp/dojo-sample-button</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="alwaysinclude">
+				<default-value>false</default-value>
+			</property>
+			<property name="defaultrender">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>
+
+	<component-descriptor name="dojo-sample-slider" instance-class="psdi.webclient.system.controller.BoundComponentInstance">
+		<property-list>
+			<property name="jsp-filename">
+				<default-value>refapp/dojo-sample-slider</default-value>
+			</property>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="dataattribute" />
+
+			<property name="inputmode" />
+			
+			<property name="minimum" />
+			<property name="maximum" />
+			<property name="increment" />
+			<property name="labelincrement" />
+
+			<property name="alwaysinclude">
+				<default-value>true</default-value>
+			</property>
+			<!-- Set defaultrender to false so we can update the component via 
+			     javascript instead of DOM element replacement -->
+			<property name="defaultrender">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<property name="visible">
+				<default-value>true</default-value>
+			</property>
+			<property name="synchronous">
+				<flag name="final" />
+				<default-value>false</default-value>
+			</property>
+			<!-- These two properties are need to get the component to stay synchronized with other components 
+			   that are bound to the same data attribute -->
+			<property name="inttype" />
+			<property name="takesvalue">
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+	</component-descriptor>
+
+</component-registry>

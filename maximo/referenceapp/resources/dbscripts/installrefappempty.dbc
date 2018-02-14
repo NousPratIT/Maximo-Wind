@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script SYSTEM "../../../../../tools/maximo/script.dtd">
+<script author="AppFwTeam" scriptname="DBC for Empty Reference App">
+	<description>DBC for Empty Reference App</description>
+	<statements>
+		<create_app app="REFEMPTY" description="Empty App" />
+
+		<!-- If there was no existing module on the goto menu, we could add a module  and add the app to the module like this -->
+<!-- 		<create_module module="REFAPPS" description="Reference Applications"> -->
+<!-- 			<module_menu_app app="REFEMPTY" image="appimg_refbasic.gif"/> -->
+<!-- 		</create_module> -->
+
+		<!-- Since we already have a module, we add it to it like this -->
+		<freeform description="maxmenu entries">
+			<sql target="all">
+				insert into MAXMENU (MENUTYPE,MODULEAPP,POSITION,SUBPOSITION,ELEMENTTYPE,KEYVALUE,VISIBLE,IMAGE) 
+						values ('MODULE','REFAPPS',99999,0,'APP','REFEMPTY',1,'appimg_refbasic.gif');
+				update MAXMENU set POSITION=(select max(POSITION)+1 from MAXMENU where MENUTYPE='MODULE' and MODULEAPP='REFAPPS') 
+						where MENUTYPE='MODULE' and MODULEAPP='REFAPPS' and keyvalue='REFEMPTY';
+			</sql>
+		</freeform>
+
+		<add_sigoption visible="true" app="REFEMPTY" optionname="READ" description="Read Access to Ref Empty" grantapp="STARTCNTR" 
+				grantoption="READ" esigenabled="false" langcode="EN" alsogrants="CLEAR,BOOKMARK,NEXT,PREVIOUS" alsorevokes="ALL" />
+
+	</statements>
+</script>

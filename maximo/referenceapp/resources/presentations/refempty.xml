@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presentation id="refempty" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation='presentation.xsd' xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<page id="mainrec">
+		<clientarea id="clientarea">
+			<section id="section">
+				<hyperlink id="startcenterlink" label="Back to the Start Center" mxevent="startcenter"/>
+			</section>
+		</clientarea>
+	</page>
+</presentation>

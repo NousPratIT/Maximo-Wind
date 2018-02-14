@@ -1,0 +1,89 @@
+/* AUTOMATICALLY GENERATED ON Tue Jan 10 11:29:32 EST 2006*/
+/* DO NOT EDIT */
+
+grant codeBase "file:${application}" {
+  permission java.lang.RuntimePermission "modifyThreadGroup";
+  permission java.lang.RuntimePermission "modifyThread";
+  permission java.lang.RuntimePermission "getClassLoader";
+  permission java.lang.RuntimePermission "setFactory";
+  permission java.lang.RuntimePermission "accessDeclaredMembers";
+  permission java.lang.RuntimePermission "accessClassInPackage.com.ibm.oti.shared";
+  permission java.lang.RuntimePermission "shutdownHooks";
+  permission java.lang.RuntimePermission "getProtectionDomain";
+  permission java.lang.RuntimePermission "accessClassInPackage.sun.misc";
+  permission java.lang.RuntimePermission "createSecurityManager";
+
+
+  permission java.lang.reflect.ReflectPermission "suppressAccessChecks";
+
+
+  permission javax.management.MBeanServerPermission "createMBeanServer";
+  permission javax.management.MBeanServerPermission "findMBeanServer";
+  permission javax.management.MBeanServerPermission "newMBeanServer";
+  permission javax.management.MBeanServerPermission "releaseMBeanServer";
+  
+  permission com.ibm.oti.shared.SharedClassPermission "java.net.URLClassLoader", "read, write";
+
+  
+  permission java.util.PropertyPermission "PMBBISTRACKED", "read, write";
+  permission java.util.PropertyPermission "mail.smtp.host", "read, write";
+  permission java.util.PropertyPermission "axis2.xml.path", "read, write";
+  permission java.util.PropertyPermission "WAS.LTAURL", "read, write";
+
+  permission java.util.PropertyPermission "line.separator", "read";
+  permission java.util.PropertyPermission "file.encoding", "read";
+  permission java.util.PropertyPermission "os.name", "read";
+  permission java.util.PropertyPermission "user.dir", "read";
+  permission java.util.PropertyPermission "file.separator", "read";
+  permission java.util.PropertyPermission "java.rmi.server.hostname", "read";
+
+  permission java.util.PropertyPermission "weblogic.Name", "read";
+  permission java.util.PropertyPermission "was.install.root", "read";
+
+  permission java.util.PropertyPermission "com.collation.home", "read";
+  permission java.util.PropertyPermission "mxe.com.port", "read";
+  permission java.util.PropertyPermission "mxe.name", "read";
+
+
+
+  permission java.io.FilePermission "${user.dir}${file.separator}user", "read";
+  permission java.io.FilePermission "${user.home}${file.separator}user", "read";
+
+
+  //The file permission for the log file should be granted to the actual path of the log file if used
+  //If the path does not need to be hard coded here, it can be passed via Java system property
+  // permission java.io.FilePermission "${mxe.logging.rootfolder}-", "read, write";
+  //make sure this value is mentioned in maxpropvalue table for propname mxe.logging.rootfolder
+  permission java.io.FilePermission "c:${/}temp${/}maximo${/}-", "read, write";
+  
+  permission java.io.FilePermission "${app.installed.path}${/}-", "read";
+  permission java.io.FilePermission "${was.install.root}${/}properties${/}version${/}platform.websphere", "read";
+  permission java.io.FilePermission "${user.install.root}${/}DeletedHistory", "read";
+  permission java.io.FilePermission "${user.install.root}${/}delete", "read";
+  permission java.io.FilePermission "${user.install.root}${/}retry", "read";
+  permission java.io.FilePermission "${user.install.root}${/}view", "read";
+  permission java.io.FilePermission "${user.install.root}${/}schema", "read";
+  permission java.io.FilePermission "${user.install.root}${/}error", "read";
+  permission java.io.FilePermission "${user.install.root}${/}schema${/}-", "read";
+  permission java.io.FilePermission "client-config.wsdd", "read,write";
+  permission java.io.FilePermission "${was.install.root}${/}lib${/}-", "read";
+  permission java.io.FilePermission "${was.install.root}${/}profiles${/}-", "read";
+  permission java.io.FilePermission "${was.install.root}${/}-", "read";
+  
+  // The following is for the database server connection
+  // If the database is running on the same machine, otherwise not needed.
+  // The 10.10.10.10 refers to the local machine where the Database is running...change this to the appropriate value
+  permission java.net.SocketPermission "10.10.10.10:1521", "accept, resolve";
+  
+  // The following is for the RMI Listen port (mxe.rmi.port value in maxpropvalue table)
+  // The 10.10.10.10 refers to the local machine where the AppServer is running...change this to the appropriate value
+  permission java.net.SocketPermission "10.10.10.10:9999", "accept, resolve, listen";
+  
+  // The following is for the RMI Registry port (mxe.registry.port value in maxpropvalue table)
+  // The 10.10.10.10 refers to the local machine where the AppServer is running...change this to the appropriate value
+  permission java.net.SocketPermission "10.10.10.10:1099", "accept, resolve, listen";
+  
+};
+
+
+

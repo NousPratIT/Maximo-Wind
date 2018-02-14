@@ -1,0 +1,19 @@
+<!DOCTYPE weblogic-application PUBLIC "-//BEA Systems, Inc.//DTD WebLogic Application 8.1.0//EN" 
+				"http://www.oracle.com/technology/weblogic/servers/wls810/dtd/weblogic-application_2_0.dtd">
+
+<weblogic-application>
+	<prefer-application-packages>  
+		<!--package-name>javax.xml.stream.*</package-name>  
+		<package-name>javax.xml.stream.events.*</package-name>  
+		<package-name>javax.xml.stream.util.*</package-name-->  
+		<package-name>org.python.*</package-name>  
+		<package-name>com.google.common.*</package-name>  
+		<package-name>org.apache.xmlbeans.*</package-name>  
+	</prefer-application-packages>
+	<security>
+		<security-role-assignment>
+		    <role-name>maximouser</role-name>
+			<principal-name>maximousers</principal-name>
+		</security-role-assignment>
+	</security>
+</weblogic-application>

@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script SYSTEM "../../../../../tools/maximo/script.dtd">
+<script author="AppFwTeam" scriptname="DBC for Reference Applications to test specific controls for which we need a seperate app">
+  <description>DBC for Reference Applications to test specific controls for which we a need separate app</description>
+  <statements>   
+
+    <!-- REF APP A -->
+    <create_app app="REFAPPA" description="Basic Reference Application A" maintbname="REFMAIN" />
+    <freeform description="maxmenu entries">
+      <sql target="all">
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPA',12,0,'OPTION','DELETE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPA',13,0,'OPTION','BOOKMARK','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPA',2,0,'SEP','AT2','',1,'','','');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPA',10,0,'HEADER','SM10','Advanced Search',1,'atb_search.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPA',11,0,'OPTION','DUPLICATE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPA',20,0,'HEADER','SM20','Save Query',1,'atb_save.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPA',10,10,'OPTION','SEARCHMORE','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPA',30,0,'OPTION','SEARCHBOOK','',1,'atb_bookmark.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPA',1,2,'OPTION','SAVE','',1,'nav_icon_save.gif','CTRL+ALT+S','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPA',1,1,'OPTION','INSERT','',1,'nav_icon_insertkey.gif','CTRL+ALT+I','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPA',1,3,'OPTION','CLEAR','',1,'nav_icon_clear.gif','CTRL+ALT+C','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPA',2,1,'OPTION','PREVIOUS','',1,'nav_icon_previous.gif','CTRL+ALT+P','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPA',2,2,'OPTION','NEXT','',1,'nav_icon_next.gif','CTRL+ALT+N','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPA',10,20,'OPTION','SEARCHWHER','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPA',20,20,'OPTION','SEARCHVMQR','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPA',10,30,'OPTION','SEARCHTIPS','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPA',20,10,'OPTION','SEARCHSQRY','',1,'','','ALL');
+
+      insert into MAXMENU (MENUTYPE,MODULEAPP,POSITION,SUBPOSITION,ELEMENTTYPE,KEYVALUE,VISIBLE,IMAGE) values ('MODULE','REFAPPS',99999,0,'APP','REFAPPA',1,'appimg_refbasic.gif');
+
+      update maxmenu set position=(select max(position)+1 from maxmenu where MENUTYPE='MODULE' and MODULEAPP='REFAPPS') where MENUTYPE='MODULE' and MODULEAPP='REFAPPS' and keyvalue='REFAPPA';
+    </sql>
+    </freeform>
+    <add_sigoption visible="true" app="REFAPPA" optionname="DELETE" description="Delete Record" prerequisite="SAVE" grantapp="REFAPPA" grantoption="SAVE" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPA" optionname="BOOKMARK" description="Add to Bookmarks" grantapp="REFAPPA" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPA" optionname="SEARCHMORE" description="More Search Fields" grantapp="REFAPPA" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPA" optionname="READ" description="Read Access to Ref Main" alsogrants="CLEAR,BOOKMARK,NEXT,PREVIOUS" alsorevokes="ALL" grantapp="STARTCNTR" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPA" optionname="SEARCHTIPS" description="View Search Tips" grantapp="REFAPPA" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPA" optionname="SEARCHBOOK" description="Bookmarks" grantapp="REFAPPA" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPA" optionname="SEARCHSQRY" description="Save Current Query" grantapp="REFAPPA" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPA" optionname="SEARCHVMQR" description="View/Manage Queries" grantapp="REFAPPA" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPA" optionname="SEARCHWHER" description="Where Clause" grantapp="REFAPPA" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPA" optionname="SAVE" description="Save Record" alsorevokes="INSERT,DUPLICATE,DELETE" grantapp="REFAPPA" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPA" optionname="INSERT" description="New Record" alsogrants="SAVE" grantapp="REFAPPA" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPA" optionname="CLEAR" description="Clear Changes" grantapp="REFAPPA" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPA" optionname="PREVIOUS" description="Previous Record" grantapp="REFAPPA" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPA" optionname="NEXT" description="Next Record" grantapp="REFAPPA" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPA" optionname="DUPLICATE" description="Duplicate Record" prerequisite="INSERT" grantapp="REFAPPA" grantoption="INSERT" esigenabled="false" langcode="EN" />
+  
+  
+    <!-- REF APP B -->
+    <create_app app="REFAPPB" description="Basic Reference Application B" maintbname="REFMAIN" />
+    <freeform description="maxmenu entries">
+      <sql target="all">
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPB',12,0,'OPTION','DELETE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPB',13,0,'OPTION','BOOKMARK','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPB',2,0,'SEP','AT2','',1,'','','');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPB',10,0,'HEADER','SM10','Advanced Search',1,'atb_search.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPB',11,0,'OPTION','DUPLICATE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPB',20,0,'HEADER','SM20','Save Query',1,'atb_save.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPB',10,10,'OPTION','SEARCHMORE','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPB',30,0,'OPTION','SEARCHBOOK','',1,'atb_bookmark.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPB',1,2,'OPTION','SAVE','',1,'nav_icon_save.gif','CTRL+ALT+S','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPB',1,1,'OPTION','INSERT','',1,'nav_icon_insertkey.gif','CTRL+ALT+I','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPB',1,3,'OPTION','CLEAR','',1,'nav_icon_clear.gif','CTRL+ALT+C','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPB',2,1,'OPTION','PREVIOUS','',1,'nav_icon_previous.gif','CTRL+ALT+P','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPB',2,2,'OPTION','NEXT','',1,'nav_icon_next.gif','CTRL+ALT+N','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPB',10,20,'OPTION','SEARCHWHER','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPB',20,20,'OPTION','SEARCHVMQR','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPB',10,30,'OPTION','SEARCHTIPS','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPB',20,10,'OPTION','SEARCHSQRY','',1,'','','ALL');
+
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, VISIBLE, IMAGE) values ('MODULE','REFAPPS',99999,0,'APP','REFAPPB',1,'appimg_refbasic.gif');
+
+      update maxmenu set position=(select max(position)+1 from maxmenu where MENUTYPE='MODULE' and MODULEAPP='REFAPPS') where MENUTYPE='MODULE' and MODULEAPP='REFAPPS' and keyvalue='REFAPPB';
+    </sql>
+    </freeform>
+    <add_sigoption visible="true" app="REFAPPB" optionname="DELETE" description="Delete Record" prerequisite="SAVE" grantapp="REFAPPB" grantoption="SAVE" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPB" optionname="BOOKMARK" description="Add to Bookmarks" grantapp="REFAPPB" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPB" optionname="SEARCHMORE" description="More Search Fields" grantapp="REFAPPB" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPB" optionname="READ" description="Read Access to Ref Main" alsogrants="CLEAR,BOOKMARK,NEXT,PREVIOUS" alsorevokes="ALL" grantapp="STARTCNTR" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPB" optionname="SEARCHTIPS" description="View Search Tips" grantapp="REFAPPB" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPB" optionname="SEARCHBOOK" description="Bookmarks" grantapp="REFAPPB" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPB" optionname="SEARCHSQRY" description="Save Current Query" grantapp="REFAPPB" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPB" optionname="SEARCHVMQR" description="View/Manage Queries" grantapp="REFAPPB" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPB" optionname="SEARCHWHER" description="Where Clause" grantapp="REFAPPB" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPB" optionname="SAVE" description="Save Record" alsorevokes="INSERT,DUPLICATE,DELETE" grantapp="REFAPPB" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPB" optionname="INSERT" description="New Record" alsogrants="SAVE" grantapp="REFAPPB" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPB" optionname="CLEAR" description="Clear Changes" grantapp="REFAPPB" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPB" optionname="PREVIOUS" description="Previous Record" grantapp="REFAPPB" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPB" optionname="NEXT" description="Next Record" grantapp="REFAPPB" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPB" optionname="DUPLICATE" description="Duplicate Record" prerequisite="INSERT" grantapp="REFAPPB" grantoption="INSERT" esigenabled="false" langcode="EN" />
+  
+    <!--  REF APP C -->
+    <create_app app="REFAPPC" description="Basic Reference Application C" maintbname="REFMAIN" />
+    <freeform description="maxmenu entries">
+      <sql target="all">
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPC',12,0,'OPTION','DELETE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPC',13,0,'OPTION','BOOKMARK','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPC',2,0,'SEP','AT2','',1,'','','');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPC',10,0,'HEADER','SM10','Advanced Search',1,'atb_search.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPC',11,0,'OPTION','DUPLICATE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPC',20,0,'HEADER','SM20','Save Query',1,'atb_save.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPC',10,10,'OPTION','SEARCHMORE','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPC',30,0,'OPTION','SEARCHBOOK','',1,'atb_bookmark.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPC',1,2,'OPTION','SAVE','',1,'nav_icon_save.gif','CTRL+ALT+S','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPC',1,1,'OPTION','INSERT','',1,'nav_icon_insertkey.gif','CTRL+ALT+I','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPC',1,3,'OPTION','CLEAR','',1,'nav_icon_clear.gif','CTRL+ALT+C','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPC',2,1,'OPTION','PREVIOUS','',1,'nav_icon_previous.gif','CTRL+ALT+P','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPC',2,2,'OPTION','NEXT','',1,'nav_icon_next.gif','CTRL+ALT+N','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPC',10,20,'OPTION','SEARCHWHER','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPC',20,20,'OPTION','SEARCHVMQR','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPC',10,30,'OPTION','SEARCHTIPS','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPC',20,10,'OPTION','SEARCHSQRY','',1,'','','ALL');
+ 
+      insert into MAXMENU (MENUTYPE,MODULEAPP,POSITION,SUBPOSITION,ELEMENTTYPE,KEYVALUE,VISIBLE,IMAGE) values ('MODULE','REFAPPS',99999,0,'APP','REFAPPC',1,'appimg_refbasic.gif');
+ 
+      update maxmenu set position=(select max(position)+1 from maxmenu where MENUTYPE='MODULE' and MODULEAPP='REFAPPS') where MENUTYPE='MODULE' and MODULEAPP='REFAPPS' and keyvalue='REFAPPC';
+    </sql>
+    </freeform>
+    <add_sigoption visible="true" app="REFAPPC" optionname="DELETE" description="Delete Record" prerequisite="SAVE" grantapp="REFAPPC" grantoption="SAVE" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPC" optionname="BOOKMARK" description="Add to Bookmarks" grantapp="REFAPPC" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPC" optionname="SEARCHMORE" description="More Search Fields" grantapp="REFAPPC" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPC" optionname="READ" description="Read Access to Ref Main" alsogrants="CLEAR,BOOKMARK,NEXT,PREVIOUS" alsorevokes="ALL" grantapp="STARTCNTR" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPC" optionname="SEARCHTIPS" description="View Search Tips" grantapp="REFAPPC" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPC" optionname="SEARCHBOOK" description="Bookmarks" grantapp="REFAPPC" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPC" optionname="SEARCHSQRY" description="Save Current Query" grantapp="REFAPPC" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPC" optionname="SEARCHVMQR" description="View/Manage Queries" grantapp="REFAPPC" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPC" optionname="SEARCHWHER" description="Where Clause" grantapp="REFAPPC" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPC" optionname="SAVE" description="Save Record" alsorevokes="INSERT,DUPLICATE,DELETE" grantapp="REFAPPC" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPC" optionname="INSERT" description="New Record" alsogrants="SAVE" grantapp="REFAPPC" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPC" optionname="CLEAR" description="Clear Changes" grantapp="REFAPPC" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPC" optionname="PREVIOUS" description="Previous Record" grantapp="REFAPPC" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPC" optionname="NEXT" description="Next Record" grantapp="REFAPPC" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPC" optionname="DUPLICATE" description="Duplicate Record" prerequisite="INSERT" grantapp="REFAPPC" grantoption="INSERT" esigenabled="false" langcode="EN" />
+  
+    <!--  REF APP D -->
+    <create_app app="REFAPPD" description="Basic Reference Application D" maintbname="REFMAIN" />
+    <freeform description="maxmenu entries">
+      <sql target="all">
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPD',12,0,'OPTION','DELETE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPD',13,0,'OPTION','BOOKMARK','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPD',2,0,'SEP','AT2','',1,'','','');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPD',10,0,'HEADER','SM10','Advanced Search',1,'atb_search.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPD',11,0,'OPTION','DUPLICATE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPD',20,0,'HEADER','SM20','Save Query',1,'atb_save.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPD',10,10,'OPTION','SEARCHMORE','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPD',30,0,'OPTION','SEARCHBOOK','',1,'atb_bookmark.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPD',1,2,'OPTION','SAVE','',1,'nav_icon_save.gif','CTRL+ALT+S','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPD',1,1,'OPTION','INSERT','',1,'nav_icon_insertkey.gif','CTRL+ALT+I','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPD',1,3,'OPTION','CLEAR','',1,'nav_icon_clear.gif','CTRL+ALT+C','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPD',2,1,'OPTION','PREVIOUS','',1,'nav_icon_previous.gif','CTRL+ALT+P','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPD',2,2,'OPTION','NEXT','',1,'nav_icon_next.gif','CTRL+ALT+N','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPD',10,20,'OPTION','SEARCHWHER','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPD',20,20,'OPTION','SEARCHVMQR','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPD',10,30,'OPTION','SEARCHTIPS','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPD',20,10,'OPTION','SEARCHSQRY','',1,'','','ALL');
+
+      insert into MAXMENU (MENUTYPE,MODULEAPP,POSITION,SUBPOSITION,ELEMENTTYPE,KEYVALUE,VISIBLE,IMAGE) values ('MODULE','REFAPPS',99999,0,'APP','REFAPPD',1,'appimg_refbasic.gif');
+
+      update maxmenu set position=(select max(position)+1 from maxmenu where MENUTYPE='MODULE' and MODULEAPP='REFAPPS') where MENUTYPE='MODULE' and MODULEAPP='REFAPPS' and keyvalue='REFAPPD';
+    </sql>
+    </freeform>
+    <add_sigoption visible="true" app="REFAPPD" optionname="DELETE" description="Delete Record" prerequisite="SAVE" grantapp="REFAPPD" grantoption="SAVE" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPD" optionname="BOOKMARK" description="Add to Bookmarks" grantapp="REFAPPD" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPD" optionname="SEARCHMORE" description="More Search Fields" grantapp="REFAPPD" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPD" optionname="READ" description="Read Access to Ref Main" alsogrants="CLEAR,BOOKMARK,NEXT,PREVIOUS" alsorevokes="ALL" grantapp="STARTCNTR" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPD" optionname="SEARCHTIPS" description="View Search Tips" grantapp="REFAPPD" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPD" optionname="SEARCHBOOK" description="Bookmarks" grantapp="REFAPPD" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPD" optionname="SEARCHSQRY" description="Save Current Query" grantapp="REFAPPD" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPD" optionname="SEARCHVMQR" description="View/Manage Queries" grantapp="REFAPPD" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPD" optionname="SEARCHWHER" description="Where Clause" grantapp="REFAPPD" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPD" optionname="SAVE" description="Save Record" alsorevokes="INSERT,DUPLICATE,DELETE" grantapp="REFAPPD" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPD" optionname="INSERT" description="New Record" alsogrants="SAVE" grantapp="REFAPPD" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPD" optionname="CLEAR" description="Clear Changes" grantapp="REFAPPD" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPD" optionname="PREVIOUS" description="Previous Record" grantapp="REFAPPD" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPD" optionname="NEXT" description="Next Record" grantapp="REFAPPD" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPD" optionname="DUPLICATE" description="Duplicate Record" prerequisite="INSERT" grantapp="REFAPPD" grantoption="INSERT" esigenabled="false" langcode="EN" />
+  
+    <!--  REF APP E -->
+    <create_app app="REFAPPE" description="Basic Reference Application E" maintbname="REFMAIN" />
+    <freeform description="maxmenu entries">
+      <sql target="all">
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPE',12,0,'OPTION','DELETE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPE',13,0,'OPTION','BOOKMARK','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPE',2,0,'SEP','AT2','',1,'','','');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPE',10,0,'HEADER','SM10','Advanced Search',1,'atb_search.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPE',11,0,'OPTION','DUPLICATE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPE',20,0,'HEADER','SM20','Save Query',1,'atb_save.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPE',10,10,'OPTION','SEARCHMORE','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPE',30,0,'OPTION','SEARCHBOOK','',1,'atb_bookmark.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPE',1,2,'OPTION','SAVE','',1,'nav_icon_save.gif','CTRL+ALT+S','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPE',1,1,'OPTION','INSERT','',1,'nav_icon_insertkey.gif','CTRL+ALT+I','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPE',1,3,'OPTION','CLEAR','',1,'nav_icon_clear.gif','CTRL+ALT+C','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPE',2,1,'OPTION','PREVIOUS','',1,'nav_icon_previous.gif','CTRL+ALT+P','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPE',2,2,'OPTION','NEXT','',1,'nav_icon_next.gif','CTRL+ALT+N','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPE',10,20,'OPTION','SEARCHWHER','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPE',20,20,'OPTION','SEARCHVMQR','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPE',10,30,'OPTION','SEARCHTIPS','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPE',20,10,'OPTION','SEARCHSQRY','',1,'','','ALL');
+
+      insert into MAXMENU (MENUTYPE,MODULEAPP,POSITION,SUBPOSITION,ELEMENTTYPE,KEYVALUE,VISIBLE,IMAGE) values ('MODULE','REFAPPS',99999,0,'APP','REFAPPE',1,'appimg_refbasic.gif');
+
+      update maxmenu set position=(select max(position)+1 from maxmenu where MENUTYPE='MODULE' and MODULEAPP='REFAPPS') where MENUTYPE='MODULE' and MODULEAPP='REFAPPS' and keyvalue='REFAPPE';
+    </sql>
+    </freeform>
+    <add_sigoption visible="true" app="REFAPPE" optionname="DELETE" description="Delete Record" prerequisite="SAVE" grantapp="REFAPPE" grantoption="SAVE" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPE" optionname="BOOKMARK" description="Add to Bookmarks" grantapp="REFAPPE" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPE" optionname="SEARCHMORE" description="More Search Fields" grantapp="REFAPPE" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPE" optionname="READ" description="Read Access to Ref Main" alsogrants="CLEAR,BOOKMARK,NEXT,PREVIOUS" alsorevokes="ALL" grantapp="STARTCNTR" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPE" optionname="SEARCHTIPS" description="View Search Tips" grantapp="REFAPPE" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPE" optionname="SEARCHBOOK" description="Bookmarks" grantapp="REFAPPE" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPE" optionname="SEARCHSQRY" description="Save Current Query" grantapp="REFAPPE" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPE" optionname="SEARCHVMQR" description="View/Manage Queries" grantapp="REFAPPE" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPE" optionname="SEARCHWHER" description="Where Clause" grantapp="REFAPPE" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPE" optionname="SAVE" description="Save Record" alsorevokes="INSERT,DUPLICATE,DELETE" grantapp="REFAPPE" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPE" optionname="INSERT" description="New Record" alsogrants="SAVE" grantapp="REFAPPE" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPE" optionname="CLEAR" description="Clear Changes" grantapp="REFAPPE" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPE" optionname="PREVIOUS" description="Previous Record" grantapp="REFAPPE" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPE" optionname="NEXT" description="Next Record" grantapp="REFAPPE" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPE" optionname="DUPLICATE" description="Duplicate Record" prerequisite="INSERT" grantapp="REFAPPE" grantoption="INSERT" esigenabled="false" langcode="EN" />
+       
+    <!--  REF APP F -->
+    <create_app app="REFAPPF" description="Basic Reference Application F" maintbname="REFMAIN" />
+    <freeform description="maxmenu entries">
+      <sql target="all">
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPF',12,0,'OPTION','DELETE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPF',13,0,'OPTION','BOOKMARK','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPF',2,0,'SEP','AT2','',1,'','','');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPF',10,0,'HEADER','SM10','Advanced Search',1,'atb_search.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPF',11,0,'OPTION','DUPLICATE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPF',20,0,'HEADER','SM20','Save Query',1,'atb_save.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPF',10,10,'OPTION','SEARCHMORE','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPF',30,0,'OPTION','SEARCHBOOK','',1,'atb_bookmark.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPF',1,2,'OPTION','SAVE','',1,'nav_icon_save.gif','CTRL+ALT+S','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPF',1,1,'OPTION','INSERT','',1,'nav_icon_insertkey.gif','CTRL+ALT+I','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPF',1,3,'OPTION','CLEAR','',1,'nav_icon_clear.gif','CTRL+ALT+C','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPF',2,1,'OPTION','PREVIOUS','',1,'nav_icon_previous.gif','CTRL+ALT+P','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPF',2,2,'OPTION','NEXT','',1,'nav_icon_next.gif','CTRL+ALT+N','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPF',10,20,'OPTION','SEARCHWHER','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPF',20,20,'OPTION','SEARCHVMQR','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPF',10,30,'OPTION','SEARCHTIPS','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPF',20,10,'OPTION','SEARCHSQRY','',1,'','','ALL');
+ 
+      insert into MAXMENU (MENUTYPE,MODULEAPP,POSITION,SUBPOSITION,ELEMENTTYPE,KEYVALUE,VISIBLE,IMAGE) values ('MODULE','REFAPPS',99999,0,'APP','REFAPPF',1,'appimg_refbasic.gif');
+ 
+      update maxmenu set position=(select max(position)+1 from maxmenu where MENUTYPE='MODULE' and MODULEAPP='REFAPPS') where MENUTYPE='MODULE' and MODULEAPP='REFAPPS' and keyvalue='REFAPPF';
+    </sql>
+    </freeform>
+    <add_sigoption visible="true" app="REFAPPF" optionname="DELETE" description="Delete Record" prerequisite="SAVE" grantapp="REFAPPF" grantoption="SAVE" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPF" optionname="BOOKMARK" description="Add to Bookmarks" grantapp="REFAPPF" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPF" optionname="SEARCHMORE" description="More Search Fields" grantapp="REFAPPF" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPF" optionname="READ" description="Read Access to Ref Main" alsogrants="CLEAR,BOOKMARK,NEXT,PREVIOUS" alsorevokes="ALL" grantapp="STARTCNTR" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPF" optionname="SEARCHTIPS" description="View Search Tips" grantapp="REFAPPF" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPF" optionname="SEARCHBOOK" description="Bookmarks" grantapp="REFAPPF" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPF" optionname="SEARCHSQRY" description="Save Current Query" grantapp="REFAPPF" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPF" optionname="SEARCHVMQR" description="View/Manage Queries" grantapp="REFAPPF" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPF" optionname="SEARCHWHER" description="Where Clause" grantapp="REFAPPF" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPF" optionname="SAVE" description="Save Record" alsorevokes="INSERT,DUPLICATE,DELETE" grantapp="REFAPPF" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPF" optionname="INSERT" description="New Record" alsogrants="SAVE" grantapp="REFAPPF" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPF" optionname="CLEAR" description="Clear Changes" grantapp="REFAPPF" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPF" optionname="PREVIOUS" description="Previous Record" grantapp="REFAPPF" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPF" optionname="NEXT" description="Next Record" grantapp="REFAPPF" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPF" optionname="DUPLICATE" description="Duplicate Record" prerequisite="INSERT" grantapp="REFAPPF" grantoption="INSERT" esigenabled="false" langcode="EN" />
+    
+        
+    <!--  REF APP G -->
+    <create_app app="REFAPPG" description="Basic Reference Application G" maintbname="REFMAIN" />
+    <freeform description="maxmenu entries">
+      <sql target="all">
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPG',12,0,'OPTION','DELETE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPG',13,0,'OPTION','BOOKMARK','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPG',2,0,'SEP','AT2','',1,'','','');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPG',10,0,'HEADER','SM10','Advanced Search',1,'atb_search.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPG',11,0,'OPTION','DUPLICATE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPG',20,0,'HEADER','SM20','Save Query',1,'atb_save.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPG',10,10,'OPTION','SEARCHMORE','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPG',30,0,'OPTION','SEARCHBOOK','',1,'atb_bookmark.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPG',1,2,'OPTION','SAVE','',1,'nav_icon_save.gif','CTRL+ALT+S','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPG',1,1,'OPTION','INSERT','',1,'nav_icon_insertkey.gif','CTRL+ALT+I','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPG',1,3,'OPTION','CLEAR','',1,'nav_icon_clear.gif','CTRL+ALT+C','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPG',2,1,'OPTION','PREVIOUS','',1,'nav_icon_previous.gif','CTRL+ALT+P','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPG',2,2,'OPTION','NEXT','',1,'nav_icon_next.gif','CTRL+ALT+N','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPG',10,20,'OPTION','SEARCHWHER','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPG',20,20,'OPTION','SEARCHVMQR','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPG',10,30,'OPTION','SEARCHTIPS','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPG',20,10,'OPTION','SEARCHSQRY','',1,'','','ALL');
+
+      insert into MAXMENU (MENUTYPE,MODULEAPP,POSITION,SUBPOSITION,ELEMENTTYPE,KEYVALUE,VISIBLE,IMAGE) values ('MODULE','REFAPPS',99999,0,'APP','REFAPPG',1,'appimg_refbasic.gif');
+
+      update maxmenu set position=(select max(position)+1 from maxmenu where MENUTYPE='MODULE' and MODULEAPP='REFAPPS') where MENUTYPE='MODULE' and MODULEAPP='REFAPPS' and keyvalue='REFAPPG';
+    </sql>
+    </freeform>
+    <add_sigoption visible="true" app="REFAPPG" optionname="DELETE" description="Delete Record" prerequisite="SAVE" grantapp="REFAPPG" grantoption="SAVE" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPG" optionname="BOOKMARK" description="Add to Bookmarks" grantapp="REFAPPG" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPG" optionname="SEARCHMORE" description="More Search Fields" grantapp="REFAPPG" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPG" optionname="READ" description="Read Access to Ref Main" alsogrants="CLEAR,BOOKMARK,NEXT,PREVIOUS" alsorevokes="ALL" grantapp="STARTCNTR" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPG" optionname="SEARCHTIPS" description="View Search Tips" grantapp="REFAPPG" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPG" optionname="SEARCHBOOK" description="Bookmarks" grantapp="REFAPPG" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPG" optionname="SEARCHSQRY" description="Save Current Query" grantapp="REFAPPG" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPG" optionname="SEARCHVMQR" description="View/Manage Queries" grantapp="REFAPPG" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPG" optionname="SEARCHWHER" description="Where Clause" grantapp="REFAPPG" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPG" optionname="SAVE" description="Save Record" alsorevokes="INSERT,DUPLICATE,DELETE" grantapp="REFAPPG" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPG" optionname="INSERT" description="New Record" alsogrants="SAVE" grantapp="REFAPPG" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPG" optionname="CLEAR" description="Clear Changes" grantapp="REFAPPG" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPG" optionname="PREVIOUS" description="Previous Record" grantapp="REFAPPG" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPG" optionname="NEXT" description="Next Record" grantapp="REFAPPG" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPG" optionname="DUPLICATE" description="Duplicate Record" prerequisite="INSERT" grantapp="REFAPPG" grantoption="INSERT" esigenabled="false" langcode="EN" />
+      
+    <!--  REF APP H -->
+    <create_app app="REFAPPH" description="Basic Reference Application H" maintbname="REFMAIN" />
+    <freeform description="maxmenu entries">
+      <sql target="all">
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPH',12,0,'OPTION','DELETE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPH',13,0,'OPTION','BOOKMARK','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPH',2,0,'SEP','AT2','',1,'','','');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPH',10,0,'HEADER','SM10','Advanced Search',1,'atb_search.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPH',11,0,'OPTION','DUPLICATE','',1,'','','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPH',20,0,'HEADER','SM20','Save Query',1,'atb_save.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPH',10,10,'OPTION','SEARCHMORE','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('SEARCHMENU','REFAPPH',30,0,'OPTION','SEARCHBOOK','',1,'atb_bookmark.gif','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPH',1,2,'OPTION','SAVE','',1,'nav_icon_save.gif','CTRL+ALT+S','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPH',1,1,'OPTION','INSERT','',1,'nav_icon_insertkey.gif','CTRL+ALT+I','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPH',1,3,'OPTION','CLEAR','',1,'nav_icon_clear.gif','CTRL+ALT+C','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPH',2,1,'OPTION','PREVIOUS','',1,'nav_icon_previous.gif','CTRL+ALT+P','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPTOOL','REFAPPH',2,2,'OPTION','NEXT','',1,'nav_icon_next.gif','CTRL+ALT+N','MAIN');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPH',10,20,'OPTION','SEARCHWHER','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPH',20,20,'OPTION','SEARCHVMQR','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPH',10,30,'OPTION','SEARCHTIPS','',1,'','','ALL');
+      insert into MAXMENU (MENUTYPE, MODULEAPP, POSITION, SUBPOSITION, ELEMENTTYPE, KEYVALUE, HEADERDESCRIPTION, VISIBLE, IMAGE, ACCESSKEY, TABDISPLAY) values ('APPMENU','REFAPPH',20,10,'OPTION','SEARCHSQRY','',1,'','','ALL');
+
+      insert into MAXMENU (MENUTYPE,MODULEAPP,POSITION,SUBPOSITION,ELEMENTTYPE,KEYVALUE,VISIBLE,IMAGE) values ('MODULE','REFAPPS',99999,0,'APP','REFAPPH',1,'appimg_refbasic.gif');
+
+      update maxmenu set position=(select max(position)+1 from maxmenu where MENUTYPE='MODULE' and MODULEAPP='REFAPPS') where MENUTYPE='MODULE' and MODULEAPP='REFAPPS' and keyvalue='REFAPPH';
+    </sql>
+    </freeform>
+    <add_sigoption visible="true" app="REFAPPH" optionname="DELETE" description="Delete Record" prerequisite="SAVE" grantapp="REFAPPH" grantoption="SAVE" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPH" optionname="BOOKMARK" description="Add to Bookmarks" grantapp="REFAPPH" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPH" optionname="SEARCHMORE" description="More Search Fields" grantapp="REFAPPH" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPH" optionname="READ" description="Read Access to Ref Main" alsogrants="CLEAR,BOOKMARK,NEXT,PREVIOUS" alsorevokes="ALL" grantapp="STARTCNTR" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPH" optionname="SEARCHTIPS" description="View Search Tips" grantapp="REFAPPH" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPH" optionname="SEARCHBOOK" description="Bookmarks" grantapp="REFAPPH" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPH" optionname="SEARCHSQRY" description="Save Current Query" grantapp="REFAPPH" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPH" optionname="SEARCHVMQR" description="View/Manage Queries" grantapp="REFAPPH" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPH" optionname="SEARCHWHER" description="Where Clause" grantapp="REFAPPH" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPH" optionname="SAVE" description="Save Record" alsorevokes="INSERT,DUPLICATE,DELETE" grantapp="REFAPPH" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPH" optionname="INSERT" description="New Record" alsogrants="SAVE" grantapp="REFAPPH" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPH" optionname="CLEAR" description="Clear Changes" grantapp="REFAPPH" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPH" optionname="PREVIOUS" description="Previous Record" grantapp="REFAPPH" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPH" optionname="NEXT" description="Next Record" grantapp="REFAPPH" grantoption="READ" esigenabled="false" langcode="EN" />
+    <add_sigoption visible="true" app="REFAPPH" optionname="DUPLICATE" description="Duplicate Record" prerequisite="INSERT" grantapp="REFAPPH" grantoption="INSERT" esigenabled="false" langcode="EN" />
+  
+  </statements>
+</script>

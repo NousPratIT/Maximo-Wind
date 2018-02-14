@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+    <product>
+    	<packagename>com.ibm.mam.doc</packagename>
+    	<name>IBM Maximo Asset Management</name>
+    	<taxonomy>SSLKT6</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>Y</feature>
+    </product>
+    <product>
+    	<packagename>com.ibm.mbs.doc</packagename>
+    	<name>IBM Maximo Asset Management</name>
+    	<taxonomy>SSLKT6</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>Y</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.mam.inswas.doc</packagename>
+    	<name>IBM Maximo Asset Management</name>
+    	<taxonomy>SSLKT6</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>Y</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.mam.inswl.doc</packagename>
+    	<name>IBM Maximo Asset Management</name>
+    	<taxonomy>SSLKT6</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>Y</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.support.mbs.doc</packagename>
+    	<name>IBM Maximo Asset Management</name>
+    	<taxonomy>SSLKT6</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>Y</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.mt.doc</packagename>
+    	<name>IBM Maximo Asset Management Multitenancy</name>
+    	<taxonomy>SSLKT6</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>Y</feature>
+    </product>
+    <product>
+    	<packagename>com.ibm.mif.doc</packagename>
+    	<name>IBM Maximo Asset Management</name>
+    	<taxonomy>SSLKT6</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>Y</feature>
+    </product>
+    <product>
+    	<packagename>com.ibm.mams.doc</packagename>
+    	<name>IBM Maximo Asset Management SaaS</name>
+    	<taxonomy>SS8CCV</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>Y</feature>
+    </product>
+    <product>
+    	<packagename>com.ibm.msc.doc</packagename>
+    	<name>IBM Maximo Asset Management Scheduler</name>
+        <maxvar>AMUPG</maxvar>
+    	<taxonomy>SS9NUN</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.spr.doc</packagename>
+    	<name>IBM Maximo for Service Providers</name>
+    	<taxonomy>SSKVFR</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.trn.doc</packagename>
+    	<name>IBM Maximo for Transportation</name>
+    	<taxonomy>SSLL9Z</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.prj.doc</packagename>
+    	<name>IBM Maximo Adapter for Microsoft Project</name>
+    	<taxonomy>SSLKNW</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.prm.doc</packagename>
+    	<name>IBM Maximo Adapter for Primavera</name>
+    	<taxonomy>SSLKRU</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.arc.nav.doc</packagename>
+    	<name>IBM Maximo Archiving with Optim Data Growth Solution</name>
+    	<taxonomy>SS9NTS</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.arc.doc</packagename>
+    	<name>IBM Maximo Archiving with Optim Data Growth Solutions</name>
+    	<taxonomy>SS9NTS</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.arc.adapt.doc</packagename>
+    	<name>IBM Maximo Archiving Adapter for Optim Data Growth Solution</name>
+    	<taxonomy>SS9NTS</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.si.mpl.doc</packagename>
+    	<name>IBM Maximo Anywhere</name>
+    	<taxonomy>SSPJLC</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.acm.doc</packagename>
+    	<name>IBM Maximo Asset Configuration Manager</name>
+    	<taxonomy>SSLKSJ</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.mame.doc</packagename>
+    	<name>IBM Maximo Asset Management Essentials</name>
+    	<taxonomy>SSWK4A</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.meo.doc</packagename>
+    	<name>IBM Maximo Asset Management for Energy Optimization</name>
+    	<taxonomy>SSU3T4</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.cal.doc</packagename>
+    	<name>IBM Maximo Calibration</name>
+    	<taxonomy>/SSLKZS</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.ccam.doc</packagename>
+    	<name>IBM Maximo Change and Corrective Action Manager</name>
+    	<taxonomy>SSKQ2T</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.dcim.doc</packagename>
+    	<name>IBM Maximo Data Center Infrastructure Management</name>
+    	<taxonomy>SSHL44</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.mea.nav.doc</packagename>
+    	<name>IBM Maximo Enterprise Adapter</name>
+    	<taxonomy>SSLKYL</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.meaora.doc</packagename>
+    	<name>IBM Maximo Adapter for Oracle Applications</name>
+    	<taxonomy>SSLKYL</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.measap.doc</packagename>
+    	<name>IBM Maximo Adapter for SAP Applications</name>
+    	<taxonomy>SSLKYL</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.evr.doc</packagename>
+    	<name>IBM Maximo Everyplace</name>
+    	<taxonomy>SSMA7P</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.gov.doc</packagename>
+    	<name>IBM Maximo for Government</name>
+    	<taxonomy>SSMQTP</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.lam.doc</packagename>
+    	<name>IBM Maximo Linear Asset Manager</name>
+    	<taxonomy>SS3AXP</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.nuc.doc</packagename>
+    	<name>IBM Maximo for Nuclear Power</name>
+    	<taxonomy>SSLL8M</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.oil.doc</packagename>
+    	<name>IBM Maximo for Oil and Gas</name>
+    	<taxonomy>SSLL9G</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.utl.doc</packagename>
+    	<name>IBM Maximo for Utilities</name>
+    	<taxonomy>SSLLAM</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>	<product>
+    	<packagename>com.ibm.hse.doc</packagename>
+    	<name>IBM Maximo Health, Safety and Environment Manager</name>
+    	<taxonomy>SS5GME</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.fm.doc</packagename>
+    	<name>IBM Maximo Space Management for Facilities</name>
+    	<taxonomy>SS93B7</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>N</feature>
+    </product>
+	<product>
+    	<packagename>com.ibm.mbs.doc</packagename>
+    	<name>IBM Maximo BIM Extensions</name>
+    	<taxonomy>SSLKT6</taxonomy>
+        <appendversion>Y</appendversion>
+		<feature>Y</feature>
+    </product>
+</products>

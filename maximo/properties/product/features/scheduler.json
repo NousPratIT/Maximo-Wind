@@ -1,0 +1,14 @@
+{
+	"product": "scheduler",
+	"feature":
+	[
+	  {
+		"featurename": "mt_169722",
+		"description": "MT Enablement features for Decemeber 2015 release"
+	  },
+	  {
+		"featurename": "skddec2015rel",
+		"description": "December 2015 release features that will not go out in Sept"
+	  }
+	] 
+}    

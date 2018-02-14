@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<booleanAttribute key="com.ibm.debug.breakpoints.java.appendFile" value="false"/>
+<stringAttribute key="com.ibm.debug.breakpoints.java.traceFilename" value="${workspace_loc}\${launch_config_name}_${launch_timestamp}.log"/>
+<booleanAttribute key="com.ibm.debug.breakpoints.java.traceToConsole" value="true"/>
+<booleanAttribute key="com.ibm.debug.breakpoints.java.traceToFile" value="false"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/maximouiweb/src/psdi/webclient/system/registry/ComponentsSchemaGenerator.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="psdi.webclient.system.registry.ComponentsSchemaGenerator"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-i${resource_loc:/properties/component-registry.xml}&#13;&#10;-i${resource_loc:/referenceapp}/resources/registry-extensions/refapp-component-registry.xml&#13;&#10;-o${resource_loc:/referenceapp}/resources/registry-extensions/components.xsd"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="maximouiweb"/>
+</launchConfiguration>

@@ -1,0 +1,1806 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	/******************************************************* {COPYRIGHT-TOP-OCO} ***
+	* IBM Confidential
+	*
+	* OCO Source Materials
+	*
+	* (C) Copyright IBM Corp. 2007, 2008 All Rights Reserved.
+	*
+	* The source code for this program is not published or other-
+	* wise divested of its trade secrets, irrespective of what has
+	* been deposited with U.S. Copyright Office.
+	******************************************************* {COPYRIGHT-END-OCO} ***/
+	/*******************************************************************************
+	* CMVC Location: %W%
+	* Version:       %I%
+	* Last Modified: %G%
+	*******************************************************************************
+-->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://chart.tip.tivoli.ibm.com/chartservice.wsdl"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsd1="http://chart.tip.tivoli.ibm.com/chartservice.xsd"
+	name="ChartService"
+	targetNamespace="http://chart.tip.tivoli.ibm.com/chartservice.wsdl">
+
+	<types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://chart.tip.tivoli.ibm.com/chartservice.xsd">
+
+			<annotation>
+				<documentation />
+			</annotation>
+			<simpleType name="ChartType">
+				<annotation>
+					<documentation>
+						An enumeration of chart types supported by the
+						web service.
+					</documentation>
+				</annotation>
+				<restriction base="xsd:string">
+					<enumeration value="Bar" />
+					<enumeration value="StackedBar" />
+					<enumeration value="Line" />
+					<enumeration value="Pie" />
+					<enumeration value="Gauge" />
+					<enumeration value="Area" />
+					<enumeration value="Scatter" />
+					<enumeration value="Stock" />
+					<enumeration value="Difference" />
+					<enumeration value="Gantt" />
+					<enumeration value="Tube" />
+					<enumeration value="Cone" />
+					<enumeration value="Pyramid" />
+					<enumeration value="Table" />
+				</restriction>
+			</simpleType>
+
+			<simpleType name="ChartDesignFormat">
+				<annotation>
+					<documentation>
+						The chart design format returned by ChartResult.
+					</documentation>
+				</annotation>
+				<restriction base="xsd:string">
+					<enumeration value="ITM" />
+					<enumeration value="BIRT" />
+				</restriction>
+			</simpleType>
+
+			<simpleType name="SortType">
+				<annotation>
+					<documentation>
+						The type of sort to apply, Ascending or
+						Descending.
+					</documentation>
+				</annotation>
+				<restriction base="xsd:string">
+					<enumeration value="Ascending" />
+					<enumeration value="Descending" />
+				</restriction>
+			</simpleType>
+
+			<simpleType name="GroupType">
+				<annotation>
+					<documentation>
+						An enumeration of the types of groups supported
+						by the ListGroups request. QueryGroup is for
+						grouping queries whereas ChartGroup is for
+						grouping Charts. Queries and charts can belong
+						to zero or many groups.
+					</documentation>
+				</annotation>
+				<restriction base="xsd:string">
+					<enumeration value="QueryGroup" />
+					<enumeration value="ChartGroup" />
+				</restriction>
+			</simpleType>
+
+
+			<simpleType name="Operator">
+				<annotation>
+					<documentation>
+						An enumeration of the operators supported by
+						Filter in a RunQuery operation. A RunQuery
+						operation can choose not to support filters
+						altogether by returning notSupported = true on
+						the QueryMetaData. RunQuery can not support
+						individual operators by throwing an exception in
+						RunQuery; however, this behavior is undesirable.
+					</documentation>
+				</annotation>
+				<restriction base="xsd:string">
+					<enumeration value="GreaterThan" />
+					<enumeration value="LessThan" />
+					<enumeration value="GreaterThanEqualTo" />
+					<enumeration value="LessThanEqualTo" />
+					<enumeration value="EqualTo" />
+					<enumeration value="NotEqualTo" />
+					<enumeration value="IsNull" />
+					<enumeration value="IsNotNull" />
+					<enumeration value="IsTrue" />
+					<enumeration value="IsFalse" />
+					<enumeration value="EndsWith" />
+					<enumeration value="TopN" />
+					<enumeration value="TopNPercent" />
+					<enumeration value="BottomN" />
+					<enumeration value="BottomNPercent" />
+					<enumeration value="Like" />
+					<enumeration value="NotLike" />
+					<enumeration value="NotBetween" />
+					<enumeration value="Between" />
+				</restriction>
+			</simpleType>
+
+
+			<element name="ServiceInfoRequest">
+				<complexType>
+					<sequence>
+						<element name="locale" type="string" />
+					</sequence>
+				</complexType>
+			</element>
+
+
+			<element name="ServiceInfoResponse">
+				<complexType>
+					<sequence>
+						<element name="productName" type="string">
+							<annotation>
+								<documentation>
+									The offical name of the product.
+									This may be shown in a user
+									interface. This value is not usually
+									translated.
+								</documentation>
+							</annotation>
+						</element>
+						<element name="productVersion" type="string">
+							<annotation>
+								<documentation>
+									The version of the application
+									implementing this service.
+								</documentation>
+							</annotation>
+						</element>
+						<element name="mssName" type="string">
+							<annotation>
+								<documentation>
+									The unique MSS name of this product,
+									as definied in the CMDB.
+								</documentation>
+							</annotation>
+						</element>
+						<!-- 
+							<element name="requiresLogin" type="boolean" >
+							<annotation>
+							<documentation>
+							True if this implementation requires
+							login credentials in order to invoke
+							other operations of the web service,
+							such as RunQuery. If true, the login
+							operation must be called before any of
+							those other methods. The login
+							credentials are used by the web service
+							implementation authenticate with the
+							product it is retreiving data from.
+							</documentation>
+							</annotation></element>
+						-->
+						<element name="supportsLTPA" type="boolean">
+							<annotation>
+								<documentation>
+									If this product supports LTPA, then
+									it propogates the LTPA token from
+									the web service client to the
+									application it is retreiving data
+									from.
+								</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+
+			<element name="ListQueriesRequest">
+				<complexType>
+					<sequence>
+						<element maxOccurs="unbounded" minOccurs="0"
+							name="groupFilter" type="xsd1:Group">
+							<annotation>
+								<documentation>
+									An array of groups used to filter
+									the queries returned. The groups
+									must be of the GroupType QueryGroup.
+									Semantically, the groups are OR-ed
+									together when producing the
+									resulting list of Queries (i.e., any
+									query that matches any of the Groups
+									is added to the results).
+								</documentation>
+							</annotation>
+						</element>
+						<element name="nameFilter" nillable="true"
+							type="string">
+							<annotation>
+								<documentation>
+									The name filter is used to limit the
+									resulting queries returned. It is
+									applied to the name field of the
+									Query object. It can contain the
+									wildcard *. If both a groupFilter
+									and nameFilter are supplied, they
+									are AND-ed together.
+								</documentation>
+							</annotation>
+						</element>
+						<element name="locale" type="string">
+							<annotation>
+								<documentation>
+									The locale is used to translate the
+									names and descriptions of the
+									queries returned in the result.
+									Additionally, when a nameFilter is
+									supplied, the locale is important
+									because the name of the Query used
+									to compare with the nameFilter is
+									the one corresponding to the locale
+									provided.
+								</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+
+
+			<element name="GetQueryMetaDataRequest">
+				<complexType>
+					<sequence>
+						<element maxOccurs="unbounded" minOccurs="1"
+							name="queryID" type="string">
+							<annotation>
+								<documentation>
+									This is the ID of the Query for
+									which the QueryMetaData is
+									requested. You can supply 1 or more
+									ID's in an array.
+								</documentation>
+							</annotation>
+						</element>
+						<element maxOccurs="unbounded" minOccurs="0"
+							name="groupID" nillable="true" type="string">
+							<annotation>
+								<documentation>
+									This is the ID of the Group for
+									which the QueryMetaData is
+									requested. You can supply 1 or more
+									ID's in an array.
+								</documentation>
+							</annotation>
+						</element>
+						<element name="locale" type="string">
+							<annotation>
+								<documentation>
+									The locale is used to translate the
+									names and descriptions returned in
+									the result.
+								</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+
+
+
+			<element name="RunQueryRequest">
+				<complexType>
+					<sequence>
+						<element name="queryID" type="string">
+							<annotation>
+								<documentation>
+									The ID of the Query for which
+									results are requested. The ID is
+									obtained from the Query object.
+								</documentation>
+							</annotation>
+						</element>
+						<element name="groupID" nillable="true"
+							type="string">
+							<annotation>
+								<documentation>
+									This is the ID of the Group for
+									which the runQuery is requested. It
+									may be use to scope the query ID.
+								</documentation>
+							</annotation>
+						</element>
+
+						<element name="locale" type="string">
+							<annotation>
+								<documentation>
+									The locale used to translate labels
+									in the result.
+								</documentation>
+							</annotation>
+						</element>
+						<element name="dataSince" nillable="true"
+							type="dateTime">
+							<annotation>
+								<documentation>
+									When supplied, dataSince is used to
+									restrict the data returned by the
+									Query to the set of data created
+									since the date supplied. This is
+									useful for a Query such as CPU
+									utilization, where data points are
+									added over time. A client can cache
+									data and therefore not need to
+									refetch all data on every request.
+								</documentation>
+							</annotation>
+						</element>
+						<element name="minRow" nillable="true"
+							type="int">
+							<annotation>
+								<documentation>
+									minRow and maxRow allow for paging
+									between the client and the server.
+									When supplied, the Query should only
+									return data between the ranges. If
+									not supplied, assume 0. (0-based
+									index). In the case of subsequent
+									requests, the implementation can
+									cache results from a previous
+									request or rerun the Query (however,
+									the order of results must be
+									maintained).
+								</documentation>
+							</annotation>
+						</element>
+						<element name="maxRow" nillable="true"
+							type="int">
+							<annotation>
+								<documentation>
+									minRow and maxRow allow for paging
+									between the client and the server.
+									When supplied, the Query should only
+									return data between the ranges. If
+									not supplied, assume the number of
+									rows - 1. (0-based index). In the
+									case of subsequent requests, the
+									implementation can cache results
+									from a previous request or rerun the
+									Query (however, the order of results
+									must be maintained).
+								</documentation>
+							</annotation>
+						</element>
+						<element maxOccurs="unbounded" minOccurs="0"
+							name="context" type="xsd1:ParameterValue">
+							<annotation>
+								<documentation>
+									Context is used to supply parameter
+									values to the Query. You can supply
+									0 or many parameter values in an
+									array. Each parameter value
+									corresponds to a Parameter from the
+									QueryMetaData. Some ParameterValues
+									may be required, while others may be
+									ooptional. A null value can be
+									supplied for optional parameters.
+								</documentation>
+							</annotation>
+						</element>
+						<element maxOccurs="unbounded" minOccurs="0"
+							name="sortBy" type="xsd1:SortInfo">
+							<annotation>
+								<documentation>
+									SortBy can be supplied if supported
+									by the Query. It is used to sort the
+									results on a column basis.
+								</documentation>
+							</annotation>
+						</element>
+						<element maxOccurs="unbounded" minOccurs="0"
+							name="filterBy" type="xsd1:Filter">
+							<annotation>
+								<documentation>
+									FilterBy can be supplied when
+									supported by the Query. It is used
+									to filter the QueryResults on a
+									column basis.
+								</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+
+			<complexType name="SortInfo">
+				<sequence>
+					<element name="columnID" type="string" />
+					<element name="sortOrder" type="int" />
+					<element name="sortType" type="xsd1:SortType" />
+				</sequence>
+			</complexType>
+
+			<element name="ListChartDefinitionsRequest">
+				<complexType>
+					<sequence>
+						<element maxOccurs="unbounded" minOccurs="0"
+							name="groupFilter" type="xsd1:Group" />
+						<element name="locale" type="string" />
+					</sequence>
+				</complexType>
+			</element>
+
+
+			<element name="GetChartDefinitionRequest">
+				<complexType>
+					<sequence>
+						<element name="chartID" type="string" />
+						<element name="locale" type="string" />
+						<element name="lastTimestamp" nillable="true"
+							type="xsd:dateTime">
+							<annotation>
+								<documentation>
+									This is the timestamp of the most
+									recent chart definition for this
+									chartID and locale. If null, then
+									the client does not have the design
+									in its cache. If a value is present,
+									the responding implementation, can
+									choose not to return the chart
+									design if it has not changed since
+									the timestamp. If not returned, the
+									client will use the design in its
+									cache.
+								</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+
+			<complexType name="Chart">
+				<annotation>
+					<documentation>
+						Describes a chart instance available from the
+						application implementing this web service.
+					</documentation>
+				</annotation>
+				<sequence>
+					<element name="name" type="string">
+						<annotation>
+							<documentation>
+								The translated name of the chart. This
+								may be shown in a user interface.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="id" type="string">
+						<annotation>
+							<documentation>
+								The ID of the chart, unique to the
+								application implementing this web
+								service. The ID must only contain
+								characters that can be used in filenames
+								in Windows and UNIX. For example, colon
+								(:) is a restricted character on
+								Windows. This limitation exists because
+								the chart ID is used as the filename
+								when caching the design on the file
+								system.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="queryID" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								The ID of the query, unique to the
+								application implementing this web
+								service.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="groupID" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								The ID of the Query group used to scope
+								the query.
+							</documentation>
+						</annotation>
+					</element>
+
+					<element name="description" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								The translated description of the chart.
+								This may be shown in a user interface.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="type" nillable="true"
+						type="xsd1:ChartType">
+						<annotation>
+							<documentation>
+								The chart type (bar, pie, etc). This may
+								be shown in a user interface.
+							</documentation>
+						</annotation>
+					</element>
+					<element maxOccurs="unbounded" minOccurs="0"
+						name="preview" nillable="true" type="xsd:byte">
+						<annotation>
+							<documentation>
+								An image representing a preview of the
+								chart. This may be shown in a UI as a
+								quick preview of what the chart might
+								look like. It is meant to be a static
+								representation of the chart, not a live
+								preview. Do NOT include labels in the
+								preview as they would require
+								translation. The byte array will be read
+								by javax.imageio.ImageIO
+							</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</complexType>
+
+			<complexType name="Query">
+				<annotation>
+					<documentation>
+						A query that can be executed by the application
+						implementing this web service.
+					</documentation>
+				</annotation>
+				<sequence>
+					<element name="name" type="string">
+						<annotation>
+							<documentation>
+								The translated name of the query. This
+								may be shown in a user interface.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="id" type="string">
+						<annotation>
+							<documentation>
+								The ID of the query, unique to the
+								application implementing this web
+								service.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="description" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								The translated description of the query.
+								This may be shown in a user interface.
+							</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</complexType>
+
+			<complexType name="QueryMetaData">
+				<annotation>
+					<documentation>
+						QueryMetaData is an object that describes the
+						return results of executing the query. However,
+						it does not include the actual results of
+						running the query and hopefully the query need
+						not be run in order to return this information.
+					</documentation>
+				</annotation>
+				<sequence>
+					<element name="name" type="string">
+						<annotation>
+							<documentation>
+								This is the translated name of the query
+								which will be shown in a user interface.
+								The Locale passed to GetQueryMetaData
+								should be used to translate the query
+								name.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="id" type="string">
+						<annotation>
+							<documentation>
+								This is the unique ID of the query. This
+								ID will be passed to the implementor in
+								the method RunQuery.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="description" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								Optional description of the query. This
+								should be translated using the Locale
+								passed into GetQueryMetaData, as it may
+								be shown in a UI.
+							</documentation>
+						</annotation>
+					</element>
+					<element maxOccurs="unbounded" minOccurs="0"
+						name="parameters" type="xsd1:Parameter">
+						<annotation>
+							<documentation>
+								These are the parameters for the query.
+								There can be 0 or more parameters, some
+								of which may be optional.
+							</documentation>
+						</annotation>
+					</element>
+					<element maxOccurs="unbounded" minOccurs="0"
+						name="columns" type="xsd1:Column">
+						<annotation>
+							<documentation>
+								Each column represents a column of data
+								returned by the actual RunQuery result.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="cdmType" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								Common Data Model Type of the object
+								returned. This is used by the context
+								menu service to gather the context menus
+								for the results.
+							</documentation>
+						</annotation>
+					</element>
+					<element default="false" name="supportsSort"
+						type="boolean">
+						<annotation>
+							<documentation>
+								True if the query supports sorting on
+								RunQuery.
+							</documentation>
+						</annotation>
+					</element>
+					<element default="false" name="supportsFilter"
+						type="boolean">
+						<annotation>
+							<documentation>
+								True if the query supports filtering on
+								RunQuery.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="timeSeriesColumn" nillable="true"
+						type="xsd:string">
+						<annotation>
+							<documentation>
+								Indicates the ID of the column used as
+								the timestamp in time-series data.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="rowsToCache" nillable="true"
+						type="xsd:int">
+						<annotation>
+							<documentation>
+								For time-series data, indicates the
+								default maximum number of rows to keep
+								in client cache.
+							</documentation>
+						</annotation>
+					</element>
+
+				</sequence>
+			</complexType>
+
+
+
+			<complexType name="Parameter">
+				<annotation>
+					<documentation>
+						A parameter are used as inputs to query. The
+						Parameter object is returned by the
+						GetQueryMetaData operation to describe the
+						inputs. Use the ParameterValue object to
+						actually pass parameter values when running a
+						query.
+					</documentation>
+				</annotation>
+				<complexContent>
+					<xsd:extension base="xsd1:DataType">
+						<sequence>
+							<element default="false" name="required"
+								type="boolean">
+								<annotation>
+									<documentation>
+										Indicates whether a
+										corresponding parameter value is
+										required to run the query.
+									</documentation>
+								</annotation>
+							</element>
+						</sequence>
+					</xsd:extension>
+				</complexContent>
+			</complexType>
+
+
+			<complexType name="ParameterValue">
+				<annotation>
+					<documentation>
+						A ParameterValue corresponds to a Parameter from
+						the QueryMetaData. ParameterValue's are passed
+						to the RunQuery API to provide context to the
+						query.
+					</documentation>
+				</annotation>
+				<sequence>
+					<element name="id" type="string">
+						<annotation>
+							<documentation>
+								The ID of the ParameterValue must match
+								the ID of the Parameter from the
+								QueryMetaData.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="type" type="string">
+						<annotation>
+							<documentation>
+								The type of the ParameterValue should
+								match the type of the Parameter from the
+								QueryMetaData. It is duplicated here for
+								the convenience and efficiency of the
+								implementor. The string value of type is
+								the Java class name, which can be
+								retreived from the method
+								.class.getName() on any Java object.
+								Only certain base Java types are
+								supported.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="value" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								value is the string representation of
+								the ParameterValue. In the case that the
+								type of the parameter is not
+								"java.lang.String", the type field will
+								be used to convert the value back to the
+								appropriate Java object when necessary.
+							</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</complexType>
+
+
+			<complexType name="Filter">
+				<annotation>
+					<documentation>
+						A Filter, when supported by a query, is used to
+						filter the results of RunQuery.
+					</documentation>
+				</annotation>
+				<sequence>
+					<element name="name" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								An optional name for the filter.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="sequence" nillable="true"
+						type="int">
+						<annotation>
+							<documentation>
+								The order in which to apply the filter.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="columnId" type="string">
+						<annotation>
+							<documentation>
+								The ID of the column (from the
+								QueryMetaData) on which the filter
+								applies.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="operator" type="xsd1:Operator">
+						<annotation>
+							<documentation>
+								The Operator used by the filter. (e.g.,
+								equals, greater than, etc. See Operator
+								type for enumeration).
+							</documentation>
+						</annotation>
+					</element>
+					<element name="value1" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								The value used in the filter operation.
+								This may be the only value used by the
+								filter or it may be used in conjuction
+								with value2 (for example, when the
+								opeation is between).
+							</documentation>
+						</annotation>
+					</element>
+					<element name="value2" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								Value2 is not used for more filter
+								operations. It is used only when the
+								operation requires 2 arguments (e.g.,
+								Operation.Between).
+							</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</complexType>
+
+			<element name="LoginRequest">
+				<complexType>
+					<sequence>
+						<element name="username" type="string" />
+						<element name="password" type="string" />
+					</sequence>
+				</complexType>
+			</element>
+
+			<element name="LoginResponse">
+				<complexType>
+					<sequence>
+						<element name="credentials" type="string" />
+					</sequence>
+				</complexType>
+			</element>
+
+
+
+			<complexType name="DataType">
+				<annotation>
+					<documentation>
+						DataType is the superclass of Column and
+						Parameter objects and should not be used
+						directly.
+					</documentation>
+				</annotation>
+				<xsd:sequence>
+					<element name="name" type="string">
+						<annotation>
+							<documentation>
+								The name is shown in a user interface
+								and should be translated using the
+								Locale of the request.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="id" type="string">
+						<annotation>
+							<documentation>
+								The ID is a unique identifier of the
+								DataType within the Query and the
+								QueryMetaData.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="cdmName" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								This is the name use by the Common Data
+								Model for this data. E.g., Hostname
+							</documentation>
+						</annotation>
+					</element>
+					<element name="description" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								Translated description of the DataType
+								using the locale of the request.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="type" type="string">
+						<annotation>
+							<documentation>
+								the Java class type of the DataType. for
+								example, "java.lang.String".
+							</documentation>
+						</annotation>
+					</element>
+					<element default="false" name="hidden"
+						type="boolean">
+						<annotation>
+							<documentation>
+								Defines whether this data should be
+								shown the end user.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="scale" nillable="true" type="int">
+						<annotation>
+							<documentation>
+								The minimum number of digits to the
+								right of the decimal point. This is used
+								to convert integers to decimals.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="precision" nillable="true"
+						type="int">
+						<annotation>
+							<documentation>
+								The number of digits in a number. This
+								is used to convert integers to decimals.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="nillable" type="boolean">
+						<annotation>
+							<documentation>
+								Indicates whether data in the column can
+								be null.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="sequence" type="int">
+						<annotation>
+							<documentation>
+								The order of the column in a result set
+								or parameter list.
+							</documentation>
+						</annotation>
+					</element>
+				</xsd:sequence>
+			</complexType>
+
+			<complexType name="Column">
+				<complexContent>
+					<extension base="xsd1:DataType">
+						<sequence>
+							<element default="false" name="isKey"
+								type="boolean">
+								<annotation>
+									<documentation>
+										Indicates whether this column is
+										used as a key in storing data,
+										such as in a relational database
+										table.
+									</documentation>
+								</annotation>
+							</element>
+							<element name="keyOrder" nillable="true"
+								type="int">
+								<annotation>
+									<documentation>
+										If this column is part of a key,
+										then keyOrder indicates its
+										place in constructing the
+										primary key.
+									</documentation>
+								</annotation>
+							</element>
+							<element default="false" name="isIndexed"
+								type="boolean">
+								<annotation>
+									<documentation>
+										Indicates whether this column is
+										indexed for searching, such as
+										in a database index.
+									</documentation>
+								</annotation>
+							</element>
+							<element name="parent" nillable="true"
+								type="string">
+								<annotation>
+									<documentation>
+										The parent of this column. This
+										could be a table in a database
+										or a query id of Query (part of
+										this WebService).
+									</documentation>
+								</annotation>
+							</element>
+						</sequence>
+					</extension>
+				</complexContent>
+			</complexType>
+
+			<complexType name="Row">
+				<sequence>
+					<element name="id" nillable="true" type="int">
+						<annotation>
+							<documentation>
+								The unique id of this row within a set
+								of rows. This is usually the index of
+								the row in an array of rows.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="srcToken" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								The source token used by this
+								application to uniquely identify the
+								object This is the same source token
+								used in the Discovery Library Book
+								written for CMDB. This source token will
+								be used to launch in context to the
+								application from the Context Menu
+								Service.
+							</documentation>
+						</annotation>
+					</element>
+					<element maxOccurs="unbounded" minOccurs="0"
+						name="values" type="string">
+						<annotation>
+							<documentation>
+								The column values for this row of data.
+								There should be a value corresponding to
+								each column.
+							</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</complexType>
+
+
+			<complexType name="Group">
+				<annotation>
+					<documentation>
+						Group is an object used for a variety of
+						purposes. It is a hierarchical collection of
+						objects and can be used to create relationships
+						among other objects, such as a group of queries
+						or a group of charts.
+					</documentation>
+				</annotation>
+				<sequence>
+					<element name="name" type="string">
+						<annotation>
+							<documentation>
+								A user displayable name of the group.
+								This value is translated according to
+								the locale of the request.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="id" type="string">
+						<annotation>
+							<documentation>
+								A unique ID of the group within the
+								application.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="description" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								A user displayable description of the
+								group. This value is translated
+								according to the locale of the request.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="type" type="xsd1:GroupType">
+						<annotation>
+							<documentation>
+								The type of the group must be one of the
+								types defined by GroupType. It is used
+								to distinguish between the different
+								types of objects a group collects, such
+								as query or chart.
+							</documentation>
+						</annotation>
+					</element>
+					<element maxOccurs="unbounded" minOccurs="0"
+						name="parents" type="xsd1:Group">
+						<annotation>
+							<documentation>
+								The parents of this group, if any.
+							</documentation>
+						</annotation>
+					</element>
+					<element maxOccurs="unbounded" minOccurs="0"
+						name="children" type="xsd1:Group">
+						<annotation>
+							<documentation>
+								The children of this group, if any.
+							</documentation>
+						</annotation>
+					</element>
+					<element default="true" name="cacheMembers"
+						type="xsd:boolean">
+						<annotation>
+							<documentation>
+								Specify whether to cache the members of
+								this group. For chart groups, whether
+								the client can cache the list of charts.
+								If the list of charts only changes from
+								release to release, this should be true.
+								If the list of charts can change daily
+								for example, this should be false
+							</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</complexType>
+
+
+			<complexType name="ChartResult">
+				<annotation>
+					<documentation>
+						ChartResult is used to return the BIRT report
+						design XML for rendering. Type, name, id and
+						description data provided for identification. A
+						timestamp marks when chart generated or
+						retrieved.
+					</documentation>
+				</annotation>
+				<sequence>
+					<element name="name" type="string">
+						<annotation>
+							<documentation>
+								A user displayable name of the returned
+								chart.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="id" type="string">
+						<annotation>
+							<documentation>
+								A unique id of the chart returned in
+								ChartResult.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="description" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								A user displayable description of the
+								ChartResult.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="queryID" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								The ID of the query, unique to the
+								application implementing this web
+								service.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="groupID" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								The ID of the query group used to scope
+								the query.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="type" nillable="true"
+						type="xsd1:ChartType">
+						<annotation>
+							<documentation>
+								The chart type (bar, pie, etc). This may
+								be shown in a user interface.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="timestamp" type="dateTime">
+						<annotation>
+							<documentation>
+								Timestamp marks when ChartResult
+								generated or retrieved.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="locale" type="string">
+						<annotation>
+							<documentation>
+								The locale used to translate labels in
+								the result.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="value" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								The actual BIRT rptdesign XML or ITM
+								chart definition format. This should
+								only be null if the timestamp on the
+								request is the same or newer than the
+								last change on this design. i.e., the
+								client already has the latest chart
+								design.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="designFormat" nillable="true"
+						type="xsd1:ChartDesignFormat">
+						<annotation>
+							<documentation>
+								The designFormat returned in the value
+								field.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="nlsProperties" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								A string representation of an NLS
+								properties file. This file will be
+								written as chartid_lang.properties.
+								(e.g., chart123_en.properties) Use the
+								locale of the request object. If the
+								locale does not match, return the locale
+								used in the response. (e.g., request:
+								en-US, response: en). The chart design
+								can reference this properties file to
+								perform NLS lookups, preventing the
+								hardcoding of NLS strings into the
+								design.
+							</documentation>
+						</annotation>
+					</element>
+					<element default="true" name="cacheDesign"
+						type="boolean">
+						<annotation>
+							<documentation>
+								Whether the client can cache the chart
+								design. The chart data will be read
+								every time the chart renders; however,
+								this value allows the client to cache
+								the chart design which is unlikely to
+								change. If you the design only changes
+								from release to release, then this value
+								should be true. If the design can change
+								daily (e.g., the customer can change the
+								design), then this value should be
+								false.
+							</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</complexType>
+
+			<complexType name="QueryResult">
+				<annotation>
+					<documentation>
+						QueryResult is used to return the results of a
+						RunQuery operation in a tabular form. The
+						corresponding QueryMetaData is used to interpret
+						the results, such as which columns correspond to
+						values in each row.
+					</documentation>
+				</annotation>
+				<sequence>
+					<element name="name" type="string">
+						<annotation>
+							<documentation>
+								A user displayable name of the
+								QueryResult. This may be the name of the
+								executed query.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="id" type="string">
+						<annotation>
+							<documentation>
+								A unique ID of the query result. This
+								may be used on a subsequent request when
+								paging data.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="description" nillable="true"
+						type="string">
+						<annotation>
+							<documentation>
+								Description of the query result. This
+								may be the description of the query. It
+								should be localized using the locale on
+								the request.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="locale" type="string">
+						<annotation>
+							<documentation>
+								The locale that the query results
+								localized values are in. This should
+								match the locale of the request, unless
+								the locale is not supported, in which
+								case, this could be different.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="timestamp" type="dateTime">
+						<annotation>
+							<documentation>
+								Timestamp of the host running the web
+								service implementation of when the query
+								was run.
+							</documentation>
+						</annotation>
+					</element>
+					<element maxOccurs="unbounded" minOccurs="0"
+						name="rows" type="xsd1:Row">
+						<annotation>
+							<documentation>
+								An Array of Rows contains the results of
+								the query in tabular form. The
+								corresponding QueryMetaData describes
+								the results.
+							</documentation>
+						</annotation>
+					</element>
+					<element default="false" name="cacheResult"
+						type="xsd:boolean">
+						<annotation>
+							<documentation>
+								Whether the client should cache query
+								results. When caching results, the
+								client can query for the results of data
+								since the last call using timestamp of
+								the previous QueryResult. This allows
+								the client to build up time-series data
+								for a line chart, for example.
+							</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</complexType>
+
+			<element name="ChartServiceException">
+				<annotation>
+					<documentation>
+						DO NOT THROW THIS EXCEPTION. IT DOES NOT GET
+						PROPOGATED. INSTEAD THROW RemoteException.
+					</documentation>
+				</annotation>
+				<xsd:complexType>
+					<sequence>
+						<element name="id" nillable="true"
+							type="string">
+							<annotation>
+								<documentation>
+									DO NOT USE. THROW RemoteException
+									INSTEAD.
+								</documentation>
+							</annotation>
+						</element>
+						<element name="message" type="string">
+							<annotation>
+								<documentation>
+									DO NOT USE. THROW RemoteException
+									INSTEAD.
+								</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</xsd:complexType>
+			</element>
+
+			<element name="ListQueriesResponse">
+				<complexType>
+					<sequence>
+						<element maxOccurs="unbounded" minOccurs="0"
+							name="Queries" type="xsd1:Query" />
+					</sequence>
+				</complexType>
+			</element>
+
+			<element name="GetQueryMetaDataResponse">
+				<complexType>
+					<sequence>
+						<element maxOccurs="unbounded" minOccurs="0"
+							name="QueryMetaData" type="xsd1:QueryMetaData" />
+					</sequence>
+				</complexType>
+			</element>
+
+
+			<element name="RunQueryResponse">
+				<complexType>
+					<sequence>
+						<element maxOccurs="unbounded" minOccurs="0"
+							name="QueryResults" type="xsd1:QueryResult" />
+					</sequence>
+				</complexType>
+			</element>
+
+			<element name="ListGroupsRequest">
+				<complexType>
+					<sequence>
+						<element name="locale" type="string" />
+						<element name="type" type="xsd1:GroupType" />
+						<element name="parent" nillable="true"
+							type="xsd1:Group" />
+					</sequence>
+				</complexType>
+			</element>
+
+			<element name="ListGroupsResponse">
+				<complexType>
+					<sequence>
+						<element maxOccurs="unbounded" minOccurs="0"
+							name="Groups" type="xsd1:Group" />
+						<element default="true" name="cacheGroups"
+							type="xsd:boolean" />
+					</sequence>
+				</complexType>
+			</element>
+
+			<element name="ListChartDefinitionsResponse">
+				<complexType>
+					<sequence>
+						<element maxOccurs="unbounded" minOccurs="0"
+							name="Charts" type="xsd1:Chart" />
+					</sequence>
+				</complexType>
+			</element>
+
+			<element name="GetChartDefinitionResponse">
+				<complexType>
+					<sequence>
+						<element maxOccurs="unbounded" minOccurs="0"
+							name="Chart" type="xsd1:ChartResult" />
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+
+
+	<message name="ListQueriesResponse">
+		<part element="xsd1:ListQueriesResponse"
+			name="ListQueriesResponse" />
+	</message>
+	<message name="ListQueriesRequest">
+		<part element="xsd1:ListQueriesRequest"
+			name="ListQueriesRequest" />
+	</message>
+	<message name="ListQueriesDatafault">
+		<part element="xsd1:ChartServiceException"
+			name="ListQueriesDatafault">
+		</part>
+	</message>
+
+
+	<message name="ServiceInfoResponse">
+		<part element="xsd1:ServiceInfoResponse"
+			name="ServiceInfoResponse" />
+	</message>
+	<message name="ServiceInfoRequest">
+		<part element="xsd1:ServiceInfoRequest"
+			name="ServiceInfoRequest" />
+	</message>
+	<message name="ServiceInfoDatafault">
+		<part element="xsd1:ChartServiceException"
+			name="ServiceInfoDatafault">
+		</part>
+	</message>
+
+	<message name="LoginRequest">
+		<part element="xsd1:LoginRequest" name="LoginRequest" />
+	</message>
+	<message name="LoginResponse">
+		<!-- <part name="" /> -->
+	</message>
+	<message name="LoginDatafault">
+		<part element="xsd1:ChartServiceException"
+			name="LoginDatafault">
+		</part>
+	</message>
+
+	<message name="GetQueryMetaDataResponse">
+		<part element="xsd1:GetQueryMetaDataResponse"
+			name="GetQueryMetaDataResponse" />
+	</message>
+	<message name="GetQueryMetaDataRequest">
+		<part element="xsd1:GetQueryMetaDataRequest"
+			name="GetQueryMetaDataRequest" />
+	</message>
+	<message name="GetQueryMetaDataDatafault">
+		<part element="xsd1:ChartServiceException"
+			name="GetQueryMetaDataDatafault">
+		</part>
+	</message>
+
+
+
+	<message name="RunQueryResponse">
+		<part element="xsd1:RunQueryResponse" name="RunQueryResponse" />
+	</message>
+	<message name="RunQueryRequest">
+		<part element="xsd1:RunQueryRequest" name="RunQueryRequest" />
+	</message>
+	<message name="RunQueryDatafault">
+		<part element="xsd1:ChartServiceException"
+			name="RunQueryDatafault">
+		</part>
+	</message>
+
+	<message name="ListGroupsResponse">
+		<part element="xsd1:ListGroupsResponse"
+			name="ListGroupsResponse" />
+	</message>
+	<message name="ListGroupsRequest">
+		<part element="xsd1:ListGroupsRequest" name="ListGroupsRequest" />
+	</message>
+	<message name="ListGroupsDatafault">
+		<part element="xsd1:ChartServiceException"
+			name="ListGroupsDatafault">
+		</part>
+	</message>
+
+
+
+	<message name="ListChartDefinitionsResponse">
+		<part element="xsd1:ListChartDefinitionsResponse"
+			name="ListChartDefinitionsResponse" />
+	</message>
+	<message name="ListChartDefinitionsRequest">
+		<part element="xsd1:ListChartDefinitionsRequest"
+			name="ListChartDefinitionsRequest" />
+	</message>
+	<message name="ListChartDefinitionsDatafault">
+		<part element="xsd1:ChartServiceException"
+			name="ListChartDefinitionsDatafault">
+		</part>
+	</message>
+
+	<message name="GetChartDefinitionResponse">
+		<part element="xsd1:GetChartDefinitionResponse"
+			name="GetChartDefinitionResponse" />
+	</message>
+	<message name="GetChartDefinitionRequest">
+		<part element="xsd1:GetChartDefinitionRequest"
+			name="GetChartDefinitionRequest" />
+	</message>
+	<message name="GetChartDefinitionDatafault">
+		<part element="xsd1:ChartServiceException"
+			name="GetChartDefinitionDatafault">
+		</part>
+	</message>
+
+
+	<portType name="QueryPortType">
+		<operation name="GetServiceInfo">
+			<documentation>
+				Returns basic information about the service and the
+				product providing the service.
+			</documentation>
+			<input message="tns:ServiceInfoRequest" />
+			<output message="tns:ServiceInfoResponse" />
+			<fault message="tns:ServiceInfoDatafault" name="fault" />
+		</operation>
+
+		<!-- 
+			<operation name="Login">
+			<documentation>Provides the credentials required to authenticate with the application providing data.</documentation>
+			<input message="tns:LoginRequest"/>
+			<output message="tns:LoginResponse"/>
+			<fault message="tns:LoginDatafault" name="fault"/>
+			</operation>
+		-->
+
+		<operation name="ListQueries">
+			<documentation>
+				ListQueries returns a list of queries supported by the
+				application, filtered by group and / or name, if
+				supplied. Query names and descriptions should be
+				translated using locale passed in the request.
+			</documentation>
+			<input message="tns:ListQueriesRequest" />
+			<output message="tns:ListQueriesResponse" />
+			<fault message="tns:ListQueriesDatafault" name="fault" />
+		</operation>
+
+
+		<operation name="GetQueryMetaData">
+			<documentation>
+				Returns the meta data for the query, such as the columns
+				and their types.
+			</documentation>
+			<input message="tns:GetQueryMetaDataRequest" />
+			<output message="tns:GetQueryMetaDataResponse" />
+			<fault message="tns:GetQueryMetaDataDatafault" name="fault" />
+		</operation>
+
+		<operation name="RunQuery">
+			<documentation>
+				Runs the given query with the associated parameters,
+				filters, etc. and returns the results in tabular form of
+				QueryResult. Use QueryMetaData from GetQueryMetaData to
+				interpret the results.
+			</documentation>
+			<input message="tns:RunQueryRequest" />
+			<output message="tns:RunQueryResponse" />
+			<fault message="tns:RunQueryDatafault" name="fault" />
+		</operation>
+
+		<operation name="ListGroups">
+			<documentation>
+				Returns a list of groups, which may be hierarchical, for
+				the type of group requested. For example, returns the
+				groups associated with queries. This operation is useful
+				for helping a user navigate lots of queries or charts.
+			</documentation>
+			<input message="tns:ListGroupsRequest" />
+			<output message="tns:ListGroupsResponse" />
+			<fault message="tns:ListGroupsDatafault" name="fault" />
+		</operation>
+	</portType>
+
+
+	<portType name="ChartPortType">
+		<operation name="ListChartDefinitions">
+			<input message="tns:ListChartDefinitionsRequest" />
+			<output message="tns:ListChartDefinitionsResponse" />
+			<fault message="tns:ListChartDefinitionsDatafault"
+				name="fault" />
+		</operation>
+
+		<operation name="GetChartDefinition">
+			<input message="tns:GetChartDefinitionRequest" />
+			<output message="tns:GetChartDefinitionResponse" />
+			<fault message="tns:GetChartDefinitionDatafault"
+				name="fault" />
+		</operation>
+	</portType>
+
+
+	<binding name="ChartSoapBinding" type="tns:ChartPortType">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<operation name="ListChartDefinitions">
+		    
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="fault">
+				<soap:fault name="fault" />
+			</fault>
+		</operation>
+		<operation name="GetChartDefinition">
+		    
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="fault">
+				<soap:fault name="fault" />
+			</fault>
+		</operation>
+	</binding>
+
+	<binding name="QuerySoapBinding" type="tns:QueryPortType">
+		<soap:binding
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="GetServiceInfo">
+		    <input>
+		    	<soap:body use="literal" />
+		    </input>
+		    <output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="fault">
+				<soap:fault name="fault" />
+			</fault>
+		</operation>
+		<!-- 
+			<operation name="Login">
+			<input><soap:body use="literal"/></input>
+			<output><soap:body use="literal"/></output>
+			<fault name="fault">
+			<soap:fault name="fault"/>
+			</fault>
+			</operation>
+		-->
+
+		<operation name="ListQueries">
+		    
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="fault">
+				<soap:fault name="fault" />
+			</fault>
+		</operation>
+
+		<operation name="GetQueryMetaData">
+		    
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="fault">
+				<soap:fault name="fault" />
+			</fault>
+		</operation>
+
+
+		<operation name="RunQuery">
+		    
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="fault">
+				<soap:fault name="fault" />
+			</fault>
+		</operation>
+
+		<operation name="ListGroups">
+		    
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+			<fault name="fault">
+				<soap:fault name="fault" />
+			</fault>
+		</operation>
+	</binding>
+
+	<service name="ChartService">
+		<documentation>Service for Charts</documentation>
+		<port binding="tns:ChartSoapBinding" name="ChartPort">
+			<soap:address
+				location="https://localhost:9443/tipchartws/services/ChartPort" />
+		</port>
+	</service>
+
+	<service name="QueryService">
+		<port binding="tns:QuerySoapBinding" name="QueryPort">
+			<soap:address
+				location="https://localhost:9443/tipchartws/services/QueryPort" />
+		</port>
+	</service>
+
+</definitions>

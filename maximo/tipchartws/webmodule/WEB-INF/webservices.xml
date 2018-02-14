@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webservices xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://www.ibm.com/webservices/xsd/j2ee_web_services_1_1.xsd">
+	<webservice-description>
+		<webservice-description-name>ChartService</webservice-description-name>
+		<wsdl-file>WEB-INF/wsdl/ChartService.wsdl</wsdl-file>
+		<jaxrpc-mapping-file>WEB-INF/ChartService_mapping.xml</jaxrpc-mapping-file>
+		<port-component>
+			<port-component-name>ChartPort</port-component-name>
+			<wsdl-port xmlns:pfx="http://chart.tip.tivoli.ibm.com/chartservice.wsdl">
+			pfx:ChartPort</wsdl-port>
+			<service-endpoint-interface>com.ibm.tivoli.maximo.chartservice.wsdl.ChartPortType</service-endpoint-interface>
+			<service-impl-bean>
+				<servlet-link>
+				TIPChartServiceServlet</servlet-link>
+			</service-impl-bean>
+		</port-component>
+	</webservice-description>
+	<webservice-description>
+		<webservice-description-name>QueryService</webservice-description-name>
+		<wsdl-file>WEB-INF/wsdl/ChartService.wsdl</wsdl-file>
+		<jaxrpc-mapping-file>WEB-INF/ChartService_mapping.xml</jaxrpc-mapping-file>
+		<port-component>
+			<port-component-name>QueryPort</port-component-name>
+			<wsdl-port xmlns:pfx="http://chart.tip.tivoli.ibm.com/chartservice.wsdl">
+			pfx:QueryPort</wsdl-port>
+			<service-endpoint-interface>com.ibm.tivoli.maximo.chartservice.wsdl.QueryPortType</service-endpoint-interface>
+			<service-impl-bean>
+				<servlet-link>
+				TIPChartQueryServiceServlet</servlet-link>
+			</service-impl-bean>
+		</port-component>
+	</webservice-description>
+</webservices>

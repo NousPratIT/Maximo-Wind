@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="WebApp_ID" version="2.4" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>TIP Chart Web Service</display-name>
+	<servlet>
+		<servlet-name>TIPChartServiceServlet</servlet-name>
+		<servlet-class>com.ibm.tivoli.maximo.chartservice.wsdl.ChartSoapBindingImpl</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>TIPChartQueryServiceServlet</servlet-name>
+		<servlet-class>com.ibm.tivoli.maximo.chartservice.wsdl.QuerySoapBindingImpl</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TIPChartServiceServlet</servlet-name>
+		<url-pattern>services/ChartPort</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>TIPChartQueryServiceServlet</servlet-name>
+		<url-pattern>services/QueryPort</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<ejb-ref id="EjbRef_1206569890031">
+		<description>
+		</description>
+		<ejb-ref-name>ejb/maximo/remote/mosservice</ejb-ref-name>
+		<ejb-ref-type>Session</ejb-ref-type>
+		<home>psdi.iface.mos.MOSServiceHome</home>
+		<remote>psdi.iface.mos.MOSServiceRemote</remote>
+		<ejb-link>mboejb.jar#mosservice</ejb-link>
+	</ejb-ref>
+	<ejb-local-ref id="EJBLocalRef_1206569890000">
+		<description>
+		</description>
+		<ejb-ref-name>ejb/maximo/local/mosservice</ejb-ref-name>
+		<ejb-ref-type>Session</ejb-ref-type>
+		<local-home>psdi.iface.mos.MOSServiceHomeLocal</local-home>
+		<local>psdi.iface.mos.MOSServiceLocal</local>
+		<ejb-link>mboejb.jar#mosservice</ejb-link>
+	</ejb-local-ref>
+    <service-ref>
+        <description>WSDL Service QueryService</description>
+        <service-ref-name>service/QueryService</service-ref-name>
+        <service-interface>com.ibm.tivoli.maximo.chartservice.wsdl.QueryService</service-interface>
+        <wsdl-file>WEB-INF/wsdl/ChartService.wsdl</wsdl-file>
+        <jaxrpc-mapping-file>WEB-INF/ChartService_mapping.xml</jaxrpc-mapping-file>
+        <service-qname xmlns:pfx="http://chart.tip.tivoli.ibm.com/chartservice.wsdl">pfx:QueryService</service-qname>
+        <port-component-ref>
+            <service-endpoint-interface>com.ibm.tivoli.maximo.chartservice.wsdl.QueryPortType</service-endpoint-interface>
+        </port-component-ref>
+    </service-ref>
+    <service-ref>
+        <description>WSDL Service ChartService</description>
+        <service-ref-name>service/ChartService</service-ref-name>
+        <service-interface>com.ibm.tivoli.maximo.chartservice.wsdl.ChartService</service-interface>
+        <wsdl-file>WEB-INF/wsdl/ChartService.wsdl</wsdl-file>
+        <jaxrpc-mapping-file>WEB-INF/ChartService_mapping.xml</jaxrpc-mapping-file>
+        <service-qname xmlns:pfx="http://chart.tip.tivoli.ibm.com/chartservice.wsdl">pfx:ChartService</service-qname>
+        <port-component-ref>
+            <service-endpoint-interface>com.ibm.tivoli.maximo.chartservice.wsdl.ChartPortType</service-endpoint-interface>
+        </port-component-ref>
+    </service-ref>
+</web-app>

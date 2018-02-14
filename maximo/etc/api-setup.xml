@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+    <bean id="ApiConnectionFactory" class="com.ibm.cdb.api.client.ApiConnectionFactory" singleton="false">
+        <constructor-arg value="com.collation.proxy.api.client.ApiConnectionImpl"/>
+    </bean>
+
+    <bean id="ApiSessionFactory" class="com.ibm.cdb.api.client.ApiSessionFactory" singleton="false">
+        <constructor-arg value="com.collation.proxy.api.client.ApiSessionImpl"/>
+        <constructor-arg value="ignoreThis"/>
+    </bean>
+
+    <bean id="PostProcess" class="com.collation.proxy.api.client.TADDMPostProcessor">
+    </bean>
+
+</beans>

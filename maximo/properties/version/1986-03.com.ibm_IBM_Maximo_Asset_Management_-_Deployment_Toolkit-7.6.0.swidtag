@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SoftwareIdentity name="IBM Maximo Asset Management - Deployment Toolkit" uniqueId="2c2b45e3c46a4634b2aacb78b9676361-7.6.0" version="7.6.0" versionScheme="multipartnumeric" xmlns="http://standards.iso.org/iso/19770/-2/2014-CD1/schema.xsd" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.iso.org/iso/19770/-2/2014-CD1/schema.xsd swid.xsd">
+    <Meta persistentId="2c2b45e3c46a4634b2aacb78b9676361"/>
+    <Meta taxonomyCode="SSLKT6"/>
+    <Meta taggingProcess="4-1-20141007"/>
+    <Entity name="IBM" regid="regid.1986-03.com.ibm" role="licensor publisher tagcreator"/>
+</SoftwareIdentity>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script SYSTEM "../../../../../tools/maximo/script.dtd">
+<script author="AppFwTeam" scriptname="RefappUndo">
+	<description>REFApp_undo</description>
+	<statements>
+		<drop_app app="REFAUTO" />
+		<drop_table object="REF" />
+		<drop_table object="REFCHILD" />
+		<freeform description="Cleanup domains">
+			<sql target="all">
+				delete from maxdomain where domainid = 'STATE';
+				delete from alndomain where domainid = 'STATE';
+				delete from maxdomain where domainid = 'REFSTATE';
+				delete from alndomain where domainid = 'REFSTATE';
+			</sql>
+		</freeform>
+
+		<freeform description="Cleanup autokeys">
+			<sql target="all">
+				delete from autokey where autokeyname='REFAPPNUM';
+			</sql>
+		</freeform>
+	</statements>
+</script>

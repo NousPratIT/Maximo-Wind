@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+* Licensed Materials - Property of IBM
+* Restricted Materials of IBM
+* 5724-U18
+* (C) COPYRIGHT IBM CORP. 2012 All Rights Reserved.
+* US Government Users Restricted Rights - Use, duplication or
+* disclosure restricted by GSA ADP Schedule Contract with
+* IBM Corp.
+-->
+<control-registry basedir="webclient\controls" package="psdi.refapp.controls">
+	<!-- No validation as these are negative tests 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation='control-registry.xsd'> -->
+
+	<control-descriptor name="referenceToAnInvalidComponent">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="display" type="xsd:boolean">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+		<component-list>
+			<invalid id="${name}_invalid" />
+		</component-list>
+		<containers>
+			<container name="tab" />
+			<container name="section" />
+			<container name="sectioncol" />
+			<container name="dialog" />
+			<container name="clientarea" />
+			<container name="page" />
+		</containers>
+	</control-descriptor>
+
+	<control-descriptor name="invalidInstanceClass" instance-class="INVALID">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="display" type="xsd:boolean">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+		<component-list>
+			<blankline id="${name}_blankline" />
+		</component-list>
+		<containers>
+			<container name="tab" />
+			<container name="section" />
+			<container name="sectioncol" />
+			<container name="dialog" />
+			<container name="clientarea" />
+			<container name="page" />
+		</containers>
+	</control-descriptor>
+
+	<control-descriptor name="referenceToAComponentWithAnInvalidInstanceClass">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="display" type="xsd:boolean">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+		<component-list>
+			<invalidInstanceClass id="${name}_invalidInstanceClass" />
+		</component-list>
+		<containers>
+			<container name="tab" />
+			<container name="section" />
+			<container name="sectioncol" />
+			<container name="dialog" />
+			<container name="clientarea" />
+			<container name="page" />
+		</containers>
+	</control-descriptor>
+
+	<control-descriptor name="misbehavingControl" instance-class="psdi.refapp.controls.MisbehavingControl">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="display" type="xsd:boolean">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+		<component-list>
+			<components id="${name}_components_h" layout="horizontal" nowrap="true">
+				<blankline id="${name}_blankline" />
+			</components>
+		</component-list>
+		<containers>
+			<container name="tab" />
+			<container name="section" />
+			<container name="sectioncol" />
+			<container name="dialog" />
+			<container name="clientarea" />
+			<container name="page" />
+		</containers>
+	</control-descriptor>
+
+	<control-descriptor name="misbehavingComponentInstance">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="display" type="xsd:boolean">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+		<component-list>
+			<components id="${name}_components_h" layout="horizontal" nowrap="true">
+				<misbehavingInstance id="${name}_misbehave" />
+			</components>
+		</component-list>
+		<containers>
+			<container name="tab" />
+			<container name="section" />
+			<container name="sectioncol" />
+			<container name="dialog" />
+			<container name="clientarea" />
+			<container name="page" />
+		</containers>
+	</control-descriptor>
+
+	<control-descriptor name="misbehavingComponentJsp">
+		<property-list>
+			<property name="id">
+				<flag name="final" />
+			</property>
+			<property name="display" type="xsd:boolean">
+				<flag name="global" />
+				<default-value>true</default-value>
+			</property>
+		</property-list>
+		<component-list>
+			<components id="${name}_components_h" layout="horizontal" nowrap="true">
+				<misbehavingJsp id="${name}_misbehave" />
+			</components>
+		</component-list>
+		<containers>
+			<container name="tab" />
+			<container name="section" />
+			<container name="sectioncol" />
+			<container name="dialog" />
+			<container name="clientarea" />
+			<container name="page" />
+		</containers>
+	</control-descriptor>
+
+</control-registry>

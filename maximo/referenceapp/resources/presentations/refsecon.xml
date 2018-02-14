@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presentation id="REFSECON" mboname="REFSECONDARY" beanclass="psdi.webclient.system.beans.AppBean" resultstableid="results_showlist" version="7.5">
+  <page id="mainrec" >
+    <include id="pageHeader" />
+    <clientarea id="clientarea" >
+      <tabgroup id="maintabs" style="form" >
+        <tab id="results" default="true" label="List" type="list" >
+          <menubar id="actiontoolbar" event="search" sourcemethod="getAppSearchOptions" />		  
+          <table id="results_showlist" mboname="REFSECONDARY" inputmode="readonly" selectmode="multiple" label="List" beanclass="psdi.webclient.system.beans.ResultsBean" >
+            <tablebody id="results_showlist_tablebody" filterable="true" displayrowsperpage="20" filterexpanded="true" >
+              <tablecol id="results_showlist_tablebody_1" type="event" mxevent="toggleselectrow" mxevent_desc="Select Row {0}" dataattribute="keycol" sortable="false" filterable="false" hidden="false" />
+              <tablecol id="results_showlist_tablebody_2" dataattribute="keycol" type="link" mxevent="selectrecord" mxevent_desc="Go To %1" />
+              <tablecol id="results_showlist_tablebody_3" dataattribute="description" />
+              <tablecol id="results_bookmark" type="event" mxevent="BOOKMARK" mxevent_desc="Add to Bookmarks" mxevent_icon ="btn_addtobookmarks.gif" sortable="false" filterable="false" hidden="false" />
+            </tablebody>
+          </table>
+        </tab>
+
+        <tab id="main" label="Recs" type="insert" >
+          <section id="main_gridd" border="true">
+             <sectionrow id="main_gridg" >
+              <sectioncol id="main_gride" >
+                <section id="main_gridf" >
+					<multiparttextbox id="main_grid2_1" dataattribute="keycol" descdataattribute="DESCRIPTION" longdescription="true" />				  
+				  	<textbox id="main_grid2_1_1" dataattribute="ALNVALUE1" />
+					<textbox id="main_grid2_1_2" dataattribute="ALNVALUE2" />
+					<textbox id="main_grid2_1_3" dataattribute="DATEVALUE" lookup="datelookup"  />
+					<textbox id="main_grid2_1_4" dataattribute="AMTVALUE" />
+					<checkbox id="main_grid2_1_5" dataattribute="YORNVALUE" />
+					<textbox id="main_grid2_1_6" dataattribute="DATETIMEVALUE" lookup="datelookup"/>
+					<textbox id="main_grid2_1_7" dataattribute="TIMEVALUE" />
+					<textbox id="main_grid2_1_8" dataattribute="DECIMALVALUE" />
+					<textbox id="main_grid2_1_9" dataattribute="FLOATVALUE" />
+					<textbox id="main_grid2_1_10" dataattribute="DURATIONVALUE" />				  
+                </section>
+               </sectioncol>
+            </sectionrow>
+          </section>
+        </tab>
+      </tabgroup>
+    </clientarea>
+    <include id="pageFooter" />
+  </page>
+</presentation>
+

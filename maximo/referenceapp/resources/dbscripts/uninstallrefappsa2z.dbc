@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script SYSTEM "../../../../../tools/maximo/script.dtd">
+<script author="AppFwTeam" scriptname="RefbasicappUndo">
+  <description>REFBASICApp_undo</description>
+  <statements>  
+    <drop_app app="REFAPPA" />
+    <drop_app app="REFAPPB" /> 
+    <drop_app app="REFAPPC" /> 
+    <drop_app app="REFAPPD" /> 
+    <drop_app app="REFAPPE" /> 
+    <drop_app app="REFAPPF" /> 
+    <drop_app app="REFAPPG" /> 
+    <drop_app app="REFAPPH" /> 
+  </statements>
+</script>
