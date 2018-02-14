@@ -1,89 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/businessobjects.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/ant.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/antisamy-1.5.3.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/api-client.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/api-dep.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/api-dl.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/axis.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/axis-ant.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/balloontip-1.2.1.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/batik-1.8.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/batik-css-1.8.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/batik-util-1.8.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/bcel-5.2.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/commons-codec.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/commons-discovery.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/commons-httpclient.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/commons-math3-3.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/commons-net-1.4.0.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/contentloader.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/CTGPAEConfiguration.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/db2jcc.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/db2jcc_license_cu.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/decompat.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/edm-server.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/GroupDocs.Conversion.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/httpclient-4.2.5.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/httpcore-4.2.4.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/httpmime-4.2.5.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/icl.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/icu4j.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/iri-0.8.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jaws.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jaxen-1.1-beta-8.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jdom.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jena-2.6.3-patched.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jhbasic-2.0_05.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/json4j.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jsr181.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jviews-chart.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jviews-diagrammer.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jviews-framework-lib.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jviews-gantt.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jython.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/LAPApp.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/ldapbp.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/ldapnov.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/lowagie.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/maxcom.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/maximo_client.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/maximo_registry.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/nekohtml-1.9.22.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/oal-api.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/oal-common.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/oal-topomgr.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/oauth.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/oraclethin.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/oslcquery.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/platform-model.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/poi-3.14-20160307.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/poi-excelant-3.14-20160307.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/poi-ooxml-3.14-20160307.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/poi-ooxml-schemas-3.14-20160307.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/pop3.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/remoteaccess.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/saaj.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/sac.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/sdb-1.3.2.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/slf4j-api-1.6.4.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/slf4j-log4j12-1.6.4.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/soap.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/sqljdbc.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/ssh.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/tdb-0.8.7-patched.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/tools.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/wsdl4j.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/xercesImpl-2.7.1.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/xmlbeans-2.3.0.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/xmlbeans-2.6.0.jar"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/ant.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/antisamy-1.5.3.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/api-client.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/api-dep.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/api-dl.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/axis.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/axis-ant.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/balloontip-1.2.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/batik-1.8.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/batik-css-1.8.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/batik-util-1.8.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/bcel-5.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/commons-codec.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/commons-discovery.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/commons-httpclient.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/commons-logging.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/commons-math3-3.6.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/commons-net-1.4.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/contentloader.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/CTGPAEConfiguration.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/db2jcc.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/db2jcc_license_cu.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/decompat.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/edm-server.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/GroupDocs.Conversion.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/gson-2.2.4.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/httpclient-4.2.5.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/httpcore-4.2.4.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/httpmime-4.2.5.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/icl.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/icu4j.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/iri-0.8.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jaws.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jaxen-1.1-beta-8.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jaxrpc.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jdom.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jena-2.6.3-patched.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jhbasic-2.0_05.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/json4j.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jsr181.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jviews-chart.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jviews-diagrammer.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jviews-framework-lib.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jviews-gantt.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/jython.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/LAPApp.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/ldapbp.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/ldapnov.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/log4j-1.2.16.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/lowagie.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/maxcom.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/maximo_client.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/maximo_registry.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/nekohtml-1.9.22.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/oal-api.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/oal-common.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/oal-topomgr.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/oauth.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/oraclethin.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/oslcquery.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/platform-model.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/poi-3.14-20160307.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/poi-excelant-3.14-20160307.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/poi-ooxml-3.14-20160307.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/poi-ooxml-schemas-3.14-20160307.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/pop3.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/remoteaccess.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/saaj.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/sac.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/sdb-1.3.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/slf4j-api-1.6.4.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/slf4j-log4j12-1.6.4.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/soap.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/sqljdbc.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/ssh.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/tdb-0.8.7-patched.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/tools.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/wsdl4j.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/xercesImpl-2.7.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/xmlbeans-2.3.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/xmlbeans-2.6.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/businessobjects.jar"/>
-	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/javax.mail.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximo/lib/j2ee.jar"/>
+	<classpathentry kind="lib" path="D:/Java Development/NousPratIT Projects/Maximo/Wind/maximouiweb/WEB-INF/classes"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
