@@ -37,7 +37,7 @@ public class INSASendRepByEmailAction implements ActionCustomClass {
 		ReportAdminServiceRemote  birtAdmService = (ReportAdminServiceRemote)MXServer.getMXServer().lookup("BIRTREPORT");
 
 		UserInfo userInfo = arg0.getUserInfo();
-		
+	
 		//report name
 		String reportName = MXServer.getMXServer().getProperty("mxe.wind.wo.reportname");
 		
